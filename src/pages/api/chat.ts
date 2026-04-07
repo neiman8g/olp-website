@@ -56,7 +56,7 @@ export const POST: APIRoute = async ({ request }) => {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-5-20250514',
+        model: 'claude-3-5-sonnet-20241022',
         max_tokens: 1024,
         system: SYSTEM_PROMPT,
         messages: messages.slice(-10),
@@ -65,7 +65,9 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     if (!response.ok) {
-      return new Response(JSON.stringify({ error: 'API request failed' }), { status: 502 });
+      const errText = await response.text();
+      console.error('Anthropic API error:', response.status, errText);
+      return new Response(JSON.stringify({ error: 'API request failed', status: response.status, detail: errText }), { status: 502 });
     }
 
     return new Response(response.body, {
