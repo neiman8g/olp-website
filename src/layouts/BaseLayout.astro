@@ -10,9 +10,11 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
+  product?: { name: string; description: string; image: string; category: string; };
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
-const { title, description, canonical, ogImage } = Astro.props;
+const { title, description, canonical, ogImage, product, breadcrumbs } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,7 +24,7 @@ const { title, description, canonical, ogImage } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <SEOHead title={title} description={description} canonical={canonical} ogImage={ogImage} />
-  <SchemaOrg />
+  <SchemaOrg type={product ? 'product' : 'organization'} product={product} breadcrumbs={breadcrumbs} />
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1MM41FV5G"></script>
   <script is:inline>

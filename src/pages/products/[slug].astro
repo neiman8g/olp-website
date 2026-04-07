@@ -104,25 +104,39 @@ const specTables: Record<string, [string, string][]> = {
     ['Warranty', '2 years parts and labor'],
   ],
   'elevate': [
-    ['Input Voltage', '208/480 VAC'],
+    ['Input Voltage', '120/208/240/277/480 VAC'],
     ['Output Voltage', 'Matches input'],
     ['Power Range', '24kW – 240kW'],
     ['Phases', 'Three Phase'],
+    ['Transfer Time', '<4ms'],
+    ['Waveform', 'Pure Sine Wave'],
     ['Application', 'Elevator Emergency Backup'],
     ['Battery Type', 'Sealed VRLA'],
     ['Battery Runtime', 'Per code requirements'],
-    ['Certifications', 'UL 924, UL 1778'],
+    ['Certifications', 'UL 924, NFPA 101, NEC Article 700'],
     ['Warranty', '2 years parts and labor'],
   ],
   'fire-alarm-backup': [
-    ['Standard', 'UL 1481'],
-    ['Application', 'Fire Alarm NAC Circuits'],
-    ['Compliance', 'NFPA 72'],
+    ['Input Voltage', '120/240 VAC'],
+    ['Output Voltage', '24VDC / 120VAC'],
+    ['Range', 'Per system design'],
+    ['Transfer Time', '<10ms'],
     ['Battery Type', 'Sealed VRLA'],
-    ['Battery Runtime', '24+ hours'],
+    ['Battery Runtime', '24–60 hours'],
     ['Self-Testing', 'Automatic'],
-    ['Certifications', 'UL 1481, NFPA 72'],
+    ['Certifications', 'UL 1481, NFPA 72, NEC Article 760'],
     ['Warranty', '2 years parts and labor'],
+  ],
+  'lcr20': [
+    ['Input Voltage', '120/208/240/277/480 VAC'],
+    ['Control Voltage', '120VAC'],
+    ['Contact Rating', '30A'],
+    ['Poles', 'Single or Multi-pole'],
+    ['Dimmer Override', '0-10V DC for full emergency illumination'],
+    ['Test Switch', 'Quick-connect IP65 rated'],
+    ['Enclosure', 'Aluminum, NEMA 1'],
+    ['Certifications', 'UL 924, NFPA 101, NEC Article 700'],
+    ['Warranty', '5 years'],
   ],
   'host-power': [
     ['Input Voltage', '208/480 VAC'],
@@ -143,6 +157,14 @@ const specs = specTables[product.slug] || null;
 <BaseLayout
   title={`${product.name} | ${product.tagline} | Online Power`}
   description={product.description}
+  ogImage={product.image}
+  product={{ name: product.name, description: product.description, image: product.image, category: product.category }}
+  breadcrumbs={[
+    { name: 'Home', url: 'https://www.onlinepower.com/' },
+    { name: 'Products', url: 'https://www.onlinepower.com/products/' },
+    ...(category ? [{ name: category.name, url: `https://www.onlinepower.com/products/category/${category.slug}` }] : []),
+    { name: product.name, url: `https://www.onlinepower.com/products/${product.slug}` },
+  ]}
 >
 
   <!-- Breadcrumb + Hero -->
@@ -281,4 +303,22 @@ const specs = specTables[product.slug] || null;
     </div>
   </section>
 
+  <!-- Mobile Sticky CTA -->
+  <div class="fixed bottom-0 left-0 right-0 bg-obsidian/95 backdrop-blur border-t border-steel/30 p-3 z-40 lg:hidden" id="product-mobile-cta" style="display:none;padding-bottom:max(12px, env(safe-area-inset-bottom));">
+    <a href="/contact/" class="btn-primary w-full py-3.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Request a Quote
+    </a>
+  </div>
+
 </BaseLayout>
+
+<script is:inline>
+  // Mobile sticky CTA - show after scrolling 300px
+  var cta = document.getElementById('product-mobile-cta');
+  if (cta && window.innerWidth < 1024) {
+    window.addEventListener('scroll', function() {
+      cta.style.display = window.scrollY > 300 ? '' : 'none';
+    });
+  }
+</script>
