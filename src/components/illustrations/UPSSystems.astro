@@ -1,0 +1,487 @@
+---
+/**
+ * UPSSystems.astro
+ * SVG illustration of a UPS power transfer diagram showing utility input,
+ * isometric 2.5D UPS cabinet, and protected server load with animated
+ * power failover cycle demonstrating zero transfer time (<4ms).
+ */
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 600 360"
+  fill="none"
+  role="img"
+  aria-label="UPS power transfer diagram showing utility input, UPS cabinet with battery backup, and protected server rack with zero transfer time animation"
+  class="ups-illustration"
+>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap');
+
+      .font-display { font-family: 'Space Grotesk', sans-serif; }
+      .font-mono { font-family: 'Space Mono', monospace; }
+
+      /* ===== 7-SECOND MASTER CYCLE ===== */
+
+      /* Utility power line — cyan then breaks red */
+      @keyframes utilityLine {
+        0%, 24% { stroke: #00E5FF; stroke-dashoffset: 0; opacity: 1; }
+        25%, 26% { stroke: #FF3B3B; opacity: 1; }
+        27%, 79% { stroke: #FF3B3B; opacity: 0; }
+        80%, 89% { stroke: #00E5FF; stroke-dashoffset: 0; opacity: 0.5; }
+        90%, 100% { stroke: #00E5FF; opacity: 1; }
+      }
+
+      /* Red flash at break point */
+      @keyframes utilityFlash {
+        0%, 24% { opacity: 0; }
+        25%, 30% { opacity: 1; }
+        35%, 100% { opacity: 0; }
+      }
+
+      /* UPS status text: ONLINE -> ON BATTERY -> ONLINE */
+      @keyframes statusOnline {
+        0%, 24% { opacity: 1; }
+        25%, 89% { opacity: 0; }
+        90%, 100% { opacity: 1; }
+      }
+      @keyframes statusBattery {
+        0%, 29% { opacity: 0; }
+        30%, 85% { opacity: 1; }
+        86%, 100% { opacity: 0; }
+      }
+
+      /* Battery bar depletion: bars disappear one by one */
+      @keyframes battBar4 {
+        0%, 24% { opacity: 1; }
+        30%, 55% { opacity: 1; }
+        56%, 89% { opacity: 0.15; }
+        90%, 100% { opacity: 1; }
+      }
+      @keyframes battBar3 {
+        0%, 24% { opacity: 1; }
+        30%, 62% { opacity: 1; }
+        63%, 89% { opacity: 0.15; }
+        90%, 100% { opacity: 1; }
+      }
+      @keyframes battBar2 {
+        0%, 24% { opacity: 1; }
+        30%, 70% { opacity: 1; }
+        71%, 89% { opacity: 0.15; }
+        90%, 100% { opacity: 1; }
+      }
+      @keyframes battBar1 {
+        0%, 100% { opacity: 1; }
+      }
+
+      /* UPS border pulse when on battery */
+      @keyframes borderPulse {
+        0%, 24% { stroke: #1C2B3A; stroke-opacity: 1; }
+        30%, 33% { stroke: #00E5FF; stroke-opacity: 1; }
+        36%, 39% { stroke: #1C2B3A; stroke-opacity: 1; }
+        42%, 45% { stroke: #00E5FF; stroke-opacity: 1; }
+        48%, 51% { stroke: #1C2B3A; stroke-opacity: 1; }
+        54%, 57% { stroke: #00E5FF; stroke-opacity: 1; }
+        60%, 63% { stroke: #1C2B3A; stroke-opacity: 1; }
+        66%, 69% { stroke: #00E5FF; stroke-opacity: 1; }
+        72%, 75% { stroke: #1C2B3A; stroke-opacity: 1; }
+        78%, 80% { stroke: #00E5FF; stroke-opacity: 0.5; }
+        85%, 100% { stroke: #1C2B3A; stroke-opacity: 1; }
+      }
+
+      /* Transfer time callout */
+      @keyframes transferCallout {
+        0%, 28% { opacity: 0; transform: scale(0.7); }
+        30%, 33% { opacity: 1; transform: scale(1.15); }
+        34%, 75% { opacity: 1; transform: scale(1); }
+        80%, 100% { opacity: 0; transform: scale(0.7); }
+      }
+
+      /* Power dots flowing UPS -> Load (always on) */
+      @keyframes flowToLoad {
+        0% { offset-distance: 0%; opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { offset-distance: 100%; opacity: 0; }
+      }
+
+      /* Power dots flowing Utility -> UPS (only when utility OK) */
+      @keyframes flowFromUtility {
+        0% { offset-distance: 0%; opacity: 0; }
+        10% { opacity: 1; }
+        20% { opacity: 1; }
+        24% { offset-distance: 100%; opacity: 1; }
+        25%, 89% { offset-distance: 100%; opacity: 0; }
+        90% { offset-distance: 0%; opacity: 0; }
+        91% { opacity: 1; }
+        100% { offset-distance: 100%; opacity: 1; }
+      }
+
+      /* Battery flow dots (only on battery) */
+      @keyframes batteryFlowDots {
+        0%, 29% { opacity: 0; }
+        30% { opacity: 0; offset-distance: 0%; }
+        35% { opacity: 1; }
+        75% { opacity: 1; }
+        80% { offset-distance: 100%; opacity: 0; }
+        100% { opacity: 0; }
+      }
+
+      /* Sine wave continuous oscillation */
+      @keyframes sineWave {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-24px); }
+      }
+
+      /* Utility fail label */
+      @keyframes utilFailLabel {
+        0%, 24% { opacity: 0; }
+        26%, 79% { opacity: 1; }
+        82%, 100% { opacity: 0; }
+      }
+
+      /* Server LEDs — always green */
+      @keyframes serverLed {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+
+      /* INPUT LED: green then red */
+      @keyframes ledInput {
+        0%, 24% { fill: #34D399; }
+        25%, 79% { fill: #FF3B3B; }
+        80%, 100% { fill: #34D399; }
+      }
+
+      /* Recharge animation on battery bars */
+      @keyframes recharge4 {
+        0%, 89% { opacity: 0.15; }
+        96%, 100% { opacity: 1; }
+      }
+    </style>
+
+    <!-- Gradient for UPS cabinet top face -->
+    <linearGradient id="upsTopGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1C2B3A" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+
+    <!-- Glow filter for cyan elements -->
+    <filter id="cyanGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feFlood flood-color="#00E5FF" flood-opacity="0.6" result="color" />
+      <feComposite in="color" in2="blur" operator="in" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Red flash filter -->
+    <filter id="redFlash" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feFlood flood-color="#FF3B3B" flood-opacity="0.8" result="color" />
+      <feComposite in="color" in2="blur" operator="in" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Callout glow -->
+    <filter id="calloutGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feFlood flood-color="#00E5FF" flood-opacity="0.5" result="color" />
+      <feComposite in="color" in2="blur" operator="in" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Paths for motion -->
+    <path id="pathUtilToUPS" d="M 120 165 L 225 165" />
+    <path id="pathUPSToLoad" d="M 380 165 L 470 165" />
+    <path id="pathBatteryUp" d="M 300 245 L 300 195" />
+
+    <!-- Clip for sine wave -->
+    <clipPath id="sineClip">
+      <rect x="388" y="148" width="72" height="34" />
+    </clipPath>
+  </defs>
+
+  <!-- ============================================================ -->
+  <!-- BACKGROUND                                                    -->
+  <!-- ============================================================ -->
+  <rect width="600" height="360" fill="#0A0A0F" rx="6" />
+
+  <!-- Subtle grid -->
+  <g opacity="0.04" stroke="#00E5FF" stroke-width="0.5">
+    <line x1="0" y1="60" x2="600" y2="60" />
+    <line x1="0" y1="120" x2="600" y2="120" />
+    <line x1="0" y1="180" x2="600" y2="180" />
+    <line x1="0" y1="240" x2="600" y2="240" />
+    <line x1="0" y1="300" x2="600" y2="300" />
+    <line x1="120" y1="0" x2="120" y2="360" />
+    <line x1="240" y1="0" x2="240" y2="360" />
+    <line x1="360" y1="0" x2="360" y2="360" />
+    <line x1="480" y1="0" x2="480" y2="360" />
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LEFT SECTION — UTILITY INPUT                                  -->
+  <!-- ============================================================ -->
+  <g id="utility-section">
+    <!-- Power pole -->
+    <g transform="translate(55, 80)">
+      <!-- Pole -->
+      <rect x="10" y="30" width="6" height="120" fill="#1C2B3A" rx="1" />
+      <!-- Cross arm -->
+      <rect x="-6" y="28" width="38" height="5" fill="#1C2B3A" rx="1" />
+      <!-- Insulators -->
+      <circle cx="0" cy="28" r="4" fill="#111827" stroke="#00E5FF" stroke-width="0.8" opacity="0.7" />
+      <circle cx="26" cy="28" r="4" fill="#111827" stroke="#00E5FF" stroke-width="0.8" opacity="0.7" />
+      <circle cx="13" cy="24" r="4" fill="#111827" stroke="#00E5FF" stroke-width="0.8" opacity="0.7" />
+      <!-- Wires from top -->
+      <line x1="0" y1="28" x2="0" y2="10" stroke="#8A9BAE" stroke-width="1" />
+      <line x1="26" y1="28" x2="26" y2="10" stroke="#8A9BAE" stroke-width="1" />
+      <line x1="13" y1="24" x2="13" y2="6" stroke="#8A9BAE" stroke-width="1" />
+      <!-- Transformer box -->
+      <rect x="3" y="60" width="20" height="24" fill="#111827" stroke="#1C2B3A" stroke-width="1" rx="2" />
+      <text x="13" y="75" text-anchor="middle" class="font-mono" fill="#8A9BAE" font-size="5">XFMR</text>
+    </g>
+
+    <!-- UTILITY label -->
+    <text x="68" y="236" text-anchor="middle" class="font-mono" fill="#8A9BAE" font-size="9" letter-spacing="2">UTILITY</text>
+
+    <!-- Utility power line -->
+    <line
+      x1="100" y1="165" x2="225" y2="165"
+      stroke="#00E5FF" stroke-width="3" stroke-linecap="round"
+      style="animation: utilityLine 7s infinite;"
+    />
+
+    <!-- Red flash burst at break point -->
+    <g style="animation: utilityFlash 7s infinite;" opacity="0">
+      <circle cx="155" cy="165" r="14" fill="none" stroke="#FF3B3B" stroke-width="2" filter="url(#redFlash)" />
+      <line x1="148" y1="158" x2="162" y2="172" stroke="#FF3B3B" stroke-width="2.5" />
+      <line x1="162" y1="158" x2="148" y2="172" stroke="#FF3B3B" stroke-width="2.5" />
+    </g>
+
+    <!-- UTILITY FAIL label -->
+    <text
+      x="155" y="145"
+      text-anchor="middle" class="font-mono" fill="#FF3B3B" font-size="7" font-weight="700"
+      letter-spacing="1"
+      style="animation: utilFailLabel 7s infinite;" opacity="0"
+    >UTILITY FAIL</text>
+
+    <!-- Power dots utility -> UPS -->
+    <circle r="3" fill="#00E5FF" filter="url(#cyanGlow)" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite;">
+    </circle>
+    <circle r="3" fill="#00E5FF" filter="url(#cyanGlow)" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite 0.4s;">
+    </circle>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- CENTER — UPS CABINET (Isometric 2.5D Hero)                    -->
+  <!-- ============================================================ -->
+  <g id="ups-cabinet" transform="translate(225, 85)">
+
+    <!-- Cabinet body — front face -->
+    <rect
+      x="0" y="0" width="150" height="180" rx="4"
+      fill="#111827"
+      stroke="#1C2B3A" stroke-width="1.5"
+      style="animation: borderPulse 7s infinite;"
+    />
+
+    <!-- Side panel (isometric right face) -->
+    <polygon
+      points="150,0 178,-16 178,164 150,180"
+      fill="#0D1117" stroke="#1C2B3A" stroke-width="1"
+    />
+
+    <!-- Top face (isometric) -->
+    <polygon
+      points="0,0 28,-16 178,-16 150,0"
+      fill="url(#upsTopGrad)" stroke="#1C2B3A" stroke-width="1"
+    />
+
+    <!-- Ventilation slots on side -->
+    <g opacity="0.3">
+      <line x1="154" y1="20" x2="174" y2="10" stroke="#8A9BAE" stroke-width="0.5" />
+      <line x1="154" y1="28" x2="174" y2="18" stroke="#8A9BAE" stroke-width="0.5" />
+      <line x1="154" y1="36" x2="174" y2="26" stroke="#8A9BAE" stroke-width="0.5" />
+      <line x1="154" y1="44" x2="174" y2="34" stroke="#8A9BAE" stroke-width="0.5" />
+      <line x1="154" y1="52" x2="174" y2="42" stroke="#8A9BAE" stroke-width="0.5" />
+      <line x1="154" y1="60" x2="174" y2="50" stroke="#8A9BAE" stroke-width="0.5" />
+      <line x1="154" y1="68" x2="174" y2="58" stroke="#8A9BAE" stroke-width="0.5" />
+      <line x1="154" y1="76" x2="174" y2="66" stroke="#8A9BAE" stroke-width="0.5" />
+    </g>
+
+    <!-- Brand area -->
+    <rect x="10" y="8" width="130" height="20" rx="2" fill="#0A0A0F" />
+    <text x="75" y="22" text-anchor="middle" class="font-display" fill="#00E5FF" font-size="9" font-weight="700" letter-spacing="2">ONLINE POWER</text>
+
+    <!-- UPS designation -->
+    <text x="75" y="42" text-anchor="middle" class="font-display" fill="#F8FAFC" font-size="16" font-weight="700" letter-spacing="4">UPS</text>
+
+    <!-- Status display panel -->
+    <rect x="20" y="50" width="110" height="28" rx="3" fill="#0A0A0F" stroke="#1C2B3A" stroke-width="1" />
+
+    <!-- Status text: ONLINE (shows during normal) -->
+    <text
+      x="75" y="68" text-anchor="middle" class="font-mono" fill="#34D399" font-size="12" font-weight="700"
+      letter-spacing="2"
+      style="animation: statusOnline 7s infinite;"
+    >&#9679; ONLINE</text>
+
+    <!-- Status text: ON BATTERY (shows during outage) -->
+    <text
+      x="75" y="68" text-anchor="middle" class="font-mono" fill="#FFB020" font-size="11" font-weight="700"
+      letter-spacing="1"
+      style="animation: statusBattery 7s infinite;" opacity="0"
+    >&#9889; ON BATTERY</text>
+
+    <!-- LED status row -->
+    <g transform="translate(20, 86)">
+      <!-- LED labels -->
+      <text x="7" y="-3" text-anchor="middle" class="font-mono" fill="#8A9BAE" font-size="4.5">INPUT</text>
+      <text x="37" y="-3" text-anchor="middle" class="font-mono" fill="#8A9BAE" font-size="4.5">OUTPUT</text>
+      <text x="73" y="-3" text-anchor="middle" class="font-mono" fill="#8A9BAE" font-size="4.5">BATTERY</text>
+      <text x="105" y="-3" text-anchor="middle" class="font-mono" fill="#8A9BAE" font-size="4.5">BYPASS</text>
+
+      <!-- INPUT LED — green/red based on utility -->
+      <circle cx="7" cy="6" r="3.5" style="animation: ledInput 7s infinite;" fill="#34D399" />
+      <!-- OUTPUT LED — always green -->
+      <circle cx="37" cy="6" r="3.5" fill="#34D399" />
+      <!-- BATTERY LED — always green -->
+      <circle cx="73" cy="6" r="3.5" fill="#34D399" />
+      <!-- BYPASS LED — off (gray) -->
+      <circle cx="105" cy="6" r="3.5" fill="#2A3A4A" />
+    </g>
+
+    <!-- Divider line -->
+    <line x1="15" y1="102" x2="135" y2="102" stroke="#1C2B3A" stroke-width="0.8" />
+
+    <!-- Battery section -->
+    <rect x="15" y="108" width="120" height="58" rx="3" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.8" />
+    <text x="75" y="120" text-anchor="middle" class="font-mono" fill="#8A9BAE" font-size="5" letter-spacing="1">BATTERY CHARGE</text>
+
+    <!-- Battery icon outline -->
+    <rect x="30" y="126" width="90" height="30" rx="3" fill="none" stroke="#1C2B3A" stroke-width="1" />
+    <!-- Battery terminal nub -->
+    <rect x="120" y="135" width="5" height="12" rx="1" fill="#1C2B3A" />
+
+    <!-- Battery bars -->
+    <rect x="36" y="131" width="17" height="20" rx="1.5" fill="#34D399"
+      style="animation: battBar1 7s infinite;" />
+    <rect x="57" y="131" width="17" height="20" rx="1.5" fill="#34D399"
+      style="animation: battBar2 7s infinite;" />
+    <rect x="78" y="131" width="17" height="20" rx="1.5" fill="#00E5FF"
+      style="animation: battBar3 7s infinite;" />
+    <rect x="99" y="131" width="17" height="20" rx="1.5" fill="#00E5FF"
+      style="animation: battBar4 7s infinite;" />
+
+    <!-- Front feet -->
+    <rect x="10" y="176" width="20" height="6" rx="1" fill="#1C2B3A" />
+    <rect x="120" y="176" width="20" height="6" rx="1" fill="#1C2B3A" />
+  </g>
+
+  <!-- Battery flow dots (visible only on battery) -->
+  <circle r="2.5" fill="#FFB020" style="offset-path: path('M 300 250 L 300 200'); animation: batteryFlowDots 7s infinite;" />
+  <circle r="2.5" fill="#FFB020" style="offset-path: path('M 300 250 L 300 200'); animation: batteryFlowDots 7s infinite 0.5s;" />
+
+  <!-- ============================================================ -->
+  <!-- SINE WAVE — between UPS and Load                              -->
+  <!-- ============================================================ -->
+  <g clip-path="url(#sineClip)">
+    <g style="animation: sineWave 1.2s linear infinite;">
+      <path
+        d="M 384 165 Q 390 150, 396 165 Q 402 180, 408 165 Q 414 150, 420 165 Q 426 180, 432 165 Q 438 150, 444 165 Q 450 180, 456 165 Q 462 150, 468 165 Q 474 180, 480 165"
+        stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.6"
+      />
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- CLEAN POWER LINE — UPS to Load                                -->
+  <!-- ============================================================ -->
+  <line x1="380" y1="165" x2="470" y2="165" stroke="#00E5FF" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+
+  <!-- Power dots UPS -> Load (always flowing) -->
+  <circle r="3" fill="#00E5FF" filter="url(#cyanGlow)" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite;" />
+  <circle r="3" fill="#00E5FF" filter="url(#cyanGlow)" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 0.6s;" />
+  <circle r="3" fill="#00E5FF" filter="url(#cyanGlow)" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 1.2s;" />
+
+  <!-- ============================================================ -->
+  <!-- RIGHT SECTION — PROTECTED SERVER RACK                         -->
+  <!-- ============================================================ -->
+  <g id="server-rack" transform="translate(472, 95)">
+    <!-- Rack frame -->
+    <rect x="0" y="0" width="90" height="140" rx="4" fill="#111827" stroke="#1C2B3A" stroke-width="1.2" />
+
+    <!-- Rack rails -->
+    <line x1="6" y1="0" x2="6" y2="140" stroke="#1C2B3A" stroke-width="1" />
+    <line x1="84" y1="0" x2="84" y2="140" stroke="#1C2B3A" stroke-width="1" />
+
+    <!-- Server unit 1 -->
+    <rect x="10" y="8" width="70" height="26" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.8" />
+    <circle cx="20" cy="21" r="2.5" fill="#34D399" style="animation: serverLed 3s infinite;" />
+    <rect x="28" y="16" width="40" height="2" rx="0.5" fill="#1C2B3A" />
+    <rect x="28" y="22" width="30" height="2" rx="0.5" fill="#1C2B3A" />
+
+    <!-- Server unit 2 -->
+    <rect x="10" y="40" width="70" height="26" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.8" />
+    <circle cx="20" cy="53" r="2.5" fill="#34D399" style="animation: serverLed 3s infinite 0.5s;" />
+    <rect x="28" y="48" width="40" height="2" rx="0.5" fill="#1C2B3A" />
+    <rect x="28" y="54" width="30" height="2" rx="0.5" fill="#1C2B3A" />
+
+    <!-- Server unit 3 -->
+    <rect x="10" y="72" width="70" height="26" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.8" />
+    <circle cx="20" cy="85" r="2.5" fill="#34D399" style="animation: serverLed 3s infinite 1s;" />
+    <rect x="28" y="80" width="40" height="2" rx="0.5" fill="#1C2B3A" />
+    <rect x="28" y="86" width="30" height="2" rx="0.5" fill="#1C2B3A" />
+
+    <!-- Server unit 4 -->
+    <rect x="10" y="104" width="70" height="26" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.8" />
+    <circle cx="20" cy="117" r="2.5" fill="#34D399" style="animation: serverLed 3s infinite 1.5s;" />
+    <rect x="28" y="112" width="40" height="2" rx="0.5" fill="#1C2B3A" />
+    <rect x="28" y="118" width="30" height="2" rx="0.5" fill="#1C2B3A" />
+  </g>
+
+  <!-- PROTECTED label -->
+  <text x="517" y="252" text-anchor="middle" class="font-mono" fill="#34D399" font-size="9" letter-spacing="2">PROTECTED</text>
+
+  <!-- ============================================================ -->
+  <!-- TRANSFER TIME CALLOUT — focal point                           -->
+  <!-- ============================================================ -->
+  <g
+    transform="translate(300, 54)"
+    style="animation: transferCallout 7s infinite; transform-origin: 300px 54px;"
+    opacity="0"
+  >
+    <!-- Callout background pill -->
+    <rect x="-42" y="-18" width="84" height="36" rx="18" fill="#0A0A0F" stroke="#00E5FF" stroke-width="1.5" filter="url(#calloutGlow)" />
+    <!-- Main text -->
+    <text x="0" y="2" text-anchor="middle" class="font-display" fill="#00E5FF" font-size="18" font-weight="700">&lt;4ms</text>
+    <!-- Sub label -->
+    <text x="0" y="32" text-anchor="middle" class="font-mono" fill="#8A9BAE" font-size="6" letter-spacing="1.5">ZERO TRANSFER</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- UL COMPLIANCE BADGE                                           -->
+  <!-- ============================================================ -->
+  <g transform="translate(530, 16)">
+    <rect x="0" y="0" width="54" height="18" rx="3" fill="none" stroke="#8A9BAE" stroke-width="0.8" opacity="0.5" />
+    <text x="27" y="12" text-anchor="middle" class="font-mono" fill="#8A9BAE" font-size="7" opacity="0.5">UL 1778</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- BOTTOM CAPTION                                                -->
+  <!-- ============================================================ -->
+  <text x="300" y="340" text-anchor="middle" class="font-mono" fill="#2A3A4A" font-size="9" letter-spacing="1.5">// UPS BACKUP &#183; ZERO TRANSFER TIME</text>
+
+</svg>

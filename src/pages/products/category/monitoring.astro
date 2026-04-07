@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import DocumentGate from '../../../components/DocumentGate.astro';
 import { getProductsByCategory, getCategoryBySlug } from '../../../data/products';
 import { company } from '../../../data/company';
+import Monitoring from '../../../components/illustrations/Monitoring.astro';
 
 const category = getCategoryBySlug('monitoring')!;
 const categoryProducts = getProductsByCategory('monitoring');
@@ -80,60 +81,7 @@ const applications = [
         </div>
 
         <div class="lg:col-span-2">
-          <div style="background:#0A0A0F;border-radius:12px;overflow:hidden;width:100%;">
-            <svg viewBox="0 0 600 320" width="100%" xmlns="http://www.w3.org/2000/svg">
-              <style>
-                @keyframes mon-needle { 0%,100%{transform:rotate(-20deg);} 50%{transform:rotate(20deg);} }
-                @keyframes mon-blink { 0%,100%{opacity:0.4;} 50%{opacity:1;} }
-                @keyframes mon-alert { 0%,40%{fill:#F59E0B;} 50%{fill:#00E5FF;} 100%{fill:#00E5FF;} }
-                .mon-ndl{transform-origin:300px 160px;animation:mon-needle 6s ease-in-out infinite;}
-                .mon-blink{animation:mon-blink 2s ease-in-out infinite;}
-                .mon-alert{animation:mon-alert 5s ease-in-out infinite;}
-              </style>
-              <!-- Dashboard frame -->
-              <rect x="20" y="15" width="560" height="280" rx="6" fill="#111827" stroke="#1C2B3A" stroke-width="1"/>
-              <!-- Title bar -->
-              <rect x="20" y="15" width="560" height="28" rx="6" fill="#0D1117"/>
-              <text x="300" y="34" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#00E5FF">GLOBAL MONITORING SYSTEM</text>
-              <!-- Left panel: floor plan -->
-              <rect x="35" y="55" width="170" height="160" rx="4" fill="#0A0A0F" stroke="#1C2B3A" stroke-width="0.5"/>
-              <rect x="45" y="65" width="150" height="140" rx="2" fill="none" stroke="#1C2B3A" stroke-width="0.3"/>
-              <line x1="120" y1="65" x2="120" y2="205" stroke="#1C2B3A" stroke-width="0.2"/>
-              <line x1="45" y1="135" x2="195" y2="135" stroke="#1C2B3A" stroke-width="0.2"/>
-              <!-- Inverter dots -->
-              <circle cx="75" cy="95" r="4" fill="#00E5FF" class="mon-blink"/>
-              <circle cx="150" cy="95" r="4" fill="#00E5FF" class="mon-blink" style="animation-delay:0.3s;"/>
-              <circle cx="75" cy="165" r="4" fill="#00E5FF" class="mon-blink" style="animation-delay:0.6s;"/>
-              <circle cx="150" cy="165" r="4" fill="#00E5FF" class="mon-blink" style="animation-delay:0.9s;"/>
-              <circle cx="100" cy="130" r="4" fill="#00E5FF" class="mon-blink" style="animation-delay:1.2s;"/>
-              <circle cx="170" cy="130" r="4" fill="#00E5FF" class="mon-blink" style="animation-delay:1.5s;"/>
-              <text x="120" y="225" text-anchor="middle" font-family="Space Mono,monospace" font-size="7" fill="#8A9BAE">SITE MAP</text>
-              <!-- Center: gauge -->
-              <circle cx="300" cy="145" r="70" fill="#0A0A0F" stroke="#1C2B3A" stroke-width="1"/>
-              <circle cx="300" cy="145" r="65" fill="none" stroke="#00E5FF" stroke-width="3" stroke-dasharray="307 102" opacity="0.3"/>
-              <line x1="300" y1="145" x2="300" y2="90" stroke="#00E5FF" stroke-width="1.5" class="mon-ndl"/>
-              <text x="300" y="155" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="700" fill="#F8FAFC">87%</text>
-              <text x="300" y="172" text-anchor="middle" font-family="Space Mono,monospace" font-size="7" fill="#8A9BAE">BATTERY HEALTH</text>
-              <!-- Right panel: status list -->
-              <rect x="395" y="55" width="170" height="160" rx="4" fill="#0A0A0F" stroke="#1C2B3A" stroke-width="0.5"/>
-              <text x="405" y="72" font-family="Space Mono,monospace" font-size="7" fill="#8A9BAE">STATUS</text>
-              <!-- Status items -->
-              <circle cx="415" cy="90" r="3" fill="#00E5FF" class="mon-blink"/>
-              <text x="428" y="93" font-family="Space Mono,monospace" font-size="7" fill="#F8FAFC">INV-01 Normal</text>
-              <circle cx="415" cy="110" r="3" fill="#00E5FF" class="mon-blink" style="animation-delay:0.2s;"/>
-              <text x="428" y="113" font-family="Space Mono,monospace" font-size="7" fill="#F8FAFC">INV-02 Normal</text>
-              <circle cx="415" cy="130" r="3" class="mon-alert"/>
-              <text x="428" y="133" font-family="Space Mono,monospace" font-size="7" fill="#F8FAFC">INV-03 Maint</text>
-              <circle cx="415" cy="150" r="3" fill="#00E5FF" class="mon-blink" style="animation-delay:0.4s;"/>
-              <text x="428" y="153" font-family="Space Mono,monospace" font-size="7" fill="#F8FAFC">INV-04 Normal</text>
-              <circle cx="415" cy="170" r="3" fill="#00E5FF" class="mon-blink" style="animation-delay:0.6s;"/>
-              <text x="428" y="173" font-family="Space Mono,monospace" font-size="7" fill="#F8FAFC">INV-05 Normal</text>
-              <circle cx="415" cy="190" r="3" fill="#00E5FF" class="mon-blink" style="animation-delay:0.8s;"/>
-              <text x="428" y="193" font-family="Space Mono,monospace" font-size="7" fill="#F8FAFC">INV-06 Normal</text>
-              <!-- Label -->
-              <text x="300" y="300" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#2A3A4A">// REAL-TIME SYSTEM MONITORING DASHBOARD</text>
-            </svg>
-          </div>
+          <Monitoring />
         </div>
       </div>
     </div>

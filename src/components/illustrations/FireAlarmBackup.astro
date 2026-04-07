@@ -1,0 +1,592 @@
+---
+/**
+ * FireAlarmBackup.astro
+ * Isometric corridor SVG illustration for fire alarm backup power.
+ * Color scheme: obsidian bg, voltage-cyan accent, slate/steel fills.
+ * Animations: smoke detect, FACP alarm, horn/strobe fire, OLP backup engage, text reveal.
+ * ~7s animation cycle.
+ */
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 600 360"
+  class="fire-alarm-backup-illustration"
+  role="img"
+  aria-label="Fire alarm backup power system illustration showing alarm activation with battery standby"
+>
+  <defs>
+    <!-- Fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+
+      /* ---------- TIMING (7s cycle) ---------- */
+      :root {
+        --cycle: 7s;
+      }
+
+      /* ---------- SMOKE DETECTOR PULSE ---------- */
+      .smoke-pulse {
+        animation: smoke-ring 7s ease-out infinite;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .smoke-pulse-1 { animation-delay: 0s; }
+      .smoke-pulse-2 { animation-delay: 0.15s; }
+      .smoke-pulse-3 { animation-delay: 0.3s; }
+      @keyframes smoke-ring {
+        0%, 24%   { opacity: 0; r: 6; }
+        26%       { opacity: 0.9; r: 6; }
+        30%       { opacity: 0.5; r: 16; }
+        35%       { opacity: 0; r: 26; }
+        100%      { opacity: 0; r: 26; }
+      }
+
+      /* ---------- SMOKE DETECTOR LED ---------- */
+      .detector-led {
+        animation: detector-blink 7s step-end infinite;
+      }
+      @keyframes detector-blink {
+        0%, 24%  { fill: #22C55E; }
+        25%      { fill: #FF3B3B; }
+        85%      { fill: #22C55E; }
+        90%, 100% { fill: #22C55E; }
+      }
+
+      /* ---------- FACP ALARM LED ---------- */
+      .facp-power-led {
+        animation: facp-power 7s step-end infinite;
+      }
+      @keyframes facp-power {
+        0%, 100% { fill: #22C55E; }
+      }
+      .facp-alarm-led {
+        animation: facp-alarm 7s step-end infinite;
+      }
+      @keyframes facp-alarm {
+        0%, 29%  { fill: #333; }
+        30%      { fill: #FF3B3B; }
+        85%      { fill: #333; }
+        90%,100% { fill: #333; }
+      }
+      .facp-alarm-led-glow {
+        animation: facp-alarm-glow 7s ease-in-out infinite;
+      }
+      @keyframes facp-alarm-glow {
+        0%, 29%  { opacity: 0; }
+        30%      { opacity: 0.8; }
+        85%      { opacity: 0; }
+        100%     { opacity: 0; }
+      }
+
+      /* ---------- HORN/STROBE FLASH ---------- */
+      .strobe-flash {
+        animation: strobe-fire 7s linear infinite;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      @keyframes strobe-fire {
+        0%, 34%  { opacity: 0; r: 4; }
+        35%      { opacity: 1; r: 4; }
+        37%      { opacity: 0; r: 10; }
+        39%      { opacity: 1; r: 4; }
+        41%      { opacity: 0; r: 10; }
+        43%      { opacity: 0.9; r: 4; }
+        45%      { opacity: 0; r: 10; }
+        47%      { opacity: 1; r: 4; }
+        49%      { opacity: 0; r: 10; }
+        51%      { opacity: 0.9; r: 4; }
+        53%      { opacity: 0; r: 10; }
+        55%      { opacity: 1; r: 4; }
+        57%      { opacity: 0; r: 10; }
+        59%      { opacity: 0.9; r: 4; }
+        61%      { opacity: 0; r: 10; }
+        63%      { opacity: 1; r: 4; }
+        65%      { opacity: 0; r: 10; }
+        67%      { opacity: 0.9; r: 4; }
+        69%      { opacity: 0; r: 10; }
+        71%      { opacity: 1; r: 4; }
+        73%      { opacity: 0; r: 10; }
+        75%      { opacity: 0.9; r: 4; }
+        77%      { opacity: 0; r: 10; }
+        79%      { opacity: 1; r: 4; }
+        81%      { opacity: 0; r: 10; }
+        83%      { opacity: 0.9; r: 4; }
+        85%      { opacity: 0; r: 10; }
+        86%, 100% { opacity: 0; r: 4; }
+      }
+      .strobe-flash-b {
+        animation: strobe-fire 7s linear infinite;
+        animation-delay: 0.14s;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+
+      /* ---------- STROBE RED TINT (alternating) ---------- */
+      .strobe-red {
+        animation: strobe-red-alt 7s linear infinite;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      @keyframes strobe-red-alt {
+        0%, 34%  { opacity: 0; }
+        36%      { opacity: 0.7; }
+        38%      { opacity: 0; }
+        40%      { opacity: 0.7; }
+        42%      { opacity: 0; }
+        44%      { opacity: 0.7; }
+        46%      { opacity: 0; }
+        48%      { opacity: 0.7; }
+        50%      { opacity: 0; }
+        52%      { opacity: 0.7; }
+        54%      { opacity: 0; }
+        56%      { opacity: 0.7; }
+        58%      { opacity: 0; }
+        60%      { opacity: 0.7; }
+        62%      { opacity: 0; }
+        64%      { opacity: 0.7; }
+        66%      { opacity: 0; }
+        68%      { opacity: 0.7; }
+        70%      { opacity: 0; }
+        72%      { opacity: 0.7; }
+        74%      { opacity: 0; }
+        76%      { opacity: 0.7; }
+        78%      { opacity: 0; }
+        80%      { opacity: 0.7; }
+        82%      { opacity: 0; }
+        84%      { opacity: 0.7; }
+        85%, 100% { opacity: 0; }
+      }
+
+      /* ---------- SOUND WAVE ARCS ---------- */
+      .sound-wave {
+        animation: sound-emit 7s ease-out infinite;
+        transform-origin: left center;
+        transform-box: fill-box;
+      }
+      .sound-wave-1 { animation-delay: 0s; }
+      .sound-wave-2 { animation-delay: 0.2s; }
+      .sound-wave-3 { animation-delay: 0.4s; }
+      @keyframes sound-emit {
+        0%, 34%  { opacity: 0; transform: scale(0.5); }
+        36%      { opacity: 0.8; transform: scale(0.6); }
+        45%      { opacity: 0.6; transform: scale(0.8); }
+        55%      { opacity: 0.4; transform: scale(1.0); }
+        65%      { opacity: 0.2; transform: scale(1.1); }
+        75%      { opacity: 0.1; transform: scale(1.2); }
+        85%      { opacity: 0; transform: scale(1.3); }
+        100%     { opacity: 0; transform: scale(1.3); }
+      }
+
+      /* ---------- OLP BACKUP ENGAGE ---------- */
+      .olp-glow {
+        animation: olp-engage 7s ease-in-out infinite;
+      }
+      @keyframes olp-engage {
+        0%, 34%  { opacity: 0; }
+        35%      { opacity: 0; }
+        38%      { opacity: 0.7; }
+        82%      { opacity: 0.7; }
+        90%      { opacity: 0; }
+        100%     { opacity: 0; }
+      }
+      .olp-border {
+        animation: olp-border-glow 7s ease-in-out infinite;
+      }
+      @keyframes olp-border-glow {
+        0%, 34%  { stroke: #1C2B3A; }
+        38%      { stroke: #00E5FF; }
+        82%      { stroke: #00E5FF; }
+        90%      { stroke: #1C2B3A; }
+        100%     { stroke: #1C2B3A; }
+      }
+
+      /* ---------- POWER DOTS (OLP -> FACP) ---------- */
+      .power-dot {
+        animation: dot-flow 7s linear infinite;
+      }
+      @keyframes dot-flow {
+        0%, 34%  { opacity: 0; offset-distance: 0%; }
+        36%      { opacity: 1; offset-distance: 0%; }
+        82%      { opacity: 1; offset-distance: 100%; }
+        85%      { opacity: 0; offset-distance: 100%; }
+        100%     { opacity: 0; offset-distance: 0%; }
+      }
+      .power-dot-1 { animation-delay: 0s; }
+      .power-dot-2 { animation-delay: 0.5s; }
+      .power-dot-3 { animation-delay: 1.0s; }
+
+      /* ---------- BATTERY CHARGE BAR ---------- */
+      .battery-bar {
+        animation: batt-drain 7s ease-in-out infinite;
+      }
+      @keyframes batt-drain {
+        0%, 34%  { width: 18px; fill: #22C55E; }
+        40%      { width: 18px; fill: #00E5FF; }
+        82%      { width: 12px; fill: #00E5FF; }
+        90%      { width: 18px; fill: #22C55E; }
+        100%     { width: 18px; fill: #22C55E; }
+      }
+
+      /* ---------- BACKUP ACTIVE TEXT ---------- */
+      .backup-text {
+        animation: text-reveal 7s ease-in-out infinite;
+      }
+      @keyframes text-reveal {
+        0%, 84%  { opacity: 0; }
+        86%      { opacity: 1; }
+        90%      { opacity: 1; }
+        95%      { opacity: 0; }
+        100%     { opacity: 0; }
+      }
+
+      /* ---------- 24HR STANDBY BADGE ---------- */
+      .standby-badge {
+        animation: badge-pulse 7s ease-in-out infinite;
+      }
+      @keyframes badge-pulse {
+        0%, 34%  { opacity: 0.5; }
+        38%      { opacity: 1; }
+        82%      { opacity: 1; }
+        90%      { opacity: 0.5; }
+        100%     { opacity: 0.5; }
+      }
+
+      /* ---------- CONDUIT LINE GLOW ---------- */
+      .conduit-active {
+        animation: conduit-glow 7s ease-in-out infinite;
+      }
+      @keyframes conduit-glow {
+        0%, 29%  { stroke: #1E293B; }
+        32%      { stroke: #FF3B3B; }
+        85%      { stroke: #FF3B3B; }
+        90%      { stroke: #1E293B; }
+        100%     { stroke: #1E293B; }
+      }
+    </style>
+
+    <!-- Isometric floor gradient -->
+    <linearGradient id="fa-floor-grad" x1="0" y1="0" x2="1" y2="0.5">
+      <stop offset="0%" stop-color="#0D1117" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+
+    <!-- Wall gradient -->
+    <linearGradient id="fa-wall-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1C2B3A" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+
+    <!-- Ceiling gradient -->
+    <linearGradient id="fa-ceil-grad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#0F1923" />
+      <stop offset="100%" stop-color="#1C2B3A" />
+    </linearGradient>
+
+    <!-- Cyan glow filter -->
+    <filter id="fa-cyan-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Red glow filter -->
+    <filter id="fa-red-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Strobe glow filter -->
+    <filter id="fa-strobe-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Power dot path (OLP unit up to FACP) -->
+    <path id="fa-power-path" d="M 108,248 L 108,202" fill="none" />
+  </defs>
+
+  <!-- ============================================================
+       BACKGROUND
+       ============================================================ -->
+  <rect width="600" height="360" fill="#0A0A0F" />
+
+  <!-- ============================================================
+       ISOMETRIC CORRIDOR
+       ============================================================ -->
+  <!-- Floor plane -->
+  <polygon
+    points="40,260 300,310 560,260 300,210"
+    fill="url(#fa-floor-grad)"
+    stroke="#1E293B"
+    stroke-width="0.5"
+  />
+  <!-- Floor grid lines for depth -->
+  <line x1="100" y1="238" x2="300" y2="268" stroke="#1E293B" stroke-width="0.3" />
+  <line x1="170" y1="223" x2="300" y2="248" stroke="#1E293B" stroke-width="0.3" />
+  <line x1="240" y1="216" x2="300" y2="228" stroke="#1E293B" stroke-width="0.3" />
+  <line x1="360" y1="228" x2="300" y2="216" stroke="#1E293B" stroke-width="0.3" />
+  <line x1="430" y1="238" x2="300" y2="223" stroke="#1E293B" stroke-width="0.3" />
+  <line x1="500" y1="248" x2="300" y2="230" stroke="#1E293B" stroke-width="0.3" />
+
+  <!-- Left wall -->
+  <polygon
+    points="40,260 40,100 300,50 300,210"
+    fill="url(#fa-wall-grad)"
+    stroke="#1E293B"
+    stroke-width="0.5"
+  />
+
+  <!-- Right wall -->
+  <polygon
+    points="560,260 560,100 300,50 300,210"
+    fill="url(#fa-wall-grad)"
+    stroke="#1E293B"
+    stroke-width="0.5"
+    opacity="0.7"
+  />
+
+  <!-- Ceiling plane -->
+  <polygon
+    points="40,100 300,50 560,100 300,150"
+    fill="url(#fa-ceil-grad)"
+    stroke="#1E293B"
+    stroke-width="0.5"
+  />
+
+  <!-- Corridor depth lines (perspective edges) -->
+  <line x1="300" y1="50" x2="300" y2="210" stroke="#1E293B" stroke-width="0.5" />
+
+  <!-- ============================================================
+       CONDUIT LINES (connect all devices)
+       ============================================================ -->
+  <!-- FACP to Horn/Strobe 1 (on left wall) -->
+  <polyline
+    points="140,165 200,148 340,108"
+    fill="none"
+    stroke="#1E293B"
+    stroke-width="1"
+    stroke-dasharray="4,3"
+    class="conduit-active"
+  />
+  <!-- FACP to Horn/Strobe 2 -->
+  <polyline
+    points="140,165 200,148 460,85"
+    fill="none"
+    stroke="#1E293B"
+    stroke-width="1"
+    stroke-dasharray="4,3"
+    class="conduit-active"
+  />
+  <!-- FACP to Smoke Detector (on ceiling) -->
+  <polyline
+    points="140,155 200,138 300,118"
+    fill="none"
+    stroke="#1E293B"
+    stroke-width="1"
+    stroke-dasharray="4,3"
+    class="conduit-active"
+  />
+
+  <!-- ============================================================
+       FIRE ALARM CONTROL PANEL (FACP) - Left wall
+       ============================================================ -->
+  <g id="facp-panel">
+    <!-- Panel box -->
+    <rect x="72" y="138" width="68" height="56" rx="2" fill="#111827" stroke="#2A3A4A" stroke-width="1.5" />
+    <!-- Inner bezel -->
+    <rect x="76" y="142" width="60" height="48" rx="1" fill="#0D1117" stroke="#1E293B" stroke-width="0.5" />
+
+    <!-- FACP label -->
+    <text x="106" y="153" text-anchor="middle" font-family="'Space Mono', monospace" font-size="7" font-weight="700" fill="#F8FAFC" letter-spacing="2">FACP</text>
+
+    <!-- Status LEDs row -->
+    <!-- POWER LED -->
+    <circle cx="84" cy="162" r="2.5" class="facp-power-led" fill="#22C55E" />
+    <text x="84" y="168" text-anchor="middle" font-family="'Space Mono', monospace" font-size="3.5" fill="#8A9BAE">PWR</text>
+    <!-- ALARM LED -->
+    <circle cx="96" cy="162" r="2.5" class="facp-alarm-led" fill="#333" />
+    <!-- Alarm glow -->
+    <circle cx="96" cy="162" r="6" fill="#FF3B3B" opacity="0" filter="url(#fa-red-glow)" class="facp-alarm-led-glow" />
+    <text x="96" y="168" text-anchor="middle" font-family="'Space Mono', monospace" font-size="3.5" fill="#8A9BAE">ALM</text>
+    <!-- TROUBLE LED -->
+    <circle cx="108" cy="162" r="2.5" fill="#333" />
+    <text x="108" y="168" text-anchor="middle" font-family="'Space Mono', monospace" font-size="3.5" fill="#8A9BAE">TBL</text>
+    <!-- SUPERVISORY LED -->
+    <circle cx="120" cy="162" r="2.5" fill="#333" />
+    <text x="120" y="168" text-anchor="middle" font-family="'Space Mono', monospace" font-size="3.5" fill="#8A9BAE">SUP</text>
+
+    <!-- Display area -->
+    <rect x="80" y="173" width="52" height="12" rx="1" fill="#0A0A0F" stroke="#1E293B" stroke-width="0.5" />
+    <text x="106" y="181" text-anchor="middle" font-family="'Space Mono', monospace" font-size="5" fill="#22C55E" opacity="0.8">NORMAL</text>
+
+    <!-- Alarm display text (overlaps, keyed by animation) -->
+    <text x="106" y="181" text-anchor="middle" font-family="'Space Mono', monospace" font-size="5" fill="#FF3B3B" class="facp-alarm-led-glow">ALARM</text>
+  </g>
+
+  <!-- ============================================================
+       OLP BACKUP UNIT - Below FACP
+       ============================================================ -->
+  <g id="olp-backup">
+    <!-- Unit box -->
+    <rect x="72" y="202" width="68" height="40" rx="2" fill="#111827" stroke="#1C2B3A" stroke-width="1.5" class="olp-border" />
+    <!-- Cyan glow overlay -->
+    <rect x="72" y="202" width="68" height="40" rx="2" fill="#00E5FF" opacity="0" class="olp-glow" filter="url(#fa-cyan-glow)" />
+
+    <!-- OLP label -->
+    <text x="106" y="214" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="6" font-weight="700" fill="#00E5FF" letter-spacing="1">OLP BACKUP</text>
+
+    <!-- Battery symbol -->
+    <rect x="86" y="220" width="24" height="12" rx="1" fill="none" stroke="#8A9BAE" stroke-width="0.8" />
+    <rect x="110" y="223" width="3" height="6" rx="0.5" fill="#8A9BAE" />
+    <!-- Battery fill bar -->
+    <rect x="88" y="222" width="18" height="8" rx="0.5" fill="#22C55E" class="battery-bar" />
+    <!-- Charge icon (lightning bolt) -->
+    <polygon points="98,221 96,226 99,226 97,231 101,225 98,225 100,221" fill="#0A0A0F" opacity="0.6" />
+
+    <!-- 24HR STANDBY badge -->
+    <g class="standby-badge">
+      <rect x="82" y="235" width="48" height="8" rx="3" fill="none" stroke="#00E5FF" stroke-width="0.6" />
+      <text x="106" y="241" text-anchor="middle" font-family="'Space Mono', monospace" font-size="4.5" font-weight="700" fill="#00E5FF" letter-spacing="0.5">24HR STANDBY</text>
+    </g>
+
+    <!-- Power line from OLP to FACP -->
+    <line x1="106" y1="202" x2="106" y2="194" stroke="#00E5FF" stroke-width="1" opacity="0.3" />
+    <line x1="108" y1="202" x2="108" y2="194" stroke="#00E5FF" stroke-width="1" opacity="0.3" />
+
+    <!-- Animated power dots -->
+    <circle r="2" fill="#00E5FF" class="power-dot power-dot-1" filter="url(#fa-cyan-glow)">
+      <animateMotion dur="7s" repeatCount="indefinite" keyTimes="0;0.34;0.36;0.82;0.85;1" keyPoints="0;0;0;1;1;0" calcMode="linear">
+        <mpath href="#fa-power-path" />
+      </animateMotion>
+      <animate attributeName="opacity" dur="7s" repeatCount="indefinite" values="0;0;0;1;1;0;0" keyTimes="0;0.34;0.36;0.82;0.85;0.86;1" />
+    </circle>
+    <circle r="2" fill="#00E5FF" class="power-dot power-dot-2" filter="url(#fa-cyan-glow)">
+      <animateMotion dur="7s" repeatCount="indefinite" begin="0.6s" keyTimes="0;0.34;0.36;0.82;0.85;1" keyPoints="0;0;0;1;1;0" calcMode="linear">
+        <mpath href="#fa-power-path" />
+      </animateMotion>
+      <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="0.6s" values="0;0;0;1;1;0;0" keyTimes="0;0.34;0.36;0.82;0.85;0.86;1" />
+    </circle>
+    <circle r="2" fill="#00E5FF" class="power-dot power-dot-3" filter="url(#fa-cyan-glow)">
+      <animateMotion dur="7s" repeatCount="indefinite" begin="1.2s" keyTimes="0;0.34;0.36;0.82;0.85;1" keyPoints="0;0;0;1;1;0" calcMode="linear">
+        <mpath href="#fa-power-path" />
+      </animateMotion>
+      <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="1.2s" values="0;0;0;1;1;0;0" keyTimes="0;0.34;0.36;0.82;0.85;0.86;1" />
+    </circle>
+  </g>
+
+  <!-- ============================================================
+       SMOKE DETECTOR (ceiling-mounted)
+       ============================================================ -->
+  <g id="smoke-detector" transform="translate(300, 112)">
+    <!-- Detector body -->
+    <circle cx="0" cy="0" r="10" fill="#1C2B3A" stroke="#2A3A4A" stroke-width="1" />
+    <circle cx="0" cy="0" r="7" fill="#111827" stroke="#1E293B" stroke-width="0.5" />
+    <!-- Vent slots -->
+    <line x1="-4" y1="-2" x2="-4" y2="2" stroke="#2A3A4A" stroke-width="0.5" />
+    <line x1="-1.5" y1="-3" x2="-1.5" y2="3" stroke="#2A3A4A" stroke-width="0.5" />
+    <line x1="1.5" y1="-3" x2="1.5" y2="3" stroke="#2A3A4A" stroke-width="0.5" />
+    <line x1="4" y1="-2" x2="4" y2="2" stroke="#2A3A4A" stroke-width="0.5" />
+    <!-- LED -->
+    <circle cx="0" cy="0" r="2" class="detector-led" fill="#22C55E" />
+
+    <!-- Detection pulse rings -->
+    <circle cx="0" cy="0" r="6" fill="none" stroke="#FF3B3B" stroke-width="1" class="smoke-pulse smoke-pulse-1" opacity="0" filter="url(#fa-red-glow)" />
+    <circle cx="0" cy="0" r="6" fill="none" stroke="#FF3B3B" stroke-width="0.8" class="smoke-pulse smoke-pulse-2" opacity="0" />
+    <circle cx="0" cy="0" r="6" fill="none" stroke="#FF3B3B" stroke-width="0.6" class="smoke-pulse smoke-pulse-3" opacity="0" />
+
+    <!-- Label -->
+    <text x="0" y="18" text-anchor="middle" font-family="'Space Mono', monospace" font-size="4" fill="#8A9BAE">SMOKE DET</text>
+  </g>
+
+  <!-- ============================================================
+       HORN/STROBE UNIT 1 (left wall, mid-corridor)
+       ============================================================ -->
+  <g id="horn-strobe-1" transform="translate(340, 100)">
+    <!-- Device body (rectangular horn/strobe) -->
+    <rect x="-14" y="-10" width="28" height="20" rx="2" fill="#1C2B3A" stroke="#2A3A4A" stroke-width="1" />
+    <rect x="-11" y="-7" width="22" height="14" rx="1" fill="#111827" />
+
+    <!-- Strobe lens (circular) -->
+    <circle cx="0" cy="0" r="5" fill="#1E293B" stroke="#2A3A4A" stroke-width="0.5" />
+
+    <!-- Strobe flash effects -->
+    <circle cx="0" cy="0" r="4" fill="#F8FAFC" class="strobe-flash" opacity="0" filter="url(#fa-strobe-glow)" />
+    <circle cx="0" cy="0" r="3" fill="#FF3B3B" class="strobe-red" opacity="0" />
+
+    <!-- Horn grille lines -->
+    <line x1="-10" y1="-5" x2="-10" y2="5" stroke="#2A3A4A" stroke-width="0.4" />
+    <line x1="10" y1="-5" x2="10" y2="5" stroke="#2A3A4A" stroke-width="0.4" />
+
+    <!-- Sound wave arcs -->
+    <path d="M 18,0 Q 24,-6 18,-12" fill="none" stroke="#FF3B3B" stroke-width="1" class="sound-wave sound-wave-1" opacity="0" />
+    <path d="M 22,0 Q 30,-8 22,-16" fill="none" stroke="#FF3B3B" stroke-width="0.8" class="sound-wave sound-wave-2" opacity="0" />
+    <path d="M 26,0 Q 36,-10 26,-20" fill="none" stroke="#FF3B3B" stroke-width="0.6" class="sound-wave sound-wave-3" opacity="0" />
+
+    <!-- Label -->
+    <text x="0" y="16" text-anchor="middle" font-family="'Space Mono', monospace" font-size="3.5" fill="#8A9BAE">H/S-01</text>
+  </g>
+
+  <!-- ============================================================
+       HORN/STROBE UNIT 2 (deeper in corridor)
+       ============================================================ -->
+  <g id="horn-strobe-2" transform="translate(460, 78)">
+    <!-- Device body -->
+    <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#1C2B3A" stroke="#2A3A4A" stroke-width="0.8" />
+    <rect x="-9" y="-5.5" width="18" height="11" rx="1" fill="#111827" />
+
+    <!-- Strobe lens -->
+    <circle cx="0" cy="0" r="4" fill="#1E293B" stroke="#2A3A4A" stroke-width="0.5" />
+
+    <!-- Strobe flash effects -->
+    <circle cx="0" cy="0" r="3.5" fill="#F8FAFC" class="strobe-flash-b" opacity="0" filter="url(#fa-strobe-glow)" />
+    <circle cx="0" cy="0" r="2.5" fill="#FF3B3B" class="strobe-red" opacity="0" />
+
+    <!-- Sound wave arcs -->
+    <path d="M 16,0 Q 21,-5 16,-10" fill="none" stroke="#FF3B3B" stroke-width="0.8" class="sound-wave sound-wave-1" opacity="0" />
+    <path d="M 19,0 Q 25,-7 19,-14" fill="none" stroke="#FF3B3B" stroke-width="0.6" class="sound-wave sound-wave-2" opacity="0" />
+    <path d="M 22,0 Q 30,-9 22,-18" fill="none" stroke="#FF3B3B" stroke-width="0.5" class="sound-wave sound-wave-3" opacity="0" />
+
+    <!-- Label -->
+    <text x="0" y="13" text-anchor="middle" font-family="'Space Mono', monospace" font-size="3" fill="#8A9BAE">H/S-02</text>
+  </g>
+
+  <!-- ============================================================
+       NFPA 72 COMPLIANCE BADGE
+       ============================================================ -->
+  <g transform="translate(520, 28)">
+    <rect x="-28" y="-10" width="56" height="18" rx="3" fill="none" stroke="#2A3A4A" stroke-width="0.8" />
+    <text x="0" y="-1" text-anchor="middle" font-family="'Space Mono', monospace" font-size="5" font-weight="700" fill="#8A9BAE" letter-spacing="0.5">NFPA 72</text>
+    <text x="0" y="5" text-anchor="middle" font-family="'Space Mono', monospace" font-size="3" fill="#2A3A4A">COMPLIANT</text>
+  </g>
+
+  <!-- ============================================================
+       BACKUP ACTIVE TEXT (fades in at 85-90%)
+       ============================================================ -->
+  <g class="backup-text" opacity="0">
+    <rect x="210" y="270" width="180" height="24" rx="4" fill="#0A0A0F" stroke="#00E5FF" stroke-width="1" opacity="0.9" />
+    <text x="300" y="286" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700" fill="#00E5FF" letter-spacing="2">BACKUP ACTIVE</text>
+  </g>
+
+  <!-- ============================================================
+       BOTTOM CAPTION
+       ============================================================ -->
+  <text
+    x="300"
+    y="345"
+    text-anchor="middle"
+    font-family="'Space Mono', monospace"
+    font-size="8"
+    fill="#2A3A4A"
+    letter-spacing="1"
+  >// FIRE ALARM BACKUP &middot; UL 1481</text>
+
+</svg>

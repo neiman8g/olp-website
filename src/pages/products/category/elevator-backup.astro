@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import DocumentGate from '../../../components/DocumentGate.astro';
 import { getProductsByCategory, getCategoryBySlug } from '../../../data/products';
 import { company } from '../../../data/company';
+import ElevatorBackup from '../../../components/illustrations/ElevatorBackup.astro';
 
 const category = getCategoryBySlug('elevator-backup')!;
 const categoryProducts = getProductsByCategory('elevator-backup');
@@ -88,55 +89,7 @@ const applications = [
 
         <!-- Right: Animated SVG -->
         <div class="lg:col-span-2">
-          <div style="background:#0A0A0F;border-radius:12px;overflow:hidden;width:100%;">
-            <svg viewBox="0 0 600 320" width="100%" xmlns="http://www.w3.org/2000/svg">
-              <style>
-                @keyframes ev-cabDescent { 0%,35%{transform:translateY(0);} 50%,85%{transform:translateY(120px);} 90%{transform:translateY(120px);} 95%{transform:translateY(0);} }
-                @keyframes ev-powerCut { 0%,30%{stroke:#00E5FF;} 35%{stroke:#1C2B3A;} 88%{stroke:#1C2B3A;} 93%{stroke:#00E5FF;} }
-                @keyframes ev-backupOn { 0%,36%{fill:#1C2B3A;} 40%{fill:#00E5FF;} 88%{fill:#00E5FF;} 93%{fill:#1C2B3A;} }
-                @keyframes ev-doorL { 0%,55%{transform:translateX(0);} 65%,82%{transform:translateX(-18px);} 90%{transform:translateX(0);} }
-                @keyframes ev-doorR { 0%,55%{transform:translateX(0);} 65%,82%{transform:translateX(18px);} 90%{transform:translateX(0);} }
-                @keyframes ev-text { 0%,65%{opacity:0;} 70%,82%{opacity:1;} 88%{opacity:0;} }
-                .ev-cab{animation:ev-cabDescent 8s ease-in-out infinite;}
-                .ev-power{animation:ev-powerCut 8s ease-in-out infinite;}
-                .ev-backup{animation:ev-backupOn 8s ease-in-out infinite;}
-                .ev-doorL{animation:ev-doorL 8s ease-in-out infinite;}
-                .ev-doorR{animation:ev-doorR 8s ease-in-out infinite;}
-                .ev-safe{animation:ev-text 8s ease-in-out infinite;}
-              </style>
-              <!-- Shaft -->
-              <rect x="220" y="20" width="160" height="280" rx="2" fill="none" stroke="#1C2B3A" stroke-width="1.5"/>
-              <!-- Floor lines -->
-              <line x1="220" y1="76" x2="380" y2="76" stroke="#1C2B3A" stroke-width="0.5" stroke-dasharray="4,4"/>
-              <line x1="220" y1="132" x2="380" y2="132" stroke="#1C2B3A" stroke-width="0.5" stroke-dasharray="4,4"/>
-              <line x1="220" y1="188" x2="380" y2="188" stroke="#1C2B3A" stroke-width="0.5" stroke-dasharray="4,4"/>
-              <line x1="220" y1="244" x2="380" y2="244" stroke="#1C2B3A" stroke-width="0.5" stroke-dasharray="4,4"/>
-              <!-- Floor labels -->
-              <text x="205" y="70" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE">5F</text>
-              <text x="205" y="126" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE">4F</text>
-              <text x="205" y="182" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE">3F</text>
-              <text x="205" y="238" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE">2F</text>
-              <text x="205" y="290" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#00E5FF">1F</text>
-              <!-- Cab -->
-              <g class="ev-cab">
-                <rect x="235" y="100" width="130" height="50" rx="2" fill="#111827" stroke="#8A9BAE" stroke-width="1"/>
-                <!-- Backup indicator -->
-                <circle cx="360" cy="110" r="4" class="ev-backup" fill="#1C2B3A"/>
-                <!-- Doors -->
-                <rect x="270" y="105" width="28" height="40" rx="1" fill="#1C2B3A" stroke="#8A9BAE" stroke-width="0.5" class="ev-doorL"/>
-                <rect x="302" y="105" width="28" height="40" rx="1" fill="#1C2B3A" stroke="#8A9BAE" stroke-width="0.5" class="ev-doorR"/>
-              </g>
-              <!-- Power line -->
-              <line x1="100" y1="150" x2="220" y2="150" class="ev-power" stroke="#00E5FF" stroke-width="2"/>
-              <!-- Cable -->
-              <line x1="300" y1="20" x2="300" y2="100" stroke="#8A9BAE" stroke-width="0.5" opacity="0.3"/>
-              <!-- Safe evacuation text -->
-              <text x="470" y="260" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="700" fill="#00E5FF" class="ev-safe" opacity="0">SAFE</text>
-              <text x="470" y="278" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="700" fill="#00E5FF" class="ev-safe" opacity="0">EVACUATION</text>
-              <!-- Label -->
-              <text x="300" y="312" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#2A3A4A">// ELEVATOR EMERGENCY DESCENT SEQUENCE</text>
-            </svg>
-          </div>
+          <ElevatorBackup />
         </div>
       </div>
     </div>
