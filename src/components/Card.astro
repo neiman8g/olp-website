@@ -3,6 +3,7 @@ interface Props {
   variant?: 'product' | 'feature' | 'testimonial' | 'cta';
   href?: string;
   accent?: boolean;
+  dark?: boolean;
   class?: string;
 }
 
@@ -10,21 +11,28 @@ const {
   variant = 'feature',
   href,
   accent,
+  dark = false,
   class: className = '',
 } = Astro.props;
 
-const showAccent = accent ?? variant === 'product';
-
 const variantClasses: Record<string, string> = {
-  product: 'card-glow bg-steel/30 rounded-xl p-6',
-  feature: 'card-glow bg-obsidian rounded-xl p-6',
-  testimonial: 'bg-slate/50 border border-steel/30 rounded-xl p-6 md:p-8',
-  cta: 'card-glow bg-voltage/5 border-voltage/20 rounded-2xl p-8 md:p-12',
+  product: dark
+    ? 'card-hover-dark bg-navy-mid rounded-lg p-6'
+    : 'card-hover bg-white rounded-lg p-6',
+  feature: dark
+    ? 'card-hover-dark bg-navy-mid rounded-lg p-6'
+    : 'card-hover bg-white rounded-lg p-6',
+  testimonial: dark
+    ? 'bg-navy-mid border border-border-dark rounded-lg p-6'
+    : 'bg-white border border-steel-gray rounded-lg p-6',
+  cta: dark
+    ? 'bg-navy-mid border border-border-dark rounded-lg p-8 md:p-12'
+    : 'bg-white border border-steel-gray rounded-lg p-8 md:p-12',
 };
 
 const baseClasses = [
   variantClasses[variant],
-  showAccent ? 'card-top-accent' : '',
+  accent ? 'border-t-2 border-t-steel-blue' : '',
   href ? 'group transition-all' : '',
   className,
 ].filter(Boolean).join(' ');

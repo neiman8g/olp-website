@@ -4,13 +4,13 @@ import { company } from '../data/company';
 import Button from './Button.astro';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-obsidian/90 backdrop-blur-xl border-b border-pure-dim" id="main-header" data-pagefind-ignore>
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-steel-gray" id="main-header" data-pagefind-ignore>
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="flex items-center justify-between h-16 lg:h-18">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 flex-shrink-0">
-        <svg class="w-5 h-5 text-voltage" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        <span class="font-display font-bold text-lg tracking-tight text-pure">ONLINE <span class="text-voltage">POWER</span></span>
+        <svg class="w-5 h-5 text-steel-blue" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span class="font-display font-bold text-lg tracking-tight text-near-black">ONLINE <span class="text-steel-blue">POWER</span></span>
       </a>
 
       <!-- Desktop Nav -->
@@ -18,7 +18,7 @@ import Button from './Button.astro';
         <!-- Products Dropdown -->
         <div class="relative" data-dropdown>
           <button
-            class="px-3 py-2 text-sm font-medium text-ash hover:text-pure transition-colors flex items-center gap-1"
+            class="px-3 py-2 text-[12px] font-display font-semibold uppercase tracking-wider text-slate hover:text-near-black transition-colors flex items-center gap-1"
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="dropdown-products"
@@ -33,15 +33,15 @@ import Button from './Button.astro';
             role="menu"
             data-dropdown-menu
           >
-            <div class="bg-slate border border-steel/50 rounded-lg py-2 w-72 shadow-2xl shadow-black/50">
+            <div class="bg-white border border-steel-gray rounded-lg py-2 w-72 shadow-2xl shadow-slate/10">
               {navigation.products.map(item => (
-                <a href={item.href} role="menuitem" tabindex="-1" class="block px-4 py-2.5 text-sm text-ash hover:text-voltage hover:bg-pure-dim transition-colors">
-                  <span class="font-medium text-pure">{item.name}</span>
-                  <span class="block text-xs text-ash mt-0.5">{item.description}</span>
+                <a href={item.href} role="menuitem" tabindex="-1" class="block px-4 py-2.5 text-sm text-slate hover:text-steel-blue hover:bg-off-white transition-colors">
+                  <span class="font-display font-semibold text-near-black">{item.name}</span>
+                  <span class="block text-xs text-slate mt-0.5">{item.description}</span>
                 </a>
               ))}
-              <div class="border-t border-steel/50 mt-2 pt-2 px-4">
-                <a href="/products/" role="menuitem" tabindex="-1" class="text-sm font-medium text-voltage hover:text-pure transition-colors">All Products &rarr;</a>
+              <div class="border-t border-steel-gray mt-2 pt-2 px-4">
+                <a href="/products/" role="menuitem" tabindex="-1" class="text-sm font-medium text-steel-blue hover:text-near-black transition-colors">All Products &rarr;</a>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@ import Button from './Button.astro';
         <!-- Support Dropdown -->
         <div class="relative" data-dropdown>
           <button
-            class="px-3 py-2 text-sm font-medium text-ash hover:text-pure transition-colors flex items-center gap-1"
+            class="px-3 py-2 text-[12px] font-display font-semibold uppercase tracking-wider text-slate hover:text-near-black transition-colors flex items-center gap-1"
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="dropdown-support"
@@ -65,9 +65,9 @@ import Button from './Button.astro';
             role="menu"
             data-dropdown-menu
           >
-            <div class="bg-slate border border-steel/50 rounded-lg py-2 w-56 shadow-2xl shadow-black/50">
+            <div class="bg-white border border-steel-gray rounded-lg py-2 w-56 shadow-2xl shadow-slate/10">
               {navigation.support.map(item => (
-                <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined} role="menuitem" tabindex="-1" class="block px-4 py-2.5 text-sm text-ash hover:text-voltage hover:bg-pure-dim transition-colors font-medium">
+                <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined} role="menuitem" tabindex="-1" class="block px-4 py-2.5 text-sm text-slate hover:text-steel-blue hover:bg-off-white transition-colors font-display font-semibold">
                   {item.name}
                   {item.href.startsWith('http') && <svg class="w-3 h-3 inline ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>}
                 </a>
@@ -79,7 +79,7 @@ import Button from './Button.astro';
         <!-- Company Dropdown -->
         <div class="relative" data-dropdown>
           <button
-            class="px-3 py-2 text-sm font-medium text-ash hover:text-pure transition-colors flex items-center gap-1"
+            class="px-3 py-2 text-[12px] font-display font-semibold uppercase tracking-wider text-slate hover:text-near-black transition-colors flex items-center gap-1"
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="dropdown-company"
@@ -94,32 +94,32 @@ import Button from './Button.astro';
             role="menu"
             data-dropdown-menu
           >
-            <div class="bg-slate border border-steel/50 rounded-lg py-2 w-56 shadow-2xl shadow-black/50">
+            <div class="bg-white border border-steel-gray rounded-lg py-2 w-56 shadow-2xl shadow-slate/10">
               {navigation.company.map(item => (
-                <a href={item.href} role="menuitem" tabindex="-1" class="block px-4 py-2.5 text-sm text-ash hover:text-voltage hover:bg-pure-dim transition-colors font-medium">{item.name}</a>
+                <a href={item.href} role="menuitem" tabindex="-1" class="block px-4 py-2.5 text-sm text-slate hover:text-steel-blue hover:bg-off-white transition-colors font-display font-semibold">{item.name}</a>
               ))}
             </div>
           </div>
         </div>
 
-        <a href="/training/" class="px-3 py-2 text-sm font-medium text-ash hover:text-pure transition-colors">Training</a>
+        <a href="/training/" class="px-3 py-2 text-[12px] font-display font-semibold uppercase tracking-wider text-slate hover:text-near-black transition-colors">Training</a>
       </nav>
 
       <!-- CTA -->
       <div class="hidden lg:flex items-center gap-3">
-        <button onclick="window.openSearch()" data-search-trigger class="p-2 text-ash hover:text-voltage transition-colors" aria-label="Search products">
+        <button onclick="window.openSearch()" data-search-trigger class="p-2 text-slate hover:text-steel-blue transition-colors" aria-label="Search products">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </button>
-        <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-sm text-ash hover:text-pure transition-colors font-mono">{company.phone}</a>
-        <Button href="/contact/" variant="ghost" size="sm">Request a Quote</Button>
+        <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-sm text-slate hover:text-near-black transition-colors font-display font-semibold">{company.phone}</a>
+        <Button href="/contact/" variant="outline" size="sm">Request a Quote</Button>
       </div>
 
       <!-- Mobile: Search + Menu -->
       <div class="lg:hidden flex items-center gap-1">
-        <button onclick="window.openSearch()" data-search-trigger class="p-2 text-ash hover:text-voltage transition-colors" aria-label="Search products">
+        <button onclick="window.openSearch()" data-search-trigger class="p-2 text-slate hover:text-steel-blue transition-colors" aria-label="Search products">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </button>
-        <button class="p-2 text-ash hover:text-pure" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <button class="p-2 text-slate hover:text-near-black" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
           <svg class="w-6 h-6" id="menu-icon-open" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
           <svg class="w-6 h-6 hidden" id="menu-icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
@@ -131,55 +131,55 @@ import Button from './Button.astro';
 </header>
 
 <!-- Mobile Menu (outside header to avoid clipping) -->
-<div class="hidden lg:hidden" id="mobile-menu" style="position:fixed;top:64px;left:0;right:0;bottom:0;z-index:9999;background:#0A0A0F;overflow-y:auto;">
+<div class="hidden lg:hidden" id="mobile-menu" style="position:fixed;top:64px;left:0;right:0;bottom:0;z-index:9999;background:#FFFFFF;overflow-y:auto;">
   <div class="px-4 py-6 space-y-1">
     <Button href="/training/" size="lg" icon="bolt" fullWidth class="mb-4">Register for Training</Button>
 
     <div class="border-b border-steel/30 pb-3">
-      <button class="flex justify-between items-center w-full py-3 text-left font-medium text-pure mobile-accordion-btn" aria-controls="mobile-products">
+      <button class="flex justify-between items-center w-full py-3 text-left font-medium text-near-black mobile-accordion-btn" aria-controls="mobile-products">
         Products
-        <svg class="w-5 h-5 text-ash transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <svg class="w-5 h-5 text-slate transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
       </button>
       <div class="hidden mt-1 space-y-0.5 mobile-accordion-content" id="mobile-products">
         {navigation.products.map(item => (
-          <a href={item.href} class="block py-2.5 pl-4 text-sm text-ash hover:text-voltage transition-colors">{item.name}</a>
+          <a href={item.href} class="block py-2.5 pl-4 text-sm text-slate hover:text-steel-blue transition-colors">{item.name}</a>
         ))}
-        <a href="/products/" class="block py-2.5 pl-4 text-sm font-medium text-voltage">All Products &rarr;</a>
+        <a href="/products/" class="block py-2.5 pl-4 text-sm font-medium text-steel-blue">All Products &rarr;</a>
       </div>
     </div>
 
     <div class="border-b border-steel/30 pb-3">
-      <button class="flex justify-between items-center w-full py-3 text-left font-medium text-pure mobile-accordion-btn" aria-controls="mobile-support">
+      <button class="flex justify-between items-center w-full py-3 text-left font-medium text-near-black mobile-accordion-btn" aria-controls="mobile-support">
         Support
-        <svg class="w-5 h-5 text-ash transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <svg class="w-5 h-5 text-slate transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
       </button>
       <div class="hidden mt-1 space-y-0.5 mobile-accordion-content" id="mobile-support">
         {navigation.support.map(item => (
-          <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} class="block py-2.5 pl-4 text-sm text-ash hover:text-voltage transition-colors">{item.name}</a>
+          <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} class="block py-2.5 pl-4 text-sm text-slate hover:text-steel-blue transition-colors">{item.name}</a>
         ))}
       </div>
     </div>
 
     <div class="border-b border-steel/30 pb-3">
-      <button class="flex justify-between items-center w-full py-3 text-left font-medium text-pure mobile-accordion-btn" aria-controls="mobile-company">
+      <button class="flex justify-between items-center w-full py-3 text-left font-medium text-near-black mobile-accordion-btn" aria-controls="mobile-company">
         Company
-        <svg class="w-5 h-5 text-ash transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <svg class="w-5 h-5 text-slate transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
       </button>
       <div class="hidden mt-1 space-y-0.5 mobile-accordion-content" id="mobile-company">
         {navigation.company.map(item => (
-          <a href={item.href} class="block py-2.5 pl-4 text-sm text-ash hover:text-voltage transition-colors">{item.name}</a>
+          <a href={item.href} class="block py-2.5 pl-4 text-sm text-slate hover:text-steel-blue transition-colors">{item.name}</a>
         ))}
       </div>
     </div>
-    <a href="/training/" class="block py-3 font-medium text-voltage border-b border-steel/30">Training</a>
-    <a href="/contact/" class="block py-3 font-medium text-ash hover:text-voltage">Request a Quote</a>
+    <a href="/training/" class="block py-3 font-medium text-steel-blue border-b border-steel/30">Training</a>
+    <a href="/contact/" class="block py-3 font-medium text-slate hover:text-steel-blue">Request a Quote</a>
 
     <div class="pt-6 space-y-3 border-t border-steel/30 mt-4">
-      <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="flex items-center gap-2 text-voltage font-mono text-sm">
+      <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="flex items-center gap-2 text-steel-blue font-display font-semibold text-sm">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
         {company.phone}
       </a>
-      <a href={`mailto:${company.email}`} class="flex items-center gap-2 text-ash text-sm hover:text-voltage transition-colors">
+      <a href={`mailto:${company.email}`} class="flex items-center gap-2 text-slate text-sm hover:text-steel-blue transition-colors">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
         {company.email}
       </a>

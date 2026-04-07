@@ -6,40 +6,40 @@ import { products, categories } from '../../data/products';
 
 <BaseLayout title="Product Documents | Online Power - Datasheets, Manuals, Specs" description="Download datasheets, technical specifications, user manuals, wiring diagrams, and CAD files for all Online Power products. Engineers: all documents available after registration.">
 
-  <section class="py-20 md:py-28 border-b border-steel/20">
+  <section class="py-20 md:py-28 bg-off-white border-b border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="font-mono text-xs uppercase tracking-widest text-ash mb-6">
-        <a href="/" class="hover:text-voltage transition-colors">Home</a>
+      <nav class="eyebrow text-slate mb-6">
+        <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
         <span class="mx-2 text-steel">/</span>
-        <a href="/support/documents" class="hover:text-voltage transition-colors">Support</a>
+        <a href="/support/documents" class="hover:text-steel-blue transition-colors">Support</a>
         <span class="mx-2 text-steel">/</span>
-        <span class="text-voltage">Documents</span>
+        <span class="text-steel-blue">Documents</span>
       </nav>
-      <h1 class="font-display text-4xl md:text-5xl font-bold text-pure mb-4">Product Documents</h1>
-      <p class="text-lg text-ash max-w-2xl">Datasheets, technical specs, user manuals, wiring diagrams, and CAD files for every Online Power product.</p>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-near-black mb-4">Product Documents</h1>
+      <p class="text-lg text-slate max-w-2xl">Datasheets, technical specs, user manuals, wiring diagrams, and CAD files for every Online Power product.</p>
     </div>
   </section>
 
   <!-- Catalog & Brochures -->
-  <section class="py-12 bg-slate border-b border-steel/20">
+  <section class="py-12 bg-off-white border-b border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Catalog & Brochures</p>
-      <a href="/pdf/olp-trifold.pdf" target="_blank" class="card-glow bg-obsidian rounded-xl p-5 inline-flex items-center gap-4 group">
-        <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center">
-          <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+      <p class="eyebrow text-steel-blue mb-6">Catalog & Brochures</p>
+      <a href="/pdf/olp-trifold.pdf" target="_blank" class="card-glow bg-white rounded-xl p-5 inline-flex items-center gap-4 group">
+        <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center">
+          <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
         </div>
         <div>
-          <p class="text-sm font-medium text-pure group-hover:text-voltage transition-colors">2024 Product Brochure</p>
-          <span class="px-2 py-0.5 border border-voltage/30 rounded text-[10px] font-mono uppercase tracking-wider text-voltage">PDF</span>
+          <p class="text-sm font-medium text-near-black group-hover:text-steel-blue transition-colors">2024 Product Brochure</p>
+          <span class="badge-light text-xs">PDF</span>
         </div>
       </a>
     </div>
   </section>
 
   <!-- Service Documents -->
-  <section class="py-12 bg-obsidian border-b border-steel/20">
+  <section class="py-12 bg-white border-b border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Service & Support</p>
+      <p class="eyebrow text-steel-blue mb-6">Service & Support</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
           { name: 'Service Request', href: 'https://customer.800pwrsrvc.com/customer_forms/service.php' },
@@ -49,9 +49,9 @@ import { products, categories } from '../../data/products';
           { name: 'Parts & Training', href: 'https://customer.800pwrsrvc.com/customer_forms/partstrain.php?src=IN' },
           { name: 'Certificate of Insurance', href: '/pdf/preventivemaint.pdf' },
         ].map(item => (
-          <a href={item.href} target="_blank" rel="noopener" class="card-glow bg-slate rounded-xl p-5 flex items-center gap-4 group">
-            <svg class="w-5 h-5 text-voltage flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            <span class="text-sm font-medium text-pure group-hover:text-voltage transition-colors">{item.name}</span>
+          <a href={item.href} target="_blank" rel="noopener" class="card-glow bg-off-white rounded-xl p-5 flex items-center gap-4 group">
+            <svg class="w-5 h-5 text-steel-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            <span class="text-sm font-medium text-near-black group-hover:text-steel-blue transition-colors">{item.name}</span>
           </a>
         ))}
       </div>
@@ -59,28 +59,28 @@ import { products, categories } from '../../data/products';
   </section>
 
   <!-- Product Documents by Category -->
-  <section class="py-16 md:py-24 bg-slate">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">Product Documents</p>
-      <p class="text-ash mb-10">Select a product category to view available documents. All documents require a quick registration for download.</p>
+      <p class="eyebrow text-steel-blue mb-4">Product Documents</p>
+      <p class="text-slate mb-10">Select a product category to view available documents. All documents require a quick registration for download.</p>
 
       {categories.map(cat => {
         const catProducts = products.filter(p => p.category === cat.slug && p.docs.length > 0);
         if (catProducts.length === 0) return null;
         return (
           <div class="mb-12">
-            <h2 class="font-display text-xl font-bold text-pure mb-2">{cat.name}</h2>
-            <p class="text-sm text-ash mb-6">{cat.tagline}</p>
+            <h2 class="font-display text-xl font-bold text-near-black mb-2">{cat.name}</h2>
+            <p class="text-sm text-slate mb-6">{cat.tagline}</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {catProducts.map(product => (
-                <a href={`/products/${product.slug}`} class="card-glow bg-obsidian rounded-xl p-5 group">
+                <a href={`/products/${product.slug}`} class="card-glow bg-white rounded-xl p-5 group">
                   <div class="flex items-start gap-3">
-                    <div class="w-8 h-8 rounded bg-voltage/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg class="w-4 h-4 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <div class="w-8 h-8 rounded bg-steel-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-4 h-4 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                     </div>
                     <div>
-                      <p class="text-sm font-medium text-pure group-hover:text-voltage transition-colors">{product.name}</p>
-                      <p class="text-xs text-ash mt-0.5">{product.docs.length} document{product.docs.length !== 1 ? 's' : ''} available</p>
+                      <p class="text-sm font-medium text-near-black group-hover:text-steel-blue transition-colors">{product.name}</p>
+                      <p class="text-xs text-slate mt-0.5">{product.docs.length} document{product.docs.length !== 1 ? 's' : ''} available</p>
                     </div>
                   </div>
                 </a>
@@ -90,7 +90,7 @@ import { products, categories } from '../../data/products';
         );
       })}
 
-      <p class="text-center text-sm text-ash mt-8">Need something specific? <a href="/contact" class="text-voltage hover:underline">Contact us</a> and we'll send it directly.</p>
+      <p class="text-center text-sm text-slate mt-8">Need something specific? <a href="/contact" class="text-steel-blue hover:underline">Contact us</a> and we'll send it directly.</p>
     </div>
   </section>
 

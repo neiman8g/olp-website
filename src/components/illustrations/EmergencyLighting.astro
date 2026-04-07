@@ -25,62 +25,62 @@
     }
     .el-dot {
       r: 2.5;
-      fill: #00E5FF;
+      fill: #2A7AE2;
       offset-rotate: 0deg;
       animation: el-flow 2.4s linear infinite;
     }
     .el-warm-glow { animation: el-glow-warm 3s ease-in-out infinite; }
     .el-cyan-glow { animation: el-glow-cyan 2.5s ease-in-out infinite; }
     .el-flash-spark { animation: el-flash 3s ease-in-out infinite; }
-    .el-mono { font-family: 'Space Mono', monospace; }
-    .el-sans { font-family: 'Space Grotesk', sans-serif; }
+    .el-mono { font-family: 'DM Sans', monospace; }
+    .el-sans { font-family: 'Barlow Condensed', sans-serif; }
   </style>
 
   <defs>
     <!-- Warm light glow gradient -->
     <radialGradient id="el-warm-grad">
-      <stop offset="0%" stop-color="#F8FAFC" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#F8FAFC" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
     <!-- Cyan emergency glow gradient -->
     <radialGradient id="el-cyan-grad">
-      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#2A7AE2" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#2A7AE2" stop-opacity="0"/>
     </radialGradient>
     <!-- Inverter feed path (vertical line up through right building) -->
     <path id="el-feed-path" d="M 430,295 L 430,240 L 430,175 L 430,110" fill="none"/>
   </defs>
 
   <!-- ==================== BACKGROUND ==================== -->
-  <rect width="600" height="360" fill="#0A0A0F" rx="0"/>
+  <rect width="600" height="360" fill="#0F2A4A" rx="0"/>
 
   <!-- Divider line -->
-  <line x1="300" y1="30" x2="300" y2="310" stroke="#1C2B3A" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+  <line x1="300" y1="30" x2="300" y2="310" stroke="#1A3F6A" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
 
   <!-- Section headers -->
-  <text x="150" y="28" text-anchor="middle" class="el-sans" fill="#8A9BAE" font-size="10" font-weight="600" letter-spacing="1.5">NORMAL POWER</text>
-  <text x="450" y="28" text-anchor="middle" class="el-sans" fill="#00E5FF" font-size="10" font-weight="600" letter-spacing="1.5">EMERGENCY POWER</text>
+  <text x="150" y="28" text-anchor="middle" class="el-sans" fill="#94AECF" font-size="10" font-weight="600" letter-spacing="1.5">NORMAL POWER</text>
+  <text x="450" y="28" text-anchor="middle" class="el-sans" fill="#2A7AE2" font-size="10" font-weight="600" letter-spacing="1.5">EMERGENCY POWER</text>
 
 
   <!-- ==================== LEFT BUILDING (Normal Power) ==================== -->
   <g transform="translate(50, 45)">
     <!-- Building isometric shell - back wall -->
-    <path d="M 40,20 L 200,20 L 200,260 L 40,260 Z" fill="#111827" stroke="#1C2B3A" stroke-width="1.5"/>
+    <path d="M 40,20 L 200,20 L 200,260 L 40,260 Z" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="1.5"/>
     <!-- Building isometric shell - side wall (30-deg depth) -->
-    <path d="M 200,20 L 230,5 L 230,245 L 200,260 Z" fill="#0D1420" stroke="#1C2B3A" stroke-width="1.5"/>
+    <path d="M 200,20 L 230,5 L 230,245 L 200,260 Z" fill="#0D1420" stroke="#1A3F6A" stroke-width="1.5"/>
     <!-- Roof angled face -->
-    <path d="M 40,20 L 70,5 L 230,5 L 200,20 Z" fill="#151F2E" stroke="#1C2B3A" stroke-width="1.5"/>
+    <path d="M 40,20 L 70,5 L 230,5 L 200,20 Z" fill="#151F2E" stroke="#1A3F6A" stroke-width="1.5"/>
 
     <!-- Floor dividers -->
-    <line x1="40" y1="100" x2="200" y2="100" stroke="#1C2B3A" stroke-width="1"/>
-    <line x1="200" y1="100" x2="230" y2="85" stroke="#1C2B3A" stroke-width="1"/>
-    <line x1="40" y1="180" x2="200" y2="180" stroke="#1C2B3A" stroke-width="1"/>
-    <line x1="200" y1="180" x2="230" y2="165" stroke="#1C2B3A" stroke-width="1"/>
+    <line x1="40" y1="100" x2="200" y2="100" stroke="#1A3F6A" stroke-width="1"/>
+    <line x1="200" y1="100" x2="230" y2="85" stroke="#1A3F6A" stroke-width="1"/>
+    <line x1="40" y1="180" x2="200" y2="180" stroke="#1A3F6A" stroke-width="1"/>
+    <line x1="200" y1="180" x2="230" y2="165" stroke="#1A3F6A" stroke-width="1"/>
 
     <!-- Floor labels -->
-    <text x="30" y="65" text-anchor="end" class="el-mono" fill="#8A9BAE" font-size="8">3F</text>
-    <text x="30" y="145" text-anchor="end" class="el-mono" fill="#8A9BAE" font-size="8">2F</text>
-    <text x="30" y="225" text-anchor="end" class="el-mono" fill="#8A9BAE" font-size="8">1F</text>
+    <text x="30" y="65" text-anchor="end" class="el-mono" fill="#94AECF" font-size="8">3F</text>
+    <text x="30" y="145" text-anchor="end" class="el-mono" fill="#94AECF" font-size="8">2F</text>
+    <text x="30" y="225" text-anchor="end" class="el-mono" fill="#94AECF" font-size="8">1F</text>
 
     <!-- 3rd Floor - ceiling light fixtures + warm glow -->
     <rect x="80" y="28" width="20" height="4" rx="1" fill="#D4D4D8"/>
@@ -123,17 +123,17 @@
   <!-- ==================== RIGHT BUILDING (Emergency Power) ==================== -->
   <g transform="translate(310, 45)">
     <!-- Building isometric shell - back wall -->
-    <path d="M 40,20 L 200,20 L 200,260 L 40,260 Z" fill="#111827" stroke="#1C2B3A" stroke-width="1.5"/>
+    <path d="M 40,20 L 200,20 L 200,260 L 40,260 Z" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="1.5"/>
     <!-- Building isometric shell - side wall -->
-    <path d="M 200,20 L 230,5 L 230,245 L 200,260 Z" fill="#0D1420" stroke="#1C2B3A" stroke-width="1.5"/>
+    <path d="M 200,20 L 230,5 L 230,245 L 200,260 Z" fill="#0D1420" stroke="#1A3F6A" stroke-width="1.5"/>
     <!-- Roof angled face -->
-    <path d="M 40,20 L 70,5 L 230,5 L 200,20 Z" fill="#151F2E" stroke="#1C2B3A" stroke-width="1.5"/>
+    <path d="M 40,20 L 70,5 L 230,5 L 200,20 Z" fill="#151F2E" stroke="#1A3F6A" stroke-width="1.5"/>
 
     <!-- Floor dividers -->
-    <line x1="40" y1="100" x2="200" y2="100" stroke="#1C2B3A" stroke-width="1"/>
-    <line x1="200" y1="100" x2="230" y2="85" stroke="#1C2B3A" stroke-width="1"/>
-    <line x1="40" y1="180" x2="200" y2="180" stroke="#1C2B3A" stroke-width="1"/>
-    <line x1="200" y1="180" x2="230" y2="165" stroke="#1C2B3A" stroke-width="1"/>
+    <line x1="40" y1="100" x2="200" y2="100" stroke="#1A3F6A" stroke-width="1"/>
+    <line x1="200" y1="100" x2="230" y2="85" stroke="#1A3F6A" stroke-width="1"/>
+    <line x1="40" y1="180" x2="200" y2="180" stroke="#1A3F6A" stroke-width="1"/>
+    <line x1="200" y1="180" x2="230" y2="165" stroke="#1A3F6A" stroke-width="1"/>
 
     <!-- Broken utility power line with flash -->
     <line x1="-15" y1="240" x2="5" y2="240" stroke="#FF3B3B" stroke-width="2" opacity="0.5"/>
@@ -150,26 +150,26 @@
     <line x1="-15" y1="247" x2="8" y2="253" stroke="#FF3B3B" stroke-width="0.8" opacity="0.6"/>
 
     <!-- OLP Inverter unit at base -->
-    <rect x="95" y="240" width="60" height="22" rx="3" fill="#0D1420" stroke="#00E5FF" stroke-width="1.5"/>
-    <text x="125" y="254" text-anchor="middle" class="el-sans" fill="#00E5FF" font-size="9" font-weight="700">OLP</text>
+    <rect x="95" y="240" width="60" height="22" rx="3" fill="#0D1420" stroke="#2A7AE2" stroke-width="1.5"/>
+    <text x="125" y="254" text-anchor="middle" class="el-sans" fill="#2A7AE2" font-size="9" font-weight="700">OLP</text>
     <!-- Inverter status LED -->
-    <circle cx="102" cy="246" r="2" fill="#00E5FF">
+    <circle cx="102" cy="246" r="2" fill="#2A7AE2">
       <animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/>
     </circle>
 
     <!-- 90 MIN badge -->
-    <rect x="160" y="243" width="34" height="14" rx="2" fill="none" stroke="#00E5FF" stroke-width="0.8" opacity="0.7"/>
-    <text x="177" y="253" text-anchor="middle" class="el-mono" fill="#00E5FF" font-size="6.5" opacity="0.9">90 MIN</text>
+    <rect x="160" y="243" width="34" height="14" rx="2" fill="none" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7"/>
+    <text x="177" y="253" text-anchor="middle" class="el-mono" fill="#2A7AE2" font-size="6.5" opacity="0.9">90 MIN</text>
 
     <!-- Battery indicator -->
-    <rect x="97" y="265" width="22" height="8" rx="1.5" fill="none" stroke="#8A9BAE" stroke-width="0.8"/>
-    <rect x="119" y="267" width="2" height="4" rx="0.5" fill="#8A9BAE"/>
+    <rect x="97" y="265" width="22" height="8" rx="1.5" fill="none" stroke="#94AECF" stroke-width="0.8"/>
+    <rect x="119" y="267" width="2" height="4" rx="0.5" fill="#94AECF"/>
     <rect x="99" y="267" width="5" height="4" rx="0.5" fill="#34D399"/>
     <rect x="105" y="267" width="5" height="4" rx="0.5" fill="#34D399"/>
     <rect x="111" y="267" width="5" height="4" rx="0.5" fill="#34D399"/>
 
     <!-- Emergency power feed riser (vertical cyan line from inverter up) -->
-    <line x1="120" y1="240" x2="120" y2="25" stroke="#00E5FF" stroke-width="1.5" opacity="0.4"/>
+    <line x1="120" y1="240" x2="120" y2="25" stroke="#2A7AE2" stroke-width="1.5" opacity="0.4"/>
 
     <!-- Animated power flow dots along the riser -->
     <circle style="offset-path:path('M 120,240 L 120,25');animation-delay:0s;" class="el-dot"/>
@@ -178,12 +178,12 @@
     <circle style="offset-path:path('M 120,240 L 120,25');animation-delay:1.8s;" class="el-dot"/>
 
     <!-- Branch lines from riser to each floor's lights -->
-    <line x1="120" y1="55" x2="90" y2="55" stroke="#00E5FF" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="55" x2="175" y2="55" stroke="#00E5FF" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="135" x2="90" y2="135" stroke="#00E5FF" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="135" x2="175" y2="135" stroke="#00E5FF" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="215" x2="90" y2="215" stroke="#00E5FF" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="215" x2="175" y2="215" stroke="#00E5FF" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="55" x2="90" y2="55" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="55" x2="175" y2="55" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="135" x2="90" y2="135" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="135" x2="175" y2="135" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="215" x2="90" y2="215" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="215" x2="175" y2="215" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
 
     <!-- 3rd Floor - emergency lights ON with cyan glow -->
     <rect x="80" y="28" width="20" height="4" rx="1" fill="#B0E0E6"/>
@@ -225,18 +225,18 @@
 
 
   <!-- ==================== BOTTOM CAPTION ==================== -->
-  <text x="300" y="345" text-anchor="middle" class="el-mono" fill="#2A3A4A" font-size="9">// EMERGENCY LIGHTING &middot; UL 924</text>
+  <text x="300" y="345" text-anchor="middle" class="el-mono" fill="#1A3F6A" font-size="9">// EMERGENCY LIGHTING &middot; UL 924</text>
 
   <!-- Small connection indicator arrows -->
   <!-- Left side: green power indicator -->
   <circle cx="52" cy="320" r="4" fill="none" stroke="#34D399" stroke-width="1"/>
   <circle cx="52" cy="320" r="1.5" fill="#34D399"/>
-  <text x="60" y="323" class="el-mono" fill="#8A9BAE" font-size="7">MAINS OK</text>
+  <text x="60" y="323" class="el-mono" fill="#94AECF" font-size="7">MAINS OK</text>
 
   <!-- Right side: cyan emergency indicator -->
-  <circle cx="370" cy="320" r="4" fill="none" stroke="#00E5FF" stroke-width="1"/>
-  <circle cx="370" cy="320" r="1.5" fill="#00E5FF">
+  <circle cx="370" cy="320" r="4" fill="none" stroke="#2A7AE2" stroke-width="1"/>
+  <circle cx="370" cy="320" r="1.5" fill="#2A7AE2">
     <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
   </circle>
-  <text x="378" y="323" class="el-mono" fill="#8A9BAE" font-size="7">INVERTER ACTIVE</text>
+  <text x="378" y="323" class="el-mono" fill="#94AECF" font-size="7">INVERTER ACTIVE</text>
 </svg>

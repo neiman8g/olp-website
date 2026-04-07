@@ -1,30 +1,30 @@
 <!-- SearchModal.astro — Pagefind search overlay -->
 <div id="search-modal" class="hidden fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label="Search products">
   <!-- Backdrop -->
-  <div id="search-backdrop" class="absolute inset-0 bg-obsidian/80 backdrop-blur-sm"></div>
+  <div id="search-backdrop" class="absolute inset-0 bg-near-black/60 backdrop-blur-sm"></div>
 
   <!-- Search container -->
   <div class="relative flex flex-col items-center pt-20 sm:pt-32 px-4 h-full overflow-y-auto">
     <div class="w-full max-w-2xl">
       <!-- Search input -->
       <div class="relative">
-        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ash pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         <input
           id="search-input"
           type="text"
           placeholder="Search products, specs, certifications..."
-          class="w-full pl-12 pr-12 py-4 bg-slate border border-steel/50 rounded-xl text-pure text-lg font-sans placeholder:text-ash/60 focus:outline-none focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30"
+          class="w-full pl-12 pr-12 py-4 bg-white border border-steel-gray rounded-xl text-near-black text-lg font-sans placeholder:text-slate/50 focus:outline-none focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/20"
           autocomplete="off"
           autofocus
         />
-        <button id="search-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-ash hover:text-pure transition-colors" aria-label="Close search">
+        <button id="search-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate hover:text-near-black transition-colors" aria-label="Close search">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </div>
 
       <!-- Keyboard hint -->
-      <p class="mt-3 text-xs text-ash/50 font-mono text-center" id="search-hint">
-        <kbd class="px-1.5 py-0.5 bg-steel/50 rounded text-[10px]">ESC</kbd> to close
+      <p class="mt-3 text-xs text-slate/50 font-display text-center" id="search-hint">
+        <kbd class="px-1.5 py-0.5 bg-steel-gray/50 rounded text-[10px]">ESC</kbd> to close
       </p>
 
       <!-- Results container -->
@@ -32,7 +32,7 @@
 
       <!-- Empty state -->
       <div id="search-empty" class="hidden mt-12 text-center">
-        <p class="text-ash text-sm">No results found. Try a different search term.</p>
+        <p class="text-slate text-sm">No results found. Try a different search term.</p>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
         pagefind = await import('/pagefind/pagefind.js');
         await pagefind.init();
       } catch (e) {
-        resultsEl.innerHTML = '<p class="text-ash text-sm text-center">Search index not available. Run a production build to enable search.</p>';
+        resultsEl.innerHTML = '<p class="text-slate text-sm text-center">Search index not available. Run a production build to enable search.</p>';
         input.focus();
         return;
       }
@@ -104,10 +104,10 @@
 
     emptyEl.classList.add('hidden');
     resultsEl.innerHTML = results.map(r => `
-      <a href="${r.url}" class="block bg-slate/80 border border-steel/30 rounded-lg p-4 hover:border-voltage/40 transition-colors group">
-        <h3 class="font-display text-sm font-semibold text-pure group-hover:text-voltage transition-colors">${r.meta?.title || r.url}</h3>
-        <p class="text-xs text-ash mt-1 line-clamp-2">${r.excerpt || ''}</p>
-        <span class="text-[10px] font-mono text-ash/50 mt-2 block">${r.url}</span>
+      <a href="${r.url}" class="block bg-white border border-steel-gray rounded-lg p-4 hover:border-steel-blue/40 transition-colors group">
+        <h3 class="font-display text-sm font-semibold text-near-black group-hover:text-steel-blue transition-colors">${r.meta?.title || r.url}</h3>
+        <p class="text-xs text-slate mt-1 line-clamp-2">${r.excerpt || ''}</p>
+        <span class="text-[10px] font-display text-slate/50 mt-2 block">${r.url}</span>
       </a>
     `).join('');
   }

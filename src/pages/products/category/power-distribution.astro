@@ -42,26 +42,26 @@ const applications = [
 >
 
   <!-- HERO -->
-  <section class="py-16 md:py-24 border-b border-steel/20">
+  <section class="py-16 md:py-24 bg-off-white border-b border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="font-mono text-xs uppercase tracking-widest text-ash mb-8">
-        <a href="/" class="hover:text-voltage transition-colors">Home</a>
+      <nav class="eyebrow text-slate mb-8">
+        <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
         <span class="mx-2 text-steel">/</span>
-        <a href="/products" class="hover:text-voltage transition-colors">Products</a>
+        <a href="/products" class="hover:text-steel-blue transition-colors">Products</a>
         <span class="mx-2 text-steel">/</span>
-        <span class="text-voltage">Power Distribution</span>
+        <span class="text-steel-blue">Power Distribution</span>
       </nav>
 
       <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
         <div class="lg:col-span-3">
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">UL Listed</span>
-            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">NEMA</span>
-            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">Made in USA</span>
+            <span class="badge-light">UL Listed</span>
+            <span class="badge-light">NEMA</span>
+            <span class="badge-light">Made in USA</span>
           </div>
 
-          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-5">Power Distribution Units</h1>
-          <p class="text-lg text-ash leading-relaxed mb-8">
+          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-5">Power Distribution Units</h1>
+          <p class="text-lg text-slate leading-relaxed mb-8">
             When off-the-shelf PDUs do not fit your voltage, your enclosure, or your monitoring requirements, you need a manufacturer who builds to your specification rather than a catalog that forces you to compromise. Online Power designs and manufactures custom power distribution units from their Los Angeles facility, integrating voltage regulation, isolation, branch circuit monitoring, and power distribution into a single engineered solution. From rack-mount units serving individual cabinets to floor-standing systems feeding entire data center rows, every PDU is built to order with the outlet configurations, breaker arrangements, and communication protocols your application demands. With 50 years of custom power manufacturing and UL 60601-1 capability for medical OEM applications, Online Power builds the PDU that does not exist in anyone else's catalog.
           </p>
 
@@ -72,9 +72,9 @@ const applications = [
               { label: 'Accuracy', value: '±1% power measurement' },
               { label: 'Manufacturing', value: 'Build to order · ISO 9001' },
             ].map(s => (
-              <div class="bg-slate border border-steel/30 rounded-lg p-3 text-center">
-                <p class="font-mono text-[10px] uppercase tracking-widest text-ash mb-1">{s.label}</p>
-                <p class="font-display text-sm font-bold text-pure">{s.value}</p>
+              <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
+                <p class="font-display text-[9px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
+                <p class="font-display text-sm font-bold text-near-black">{s.value}</p>
               </div>
             ))}
           </div>
@@ -82,7 +82,7 @@ const applications = [
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
             <Button href="/contact" size="lg">Send Us Your One Line Diagram for a Custom PDU Design in 48 Hours</Button>
           </div>
-          <p class="font-mono text-xs text-ash">Responds within 2 business hours</p>
+          <p class="font-display text-xs text-slate">Responds within 2 business hours</p>
         </div>
 
         <div class="hidden lg:block lg:col-span-2">
@@ -93,11 +93,11 @@ const applications = [
   </section>
 
   <!-- TAB SECTION -->
-  <section class="py-16 md:py-24 bg-slate">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex gap-1 border-b border-steel/30 mb-10">
+      <div class="flex gap-1 border-b border-steel-gray mb-10">
         {['Overview', 'Specifications', 'Documents'].map((tab, i) => (
-          <button class={`tab-btn px-5 py-3 text-sm font-medium transition-colors border-b-2 ${i === 0 ? 'text-voltage border-voltage' : 'text-ash border-transparent hover:text-pure'}`} data-tab={tab.toLowerCase()}>
+          <button class={`tab-btn px-5 py-3 text-sm font-medium transition-colors border-b-2 ${i === 0 ? 'text-steel-blue border-steel-blue' : 'text-slate border-transparent hover:text-near-black'}`} data-tab={tab.toLowerCase()}>
             {tab}
           </button>
         ))}
@@ -106,37 +106,37 @@ const applications = [
       <!-- OVERVIEW TAB -->
       <div class="tab-content" data-tab="overview">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-          <div class="card-glow bg-obsidian rounded-xl p-6">
-            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"></path></svg>
+          <div class="card-glow bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Regulation, isolation, and distribution in one chassis</h3>
-            <p class="text-sm text-ash">Standard PDUs just distribute power. Online Power integrates voltage regulation, isolation transformers, and power distribution into single units giving you fewer boxes, less complexity, and a single point of accountability for your entire power chain.</p>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-2">Regulation, isolation, and distribution in one chassis</h3>
+            <p class="text-sm text-slate">Standard PDUs just distribute power. Online Power integrates voltage regulation, isolation transformers, and power distribution into single units giving you fewer boxes, less complexity, and a single point of accountability for your entire power chain.</p>
           </div>
-          <div class="card-glow bg-obsidian rounded-xl p-6">
-            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+          <div class="card-glow bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Custom outlet configurations for any application</h3>
-            <p class="text-sm text-ash">NEMA 5-15, NEMA 5-20, NEMA L6-30, IEC C13, IEC C19, bus bars, MIL-spec connectors, and hospital grade receptacles configured exactly as your equipment requires. No adapter cables, no outlet conversion, and no compromises on connection integrity.</p>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-2">Custom outlet configurations for any application</h3>
+            <p class="text-sm text-slate">NEMA 5-15, NEMA 5-20, NEMA L6-30, IEC C13, IEC C19, bus bars, MIL-spec connectors, and hospital grade receptacles configured exactly as your equipment requires. No adapter cables, no outlet conversion, and no compromises on connection integrity.</p>
           </div>
-          <div class="card-glow bg-obsidian rounded-xl p-6">
-            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35"></path></svg>
+          <div class="card-glow bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Branch circuit monitoring at plus or minus 1 percent accuracy</h3>
-            <p class="text-sm text-ash">Track voltage, current, power factor, and kWh at the individual circuit level for capacity planning, phase balancing, tenant billing, and PUE reporting. Remote visibility via SNMP, Modbus, or web interface means your facility team sees real-time load data from anywhere.</p>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-2">Branch circuit monitoring at plus or minus 1 percent accuracy</h3>
+            <p class="text-sm text-slate">Track voltage, current, power factor, and kWh at the individual circuit level for capacity planning, phase balancing, tenant billing, and PUE reporting. Remote visibility via SNMP, Modbus, or web interface means your facility team sees real-time load data from anywhere.</p>
           </div>
         </div>
 
         <!-- Technical Callout -->
-        <div class="bg-bg-elevated border-l-2 border-voltage p-6 mb-10" style="border-radius: 0 12px 12px 0;">
-          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-3">What your spec sheet won't tell you</p>
-          <p class="text-sm text-ash leading-relaxed">AI and HPC workloads are pushing data center rack densities to 30 to 60 kilowatts per cabinet, far beyond the 5 to 8 kilowatts that standard rack PDUs support. Floor-standing PDUs feeding multiple racks through sub panels are increasingly necessary but catalog PDU vendors do not offer the custom configurations these high density deployments require. For medical OEM applications, the PDU embedded in an imaging system must meet UL 60601-1 medical grade requirements including leakage current, isolation, and EMC specifications that no standard data center PDU carries. For colocation billing, monitoring grade accuracy of plus or minus 2 to 3 percent is not adequate for tenant billing. You need plus or minus 1 percent or better conforming to ISO/IEC 62053-21. Verify your PDU vendor's measurement accuracy specification because many quote accuracy at full load but degrade significantly at the 20 to 40 percent load points where most circuits actually operate.</p>
+        <div class="bg-off-white border-l-2 border-steel-blue p-6 mb-10" style="border-radius: 0 12px 12px 0;">
+          <p class="eyebrow text-steel-blue mb-3">What your spec sheet won't tell you</p>
+          <p class="text-sm text-slate leading-relaxed">AI and HPC workloads are pushing data center rack densities to 30 to 60 kilowatts per cabinet, far beyond the 5 to 8 kilowatts that standard rack PDUs support. Floor-standing PDUs feeding multiple racks through sub panels are increasingly necessary but catalog PDU vendors do not offer the custom configurations these high density deployments require. For medical OEM applications, the PDU embedded in an imaging system must meet UL 60601-1 medical grade requirements including leakage current, isolation, and EMC specifications that no standard data center PDU carries. For colocation billing, monitoring grade accuracy of plus or minus 2 to 3 percent is not adequate for tenant billing. You need plus or minus 1 percent or better conforming to ISO/IEC 62053-21. Verify your PDU vendor's measurement accuracy specification because many quote accuracy at full load but degrade significantly at the 20 to 40 percent load points where most circuits actually operate.</p>
         </div>
 
         <!-- Codes & Standards -->
-        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">Codes &amp; Standards</p>
+        <p class="eyebrow text-steel-blue mb-4">Codes &amp; Standards</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-16">
           {[
             { code: 'UL 891', desc: 'Switchboards' },
@@ -146,60 +146,60 @@ const applications = [
             { code: 'NEC Article 645', desc: 'Information Technology Equipment' },
             { code: 'ISO/IEC 62053-21', desc: 'Power Measurement Accuracy' },
           ].map(item => (
-            <div class="bg-obsidian border border-steel/30 rounded-lg p-4">
-              <p class="font-display font-bold text-voltage text-sm">{item.code}</p>
-              <p class="text-xs text-ash mt-0.5">{item.desc}</p>
+            <div class="bg-white border border-steel-gray rounded-lg p-4">
+              <p class="font-display font-bold text-steel-blue text-sm">{item.code}</p>
+              <p class="text-xs text-slate mt-0.5">{item.desc}</p>
             </div>
           ))}
         </div>
 
-        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Where It Gets Specified</p>
+        <p class="eyebrow text-steel-blue mb-6">Where It Gets Specified</p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-16">
           {applications.map(app => (
-            <div class="bg-obsidian border border-steel/30 rounded-lg p-4 flex items-center gap-3">
-              <svg class="w-5 h-5 text-voltage flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={app.icon}></path></svg>
-              <span class="text-sm text-pure">{app.name}</span>
+            <div class="bg-white border border-steel-gray rounded-lg p-4 flex items-center gap-3">
+              <svg class="w-5 h-5 text-steel-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={app.icon}></path></svg>
+              <span class="text-sm text-near-black">{app.name}</span>
             </div>
           ))}
         </div>
 
-        <div class="bg-obsidian border-l-2 border-voltage rounded-r-xl p-6">
-          <p class="text-sm text-pure font-medium mb-1">Custom Configuration</p>
-          <p class="text-sm text-ash">Every power distribution unit is built to your specific requirements. Contact our engineering team for custom panel board configurations and load analysis.</p>
+        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+          <p class="text-sm text-near-black font-medium mb-1">Custom Configuration</p>
+          <p class="text-sm text-slate">Every power distribution unit is built to your specific requirements. Contact our engineering team for custom panel board configurations and load analysis.</p>
         </div>
       </div>
 
       <!-- SPECIFICATIONS TAB -->
       <div class="tab-content hidden" data-tab="specifications">
-        <div class="bg-obsidian border border-steel/30 rounded-xl overflow-hidden mb-8">
+        <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
           {specs.map(([label, value], i) => (
-            <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-obsidian' : 'bg-slate/30'} ${i < specs.length - 1 ? 'border-b border-steel/20' : ''}`}>
-              <span class="text-sm text-ash font-medium">{label}</span>
-              <span class="text-sm text-pure font-medium text-right">{value}</span>
+            <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
+              <span class="text-sm text-slate font-medium">{label}</span>
+              <span class="text-sm text-near-black font-medium text-right">{value}</span>
             </div>
           ))}
         </div>
-        <div class="bg-obsidian border-l-2 border-voltage rounded-r-xl p-6">
-          <p class="text-sm text-pure">Need a custom specification? <a href="/contact" class="text-voltage hover:underline">Our engineering team will work with you &rarr;</a></p>
+        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+          <p class="text-sm text-near-black">Need a custom specification? <a href="/contact" class="text-steel-blue hover:underline">Our engineering team will work with you &rarr;</a></p>
         </div>
       </div>
 
       <!-- DOCUMENTS TAB -->
       <div class="tab-content hidden" data-tab="documents">
-        <p class="font-mono text-xs text-ash mb-6">All documents available for immediate download after a quick registration.</p>
+        <p class="font-display text-xs text-slate mb-6">All documents available for immediate download after a quick registration.</p>
         <DocumentGate productSlug="power-pac" />
       </div>
     </div>
   </section>
 
   <!-- PRODUCT MODELS -->
-  <section class="py-16 md:py-24 bg-obsidian">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">{categoryProducts.length} Models Available</p>
+      <p class="eyebrow text-steel-blue mb-8">{categoryProducts.length} Models Available</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {categoryProducts.map(p => (
-          <a href={`/products/${p.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
-            <div class="h-[200px] bg-bg-elevated flex items-center justify-center p-4">
+          <a href={`/products/${p.slug}`} class="card-glow card-top-accent bg-white rounded-xl overflow-hidden group">
+            <div class="h-[200px] bg-off-white flex items-center justify-center p-4">
               {typeof getProductImage(p.image) === 'string' ? (
                 <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" />
               ) : (
@@ -207,10 +207,10 @@ const applications = [
               )}
             </div>
             <div class="p-6">
-            <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">{p.name}</h3>
-            <p class="font-mono text-xs text-voltage mb-3">{p.tagline}</p>
-            <p class="text-sm text-ash mb-4 line-clamp-2">{p.description}</p>
-            <span class="text-sm font-medium text-voltage">View Details &rarr;</span>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
+            <p class="font-display font-semibold text-xs text-steel-blue mb-3">{p.tagline}</p>
+            <p class="text-sm text-slate mb-4 line-clamp-2">{p.description}</p>
+            <span class="text-sm font-medium text-steel-blue">View Details &rarr;</span>
             </div>
           </a>
         ))}
@@ -219,36 +219,36 @@ const applications = [
   </section>
 
   <!-- TESTIMONIAL -->
-  <section class="py-16 md:py-24 bg-slate">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <div class="bg-obsidian border border-steel/30 rounded-2xl p-8 md:p-10">
+      <div class="bg-white border border-steel-gray rounded-2xl p-8 md:p-10">
         <div class="flex gap-1 mb-4">
           {[1,2,3,4,5].map(() => (
-            <svg class="w-5 h-5 text-voltage" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg class="w-5 h-5 text-steel-blue" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
           ))}
         </div>
-        <p class="text-pure text-lg leading-relaxed mb-6 italic">"In these uncertain times dealing with COVID-19, the US Government needed to build warehouses to help fight this tragedy. Time was critical so we turned to Online Power to provide 16 emergency lighting inverters. Online Power was able to build and ship all 16 units in 10 days. Great job Online Power."</p>
-        <div class="border-t border-steel/30 pt-4">
-          <p class="font-display font-semibold text-pure">Ready Electric Company</p>
-          <p class="text-sm text-ash">Electrical Contractor, Eckart Supply</p>
+        <p class="text-near-black text-lg leading-relaxed mb-6 italic">"In these uncertain times dealing with COVID-19, the US Government needed to build warehouses to help fight this tragedy. Time was critical so we turned to Online Power to provide 16 emergency lighting inverters. Online Power was able to build and ship all 16 units in 10 days. Great job Online Power."</p>
+        <div class="border-t border-steel-gray pt-4">
+          <p class="font-display font-semibold text-near-black">Ready Electric Company</p>
+          <p class="text-sm text-slate">Electrical Contractor, Eckart Supply</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA BAND -->
-  <section class="bg-voltage py-12 md:py-16">
+  <section class="bg-deep-navy py-12 md:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="font-display text-3xl font-bold text-obsidian mb-4">Ready to Spec This Product?</h2>
+      <h2 class="font-display text-3xl font-bold text-white mb-4">Ready to Spec This Product?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Send Us Your One Line Diagram for a Custom PDU Design in 48 Hours</a>
-        <a href="/training" class="px-8 py-3.5 border-2 border-obsidian/30 text-obsidian font-semibold rounded-lg hover:bg-obsidian/10 transition-colors text-sm">Register for Training</a>
+        <a href="/contact" class="px-8 py-3.5 bg-steel-blue text-white font-semibold rounded-lg hover:bg-steel-blue/90 transition-colors text-sm">Send Us Your One Line Diagram for a Custom PDU Design in 48 Hours</a>
+        <a href="/training" class="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-sm">Register for Training</a>
       </div>
     </div>
   </section>
 
   <!-- MOBILE STICKY CTA -->
-  <div class="fixed bottom-0 left-0 right-0 bg-obsidian/95 backdrop-blur border-t border-steel/30 p-3 z-40 lg:hidden" style="padding-bottom:max(12px, env(safe-area-inset-bottom));" id="mobile-sticky-cta" style="display:none;">
+  <div class="fixed bottom-0 left-0 right-0 bg-deep-navy/95 backdrop-blur border-t border-steel-gray p-3 z-40 lg:hidden" style="padding-bottom:max(12px, env(safe-area-inset-bottom));" id="mobile-sticky-cta" style="display:none;">
     <Button href="/contact" size="lg" icon="bolt" fullWidth>Request a Quote</Button>
   </div>
 
@@ -259,11 +259,11 @@ const applications = [
     btn.addEventListener('click', function() {
       var tab = btn.getAttribute('data-tab');
       document.querySelectorAll('.tab-btn').forEach(function(b) {
-        b.classList.remove('text-voltage', 'border-voltage');
-        b.classList.add('text-ash', 'border-transparent');
+        b.classList.remove('text-steel-blue', 'border-steel-blue');
+        b.classList.add('text-slate', 'border-transparent');
       });
-      btn.classList.remove('text-ash', 'border-transparent');
-      btn.classList.add('text-voltage', 'border-voltage');
+      btn.classList.remove('text-slate', 'border-transparent');
+      btn.classList.add('text-steel-blue', 'border-steel-blue');
       document.querySelectorAll('.tab-content').forEach(function(c) {
         c.classList.add('hidden');
       });

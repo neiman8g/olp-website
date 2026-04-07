@@ -39,31 +39,31 @@ const gatedDocs = docs.filter(d => isGated(d));
 
 {docs.length > 0 && (
   <section class="py-16 md:py-20" id={`docs-${productSlug}`}>
-    <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Documents &amp; Downloads</p>
+    <p class="eyebrow text-steel-blue mb-6">Documents &amp; Downloads</p>
 
     {/* Open documents — direct download, no gate */}
     {openDocs.length > 0 && (
       <div class="mb-6">
-        <p class="text-xs text-ash mb-3 flex items-center gap-2">
-          <svg class="w-3.5 h-3.5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+        <p class="text-xs text-slate mb-3 flex items-center gap-2">
+          <svg class="w-3.5 h-3.5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
           Free Download
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {openDocs.map(doc => {
             const ext = doc.url.split('.').pop()?.toUpperCase() || 'PDF';
             return (
-              <a href={doc.url} target="_blank" rel="noopener" class="card-glow bg-slate/50 rounded-xl p-5 flex items-start gap-4 group">
-                <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+              <a href={doc.url} target="_blank" rel="noopener" class="card-glow bg-white rounded-xl p-5 flex items-start gap-4 group">
+                <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                 </div>
                 <div class="flex-1 min-w-0">
-                  <p class="text-sm font-medium text-pure group-hover:text-voltage transition-colors truncate">{doc.label}</p>
+                  <p class="text-sm font-medium text-near-black group-hover:text-steel-blue transition-colors truncate">{doc.label}</p>
                   <div class="flex items-center gap-2 mt-1.5">
-                    <span class="px-2 py-0.5 border border-voltage/30 rounded text-[10px] font-mono uppercase tracking-wider text-voltage">{ext}</span>
-                    <span class="text-xs text-ash">Direct Download</span>
+                    <span class="px-2 py-0.5 border border-steel-blue/30 rounded text-[10px] font-display font-semibold uppercase tracking-[0.1em] text-steel-blue">{ext}</span>
+                    <span class="text-xs text-slate">Direct Download</span>
                   </div>
                 </div>
-                <svg class="w-5 h-5 text-ash group-hover:text-voltage transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <svg class="w-5 h-5 text-slate group-hover:text-steel-blue transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               </a>
             );
           })}
@@ -74,8 +74,8 @@ const gatedDocs = docs.filter(d => isGated(d));
     {/* Gated documents — email capture required */}
     {gatedDocs.length > 0 && (
       <div>
-        <p class="text-xs text-ash mb-3 flex items-center gap-2">
-          <svg class="w-3.5 h-3.5 text-ash" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        <p class="text-xs text-slate mb-3 flex items-center gap-2">
+          <svg class="w-3.5 h-3.5 text-slate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
           Registration Required
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -83,28 +83,28 @@ const gatedDocs = docs.filter(d => isGated(d));
             const ext = doc.url.split('.').pop()?.toUpperCase() || 'PDF';
             return (
               <button
-                class="doc-download-btn card-glow bg-slate/50 rounded-xl p-5 text-left group flex items-start gap-4 w-full"
+                class="doc-download-btn card-glow bg-white rounded-xl p-5 text-left group flex items-start gap-4 w-full"
                 data-url={doc.url}
                 data-name={`${product?.name} - ${doc.label}`}
                 data-product={product?.name}
               >
-                <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center flex-shrink-0">
+                <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0">
                   {ext === 'DWG' || ext === 'DXF' ? (
-                    <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path></svg>
+                    <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path></svg>
                   ) : ext === 'DOC' || ext === 'DOCX' ? (
-                    <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                   ) : (
-                    <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                   )}
                 </div>
                 <div class="flex-1 min-w-0">
-                  <p class="text-sm font-medium text-pure group-hover:text-voltage transition-colors truncate">{doc.label}</p>
+                  <p class="text-sm font-medium text-near-black group-hover:text-steel-blue transition-colors truncate">{doc.label}</p>
                   <div class="flex items-center gap-2 mt-1.5">
-                    <span class="px-2 py-0.5 border border-voltage/30 rounded text-[10px] font-mono uppercase tracking-wider text-voltage">{ext}</span>
-                    <span class="text-xs text-ash">Register to Download</span>
+                    <span class="px-2 py-0.5 border border-steel-blue/30 rounded text-[10px] font-display font-semibold uppercase tracking-[0.1em] text-steel-blue">{ext}</span>
+                    <span class="text-xs text-slate">Register to Download</span>
                   </div>
                 </div>
-                <svg class="w-4 h-4 text-ash/50 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <svg class="w-4 h-4 text-slate/50 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
               </button>
             );
           })}
@@ -116,37 +116,37 @@ const gatedDocs = docs.filter(d => isGated(d));
 
 <!-- Email Gate Modal -->
 <div id="doc-gate-modal" class="fixed inset-0 z-[100] hidden">
-  <div class="absolute inset-0 bg-obsidian/80 backdrop-blur-sm" id="doc-gate-overlay"></div>
+  <div class="absolute inset-0 bg-white/80 backdrop-blur-sm" id="doc-gate-overlay"></div>
   <div class="relative flex items-center justify-center min-h-screen p-4">
-    <div class="bg-slate border border-steel/30 rounded-2xl p-6 md:p-8 w-full max-w-md shadow-2xl shadow-black/50 relative">
-      <button id="doc-gate-close" class="absolute top-4 right-4 text-ash hover:text-pure transition-colors">
+    <div class="bg-off-white border border-steel-gray rounded-2xl p-6 md:p-8 w-full max-w-md shadow-2xl shadow-black/50 relative">
+      <button id="doc-gate-close" class="absolute top-4 right-4 text-slate hover:text-near-black transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
 
       <div class="text-center mb-6">
-        <div class="w-12 h-12 rounded-xl bg-voltage/10 flex items-center justify-center mx-auto mb-3">
-          <svg class="w-6 h-6 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        <div class="w-12 h-12 rounded-xl bg-steel-blue/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-6 h-6 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
         </div>
-        <h3 class="font-display text-xl font-bold text-pure" id="doc-gate-title">Get Document</h3>
-        <p class="text-sm text-ash mt-1" id="doc-gate-subtitle">Enter your details to download</p>
+        <h3 class="font-display text-xl font-bold text-near-black" id="doc-gate-title">Get Document</h3>
+        <p class="text-sm text-slate mt-1" id="doc-gate-subtitle">Enter your details to download</p>
       </div>
 
       <form id="doc-gate-form" class="space-y-4">
         <div>
-          <label class="block text-xs font-mono uppercase tracking-wider text-ash mb-1.5">First Name *</label>
-          <input type="text" name="firstName" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+          <label class="block text-xs font-display font-semibold uppercase tracking-[0.1em] text-slate mb-1.5">First Name *</label>
+          <input type="text" name="firstName" required class="w-full px-4 py-3 bg-white border border-steel-gray rounded-lg text-sm text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
         </div>
         <div>
-          <label class="block text-xs font-mono uppercase tracking-wider text-ash mb-1.5">Email *</label>
-          <input type="email" name="email" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+          <label class="block text-xs font-display font-semibold uppercase tracking-[0.1em] text-slate mb-1.5">Email *</label>
+          <input type="email" name="email" required class="w-full px-4 py-3 bg-white border border-steel-gray rounded-lg text-sm text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
         </div>
         <div>
-          <label class="block text-xs font-mono uppercase tracking-wider text-ash mb-1.5">Company *</label>
-          <input type="text" name="company" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+          <label class="block text-xs font-display font-semibold uppercase tracking-[0.1em] text-slate mb-1.5">Company *</label>
+          <input type="text" name="company" required class="w-full px-4 py-3 bg-white border border-steel-gray rounded-lg text-sm text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
         </div>
         <div>
-          <label class="block text-xs font-mono uppercase tracking-wider text-ash mb-1.5">Role *</label>
-          <select name="role" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-ash focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors">
+          <label class="block text-xs font-display font-semibold uppercase tracking-[0.1em] text-slate mb-1.5">Role *</label>
+          <select name="role" required class="w-full px-4 py-3 bg-white border border-steel-gray rounded-lg text-sm text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
             <option value="">Select your role...</option>
             <option value="Electrical Engineer">Electrical Engineer</option>
             <option value="Lighting Designer">Lighting Designer</option>
@@ -165,9 +165,9 @@ const gatedDocs = docs.filter(d => isGated(d));
       </form>
 
       <div id="doc-gate-success" class="hidden text-center py-6">
-        <svg class="w-12 h-12 text-voltage mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-        <p class="font-display text-lg font-bold text-pure mb-1">Download Starting</p>
-        <p class="text-sm text-ash">Your document is downloading now.</p>
+        <svg class="w-12 h-12 text-steel-blue mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <p class="font-display text-lg font-bold text-near-black mb-1">Download Starting</p>
+        <p class="text-sm text-slate">Your document is downloading now.</p>
       </div>
     </div>
   </div>

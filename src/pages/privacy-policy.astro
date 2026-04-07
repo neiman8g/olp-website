@@ -5,36 +5,36 @@ import { company } from '../data/company';
 
 <BaseLayout title="Privacy Policy | Online Power" description="Online Power privacy policy. How we collect, use, and protect your personal information.">
 
-  <section class="py-20 md:py-28 border-b border-steel/20">
+  <section class="py-20 md:py-28 bg-off-white border-b border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="font-mono text-xs uppercase tracking-widest text-ash mb-6">
-        <a href="/" class="hover:text-voltage transition-colors">Home</a>
+      <nav class="eyebrow text-slate mb-6">
+        <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
         <span class="mx-2 text-steel">/</span>
-        <span class="text-voltage">Privacy Policy</span>
+        <span class="text-steel-blue">Privacy Policy</span>
       </nav>
-      <h1 class="font-display text-4xl font-bold text-pure mb-4">Privacy Policy</h1>
+      <h1 class="font-display text-4xl font-bold text-near-black mb-4">Privacy Policy</h1>
     </div>
   </section>
 
-  <section class="py-16 md:py-24 bg-slate">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-8">
       <div>
-        <h2 class="font-display text-xl font-bold text-pure mb-3">Information We Collect</h2>
-        <p class="text-sm text-ash leading-relaxed">When you fill out a form on our website (quote request, training registration, document download), we collect the information you provide: name, email address, phone number, company name, and role. We use this information solely to respond to your inquiry and provide the requested products, services, or documents.</p>
+        <h2 class="font-display text-xl font-bold text-near-black mb-3">Information We Collect</h2>
+        <p class="text-sm text-slate leading-relaxed">When you fill out a form on our website (quote request, training registration, document download), we collect the information you provide: name, email address, phone number, company name, and role. We use this information solely to respond to your inquiry and provide the requested products, services, or documents.</p>
       </div>
       <div>
-        <h2 class="font-display text-xl font-bold text-pure mb-3">How We Use Your Information</h2>
-        <p class="text-sm text-ash leading-relaxed">We use your contact information to respond to quote requests, schedule training sessions, deliver requested documents, and communicate about products and services relevant to your inquiry. We do not sell, rent, or share your personal information with third parties for their marketing purposes.</p>
+        <h2 class="font-display text-xl font-bold text-near-black mb-3">How We Use Your Information</h2>
+        <p class="text-sm text-slate leading-relaxed">We use your contact information to respond to quote requests, schedule training sessions, deliver requested documents, and communicate about products and services relevant to your inquiry. We do not sell, rent, or share your personal information with third parties for their marketing purposes.</p>
       </div>
       <div>
-        <h2 class="font-display text-xl font-bold text-pure mb-3">Analytics</h2>
-        <p class="text-sm text-ash leading-relaxed">We use Google Analytics to understand how visitors interact with our website. This service collects anonymized usage data including pages visited, time on site, and general location. No personally identifiable information is shared with Google Analytics.</p>
+        <h2 class="font-display text-xl font-bold text-near-black mb-3">Analytics</h2>
+        <p class="text-sm text-slate leading-relaxed">We use Google Analytics to understand how visitors interact with our website. This service collects anonymized usage data including pages visited, time on site, and general location. No personally identifiable information is shared with Google Analytics.</p>
       </div>
       <div>
-        <h2 class="font-display text-xl font-bold text-pure mb-3">Contact</h2>
-        <p class="text-sm text-ash leading-relaxed">For questions about this privacy policy, contact us at <a href={`mailto:${company.email}`} class="text-voltage hover:underline">{company.email}</a> or call <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-voltage hover:underline font-mono">{company.phone}</a>.</p>
+        <h2 class="font-display text-xl font-bold text-near-black mb-3">Contact</h2>
+        <p class="text-sm text-slate leading-relaxed">For questions about this privacy policy, contact us at <a href={`mailto:${company.email}`} class="text-steel-blue hover:underline">{company.email}</a> or call <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-steel-blue hover:underline font-display font-semibold">{company.phone}</a>.</p>
       </div>
-      <p class="text-xs text-steel pt-4 border-t border-steel/30">{company.legalName} | {company.location}</p>
+      <p class="text-xs text-steel pt-4 border-t border-steel-gray">{company.legalName} | {company.location}</p>
     </div>
   </section>
 

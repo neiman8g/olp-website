@@ -171,20 +171,20 @@ const specs = specTables[product.slug] || null;
 >
 
   <!-- Breadcrumb + Hero -->
-  <section class="py-16 md:py-24 border-b border-steel/20">
+  <section class="py-16 md:py-24 bg-off-white border-b border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="font-mono text-xs uppercase tracking-widest text-ash mb-6">
-        <a href="/" class="hover:text-voltage transition-colors">Home</a>
+      <nav class="eyebrow text-slate mb-6">
+        <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
         <span class="mx-2 text-steel">/</span>
-        <a href="/products" class="hover:text-voltage transition-colors">Products</a>
+        <a href="/products" class="hover:text-steel-blue transition-colors">Products</a>
         <span class="mx-2 text-steel">/</span>
         {category && (
           <>
-            <a href={`/products/category/${category.slug}`} class="hover:text-voltage transition-colors">{category.name}</a>
+            <a href={`/products/category/${category.slug}`} class="hover:text-steel-blue transition-colors">{category.name}</a>
             <span class="mx-2 text-steel">/</span>
           </>
         )}
-        <span class="text-voltage">{product.name}</span>
+        <span class="text-steel-blue">{product.name}</span>
       </nav>
 
       <div class="grid lg:grid-cols-11 gap-8 lg:gap-12 items-start">
@@ -193,22 +193,22 @@ const specs = specTables[product.slug] || null;
           <!-- Certification badges (hero only) -->
           <div class="flex flex-wrap gap-2 mb-4">
             {product.standards.slice(0, 3).map(std => (
-              <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">{std}</span>
+              <span class="badge-light">{std}</span>
             ))}
-            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">Made in USA</span>
+            <span class="badge-light">Made in USA</span>
           </div>
-          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-2">{product.name}</h1>
-          <p class="font-mono text-sm text-voltage mb-6">{product.tagline}</p>
-          <p class="text-lg text-ash leading-relaxed mb-8">{product.description}</p>
+          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-2">{product.name}</h1>
+          <p class="font-display font-semibold text-sm text-steel-blue mb-6">{product.tagline}</p>
+          <p class="text-lg text-slate leading-relaxed mb-8">{product.description}</p>
           <div class="flex flex-wrap gap-3 mb-4">
             <Button href="/contact/" size="lg">Request a Quote</Button>
-            <Button href="/training/" variant="ghost" size="lg" icon="bolt">Get Training</Button>
+            <Button href="/training/" variant="outline" size="lg" icon="bolt">Get Training</Button>
           </div>
-          <p class="font-mono text-xs text-ash">Responds within 2 business hours</p>
+          <p class="font-display text-xs text-slate">Responds within 2 business hours</p>
         </div>
         <!-- Right: 45% — Product image -->
         <div class="lg:col-span-5">
-          <div class="bg-bg-elevated border border-voltage/20 rounded-xl p-6 flex items-center justify-center min-h-[320px]">
+          <div class="bg-off-white border border-steel-blue/20 rounded-xl p-6 flex items-center justify-center min-h-[320px]">
             {typeof getProductImage(product.image) === 'string' ? (
               <img src={product.image} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" />
             ) : (
@@ -217,7 +217,7 @@ const specs = specTables[product.slug] || null;
           </div>
           <div class="flex items-center justify-center gap-3 mt-4">
             {product.standards.slice(0, 4).map(std => (
-              <span class="px-2.5 py-1 bg-slate border border-steel/30 rounded text-[10px] font-mono text-ash">{std}</span>
+              <span class="badge-light text-[9px]">{std}</span>
             ))}
           </div>
         </div>
@@ -226,14 +226,14 @@ const specs = specTables[product.slug] || null;
   </section>
 
   <!-- Key Features -->
-  <section class="py-16 md:py-24 bg-slate">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Key Features</p>
+      <p class="eyebrow text-steel-blue mb-6">Key Features</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {product.features.map(feature => (
-          <div class="flex items-start gap-3 bg-obsidian border border-steel/20 rounded-lg p-4">
-            <svg class="w-5 h-5 text-voltage flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <span class="text-sm text-pure">{feature}</span>
+          <div class="flex items-start gap-3 bg-white border border-steel-gray rounded-lg p-4">
+            <svg class="w-5 h-5 text-steel-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-sm text-near-black">{feature}</span>
           </div>
         ))}
       </div>
@@ -241,29 +241,29 @@ const specs = specTables[product.slug] || null;
   </section>
 
   <!-- Specifications Table (Issue 4) -->
-  <section class="py-16 md:py-24 bg-obsidian">
+  <section class="py-16 md:py-24 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Specifications</p>
+      <p class="eyebrow text-steel-blue mb-6">Specifications</p>
       {specs ? (
-        <div class="border border-steel/20 rounded-xl overflow-hidden">
+        <div class="border border-steel-gray rounded-xl overflow-hidden">
           {specs.map(([label, value], i) => (
-            <div class={`flex items-center justify-between px-5 py-3.5 ${i % 2 === 0 ? 'bg-bg-elevated' : 'bg-[#0D1117]'} ${i < specs.length - 1 ? 'border-b border-steel/10' : ''}`}>
-              <span class="text-sm text-ash">{label}</span>
-              <span class="text-sm text-pure font-medium text-right ml-4">{value}</span>
+            <div class={`flex items-center justify-between px-5 py-3.5 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
+              <span class="text-sm text-slate">{label}</span>
+              <span class="text-sm text-near-black font-medium text-right ml-4">{value}</span>
             </div>
           ))}
         </div>
       ) : (
-        <div class="bg-bg-elevated border border-steel/20 rounded-xl p-8 text-center">
-          <p class="text-ash mb-3">Full specifications available on request.</p>
-          <a href="/contact" class="text-sm font-medium text-voltage hover:text-pure transition-colors">Contact us for full specifications &rarr;</a>
+        <div class="bg-off-white border border-steel-gray rounded-xl p-8 text-center">
+          <p class="text-slate mb-3">Full specifications available on request.</p>
+          <a href="/contact" class="text-sm font-medium text-steel-blue hover:text-near-black transition-colors">Contact us for full specifications &rarr;</a>
         </div>
       )}
     </div>
   </section>
 
   <!-- Documents (Email-Gated only — no duplicate raw links) -->
-  <section class="py-16 md:py-24 bg-slate">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <DocumentGate productSlug={product.slug} />
     </div>
@@ -271,13 +271,13 @@ const specs = specTables[product.slug] || null;
 
   <!-- Related Products -->
   {relatedProducts.length > 0 && (
-    <section class="py-16 md:py-24 bg-obsidian">
+    <section class="py-16 md:py-24 bg-deep-navy">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">Related Products</p>
+        <p class="eyebrow text-steel-blue mb-8">Related Products</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {relatedProducts.map(rp => (
-            <a href={`/products/${rp.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
-              <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4">
+            <a href={`/products/${rp.slug}`} class="card-glow card-top-accent bg-white rounded-xl overflow-hidden group">
+              <div class="h-[180px] bg-off-white flex items-center justify-center p-4">
                 {typeof getProductImage(rp.image) === 'string' ? (
                   <img src={rp.image} alt={`${rp.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
                 ) : (
@@ -285,10 +285,10 @@ const specs = specTables[product.slug] || null;
                 )}
               </div>
               <div class="p-6">
-                <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">{rp.name}</h3>
-                <p class="font-mono text-xs text-ash mb-3">{rp.tagline}</p>
-                <p class="text-sm text-ash mb-4 line-clamp-2">{rp.description}</p>
-                <span class="text-sm font-medium text-voltage">View Product &rarr;</span>
+                <h3 class="font-display text-lg font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{rp.name}</h3>
+                <p class="font-display text-xs text-slate mb-3">{rp.tagline}</p>
+                <p class="text-sm text-slate mb-4 line-clamp-2">{rp.description}</p>
+                <span class="text-sm font-medium text-steel-blue">View Product &rarr;</span>
               </div>
             </a>
           ))}
@@ -298,19 +298,19 @@ const specs = specTables[product.slug] || null;
   )}
 
   <!-- CTA -->
-  <section class="bg-voltage py-12 md:py-16">
+  <section class="bg-deep-navy py-12 md:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="font-display text-2xl md:text-3xl font-bold text-obsidian mb-4">Need Help With {product.name}?</h2>
-      <p class="text-obsidian/70 mb-6">Register for training, request a quote, or call our engineering team.</p>
+      <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-4">Need Help With {product.name}?</h2>
+      <p class="text-muted-blue mb-6">Register for training, request a quote, or call our engineering team.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/training/" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Register for Training</a>
-        <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="px-8 py-3.5 border-2 border-obsidian/30 text-obsidian font-semibold rounded-lg hover:bg-obsidian/10 transition-colors text-sm font-mono">{company.phone}</a>
+        <a href="/training/" class="px-8 py-3.5 bg-steel-blue text-white font-semibold rounded-lg hover:bg-steel-blue/90 transition-colors text-sm">Register for Training</a>
+        <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-sm font-display font-semibold">{company.phone}</a>
       </div>
     </div>
   </section>
 
   <!-- Mobile Sticky CTA -->
-  <div class="fixed bottom-0 left-0 right-0 bg-obsidian/95 backdrop-blur border-t border-steel/30 p-3 z-40 lg:hidden" id="product-mobile-cta" style="display:none;padding-bottom:max(12px, env(safe-area-inset-bottom));">
+  <div class="fixed bottom-0 left-0 right-0 bg-deep-navy/95 backdrop-blur border-t border-steel-gray p-3 z-40 lg:hidden" id="product-mobile-cta" style="display:none;padding-bottom:max(12px, env(safe-area-inset-bottom));">
     <Button href="/contact/" size="lg" icon="bolt" fullWidth>Request a Quote</Button>
   </div>
 

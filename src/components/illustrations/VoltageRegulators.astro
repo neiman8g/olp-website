@@ -20,8 +20,8 @@
     <style>
       /* Fonts inherited from BaseLayout */
 
-      .font-display { font-family: 'Space Grotesk', sans-serif; }
-      .font-mono { font-family: 'Space Mono', monospace; }
+      .font-display { font-family: 'Barlow Condensed', sans-serif; }
+      .font-mono { font-family: 'DM Sans', monospace; }
 
       /* ── Input waveform scroll (left to right) ── */
       @keyframes scrollInputWave {
@@ -96,8 +96,8 @@
 
     <!-- Oscilloscope grid pattern -->
     <pattern id="vr-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <line x1="0" y1="0" x2="0" y2="30" stroke="#1C2B3A" stroke-width="0.5" opacity="0.4"/>
-      <line x1="0" y1="0" x2="30" y2="0" stroke="#1C2B3A" stroke-width="0.5" opacity="0.4"/>
+      <line x1="0" y1="0" x2="0" y2="30" stroke="#1A3F6A" stroke-width="0.5" opacity="0.4"/>
+      <line x1="0" y1="0" x2="30" y2="0" stroke="#1A3F6A" stroke-width="0.5" opacity="0.4"/>
     </pattern>
 
     <!-- Orange-to-red gradient for spikes -->
@@ -108,14 +108,14 @@
 
     <!-- Cyan glow gradient -->
     <linearGradient id="vr-cyanGlow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#00E5FF" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+      <stop offset="0%"   stop-color="#2A7AE2" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#2A7AE2" stop-opacity="0"/>
     </linearGradient>
 
     <!-- Regulator body gradient -->
     <linearGradient id="vr-regBody" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"   stop-color="#1C2B3A"/>
-      <stop offset="100%" stop-color="#111827"/>
+      <stop offset="0%"   stop-color="#1A3F6A"/>
+      <stop offset="100%" stop-color="#1A3F6A"/>
     </linearGradient>
 
     <!-- Clipping masks for waveform areas -->
@@ -134,23 +134,23 @@
   <!-- ================================================================ -->
   <!-- BACKGROUND                                                       -->
   <!-- ================================================================ -->
-  <rect width="600" height="360" fill="#0A0A0F" rx="8"/>
+  <rect width="600" height="360" fill="#0F2A4A" rx="8"/>
 
   <!-- ================================================================ -->
   <!-- LEFT PANEL  ·  DIRTY INPUT                                       -->
   <!-- ================================================================ -->
   <g id="vr-leftPanel">
     <!-- Panel background -->
-    <rect x="16" y="30" width="190" height="260" rx="6" fill="#111827" opacity="0.5"/>
+    <rect x="16" y="30" width="190" height="260" rx="6" fill="#1A3F6A" opacity="0.5"/>
 
     <!-- Grid overlay -->
     <rect x="16" y="60" width="190" height="210" fill="url(#vr-grid)" rx="4"/>
 
     <!-- Zero-crossing reference line -->
-    <line x1="16" y1="165" x2="206" y2="165" stroke="#2A3A4A" stroke-width="1" stroke-dasharray="4 3"/>
+    <line x1="16" y1="165" x2="206" y2="165" stroke="#1A3F6A" stroke-width="1" stroke-dasharray="4 3"/>
 
     <!-- "INPUT" label -->
-    <text x="24" y="50" class="font-mono" fill="#8A9BAE" font-size="10" letter-spacing="2">INPUT</text>
+    <text x="24" y="50" class="font-mono" fill="#94AECF" font-size="10" letter-spacing="2">INPUT</text>
 
     <!-- ── Noisy waveform (double-width for seamless scroll) ── -->
     <g clip-path="url(#vr-clipLeft)">
@@ -227,7 +227,7 @@
     </g>
 
     <!-- Voltage reading (flickers between 187V and 253V) -->
-    <rect x="24" y="232" width="64" height="22" rx="3" fill="#111827" stroke="#FF6B35" stroke-width="0.8"/>
+    <rect x="24" y="232" width="64" height="22" rx="3" fill="#1A3F6A" stroke="#FF6B35" stroke-width="0.8"/>
     <text x="56" y="247" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#FF6B35"
           style="animation: voltFlickerA 2s ease-in-out infinite;">187V</text>
     <text x="56" y="247" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#FF3B3B"
@@ -251,29 +251,29 @@
 
     <!-- Cyan glow behind unit -->
     <rect x="-52" y="-52" width="104" height="104" rx="14" fill="none"
-          stroke="#00E5FF" stroke-width="1.5" opacity="0.35"
+          stroke="#2A7AE2" stroke-width="1.5" opacity="0.35"
           style="animation: glowPulse 3s ease-in-out infinite;"/>
     <rect x="-56" y="-56" width="112" height="112" rx="16" fill="none"
-          stroke="#00E5FF" stroke-width="0.5" opacity="0.15"
+          stroke="#2A7AE2" stroke-width="0.5" opacity="0.15"
           style="animation: glowPulse 3s ease-in-out infinite; animation-delay: 0.5s;"/>
 
     <!-- Isometric box: top face -->
-    <polygon points="0,-48 46,-24 0,0 -46,-24" fill="#1C2B3A" stroke="#2A3A4A" stroke-width="0.8"/>
+    <polygon points="0,-48 46,-24 0,0 -46,-24" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.8"/>
 
     <!-- Isometric box: left face -->
-    <polygon points="-46,-24 0,0 0,48 -46,24" fill="#111827" stroke="#2A3A4A" stroke-width="0.8"/>
+    <polygon points="-46,-24 0,0 0,48 -46,24" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.8"/>
 
     <!-- Isometric box: right face -->
-    <polygon points="46,-24 0,0 0,48 46,24" fill="url(#vr-regBody)" stroke="#2A3A4A" stroke-width="0.8"/>
+    <polygon points="46,-24 0,0 0,48 46,24" fill="url(#vr-regBody)" stroke="#1A3F6A" stroke-width="0.8"/>
 
     <!-- OLP logo on right face -->
-    <text x="20" y="6" text-anchor="middle" class="font-display" font-size="11" font-weight="700" fill="#00E5FF" opacity="0.9">OLP</text>
+    <text x="20" y="6" text-anchor="middle" class="font-display" font-size="11" font-weight="700" fill="#2A7AE2" opacity="0.9">OLP</text>
 
     <!-- REGULATOR label on right face -->
-    <text x="20" y="18" text-anchor="middle" class="font-mono" font-size="5.5" fill="#8A9BAE" letter-spacing="1.5">REGULATOR</text>
+    <text x="20" y="18" text-anchor="middle" class="font-mono" font-size="5.5" fill="#94AECF" letter-spacing="1.5">REGULATOR</text>
 
     <!-- Small sine icon on right face -->
-    <path d="M10,28 C13,22 17,22 20,28 C23,34 27,34 30,28" stroke="#00E5FF" stroke-width="1.2" fill="none" opacity="0.7"/>
+    <path d="M10,28 C13,22 17,22 20,28 C23,34 27,34 30,28" stroke="#2A7AE2" stroke-width="1.2" fill="none" opacity="0.7"/>
 
     <!-- Status LED (green) -->
     <circle cx="-20" cy="6" r="3" fill="#34D399"
@@ -282,13 +282,13 @@
             style="animation: ledPulse 2s ease-in-out infinite;"/>
 
     <!-- +/-3% regulation badge on top face -->
-    <rect x="-22" y="-42" width="44" height="14" rx="3" fill="#111827" stroke="#00E5FF" stroke-width="0.6" opacity="0.8"/>
-    <text x="0" y="-32" text-anchor="middle" class="font-mono" font-size="8" font-weight="700" fill="#00E5FF" opacity="0.9">&plusmn;3%</text>
+    <rect x="-22" y="-42" width="44" height="14" rx="3" fill="#1A3F6A" stroke="#2A7AE2" stroke-width="0.6" opacity="0.8"/>
+    <text x="0" y="-32" text-anchor="middle" class="font-mono" font-size="8" font-weight="700" fill="#2A7AE2" opacity="0.9">&plusmn;3%</text>
 
     <!-- Internal scanning line -->
     <g clip-path="url(#vr-clipReg)">
       <line x1="-30" y1="-10" x2="30" y2="-10"
-            stroke="#00E5FF" stroke-width="0.8" opacity="0.3"
+            stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"
             style="animation: scanLine 2.5s ease-in-out infinite;"/>
     </g>
 
@@ -296,7 +296,7 @@
     <line x1="-90" y1="0" x2="-46" y2="0" stroke="#FF6B35" stroke-width="1.5" opacity="0.6" stroke-dasharray="3 2"/>
 
     <!-- Connection stubs: right output -->
-    <line x1="46" y1="0" x2="90" y2="0" stroke="#00E5FF" stroke-width="1.5" opacity="0.6" stroke-dasharray="3 2"/>
+    <line x1="46" y1="0" x2="90" y2="0" stroke="#2A7AE2" stroke-width="1.5" opacity="0.6" stroke-dasharray="3 2"/>
   </g>
 
   <!-- ── Power-flow dots: orange in, cyan out ── -->
@@ -315,15 +315,15 @@
   </circle>
 
   <!-- Output dots -->
-  <circle r="3" fill="#00E5FF" opacity="0"
+  <circle r="3" fill="#2A7AE2" opacity="0"
           style="offset-path: path('M352,160 L400,160'); animation: dotFlowOut 1.4s linear infinite;">
     <animate attributeName="opacity" values="0;1;1;0" dur="1.4s" repeatCount="indefinite"/>
   </circle>
-  <circle r="3" fill="#00E5FF" opacity="0"
+  <circle r="3" fill="#2A7AE2" opacity="0"
           style="offset-path: path('M352,160 L400,160'); animation: dotFlowOut 1.4s linear infinite; animation-delay: 0.47s;">
     <animate attributeName="opacity" values="0;1;1;0" dur="1.4s" begin="0.47s" repeatCount="indefinite"/>
   </circle>
-  <circle r="3" fill="#00E5FF" opacity="0"
+  <circle r="3" fill="#2A7AE2" opacity="0"
           style="offset-path: path('M352,160 L400,160'); animation: dotFlowOut 1.4s linear infinite; animation-delay: 0.93s;">
     <animate attributeName="opacity" values="0;1;1;0" dur="1.4s" begin="0.93s" repeatCount="indefinite"/>
   </circle>
@@ -333,16 +333,16 @@
   <!-- ================================================================ -->
   <g id="vr-rightPanel">
     <!-- Panel background -->
-    <rect x="394" y="30" width="190" height="260" rx="6" fill="#111827" opacity="0.5"/>
+    <rect x="394" y="30" width="190" height="260" rx="6" fill="#1A3F6A" opacity="0.5"/>
 
     <!-- Grid overlay -->
     <rect x="394" y="60" width="190" height="210" fill="url(#vr-grid)" rx="4"/>
 
     <!-- Zero-crossing reference line -->
-    <line x1="394" y1="165" x2="584" y2="165" stroke="#2A3A4A" stroke-width="1" stroke-dasharray="4 3"/>
+    <line x1="394" y1="165" x2="584" y2="165" stroke="#1A3F6A" stroke-width="1" stroke-dasharray="4 3"/>
 
     <!-- "OUTPUT" label -->
-    <text x="576" y="50" text-anchor="end" class="font-mono" fill="#8A9BAE" font-size="10" letter-spacing="2">OUTPUT</text>
+    <text x="576" y="50" text-anchor="end" class="font-mono" fill="#94AECF" font-size="10" letter-spacing="2">OUTPUT</text>
 
     <!-- ── Clean waveform (double-width for seamless scroll) ── -->
     <g clip-path="url(#vr-clipRight)">
@@ -363,7 +363,7 @@
              C650,165 656,210 666,215
              C676,220 686,220 696,215
              C706,210 712,165 722,165"
-          stroke="#00E5FF"
+          stroke="#2A7AE2"
           stroke-width="2.5"
           fill="none"
           stroke-linecap="round"
@@ -385,7 +385,7 @@
              C814,165 820,210 830,215
              C840,220 850,220 860,215
              C870,210 876,165 886,165"
-          stroke="#00E5FF"
+          stroke="#2A7AE2"
           stroke-width="2.5"
           fill="none"
           stroke-linecap="round"
@@ -395,8 +395,8 @@
     </g>
 
     <!-- Voltage reading (steady 208V) -->
-    <rect x="402" y="232" width="64" height="22" rx="3" fill="#111827" stroke="#00E5FF" stroke-width="0.8"/>
-    <text x="434" y="247" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#00E5FF">208V</text>
+    <rect x="402" y="232" width="64" height="22" rx="3" fill="#1A3F6A" stroke="#2A7AE2" stroke-width="0.8"/>
+    <text x="434" y="247" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#2A7AE2">208V</text>
 
     <!-- Checkmark icon -->
     <g transform="translate(478, 233)" style="animation: checkPulse 3s ease-in-out infinite;">
@@ -408,14 +408,14 @@
     <text x="508" y="247" class="font-mono" font-size="9" font-weight="700" fill="#34D399" letter-spacing="1">STABLE</text>
 
     <!-- 99% EFFICIENT badge -->
-    <rect x="510" y="55" width="74" height="16" rx="3" fill="#111827" stroke="#34D399" stroke-width="0.6"/>
+    <rect x="510" y="55" width="74" height="16" rx="3" fill="#1A3F6A" stroke="#34D399" stroke-width="0.6"/>
     <text x="547" y="66" text-anchor="middle" class="font-mono" font-size="7" font-weight="700" fill="#34D399" letter-spacing="0.5">99% EFFICIENT</text>
   </g>
 
   <!-- ================================================================ -->
   <!-- BOTTOM CAPTION                                                   -->
   <!-- ================================================================ -->
-  <text x="300" y="340" text-anchor="middle" class="font-mono" font-size="9" fill="#2A3A4A" letter-spacing="1.5">
+  <text x="300" y="340" text-anchor="middle" class="font-mono" font-size="9" fill="#1A3F6A" letter-spacing="1.5">
     // VOLTAGE REGULATION &middot; POWER CONDITIONING
   </text>
 
@@ -430,8 +430,8 @@
 
   <!-- Right arrow + label -->
   <g transform="translate(360, 15)">
-    <line x1="0" y1="8" x2="15" y2="8" stroke="#00E5FF" stroke-width="1"/>
-    <text x="20" y="12" class="font-display" font-size="10" font-weight="600" fill="#00E5FF" letter-spacing="1">CLEAN OUTPUT</text>
+    <line x1="0" y1="8" x2="15" y2="8" stroke="#2A7AE2" stroke-width="1"/>
+    <text x="20" y="12" class="font-display" font-size="10" font-weight="600" fill="#2A7AE2" letter-spacing="1">CLEAN OUTPUT</text>
   </g>
 
   <!-- Small arrow markers -->
@@ -440,7 +440,7 @@
       <path d="M0,0 L6,3 L0,6 Z" fill="#FF6B35"/>
     </marker>
     <marker id="vr-arrowCyan" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#00E5FF"/>
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2A7AE2"/>
     </marker>
   </defs>
 </svg>

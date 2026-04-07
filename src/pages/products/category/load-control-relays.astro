@@ -42,26 +42,26 @@ const applications = [
 >
 
   <!-- HERO -->
-  <section class="py-16 md:py-24 border-b border-steel/20">
+  <section class="py-16 md:py-24 bg-off-white border-b border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="font-mono text-xs uppercase tracking-widest text-ash mb-8">
-        <a href="/" class="hover:text-voltage transition-colors">Home</a>
+      <nav class="eyebrow text-slate mb-8">
+        <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
         <span class="mx-2 text-steel">/</span>
-        <a href="/products" class="hover:text-voltage transition-colors">Products</a>
+        <a href="/products" class="hover:text-steel-blue transition-colors">Products</a>
         <span class="mx-2 text-steel">/</span>
-        <span class="text-voltage">Load Control Relays</span>
+        <span class="text-steel-blue">Load Control Relays</span>
       </nav>
 
       <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
         <div class="lg:col-span-3">
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">UL 924</span>
-            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">IP65</span>
-            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">Made in USA</span>
+            <span class="badge-light">UL 924</span>
+            <span class="badge-light">IP65</span>
+            <span class="badge-light">Made in USA</span>
           </div>
 
-          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-5">Load Control Relays</h1>
-          <p class="text-lg text-ash leading-relaxed mb-8">
+          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-5">Load Control Relays</h1>
+          <p class="text-lg text-slate leading-relaxed mb-8">
             UL924 automatic load control relays for emergency lighting dimmer override. IP65 rated. 5-year warranty.
           </p>
 
@@ -72,9 +72,9 @@ const applications = [
               { label: 'Rating', value: 'IP65' },
               { label: 'Warranty', value: '5 Years' },
             ].map(s => (
-              <div class="bg-slate border border-steel/30 rounded-lg p-3 text-center">
-                <p class="font-mono text-[10px] uppercase tracking-widest text-ash mb-1">{s.label}</p>
-                <p class="font-display text-sm font-bold text-pure">{s.value}</p>
+              <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
+                <p class="font-display text-[9px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
+                <p class="font-display text-sm font-bold text-near-black">{s.value}</p>
               </div>
             ))}
           </div>
@@ -82,7 +82,7 @@ const applications = [
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
             <Button href="/contact" size="lg">Request a Quote</Button>
           </div>
-          <p class="font-mono text-xs text-ash">Responds within 2 business hours</p>
+          <p class="font-display text-xs text-slate">Responds within 2 business hours</p>
         </div>
 
         <div class="hidden lg:block lg:col-span-2">
@@ -93,11 +93,11 @@ const applications = [
   </section>
 
   <!-- TAB SECTION -->
-  <section class="py-16 md:py-24 bg-slate">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex gap-1 border-b border-steel/30 mb-10">
+      <div class="flex gap-1 border-b border-steel-gray mb-10">
         {['Overview', 'Specifications', 'Documents'].map((tab, i) => (
-          <button class={`tab-btn px-5 py-3 text-sm font-medium transition-colors border-b-2 ${i === 0 ? 'text-voltage border-voltage' : 'text-ash border-transparent hover:text-pure'}`} data-tab={tab.toLowerCase()}>
+          <button class={`tab-btn px-5 py-3 text-sm font-medium transition-colors border-b-2 ${i === 0 ? 'text-steel-blue border-steel-blue' : 'text-slate border-transparent hover:text-near-black'}`} data-tab={tab.toLowerCase()}>
             {tab}
           </button>
         ))}
@@ -106,77 +106,77 @@ const applications = [
       <!-- OVERVIEW TAB -->
       <div class="tab-content" data-tab="overview">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
-          <div class="card-glow bg-obsidian rounded-xl p-6">
-            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          <div class="card-glow bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Automatic Dimmer Override</h3>
-            <p class="text-sm text-ash">Automatically overrides 0-10V dimming controls during emergency conditions to bring lighting to full brightness for safe evacuation.</p>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-2">Automatic Dimmer Override</h3>
+            <p class="text-sm text-slate">Automatically overrides 0-10V dimming controls during emergency conditions to bring lighting to full brightness for safe evacuation.</p>
           </div>
-          <div class="card-glow bg-obsidian rounded-xl p-6">
-            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          <div class="card-glow bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">IP65 Rated</h3>
-            <p class="text-sm text-ash">IP65 rated quick-connect test switch in durable aluminum housing. Built for reliable operation in demanding commercial environments.</p>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-2">IP65 Rated</h3>
+            <p class="text-sm text-slate">IP65 rated quick-connect test switch in durable aluminum housing. Built for reliable operation in demanding commercial environments.</p>
           </div>
-          <div class="card-glow bg-obsidian rounded-xl p-6">
-            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div class="card-glow bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">5-Year Warranty</h3>
-            <p class="text-sm text-ash">Industry-leading 5-year warranty demonstrates our confidence in the LCR20's reliability and long-term performance.</p>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-2">5-Year Warranty</h3>
+            <p class="text-sm text-slate">Industry-leading 5-year warranty demonstrates our confidence in the LCR20's reliability and long-term performance.</p>
           </div>
         </div>
 
-        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Where It Gets Specified</p>
+        <p class="eyebrow text-steel-blue mb-6">Where It Gets Specified</p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-16">
           {applications.map(app => (
-            <div class="bg-obsidian border border-steel/30 rounded-lg p-4 flex items-center gap-3">
-              <svg class="w-5 h-5 text-voltage flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={app.icon}></path></svg>
-              <span class="text-sm text-pure">{app.name}</span>
+            <div class="bg-white border border-steel-gray rounded-lg p-4 flex items-center gap-3">
+              <svg class="w-5 h-5 text-steel-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={app.icon}></path></svg>
+              <span class="text-sm text-near-black">{app.name}</span>
             </div>
           ))}
         </div>
 
-        <div class="bg-obsidian border-l-2 border-voltage rounded-r-xl p-6">
-          <p class="text-sm text-pure font-medium mb-1">Dimming System Compatibility</p>
-          <p class="text-sm text-ash">Compatible with all 0-10V dimming systems including Lutron, Leviton, and Wattstopper. Contact our engineering team for dimming system compatibility verification.</p>
+        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+          <p class="text-sm text-near-black font-medium mb-1">Dimming System Compatibility</p>
+          <p class="text-sm text-slate">Compatible with all 0-10V dimming systems including Lutron, Leviton, and Wattstopper. Contact our engineering team for dimming system compatibility verification.</p>
         </div>
       </div>
 
       <!-- SPECIFICATIONS TAB -->
       <div class="tab-content hidden" data-tab="specifications">
-        <div class="bg-obsidian border border-steel/30 rounded-xl overflow-hidden mb-8">
+        <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
           {specs.map(([label, value], i) => (
-            <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-obsidian' : 'bg-slate/30'} ${i < specs.length - 1 ? 'border-b border-steel/20' : ''}`}>
-              <span class="text-sm text-ash font-medium">{label}</span>
-              <span class="text-sm text-pure font-medium text-right">{value}</span>
+            <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
+              <span class="text-sm text-slate font-medium">{label}</span>
+              <span class="text-sm text-near-black font-medium text-right">{value}</span>
             </div>
           ))}
         </div>
-        <div class="bg-obsidian border-l-2 border-voltage rounded-r-xl p-6">
-          <p class="text-sm text-pure">Need a custom specification? <a href="/contact" class="text-voltage hover:underline">Our engineering team will work with you &rarr;</a></p>
+        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+          <p class="text-sm text-near-black">Need a custom specification? <a href="/contact" class="text-steel-blue hover:underline">Our engineering team will work with you &rarr;</a></p>
         </div>
       </div>
 
       <!-- DOCUMENTS TAB -->
       <div class="tab-content hidden" data-tab="documents">
-        <p class="font-mono text-xs text-ash mb-6">All documents available for immediate download after a quick registration.</p>
+        <p class="font-display text-xs text-slate mb-6">All documents available for immediate download after a quick registration.</p>
         <DocumentGate productSlug="lcr20" />
       </div>
     </div>
   </section>
 
   <!-- KEY FEATURES -->
-  <section class="py-16 md:py-24 bg-obsidian">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Key Features</p>
+      <p class="eyebrow text-steel-blue mb-6">Key Features</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {['UL924 Listed', '0-10V Dimmer Override', 'IP65 Rated Connections', 'Quick-Connect Test Switch', 'Aluminum Case', '5-Year Warranty'].map(feature => (
-          <div class="flex items-start gap-3 bg-slate border border-steel/20 rounded-lg p-4">
-            <svg class="w-5 h-5 text-voltage flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <span class="text-sm text-pure">{feature}</span>
+          <div class="flex items-start gap-3 bg-off-white border border-steel-gray rounded-lg p-4">
+            <svg class="w-5 h-5 text-steel-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-sm text-near-black">{feature}</span>
           </div>
         ))}
       </div>
@@ -184,19 +184,19 @@ const applications = [
   </section>
 
   <!-- DOCUMENTS -->
-  <section class="py-16 md:py-24 bg-slate">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <DocumentGate productSlug="lcr20" />
     </div>
   </section>
 
   <!-- RELATED PRODUCTS -->
-  <section class="py-16 md:py-24 bg-obsidian">
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">Related Products</p>
+      <p class="eyebrow text-steel-blue mb-8">Related Products</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <a href="/products/category/emergency-lighting" class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
-          <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4">
+        <a href="/products/category/emergency-lighting" class="card-glow card-top-accent bg-white rounded-xl overflow-hidden group">
+          <div class="h-[180px] bg-off-white flex items-center justify-center p-4">
             {typeof getProductImage('/images/products/power-wave-1.png') === 'string' ? (
               <img src="/images/products/power-wave-1.png" alt="Emergency Lighting by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
             ) : (
@@ -204,13 +204,13 @@ const applications = [
             )}
           </div>
           <div class="p-6">
-            <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">Emergency Lighting Inverters</h3>
-            <p class="text-sm text-ash mb-4">UL924 emergency lighting inverters from 35W to 400kW</p>
-            <span class="text-sm font-medium text-voltage">View Products &rarr;</span>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">Emergency Lighting Inverters</h3>
+            <p class="text-sm text-slate mb-4">UL924 emergency lighting inverters from 35W to 400kW</p>
+            <span class="text-sm font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
-        <a href="/products/category/elevator-backup" class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
-          <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4">
+        <a href="/products/category/elevator-backup" class="card-glow card-top-accent bg-white rounded-xl overflow-hidden group">
+          <div class="h-[180px] bg-off-white flex items-center justify-center p-4">
             {typeof getProductImage('/images/products/elevate.png') === 'string' ? (
               <img src="/images/products/elevate.png" alt="Elevator Backup by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
             ) : (
@@ -218,13 +218,13 @@ const applications = [
             )}
           </div>
           <div class="p-6">
-            <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">Elevator Backup Systems</h3>
-            <p class="text-sm text-ash mb-4">UL924 elevator backup for safe evacuation</p>
-            <span class="text-sm font-medium text-voltage">View Products &rarr;</span>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">Elevator Backup Systems</h3>
+            <p class="text-sm text-slate mb-4">UL924 elevator backup for safe evacuation</p>
+            <span class="text-sm font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
-        <a href="/products/category/voltage-regulators" class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
-          <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4">
+        <a href="/products/category/voltage-regulators" class="card-glow card-top-accent bg-white rounded-xl overflow-hidden group">
+          <div class="h-[180px] bg-off-white flex items-center justify-center p-4">
             {typeof getProductImage('/images/products/voltage-regulators.png') === 'string' ? (
               <img src="/images/products/voltage-regulators.png" alt="Voltage Regulators by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
             ) : (
@@ -232,9 +232,9 @@ const applications = [
             )}
           </div>
           <div class="p-6">
-            <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">Voltage Regulators</h3>
-            <p class="text-sm text-ash mb-4">Power conditioning and voltage regulation systems</p>
-            <span class="text-sm font-medium text-voltage">View Products &rarr;</span>
+            <h3 class="font-display text-lg font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">Voltage Regulators</h3>
+            <p class="text-sm text-slate mb-4">Power conditioning and voltage regulation systems</p>
+            <span class="text-sm font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
       </div>
@@ -242,18 +242,18 @@ const applications = [
   </section>
 
   <!-- CTA BAND -->
-  <section class="bg-voltage py-12 md:py-16">
+  <section class="bg-deep-navy py-12 md:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="font-display text-3xl font-bold text-obsidian mb-4">Ready to Spec This Product?</h2>
+      <h2 class="font-display text-3xl font-bold text-white mb-4">Ready to Spec This Product?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Request a Quote</a>
-        <a href="/training" class="px-8 py-3.5 border-2 border-obsidian/30 text-obsidian font-semibold rounded-lg hover:bg-obsidian/10 transition-colors text-sm">Register for Training</a>
+        <a href="/contact" class="px-8 py-3.5 bg-steel-blue text-white font-semibold rounded-lg hover:bg-steel-blue/90 transition-colors text-sm">Request a Quote</a>
+        <a href="/training" class="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-sm">Register for Training</a>
       </div>
     </div>
   </section>
 
   <!-- MOBILE STICKY CTA -->
-  <div class="fixed bottom-0 left-0 right-0 bg-obsidian/95 backdrop-blur border-t border-steel/30 p-3 z-40 lg:hidden" style="padding-bottom:max(12px, env(safe-area-inset-bottom));" id="mobile-sticky-cta" style="display:none;">
+  <div class="fixed bottom-0 left-0 right-0 bg-deep-navy/95 backdrop-blur border-t border-steel-gray p-3 z-40 lg:hidden" style="padding-bottom:max(12px, env(safe-area-inset-bottom));" id="mobile-sticky-cta" style="display:none;">
     <Button href="/contact" size="lg" icon="bolt" fullWidth>Request a Quote</Button>
   </div>
 
@@ -264,11 +264,11 @@ const applications = [
     btn.addEventListener('click', function() {
       var tab = btn.getAttribute('data-tab');
       document.querySelectorAll('.tab-btn').forEach(function(b) {
-        b.classList.remove('text-voltage', 'border-voltage');
-        b.classList.add('text-ash', 'border-transparent');
+        b.classList.remove('text-steel-blue', 'border-steel-blue');
+        b.classList.add('text-slate', 'border-transparent');
       });
-      btn.classList.remove('text-ash', 'border-transparent');
-      btn.classList.add('text-voltage', 'border-voltage');
+      btn.classList.remove('text-slate', 'border-transparent');
+      btn.classList.add('text-steel-blue', 'border-steel-blue');
       document.querySelectorAll('.tab-content').forEach(function(c) {
         c.classList.add('hidden');
       });
