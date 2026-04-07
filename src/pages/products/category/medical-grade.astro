@@ -11,16 +11,18 @@ const specs = [
   ['Input Voltage', '208/480 VAC Three Phase'],
   ['Output Voltage', 'Matches input'],
   ['Frequency', '60 Hz'],
-  ['Power Range', '10kVA to 200kVA'],
+  ['Power Range', '10kVA to 1,250kVA'],
   ['Phase', 'Three Phase (3Ø)'],
   ['Voltage Regulation', '±1% (sub-cycle stabilization)'],
   ['Topology', 'Independent Phase Control'],
+  ['Leakage Current', 'Under 100µA (Type B) · Under 10µA (Type CF cardiac)'],
+  ['Isolation', '4,000 VAC input to output, Faraday shielded'],
+  ['Seismic', 'OSHPD/HCAI preapproved, SDS 3.0G'],
+  ['Harmonic Reduction', '12 pulse topology'],
   ['Redundancy', 'Seamless redundant power paths'],
-  ['Serviceability', 'Service without shutdown'],
-  ['Harmonic Reduction', '12-pulse'],
+  ['Serviceability', 'Front access only, service without shutdown'],
   ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
-  ['Clearance', 'Front service clearance only'],
-  ['Certifications', 'UL 60601-1'],
+  ['Certifications', 'UL 60601-1, NFPA 99, NEC 517'],
   ['Warranty', '2 years parts and labor'],
 ];
 
@@ -35,8 +37,8 @@ const applications = [
 ---
 
 <BaseLayout
-  title="Medical Grade Power Systems | UL60601-1 | Online Power"
-  description="UL60601-1 certified medical-grade power conditioners and UPS for critical care equipment. Sub-cycle voltage stabilization. 10–200kVA. Built in Los Angeles."
+  title="Medical Grade Power Systems | UL 60601-1 | 10 to 1250kVA | Online Power"
+  description="UL 60601-1 certified medical grade power conditioners and UPS. Under 100µA leakage current. OSHPD/HCAI seismic preapproved. 10kVA to 1,250kVA. Built in Los Angeles."
 >
 
   <!-- HERO -->
@@ -54,21 +56,21 @@ const applications = [
         <div class="lg:col-span-3">
           <div class="flex flex-wrap gap-2 mb-5">
             <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">UL 60601-1</span>
-            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">Hospital Grade</span>
+            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">OSHPD/HCAI</span>
             <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">Made in USA</span>
           </div>
 
           <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-5">Medical Grade Systems</h1>
           <p class="text-lg text-ash leading-relaxed mb-8">
-            UL60601-1 certified power conditioners and UPS for critical care equipment. Sub-cycle voltage stabilization. Built in Los Angeles.
+            In a patient care vicinity, ordinary power protection can be lethal. UL 60601-1 limits leakage current to 100 microamps under normal conditions and 10 microamps at the patient. Thresholds no standard UPS comes close to meeting. APC publicly states their products are not classified as medical grade devices. Online Power's medical grade systems are engineered from the ground up with built-in isolation transformers, Faraday shields, hospital grade connectors, and ultra-low leakage current design validated to UL 60601-1 Third Edition. With OSHPD/HCAI seismic preapproval for California hospital construction and NFPA 99 compliance for wet procedure locations, these systems protect everything from bedside patient monitors to MRI scanners worth $3,000,000 or more.
           </p>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             {[
-              { label: 'Standard', value: 'UL60601-1' },
-              { label: 'Regulation', value: '±1%' },
-              { label: 'Range', value: '10–200kVA' },
-              { label: 'Phase', value: '3Ø' },
+              { label: 'Leakage', value: 'Under 100µA · 10µA CF' },
+              { label: 'Isolation', value: '4,000 VAC' },
+              { label: 'Range', value: '10 to 1,250kVA' },
+              { label: 'Certifications', value: 'UL 60601-1 · NFPA 99' },
             ].map(s => (
               <div class="bg-slate border border-steel/30 rounded-lg p-3 text-center">
                 <p class="font-mono text-[10px] uppercase tracking-widest text-ash mb-1">{s.label}</p>
@@ -78,8 +80,8 @@ const applications = [
           </div>
 
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Request a Quote</a>
-            <button class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center justify-center gap-2 doc-download-btn" data-url="/pdf/medpower_DS.pdf" data-name="Medical Grade - Spec Sheet" data-product="Medical Grade Systems">
+            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Request an OSHPD Compliant Submittal Package</a>
+            <button class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center justify-center gap-2 doc-download-btn" data-url="/pdf/medpower_DS.pdf" data-name="Medical Grade Spec Sheet" data-product="Medical Grade Systems">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path></svg>
               Download Spec Sheet
             </button>
@@ -100,43 +102,32 @@ const applications = [
                 .med-b2{animation:med-badge2 6s ease-in-out infinite;}
                 .med-b3{animation:med-badge3 6s ease-in-out infinite;}
               </style>
-              <!-- Room outline -->
               <rect x="140" y="30" width="380" height="230" rx="4" fill="none" stroke="#1C2B3A" stroke-width="1"/>
               <text x="150" y="25" font-family="Space Mono,monospace" font-size="7" fill="#8A9BAE">ISOLATION ROOM</text>
-              <!-- Monitor -->
               <rect x="360" y="60" width="120" height="80" rx="4" fill="#111827" stroke="#1C2B3A" stroke-width="1"/>
-              <!-- Heartbeat wave -->
               <path d="M370 100 L390 100 L395 80 L400 120 L405 90 L410 100 L430 100 L435 80 L440 120 L445 90 L450 100 L470 100" class="med-wave" stroke="#00E5FF" stroke-width="1.5" fill="none"/>
-              <!-- Monitor label -->
               <text x="420" y="75" text-anchor="middle" font-family="Space Mono,monospace" font-size="7" fill="#8A9BAE">PATIENT MONITOR</text>
-              <!-- IV stand -->
               <line x1="340" y1="70" x2="340" y2="200" stroke="#8A9BAE" stroke-width="1" opacity="0.4"/>
               <circle cx="340" cy="70" r="6" fill="none" stroke="#8A9BAE" stroke-width="0.5" opacity="0.4"/>
               <line x1="334" y1="70" x2="346" y2="70" stroke="#8A9BAE" stroke-width="0.5" opacity="0.4"/>
-              <!-- Surgical light -->
               <ellipse cx="300" cy="45" rx="30" ry="6" fill="none" stroke="#8A9BAE" stroke-width="0.5" opacity="0.3"/>
               <line x1="300" y1="30" x2="300" y2="39" stroke="#8A9BAE" stroke-width="0.5" opacity="0.3"/>
-              <!-- Isolation transformer -->
               <circle cx="100" cy="145" r="18" fill="none" stroke="#00E5FF" stroke-width="1" opacity="0.5"/>
               <circle cx="100" cy="145" r="10" fill="none" stroke="#00E5FF" stroke-width="1" opacity="0.3"/>
-              <!-- Power line in -->
               <line x1="30" y1="145" x2="82" y2="145" stroke="#1C2B3A" stroke-width="1.5"/>
               <line x1="118" y1="145" x2="140" y2="145" stroke="#00E5FF" stroke-width="1.5"/>
-              <!-- Ground symbol -->
               <line x1="100" y1="163" x2="100" y2="180" stroke="#8A9BAE" stroke-width="1"/>
               <line x1="88" y1="180" x2="112" y2="180" stroke="#8A9BAE" stroke-width="1"/>
               <line x1="92" y1="185" x2="108" y2="185" stroke="#8A9BAE" stroke-width="0.7"/>
               <line x1="96" y1="190" x2="104" y2="190" stroke="#8A9BAE" stroke-width="0.5"/>
               <text x="100" y="205" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#8A9BAE">ISO GROUND</text>
-              <!-- Badges -->
               <rect x="160" y="270" width="80" height="20" rx="3" fill="#111827" stroke="#00E5FF" stroke-width="0.5" class="med-b1" opacity="0"/>
               <text x="200" y="284" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#00E5FF" class="med-b1" opacity="0">OSHPD/HCAI</text>
               <rect x="260" y="270" width="100" height="20" rx="3" fill="#111827" stroke="#00E5FF" stroke-width="0.5" class="med-b2" opacity="0"/>
               <text x="310" y="284" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#00E5FF" class="med-b2" opacity="0">ISO GROUND</text>
               <rect x="380" y="270" width="70" height="20" rx="3" fill="#111827" stroke="#00E5FF" stroke-width="0.5" class="med-b3" opacity="0"/>
               <text x="415" y="284" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#00E5FF" class="med-b3" opacity="0">UL 60601</text>
-              <!-- Label -->
-              <text x="300" y="308" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#2A3A4A">// MEDICAL-GRADE ISOLATED POWER</text>
+              <text x="300" y="308" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#2A3A4A">// MEDICAL GRADE ISOLATED POWER</text>
             </svg>
           </div>
         </div>
@@ -157,28 +148,52 @@ const applications = [
 
       <!-- OVERVIEW TAB -->
       <div class="tab-content" data-tab="overview">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">UL60601-1 Certified</h3>
-            <p class="text-sm text-ash">Meets the stringent safety requirements for medical electrical equipment. Certified for use with critical care and life support systems.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">True medical grade, not a standard UPS with a green plug</h3>
+            <p class="text-sm text-ash leading-relaxed">UL 60601-1 compliance requires engineered isolation transformers with Faraday shields, verified leakage current at every output, medical EMC testing, and risk management documentation per IEC 14971. Online Power builds all of this in because bolting a hospital grade plug onto a commercial UPS does not make it safe for patient vicinity use.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Sub-Cycle Stabilization</h3>
-            <p class="text-sm text-ash">±1% voltage regulation with independent phase control. Corrects voltage anomalies within a single cycle to protect sensitive imaging and diagnostic equipment.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Protects the imaging equipment that protects your patients</h3>
+            <p class="text-sm text-ash leading-relaxed">CT scanners, MRIs, and linear accelerators represent capital investments from $500,000 to $3,000,000 that demand voltage stability within 1 to 3 percent. The Phase Stabilizer independently corrects each phase with sub-cycle response time, eliminating image artifacts, scan interruptions, and the chronic voltage stress that shortens equipment life.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35"></path></svg>
+              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Service Without Shutdown</h3>
-            <p class="text-sm text-ash">Seamless redundant power paths allow maintenance without interrupting power to critical medical equipment. Front service clearance only.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">OSHPD/HCAI seismic preapproval eliminates your biggest permitting delay</h3>
+            <p class="text-sm text-ash leading-relaxed">Without OSHPD OSP preapproval, every power system in a California acute care hospital project requires individual seismic certification adding weeks to permitting and tens of thousands in testing costs. Online Power's seismic rated systems are shake-table tested and preapproved, streamlining your OSHPD 1 project from day one.</p>
           </div>
+        </div>
+
+        <!-- Technical Callout -->
+        <div class="bg-bg-elevated border-l-2 border-voltage p-6 mb-10" style="border-radius: 0 12px 12px 0;">
+          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-3">// What your spec sheet won't tell you</p>
+          <p class="text-sm text-ash leading-relaxed">NEC 517.16 prohibits isolated ground receptacles within the patient care vicinity defined as 6 feet around and 7.5 feet above the patient bed. This surprises many engineers. Instead NEC 517.13 requires redundant equipment grounding using two separate paths: metallic raceway plus an insulated copper equipment grounding conductor, with equipotential grounding buses of normal and essential panels connected by at least 6 AWG insulated copper. Line Isolation Monitors in wet procedure locations alarm at 5 milliamps total hazard current but do not interrupt power. This is by design because tripping a circuit during open heart surgery is more dangerous than the leakage current itself. Only 45 percent of California hospitals are currently on track for the 2030 SB 1953 seismic compliance deadline, creating urgent demand for OSHPD preapproved power equipment.</p>
+        </div>
+
+        <!-- Codes & Standards -->
+        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Codes &amp; Standards</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-16">
+          {[
+            { code: 'UL 60601-1', desc: 'Medical Electrical Equipment' },
+            { code: 'NFPA 99', desc: 'Healthcare Facilities Code' },
+            { code: 'NEC Article 517', desc: 'Healthcare Facilities' },
+            { code: 'OSHPD/HCAI', desc: 'California Hospital Seismic' },
+            { code: 'IEC 14971', desc: 'Medical Device Risk Management' },
+            { code: 'NFPA 110', desc: 'Emergency Power Systems' },
+          ].map(item => (
+            <div class="bg-obsidian border border-steel/30 rounded-lg p-4">
+              <p class="font-display font-bold text-voltage text-sm">{item.code}</p>
+              <p class="text-xs text-ash mt-0.5">{item.desc}</p>
+            </div>
+          ))}
         </div>
 
         <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Where It Gets Specified</p>
@@ -251,10 +266,10 @@ const applications = [
             <svg class="w-5 h-5 text-voltage" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
           ))}
         </div>
-        <p class="text-pure text-lg leading-relaxed mb-6 italic">"Our imaging department requires absolute power stability. The Medical Power system from Online Power delivers ±1% regulation that our MRI and CT scanners demand."</p>
+        <p class="text-pure text-lg leading-relaxed mb-6 italic">"Online Power's commitment to working closely with my engineers on a design build project in South Florida allowed me the confidence and assurance that I will be getting nothing but the best whenever I have an emergency lighting inverter requirement."</p>
         <div class="border-t border-steel/30 pt-4">
-          <p class="font-display font-semibold text-pure">Dr. Rachel Kim</p>
-          <p class="text-sm text-ash">Hospital Facilities Director</p>
+          <p class="font-display font-semibold text-pure">Roberto Kachakil</p>
+          <p class="text-sm text-ash">PMP, P.Eng · Credo Consulting Engineers LLC</p>
         </div>
       </div>
     </div>
@@ -265,7 +280,7 @@ const applications = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h2 class="font-display text-3xl font-bold text-obsidian mb-4">Ready to Spec This Product?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Request a Quote</a>
+        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Request an OSHPD Compliant Submittal Package</a>
         <a href="/training" class="px-8 py-3.5 border-2 border-obsidian/30 text-obsidian font-semibold rounded-lg hover:bg-obsidian/10 transition-colors text-sm">Register for Training</a>
       </div>
     </div>
