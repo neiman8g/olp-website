@@ -4,15 +4,22 @@ export interface Product {
   tagline: string;
   description: string;
   category: string;
+  image: string;
   features: string[];
   standards: string[];
   docs: { label: string; url: string }[];
+}
+
+// Helper: all product images are at /images/products/{slug}.png
+function img(slug: string): string {
+  return `/images/products/${slug}.png`;
 }
 
 export const products: Product[] = [
   // === EMERGENCY LIGHTING INVERTERS ===
   {
     slug: 'power-wave-1',
+    image: img('power-wave-1'),
     name: 'Power Wave 1',
     tagline: 'Single Phase, 2.1 – 17kW',
     description: 'Single phase emergency lighting inverter listed to UL924 and UL1778. Pure sine wave output providing 90-120 minute battery backup with zero transfer time, TVSS surge suppression, and microprocessor-controlled LCD self-testing.',
@@ -28,6 +35,7 @@ export const products: Product[] = [
   },
   {
     slug: 'power-wave-3',
+    image: img('power-wave-3'),
     name: 'Power Wave 3',
     tagline: 'Three Phase, 8 – 50kW',
     description: 'Three phase emergency lighting inverter listed to UL924 and UL1778. Internal maintenance bypass, TVSS surge suppression, and 90-120 minute battery backup with main input/output breakers.',
@@ -42,6 +50,7 @@ export const products: Product[] = [
   },
   {
     slug: 'power-wave-4',
+    image: img('power-wave-4'),
     name: 'Power Wave 4',
     tagline: 'Three Phase, 8 – 400kW',
     description: 'High-capacity three phase emergency lighting inverter with field-selectable UPS Double Conversion or Green Mode. Independent phase control, GMS remote monitoring, and internal maintenance bypass.',
@@ -56,6 +65,7 @@ export const products: Product[] = [
   },
   {
     slug: 'mini-power-wave',
+    image: img('mini-power-wave'),
     name: 'Mini Power Wave',
     tagline: 'Single Phase, 500W – 2.7kW',
     description: 'Compact single phase UL924 emergency lighting inverter. Both inverter electronics and backup batteries fit into a single enclosure, ideal for small spaces. Pure sine wave output with 90-120 minute backup.',
@@ -71,6 +81,7 @@ export const products: Product[] = [
   },
   {
     slug: 'micro-power-wave',
+    image: img('micro-power-wave'),
     name: 'Micro Power Wave',
     tagline: 'Single Phase, 200W – 490W',
     description: 'Ultra-compact single phase emergency lighting inverter listed to UL924. Electronics and batteries in a single enclosure for tight spaces. 90-minute minimum battery backup.',
@@ -86,6 +97,7 @@ export const products: Product[] = [
   },
   {
     slug: 'nano-wave',
+    image: img('nano-wave'),
     name: 'Nano Power Wave',
     tagline: 'Single Phase, 27W – 100W (Lithium Ion)',
     description: 'Lithium ion powered UL924 remote emergency lighting dimming inverter for LED and fluorescent fixtures. Supports 90-minute emergency lighting with option to derate for 2-hour run time per Life Safety Code.',
@@ -101,6 +113,7 @@ export const products: Product[] = [
   },
   {
     slug: 'heu',
+    image: img('heu'),
     name: 'Harsh Environment UPS',
     tagline: 'Single Phase, 2.1 – 17kW',
     description: 'Emergency lighting inverter built for industrial conditions. Conformal coated electronics, filtered ventilation, and NEMA 3R steel enclosure withstand tough environments while maintaining UL924 compliance.',
@@ -117,6 +130,7 @@ export const products: Product[] = [
   // === SEISMIC CERTIFIED ===
   {
     slug: 'sv-power-wave-1',
+    image: img('sv-power-wave-1'),
     name: 'SV Power Wave 1',
     tagline: 'Seismic Certified, Single Phase, 3 – 17kW',
     description: 'Shaker table tested and OSHPD/HCAI certified single phase emergency lighting inverter. Approved for California hospitals and seismic zones with zero transfer time technology.',
@@ -132,6 +146,7 @@ export const products: Product[] = [
   },
   {
     slug: 'sv-power-wave-3',
+    image: img('sv-power-wave-3'),
     name: 'SV Power Wave 3',
     tagline: 'Seismic Certified, Three Phase, 8 – 50kW',
     description: 'Shaker table tested and OSHPD/HCAI certified three phase emergency lighting inverter for seismic zones and California hospital applications.',
@@ -146,6 +161,7 @@ export const products: Product[] = [
   },
   {
     slug: 'sv-power-wave-4',
+    image: img('sv-power-wave-4'),
     name: 'SV Power Wave 4',
     tagline: 'Seismic Certified, Three Phase, 8 – 400kW',
     description: 'Shaker table tested OSHPD/HCAI certified high-capacity three phase inverter with independent phase control and GMS remote monitoring for seismic applications.',
@@ -162,6 +178,7 @@ export const products: Product[] = [
   // === ELEVATOR BACKUP ===
   {
     slug: 'elevate',
+    image: img('elevate'),
     name: 'Power Wave Elevate',
     tagline: 'Three Phase, 24 – 240kW',
     description: 'Three phase elevator emergency backup system listed to UL924 and UL1778. Designed specifically to provide reliable elevator power during outages for safe building evacuation.',
@@ -178,6 +195,7 @@ export const products: Product[] = [
   // === FIRE ALARM BACKUP ===
   {
     slug: 'fire-alarm-backup',
+    image: img('fire-alarm-backup'),
     name: 'Fire Alarm Backup',
     tagline: 'UL1481 Fire Alarm Battery Backup',
     description: 'Specialized backup system listed to UL1481 for fire alarm notification appliance circuits. Ensures continuous power to fire alarm systems during outages for life safety compliance.',
@@ -194,6 +212,7 @@ export const products: Product[] = [
   // === UPS BACKUP ===
   {
     slug: 'host-power',
+    image: img('host-power'),
     name: 'Host Power UPS',
     tagline: 'Three Phase, 10 – 500kVA',
     description: 'Advanced high-frequency UPS for non-linear loads with built-in load distribution. 90% efficiency, PWM sinusoidal waveform, generator compatible, and modular assembly for easy installation.',
@@ -207,6 +226,7 @@ export const products: Product[] = [
   },
   {
     slug: 'protector-1',
+    image: img('protector-1'),
     name: 'Protector 1',
     tagline: 'Single Phase UPS Protection',
     description: 'Single phase UPS surge protection system designed to protect electrical equipment from voltage transients and surge events in commercial and industrial environments.',
@@ -217,6 +237,7 @@ export const products: Product[] = [
   },
   {
     slug: 'protector-3',
+    image: img('protector-3'),
     name: 'Protector 3',
     tagline: 'Three Phase UPS Protection',
     description: 'Three phase UPS surge protection system offering enhanced protection for critical power applications in demanding industrial and commercial environments.',
@@ -228,6 +249,7 @@ export const products: Product[] = [
   // === MEDICAL GRADE ===
   {
     slug: 'medical-grade',
+    image: img('medical-grade'),
     name: 'Medical Grade Systems',
     tagline: 'UL60601-1 Power Conditioner & UPS',
     description: 'Medical-grade UL60601-1 power conditioner and UPS designed for hospital and healthcare facility requirements with strict safety and reliability standards for critical medical equipment.',
@@ -238,6 +260,7 @@ export const products: Product[] = [
   },
   {
     slug: 'medical-power',
+    image: img('medical-power'),
     name: 'Medical Power',
     tagline: 'Three Phase, 10 – 200kVA',
     description: 'Medical-grade UL60601-1 certified power conditioner with superior sub-cycle voltage stabilization of 1%. Independent phase control, seamless redundant power paths, and service without shutdown.',
@@ -251,6 +274,7 @@ export const products: Product[] = [
   },
   {
     slug: 'phase-stabilizer',
+    image: img('phase-stabilizer'),
     name: 'Phase Stabilizer',
     tagline: 'Three Phase, 15 – 1,250kVA',
     description: 'Medical-grade power conditioning with ±1.5% output voltage regulation. Input and output filtering for clean, stable power delivery to sensitive loads with secondary surge suppression.',
@@ -266,6 +290,7 @@ export const products: Product[] = [
   // === VOLTAGE REGULATORS ===
   {
     slug: 'voltage-regulators',
+    image: img('voltage-regulators'),
     name: 'Voltage Regulators',
     tagline: 'Power Conditioning & Regulation',
     description: 'Voltage regulation systems designed to maintain stable power output under variable input conditions. Protects equipment from voltage fluctuations and power quality issues.',
@@ -276,6 +301,7 @@ export const products: Product[] = [
   },
   {
     slug: 'power-reg',
+    image: img('power-reg'),
     name: 'Power Reg',
     tagline: 'Three Phase, 15 – 2,000kVA',
     description: 'High-efficiency voltage regulator with ±3% output regulation and zero crossing tap switching. Common-mode noise attenuation up to -152 dB for ultra-regulated power delivery.',
@@ -291,6 +317,7 @@ export const products: Product[] = [
   },
   {
     slug: 'constant-power-6',
+    image: img('constant-power-6'),
     name: 'Constant Power 6',
     tagline: 'Single Phase, 3 – 15kVA',
     description: 'Single-phase isolation and voltage regulation with dual-shielded transformer. Input tolerance +10%/-26%, output ±3%. Distribution receptacles and compact footprint.',
@@ -306,6 +333,7 @@ export const products: Product[] = [
   },
   {
     slug: 'constant-power-18',
+    image: img('constant-power-18'),
     name: 'Constant Power 18',
     tagline: 'Three Phase, 15 – 100kVA',
     description: 'Three-phase isolation and voltage regulation in low-profile caster-based cabinet. SCR regulation assembly with main circuit breaker and shunt trip for responsive power conditioning.',
@@ -321,6 +349,7 @@ export const products: Product[] = [
   // === ISOLATION TRANSFORMERS ===
   {
     slug: 'isocare',
+    image: img('isocare'),
     name: 'ISO-Care',
     tagline: 'Three Phase, 15 – 500kVA',
     description: 'Isolation transformer providing clean, noise-free power. Low impedance design with common mode noise attenuation up to -152 dB. Indoor and outdoor rated with NEMA 12 certification.',
@@ -337,6 +366,7 @@ export const products: Product[] = [
   // === POWER DISTRIBUTION ===
   {
     slug: 'power-distribution',
+    image: img('power-distribution'),
     name: 'Power Distribution Units',
     tagline: 'Customizable Power Distribution',
     description: 'Configurable power distribution solutions for managing, distributing, and monitoring energy. Perfect for permanent installations and temporary event setups.',
@@ -347,6 +377,7 @@ export const products: Product[] = [
   },
   {
     slug: 'power-island',
+    image: img('power-island'),
     name: 'Power Island',
     tagline: '42 Pole (Sm), 84 Pole (Lg)',
     description: 'Modular power distribution with neutral and ground bus. Tiered and slotted conduit landing brackets supporting single and three-phase applications.',
@@ -360,6 +391,7 @@ export const products: Product[] = [
   },
   {
     slug: 'power-pac',
+    image: img('power-pac'),
     name: 'Power Pac',
     tagline: 'Three Phase, 15 – 450kVA',
     description: 'Comprehensive power distribution with built-in voltage regulation and monitoring. Designed for harmonic loads with >96% efficiency and system monitoring panel.',
@@ -374,6 +406,7 @@ export const products: Product[] = [
   },
   {
     slug: 'power-pal',
+    image: img('power-pal'),
     name: 'Power Pal',
     tagline: 'Three Phase, 15 – 300kVA',
     description: 'Efficient power distribution with high isolation and harmonic load support. Cost-effective alternative to regulated systems with >96% efficiency and overload protection.',
@@ -389,6 +422,7 @@ export const products: Product[] = [
   // === MONITORING ===
   {
     slug: 'gms',
+    image: img('gms'),
     name: 'Global Monitoring System',
     tagline: 'Remote Power System Monitoring',
     description: '24/7 remote monitoring and notification system for power protection equipment. Real-time visibility into system performance for proactive maintenance and emergency alerts.',
@@ -401,6 +435,7 @@ export const products: Product[] = [
   },
   {
     slug: 'bas',
+    image: img('bas'),
     name: 'Battery Advisor System',
     tagline: 'Advanced Battery Monitoring',
     description: 'State-of-the-art battery monitoring measuring voltage, impedance, temperature, and string current. Wireless or wired with touch screen display for comprehensive battery health tracking.',
@@ -414,6 +449,7 @@ export const products: Product[] = [
   // === LOAD CONTROL ===
   {
     slug: 'lcr20',
+    image: img('lcr20'),
     name: 'LCR20',
     tagline: 'Automatic Load Control Relay',
     description: 'UL924 load control relay for emergency lighting with 0-10V dimmer override for full emergency illumination. Quick-connect IP65 rated test switch in aluminum housing.',
@@ -429,6 +465,7 @@ export const products: Product[] = [
   // === FREQUENCY CONVERTER ===
   {
     slug: 'frequency-converter',
+    image: img('frequency-converter'),
     name: 'Frequency Converter',
     tagline: '10kVA – 320kVA (50/60/400Hz)',
     description: 'Industrial frequency converter with true galvanic isolation and ±0.1Hz accuracy. Built for harsh environments with redundant power supply, modular plug-and-play design, and advanced DSP/IGBT technology.',
@@ -445,6 +482,7 @@ export const products: Product[] = [
   // === CUSTOM OEM ===
   {
     slug: 'custom-oem',
+    image: img('custom-oem'),
     name: 'Custom OEM Solutions',
     tagline: '48 Years of Custom Engineering',
     description: 'Custom power supply units for frequency conversion, AC/DC voltage modification, multiple voltage inputs for global use, noise isolation, distribution, and monitoring with optional battery backup.',
@@ -457,16 +495,26 @@ export const products: Product[] = [
 
 // Category definitions
 export const categories = [
-  { slug: 'emergency-lighting', name: 'Emergency Lighting Inverters', tagline: 'UL924 Emergency Lighting Inverter Systems', description: 'Single and three phase emergency lighting inverters from 27W to 400kW. UL924 listed with 90-120 minute battery backup. Standard, seismic-certified, and harsh environment models.' },
-  { slug: 'elevator-backup', name: 'Elevator Backup', tagline: 'UL924 Elevator Emergency Backup Systems', description: 'Three phase elevator emergency backup systems for safe building evacuation during power outages. UL924 and UL1778 listed.' },
-  { slug: 'fire-alarm-backup', name: 'Fire Alarm Backup', tagline: 'UL1481 Fire Alarm Backup Systems', description: 'UL1481 listed backup systems for fire alarm notification appliance circuits. Ensures continuous power for life safety compliance.' },
-  { slug: 'ups-backup', name: 'UPS Backup', tagline: 'UL1778 Uninterruptible Power Supply', description: 'High-frequency UPS systems for critical loads. Generator compatible with built-in load distribution and modular assembly.' },
-  { slug: 'medical-grade', name: 'Medical Grade', tagline: 'Hospital-Grade Power Protection', description: 'UL60601-1 certified medical-grade power conditioners and UPS systems. Sub-cycle voltage stabilization for critical care equipment.' },
-  { slug: 'voltage-regulators', name: 'Voltage Regulators', tagline: 'Power Conditioning & Regulation', description: 'Voltage regulators, isolation transformers, and power conditioners from 3kVA to 2,000kVA. Including ISO-Care and Constant Power series.' },
-  { slug: 'power-distribution', name: 'Power Distribution', tagline: 'Power Distribution Units', description: 'Customizable power distribution solutions for permanent and temporary installations. Modular designs with monitoring capabilities.' },
-  { slug: 'monitoring', name: 'Monitoring & Software', tagline: 'System Monitoring Solutions', description: 'Global Monitoring System (GMS) for remote power system oversight and Battery Advisor System (BAS) for comprehensive battery health tracking.' },
-  { slug: 'load-control-relays', name: 'Load Control Relays', tagline: 'UL924 Load Control Relays', description: 'Automatic load control relays for emergency lighting dimmer override. UL924 listed with IP65 rated connections.' },
-  { slug: 'custom-oem', name: 'Custom OEM', tagline: 'Custom Engineered Solutions', description: '48 years of custom power engineering. Frequency converters, voltage modification, global multi-input systems, and complete power solutions built to your spec.' },
+  { slug: 'emergency-lighting',
+    image: img('emergency-lighting'), name: 'Emergency Lighting Inverters', tagline: 'UL924 Emergency Lighting Inverter Systems', description: 'Single and three phase emergency lighting inverters from 27W to 400kW. UL924 listed with 90-120 minute battery backup. Standard, seismic-certified, and harsh environment models.' },
+  { slug: 'elevator-backup',
+    image: img('elevator-backup'), name: 'Elevator Backup', tagline: 'UL924 Elevator Emergency Backup Systems', description: 'Three phase elevator emergency backup systems for safe building evacuation during power outages. UL924 and UL1778 listed.' },
+  { slug: 'fire-alarm-backup',
+    image: img('fire-alarm-backup'), name: 'Fire Alarm Backup', tagline: 'UL1481 Fire Alarm Backup Systems', description: 'UL1481 listed backup systems for fire alarm notification appliance circuits. Ensures continuous power for life safety compliance.' },
+  { slug: 'ups-backup',
+    image: img('ups-backup'), name: 'UPS Backup', tagline: 'UL1778 Uninterruptible Power Supply', description: 'High-frequency UPS systems for critical loads. Generator compatible with built-in load distribution and modular assembly.' },
+  { slug: 'medical-grade',
+    image: img('medical-grade'), name: 'Medical Grade', tagline: 'Hospital-Grade Power Protection', description: 'UL60601-1 certified medical-grade power conditioners and UPS systems. Sub-cycle voltage stabilization for critical care equipment.' },
+  { slug: 'voltage-regulators',
+    image: img('voltage-regulators'), name: 'Voltage Regulators', tagline: 'Power Conditioning & Regulation', description: 'Voltage regulators, isolation transformers, and power conditioners from 3kVA to 2,000kVA. Including ISO-Care and Constant Power series.' },
+  { slug: 'power-distribution',
+    image: img('power-distribution'), name: 'Power Distribution', tagline: 'Power Distribution Units', description: 'Customizable power distribution solutions for permanent and temporary installations. Modular designs with monitoring capabilities.' },
+  { slug: 'monitoring',
+    image: img('monitoring'), name: 'Monitoring & Software', tagline: 'System Monitoring Solutions', description: 'Global Monitoring System (GMS) for remote power system oversight and Battery Advisor System (BAS) for comprehensive battery health tracking.' },
+  { slug: 'load-control-relays',
+    image: img('load-control-relays'), name: 'Load Control Relays', tagline: 'UL924 Load Control Relays', description: 'Automatic load control relays for emergency lighting dimmer override. UL924 listed with IP65 rated connections.' },
+  { slug: 'custom-oem',
+    image: img('custom-oem'), name: 'Custom OEM', tagline: 'Custom Engineered Solutions', description: '48 years of custom power engineering. Frequency converters, voltage modification, global multi-input systems, and complete power solutions built to your spec.' },
 ];
 
 export function getProductsByCategory(categorySlug: string): Product[] {
