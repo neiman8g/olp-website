@@ -33,8 +33,21 @@
       <span>// AB Bot &middot; Powered by AI &middot; Available 24/7 &middot; Real engineers at (800) 227-8899</span>
     </div>
 
-    <!-- Messages -->
-    <div id="olp-chat-messages"></div>
+    <!-- Gate: Name & Email required before chat -->
+    <div id="olp-chat-gate">
+      <div style="padding:24px 16px;display:flex;flex-direction:column;gap:12px;">
+        <p style="font-family:'Space Mono',monospace;font-size:10px;color:#00E5FF;letter-spacing:0.1em;text-transform:uppercase;">// Before we start</p>
+        <p style="font-size:13px;color:#F8FAFC;line-height:1.5;">Hi, I'm <strong>AB Bot</strong>. To give you the best help, please share your name and email so our engineering team can follow up.</p>
+        <input type="text" id="olp-gate-name" placeholder="Your name" style="width:100%;padding:10px 12px;background:#111827;border:1px solid #1C2B3A;border-radius:8px;color:#F8FAFC;font-size:13px;outline:none;" />
+        <input type="email" id="olp-gate-email" placeholder="Your email" style="width:100%;padding:10px 12px;background:#111827;border:1px solid #1C2B3A;border-radius:8px;color:#F8FAFC;font-size:13px;outline:none;" />
+        <div id="olp-gate-error" style="display:none;font-size:11px;color:#FF4444;padding:0 4px;"></div>
+        <button id="olp-gate-submit" style="width:100%;padding:12px;background:#00E5FF;color:#0A0A0F;font-weight:600;font-size:13px;border:none;border-radius:8px;cursor:pointer;">Start Conversation</button>
+        <p style="font-size:10px;color:#4A5A6A;text-align:center;">Your info goes directly to our engineering team.</p>
+      </div>
+    </div>
+
+    <!-- Messages (hidden until gate passed) -->
+    <div id="olp-chat-messages" class="olp-hidden"></div>
 
     <!-- Quick Replies -->
     <div id="olp-chat-chips">
@@ -446,10 +459,51 @@
   const btn = document.getElementById('olp-chat-btn');
   const panel = document.getElementById('olp-chat-panel');
   const closeBtn = document.getElementById('olp-chat-close');
+  const gateEl = document.getElementById('olp-chat-gate');
   const messagesEl = document.getElementById('olp-chat-messages');
   const chipsEl = document.getElementById('olp-chat-chips');
   const inputEl = document.getElementById('olp-chat-input');
   const sendBtn = document.getElementById('olp-chat-send');
+  const inputWrap = document.querySelector('.olp-chat-input-wrap');
+
+  let userName = sessionStorage.getItem('olp_chat_name') || '';
+  let userEmail = sessionStorage.getItem('olp_chat_email') || '';
+  let gateCleared = !!(userName && userEmail);
+
+  // Hide input area until gate is passed
+  if (!gateCleared && inputWrap) inputWrap.style.display = 'none';
+  if (!gateCleared && chipsEl) chipsEl.style.display = 'none';
+  if (gateCleared && gateEl) gateEl.style.display = 'none';
+  if (gateCleared) messagesEl.classList.remove('olp-hidden');
+
+  // Gate submit handler
+  var gateSubmitBtn = document.getElementById('olp-gate-submit');
+  var gateNameEl = document.getElementById('olp-gate-name');
+  var gateEmailEl = document.getElementById('olp-gate-email');
+  var gateErrorEl = document.getElementById('olp-gate-error');
+
+  if (gateSubmitBtn) {
+    gateSubmitBtn.addEventListener('click', function() {
+      var name = gateNameEl.value.trim();
+      var email = gateEmailEl.value.trim();
+      var emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+      if (!name) { gateErrorEl.textContent = 'Please enter your name.'; gateErrorEl.style.display = 'block'; return; }
+      if (!email || !emailRegex.test(email)) { gateErrorEl.textContent = 'Please enter a valid email address.'; gateErrorEl.style.display = 'block'; return; }
+      userName = name;
+      userEmail = email;
+      sessionStorage.setItem('olp_chat_name', name);
+      sessionStorage.setItem('olp_chat_email', email);
+      gateCleared = true;
+      gateEl.style.display = 'none';
+      messagesEl.classList.remove('olp-hidden');
+      if (inputWrap) inputWrap.style.display = 'flex';
+      if (chipsEl) chipsEl.style.display = 'flex';
+      addMessage('assistant', 'Hello ' + name + '. I am AB Bot, named in honor of Online Power founder Abbie. I can help you size emergency lighting inverters, elevator backup systems, fire alarm backup, UPS systems, and any other power protection application.\n\nWhat are you working on?');
+      inputEl.focus();
+      // Log lead immediately
+      console.log('[AB Bot Lead]', JSON.stringify({name: name, email: email}));
+    });
+  }
   const limitEl = document.getElementById('olp-chat-limit');
 
   let conversationHistory = [];
@@ -487,7 +541,7 @@
     wrap.className = 'olp-msg-wrap olp-msg-wrap-' + role;
     const label = document.createElement('div');
     label.className = 'olp-msg-label olp-msg-label-' + role;
-    label.textContent = role === 'assistant' ? '\u26A1 AB Bot' : '\uD83D\uDC64 You';
+    label.textContent = role === 'assistant' ? '\u26A1 AB Bot' : '\uD83D\uDCAC You';
     const div = document.createElement('div');
     div.className = 'olp-msg olp-msg-' + role;
     div.textContent = content;
@@ -645,10 +699,10 @@
   btn.addEventListener('click', function() {
     panel.classList.remove('olp-hidden');
     btn.style.display = 'none';
-    if (messagesEl.children.length === 0) {
-      addMessage('assistant', 'Hello. I am AB Bot, named in honor of Online Power founder Abbie. I can help you size emergency lighting inverters, elevator backup systems, fire alarm backup, UPS systems, and any other power protection application.\n\nWhat are you working on?');
+    if (gateCleared && messagesEl.children.length === 0) {
+      addMessage('assistant', 'Hello ' + userName + '. I am AB Bot, named in honor of Online Power founder Abbie. I can help you size emergency lighting inverters, elevator backup systems, fire alarm backup, UPS systems, and any other power protection application.\n\nWhat are you working on?');
     }
-    inputEl.focus();
+    if (gateCleared) inputEl.focus();
   });
 
   // Email conversation log via EmailJS when chat closes
