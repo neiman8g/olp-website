@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
 import DocumentGate from '../../components/DocumentGate.astro';
 import { products, getProductsByCategory, getCategoryBySlug } from '../../data/products';
 import { company } from '../../data/company';
@@ -198,15 +199,10 @@ const specs = specTables[product.slug] || null;
           <p class="font-mono text-sm text-voltage mb-6">{product.tagline}</p>
           <p class="text-lg text-ash leading-relaxed mb-8">{product.description}</p>
           <div class="flex flex-wrap gap-3 mb-4">
-            <a href="/contact/" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2">
-              Request a Quote
-            </a>
-            <a href="/training/" class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center gap-2">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              Get Training
-            </a>
+            <Button href="/contact/" size="lg">Request a Quote</Button>
+            <Button href="/training/" variant="ghost" size="lg" icon="bolt">Get Training</Button>
           </div>
-          <p class="font-mono text-xs text-ash">// Responds within 2 business hours</p>
+          <p class="font-mono text-xs text-ash">Responds within 2 business hours</p>
         </div>
         <!-- Right: 45% — Product image -->
         <div class="lg:col-span-5">
@@ -226,7 +222,7 @@ const specs = specTables[product.slug] || null;
   <!-- Key Features -->
   <section class="py-16 md:py-24 bg-slate">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Key Features</p>
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Key Features</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {product.features.map(feature => (
           <div class="flex items-start gap-3 bg-obsidian border border-steel/20 rounded-lg p-4">
@@ -241,7 +237,7 @@ const specs = specTables[product.slug] || null;
   <!-- Specifications Table (Issue 4) -->
   <section class="py-16 md:py-24 bg-obsidian">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Specifications</p>
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Specifications</p>
       {specs ? (
         <div class="border border-steel/20 rounded-xl overflow-hidden">
           {specs.map(([label, value], i) => (
@@ -271,7 +267,7 @@ const specs = specTables[product.slug] || null;
   {relatedProducts.length > 0 && (
     <section class="py-16 md:py-24 bg-obsidian">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">// Related Products</p>
+        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">Related Products</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {relatedProducts.map(rp => (
             <a href={`/products/${rp.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
@@ -305,10 +301,7 @@ const specs = specTables[product.slug] || null;
 
   <!-- Mobile Sticky CTA -->
   <div class="fixed bottom-0 left-0 right-0 bg-obsidian/95 backdrop-blur border-t border-steel/30 p-3 z-40 lg:hidden" id="product-mobile-cta" style="display:none;padding-bottom:max(12px, env(safe-area-inset-bottom));">
-    <a href="/contact/" class="btn-primary w-full py-3.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
-      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      Request a Quote
-    </a>
+    <Button href="/contact/" size="lg" icon="bolt" fullWidth>Request a Quote</Button>
   </div>
 
 </BaseLayout>

@@ -1,0 +1,74 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  icon?: 'arrow-right' | 'arrow-down' | 'external' | 'bolt';
+  fullWidth?: boolean;
+  id?: string;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  icon,
+  fullWidth = false,
+  id,
+  type = 'button',
+  class: className = '',
+  target,
+  rel,
+} = Astro.props;
+
+const sizeClasses: Record<string, string> = {
+  sm: 'px-4 py-2 text-xs',
+  md: 'px-6 py-3 text-sm',
+  lg: 'px-8 py-3.5 text-sm',
+};
+
+const variantClasses: Record<string, string> = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  ghost: 'btn-ghost',
+};
+
+const baseClasses = [
+  variantClasses[variant],
+  sizeClasses[size],
+  'rounded-lg font-semibold inline-flex items-center justify-center gap-2',
+  fullWidth ? 'w-full' : '',
+  className,
+].filter(Boolean).join(' ');
+
+const icons: Record<string, string> = {
+  'arrow-right': 'M9 5l7 7-7 7',
+  'arrow-down': 'M19 9l-7 7-7-7',
+  'external': 'M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14',
+  'bolt': 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
+};
+---
+
+{href ? (
+  <a href={href} class={baseClasses} id={id} target={target} rel={rel}>
+    <slot />
+    {icon && (
+      <svg class="w-4 h-4" fill={icon === 'bolt' ? 'currentColor' : 'none'} stroke={icon === 'bolt' ? 'none' : 'currentColor'} viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[icon]} />
+      </svg>
+    )}
+  </a>
+) : (
+  <button type={type} class={baseClasses} id={id}>
+    <slot />
+    {icon && (
+      <svg class="w-4 h-4" fill={icon === 'bolt' ? 'currentColor' : 'none'} stroke={icon === 'bolt' ? 'none' : 'currentColor'} viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[icon]} />
+      </svg>
+    )}
+  </button>
+)}

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Button from '../../../components/Button.astro';
 import DocumentGate from '../../../components/DocumentGate.astro';
 import { getProductsByCategory, getCategoryBySlug } from '../../../data/products';
 import { company } from '../../../data/company';
@@ -84,9 +85,9 @@ const applications = [
 
           <!-- CTAs -->
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Size My Inverter — 24-Hour Load Calculation</a>
+            <Button href="/contact" size="lg">Size My Inverter — 24-Hour Load Calculation</Button>
           </div>
-          <p class="font-mono text-xs text-ash">// Responds within 2 business hours</p>
+          <p class="font-mono text-xs text-ash">Responds within 2 business hours</p>
         </div>
 
         <!-- Right: Product Image + Trust -->
@@ -138,12 +139,12 @@ const applications = [
 
         <!-- Technical Callout -->
         <div class="bg-bg-elevated border-l-2 border-voltage p-6 mb-10" style="border-radius: 0 12px 12px 0;">
-          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-3">// What your spec sheet won't tell you</p>
+          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-3">What your spec sheet won't tell you</p>
           <p class="text-sm text-ash leading-relaxed">NEC Article 700.10(B) requires emergency wiring to be kept completely independent of all other wiring — separate raceways, boxes, cabinets, and panels. This is the most frequently red-tagged requirement in emergency lighting installations. NFPA 101 §7.9.2.1.3 also caps the maximum-to-minimum illumination uniformity ratio at 40:1 — a requirement that distributed battery packs routinely fail because output drops unevenly as batteries age. A centralized inverter with proper circuit design solves both at the design stage, not during punch list.</p>
         </div>
 
         <!-- Codes & Standards -->
-        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Codes &amp; Standards</p>
+        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">Codes &amp; Standards</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-16">
           {[
             { code: 'UL 924', desc: 'Emergency Lighting Equipment' },
@@ -161,7 +162,7 @@ const applications = [
         </div>
 
         <!-- Applications -->
-        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Where It Gets Specified</p>
+        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">Where It Gets Specified</p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-16">
           {applications.map(app => (
             <div class="bg-obsidian border border-steel/30 rounded-lg p-4 flex items-center gap-3">
@@ -195,7 +196,7 @@ const applications = [
 
       <!-- DOCUMENTS TAB -->
       <div class="tab-content hidden" data-tab="documents">
-        <p class="font-mono text-xs text-ash mb-6">// All documents available for immediate download after a quick registration.</p>
+        <p class="font-mono text-xs text-ash mb-6">All documents available for immediate download after a quick registration.</p>
         <DocumentGate productSlug="power-wave-1" />
       </div>
     </div>
@@ -204,7 +205,7 @@ const applications = [
   <!-- PRODUCT MODELS -->
   <section class="py-16 md:py-24 bg-obsidian">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">// {categoryProducts.length} Models Available</p>
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">{categoryProducts.length} Models Available</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {categoryProducts.map(p => (
           <a href={`/products/${p.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
@@ -254,10 +255,7 @@ const applications = [
 
   <!-- MOBILE STICKY CTA -->
   <div class="fixed bottom-0 left-0 right-0 bg-obsidian/95 backdrop-blur border-t border-steel/30 p-3 z-40 lg:hidden" style="padding-bottom:max(12px, env(safe-area-inset-bottom));" id="mobile-sticky-cta" style="display:none;">
-    <a href="/contact" class="btn-primary w-full py-3.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
-      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      Request a Quote
-    </a>
+    <Button href="/contact" size="lg" icon="bolt" fullWidth>Request a Quote</Button>
   </div>
 
 </BaseLayout>

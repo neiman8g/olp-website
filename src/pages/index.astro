@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
 import { company, testimonials } from '../data/company';
 import HeroRiser from '../components/illustrations/HeroRiser.astro';
 import CustomOEM from '../components/illustrations/CustomOEM.astro';
@@ -52,13 +54,8 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
             The widest range of UL listed power protection from a single manufacturer. Built to order in Los Angeles since 1975.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 mb-12">
-            <a href="/products/" class="btn-primary px-8 py-3.5 rounded-lg text-sm font-semibold text-center inline-flex items-center justify-center gap-2">
-              View Products
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
-            <a href="/contact/" class="btn-ghost px-8 py-3.5 rounded-lg text-sm text-center inline-flex items-center justify-center">
-              Request a Quote
-            </a>
+            <Button href="/products/" size="lg" icon="arrow-right">View Products</Button>
+            <Button href="/contact/" variant="ghost" size="lg">Request a Quote</Button>
           </div>
         </div>
 
@@ -80,68 +77,68 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   <!-- ========== PRODUCTS GRID ========== -->
   <section class="py-20 md:py-28 bg-slate">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">// Product Lines</p>
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">Product Lines</p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <!-- Lighting Inverters -->
-        <a href="/products/category/emergency-lighting" class="card-glow card-top-accent bg-steel/30 rounded-xl p-6 group transition-all">
+        <Card variant="product" href="/products/category/emergency-lighting">
           <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
           </div>
           <h3 class="font-display text-lg font-semibold text-pure mb-1">Lighting Inverters</h3>
           <p class="text-sm text-ash mb-4">UL924 emergency lighting inverter systems from 35W to 400kW</p>
           <span class="text-sm font-medium text-voltage group-hover:text-pure transition-colors">Learn More &rarr;</span>
-        </a>
+        </Card>
 
         <!-- Fire Alarm Backup -->
-        <a href="/products/category/fire-alarm-backup" class="card-glow card-top-accent bg-steel/30 rounded-xl p-6 group transition-all">
+        <Card variant="product" href="/products/category/fire-alarm-backup">
           <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg>
           </div>
           <h3 class="font-display text-lg font-semibold text-pure mb-1">Fire Alarm Backup</h3>
           <p class="text-sm text-ash mb-4">UL1481 fire alarm notification appliance circuit backup</p>
           <span class="text-sm font-medium text-voltage group-hover:text-pure transition-colors">Learn More &rarr;</span>
-        </a>
+        </Card>
 
         <!-- Elevator Backup -->
-        <a href="/products/category/elevator-backup" class="card-glow card-top-accent bg-steel/30 rounded-xl p-6 group transition-all">
+        <Card variant="product" href="/products/category/elevator-backup">
           <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4 4 4M8 17l4 4 4-4M3 12h18"></path></svg>
           </div>
           <h3 class="font-display text-lg font-semibold text-pure mb-1">Elevator Backup</h3>
           <p class="text-sm text-ash mb-4">UL924 elevator backup systems for safe evacuation during outages</p>
           <span class="text-sm font-medium text-voltage group-hover:text-pure transition-colors">Learn More &rarr;</span>
-        </a>
+        </Card>
 
         <!-- UPS Backup -->
-        <a href="/products/category/ups-backup" class="card-glow card-top-accent bg-steel/30 rounded-xl p-6 group transition-all">
+        <Card variant="product" href="/products/category/ups-backup">
           <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
           </div>
           <h3 class="font-display text-lg font-semibold text-pure mb-1">UPS Backup</h3>
           <p class="text-sm text-ash mb-4">UL1778 uninterruptible power supply systems for critical loads</p>
           <span class="text-sm font-medium text-voltage group-hover:text-pure transition-colors">Learn More &rarr;</span>
-        </a>
+        </Card>
 
         <!-- Medical Grade -->
-        <a href="/products/category/medical-grade" class="card-glow card-top-accent bg-steel/30 rounded-xl p-6 group transition-all">
+        <Card variant="product" href="/products/category/medical-grade">
           <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
           </div>
           <h3 class="font-display text-lg font-semibold text-pure mb-1">Medical Grade Systems</h3>
           <p class="text-sm text-ash mb-4">Hospital-grade isolation and power protection for critical care</p>
           <span class="text-sm font-medium text-voltage group-hover:text-pure transition-colors">Learn More &rarr;</span>
-        </a>
+        </Card>
 
         <!-- Voltage Regulators -->
-        <a href="/products/category/voltage-regulators" class="card-glow card-top-accent bg-steel/30 rounded-xl p-6 group transition-all">
+        <Card variant="product" href="/products/category/voltage-regulators">
           <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
           </div>
           <h3 class="font-display text-lg font-semibold text-pure mb-1">Voltage Regulators</h3>
           <p class="text-sm text-ash mb-4">Power conditioning and voltage regulation for sensitive equipment</p>
           <span class="text-sm font-medium text-voltage group-hover:text-pure transition-colors">Learn More &rarr;</span>
-        </a>
+        </Card>
       </div>
     </div>
   </section>
@@ -165,7 +162,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
-          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Custom Engineering</p>
+          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">Custom Engineering</p>
           <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-pure mb-6 leading-tight">Built to Your Spec.</h2>
           <p class="text-ash leading-relaxed mb-6">
             Our in-house engineering team designs and manufactures custom power protection solutions tailored to your exact requirements. From modified standard products to ground-up OEM designs, we build it in Los Angeles and ship direct.
@@ -173,10 +170,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <p class="text-ash leading-relaxed mb-8">
             With 48 years of manufacturing experience and ISO 9001 quality systems, your custom solution gets the same precision engineering as our standard product lines.
           </p>
-          <a href="/contact/" class="btn-primary px-8 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2">
-            Discuss Your Project
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </a>
+          <Button href="/contact/" size="lg" icon="arrow-right">Discuss Your Project</Button>
         </div>
         <!-- Custom OEM illustration -->
         <div style="background:#111827;border-radius:12px;padding:24px;overflow:hidden;">
@@ -189,35 +183,35 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   <!-- ========== TRAINING SECTION ========== -->
   <section class="py-20 md:py-28 bg-slate">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Expert Training</p>
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">Expert Training</p>
       <h2 class="font-display text-3xl md:text-4xl font-bold text-pure mb-4">Learn From the Engineers Who Built It.</h2>
       <p class="text-ash max-w-2xl mb-12">Hands-on product training from our manufacturing engineering team. In-person, virtual, or at your facility.</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="card-glow bg-obsidian rounded-xl p-6">
+        <Card variant="feature">
           <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
           </div>
           <h3 class="font-display text-lg font-semibold text-pure mb-2">In-Person</h3>
           <p class="text-sm text-ash mb-4">Visit our LA facility. Hands-on with actual equipment.</p>
           <a href="/training/" class="text-sm font-medium text-voltage hover:text-pure transition-colors">Register &rarr;</a>
-        </div>
-        <div class="card-glow bg-obsidian rounded-xl p-6">
+        </Card>
+        <Card variant="feature">
           <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
           </div>
           <h3 class="font-display text-lg font-semibold text-pure mb-2">Virtual</h3>
           <p class="text-sm text-ash mb-4">Live sessions with Q&A. Recorded for your team.</p>
           <a href="/training/" class="text-sm font-medium text-voltage hover:text-pure transition-colors">Register &rarr;</a>
-        </div>
-        <div class="card-glow bg-obsidian rounded-xl p-6">
+        </Card>
+        <Card variant="feature">
           <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
           </div>
           <h3 class="font-display text-lg font-semibold text-pure mb-2">On-Site</h3>
           <p class="text-sm text-ash mb-4">We come to you. Customized for your installation.</p>
           <a href="/training/" class="text-sm font-medium text-voltage hover:text-pure transition-colors">Register &rarr;</a>
-        </div>
+        </Card>
       </div>
     </div>
   </section>
@@ -225,11 +219,11 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   <!-- ========== TESTIMONIALS ========== -->
   <section class="py-20 md:py-28 bg-obsidian">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">// What Engineers Say</p>
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">What Engineers Say</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         {testimonials.map(t => (
-          <div class="bg-slate/50 border border-steel/30 rounded-xl p-6 md:p-8">
+          <Card variant="testimonial">
             <div class="flex gap-1 mb-4">
               {[1,2,3,4,5].map(() => (
                 <svg class="w-4 h-4 text-voltage" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
@@ -240,7 +234,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
               <p class="font-display font-semibold text-pure text-sm">{t.author}</p>
               <p class="text-xs text-ash">{t.company}</p>
             </div>
-          </div>
+          </Card>
         ))}
       </div>
     </div>
@@ -268,7 +262,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
       <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
         <!-- Left: Contact Info -->
         <div class="lg:col-span-2">
-          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Get in Touch</p>
+          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">Get in Touch</p>
           <h2 class="font-display text-3xl font-bold text-pure mb-6">Contact Us</h2>
           <div class="space-y-4 mb-8">
             <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="flex items-center gap-3 text-ash hover:text-voltage transition-colors">
@@ -310,9 +304,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
             </select>
             <textarea name="message" rows="4" placeholder="Message" class="w-full px-4 py-3 bg-slate border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/50 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors resize-y"></textarea>
             <div class="hidden" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" /></div>
-            <button type="submit" id="home-submit-btn" class="btn-primary px-8 py-3.5 rounded-lg text-sm font-semibold">
-              Submit
-            </button>
+            <Button type="submit" id="home-submit-btn" size="lg">Submit</Button>
             <div id="home-success" class="hidden p-4 bg-voltage/10 border border-voltage/30 rounded-lg text-voltage text-sm">Message sent. We'll be in touch within 1-2 business days.</div>
             <div id="home-error" class="hidden p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">Something went wrong. Please call {company.phone}.</div>
           </form>

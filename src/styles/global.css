@@ -13,6 +13,16 @@
   --color-pure: #F8FAFC;
   --color-pure-dim: #F8FAFC0D;
 
+  /* Action: Safety orange for CTAs */
+  --color-action: #FF6B35;
+  --color-action-hover: #FF8255;
+  --color-action-dim: #FF6B351A;
+  --color-action-glow: #FF6B3533;
+
+  /* Status */
+  --color-success: #34D399;
+  --color-success-dim: #34D3991A;
+
   /* Semantic aliases */
   --color-bg: #0A0A0F;
   --color-bg-elevated: #111827;
@@ -60,12 +70,23 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Button styles */
 .btn-primary {
+  background-color: var(--color-action);
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: var(--color-action-hover);
+  box-shadow: 0 0 20px var(--color-action-glow);
+}
+
+.btn-secondary {
   background-color: var(--color-voltage);
   color: var(--color-obsidian);
   font-weight: 600;
   transition: all 0.2s ease;
 }
-.btn-primary:hover {
+.btn-secondary:hover {
   background-color: #33EBFF;
   box-shadow: 0 0 20px var(--color-voltage-glow);
 }
