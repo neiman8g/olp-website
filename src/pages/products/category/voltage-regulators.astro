@@ -90,13 +90,41 @@ const applications = [
         </div>
 
         <div class="lg:col-span-2">
-          <div class="card-glow bg-slate rounded-2xl p-8 flex items-center justify-center min-h-[280px] mb-4">
-            <svg class="w-32 h-32 text-voltage/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-          </div>
-          <div class="flex items-center justify-center gap-4">
-            {['ISO 9001', 'UL Listed', 'NEMA'].map(badge => (
-              <span class="px-3 py-1.5 bg-slate border border-steel/30 rounded text-xs font-mono text-ash">{badge}</span>
-            ))}
+          <div style="background:#0A0A0F;border-radius:12px;overflow:hidden;width:100%;">
+            <svg viewBox="0 0 600 320" width="100%" xmlns="http://www.w3.org/2000/svg">
+              <style>
+                @keyframes vr-jitter { 0%{d:path('M40 160 Q80 100 120 160 Q160 220 200 160 Q240 90 280 160');} 33%{d:path('M40 160 Q80 110 120 150 Q160 230 200 170 Q240 80 280 160');} 66%{d:path('M40 160 Q80 90 120 170 Q160 210 200 150 Q240 100 280 160');} 100%{d:path('M40 160 Q80 100 120 160 Q160 220 200 160 Q240 90 280 160');} }
+                @keyframes vr-scroll { 0%{stroke-dashoffset:0;} 100%{stroke-dashoffset:-120;} }
+                .vr-dirty{animation:vr-jitter 2s ease-in-out infinite;}
+                .vr-clean{stroke-dasharray:120;animation:vr-scroll 2s linear infinite;}
+              </style>
+              <!-- Scope housing -->
+              <rect x="30" y="30" width="540" height="260" rx="8" fill="#111827" stroke="#1C2B3A" stroke-width="1.5"/>
+              <!-- Screen -->
+              <rect x="50" y="50" width="500" height="200" rx="4" fill="#0A0A0F" stroke="#1C2B3A" stroke-width="0.5"/>
+              <!-- Grid -->
+              <line x1="175" y1="50" x2="175" y2="250" stroke="#1C2B3A" stroke-width="0.3" stroke-dasharray="2,4"/>
+              <line x1="300" y1="50" x2="300" y2="250" stroke="#1C2B3A" stroke-width="0.5"/>
+              <line x1="425" y1="50" x2="425" y2="250" stroke="#1C2B3A" stroke-width="0.3" stroke-dasharray="2,4"/>
+              <line x1="50" y1="150" x2="550" y2="150" stroke="#1C2B3A" stroke-width="0.5"/>
+              <line x1="50" y1="100" x2="550" y2="100" stroke="#1C2B3A" stroke-width="0.3" stroke-dasharray="2,4"/>
+              <line x1="50" y1="200" x2="550" y2="200" stroke="#1C2B3A" stroke-width="0.3" stroke-dasharray="2,4"/>
+              <!-- Divider line -->
+              <line x1="300" y1="55" x2="300" y2="245" stroke="#8A9BAE" stroke-width="0.5" opacity="0.3"/>
+              <!-- Input wave (chaotic) - left half -->
+              <path class="vr-dirty" d="M60 150 Q100 90 140 150 Q180 210 220 150 Q260 80 290 150" stroke="#FF3B3B" stroke-width="1.5" fill="none" opacity="0.7"/>
+              <!-- Output wave (clean) - right half -->
+              <path d="M310 150 Q340 90 370 150 Q400 210 430 150 Q460 90 490 150 Q520 210 540 150" class="vr-clean" stroke="#00E5FF" stroke-width="2" fill="none"/>
+              <!-- Labels -->
+              <text x="175" y="72" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#FF3B3B" opacity="0.7">INPUT</text>
+              <text x="425" y="72" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#00E5FF">OUTPUT</text>
+              <!-- Arrow -->
+              <text x="300" y="155" text-anchor="middle" font-family="Space Mono,monospace" font-size="14" fill="#8A9BAE">→</text>
+              <!-- Badge -->
+              <text x="425" y="235" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#00E5FF">±1% REGULATION</text>
+              <!-- Bottom label -->
+              <text x="300" y="308" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#2A3A4A">// VOLTAGE REGULATION WAVEFORM ANALYSIS</text>
+            </svg>
           </div>
         </div>
       </div>

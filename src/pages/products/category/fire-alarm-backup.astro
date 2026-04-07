@@ -90,15 +90,54 @@ const applications = [
           <p class="font-mono text-xs text-ash">// Responds within 2 business hours</p>
         </div>
 
-        <!-- Right: Product Image + Trust -->
+        <!-- Right: Animated SVG -->
         <div class="lg:col-span-2">
-          <div class="card-glow bg-slate rounded-2xl p-8 flex items-center justify-center min-h-[280px] mb-4">
-            <svg class="w-32 h-32 text-voltage/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 010-7.072m-2.828 9.9a9 9 0 010-12.728"></path></svg>
-          </div>
-          <div class="flex items-center justify-center gap-4">
-            {['ISO 9001', 'UL Listed', 'NFPA'].map(badge => (
-              <span class="px-3 py-1.5 bg-slate border border-steel/30 rounded text-xs font-mono text-ash">{badge}</span>
-            ))}
+          <div style="background:#0A0A0F;border-radius:12px;overflow:hidden;width:100%;">
+            <svg viewBox="0 0 600 320" width="100%" xmlns="http://www.w3.org/2000/svg">
+              <style>
+                @keyframes fa-detect { 0%,25%{r:4;fill:#8A9BAE;} 30%{r:8;fill:#FF3B3B;} 85%{r:4;fill:#FF3B3B;} 90%{r:4;fill:#8A9BAE;} }
+                @keyframes fa-pulse { 0%,28%{opacity:0;r:8;} 32%{opacity:0.6;r:20;} 40%{opacity:0;r:30;} 100%{opacity:0;} }
+                @keyframes fa-horn { 0%,32%{opacity:0.2;} 35%{opacity:1;} 35.5%{opacity:0.2;} 36%{opacity:1;} 36.5%{opacity:0.2;} 37%{opacity:1;} 85%{opacity:1;} 90%{opacity:0.2;} }
+                @keyframes fa-panel { 0%,30%{stroke:#1C2B3A;} 33%{stroke:#00E5FF;} 85%{stroke:#00E5FF;} 90%{stroke:#1C2B3A;} }
+                @keyframes fa-backup { 0%,34%{opacity:0;} 38%,85%{opacity:1;} 90%{opacity:0;} }
+                .fa-det{animation:fa-detect 7s ease-in-out infinite;}
+                .fa-pulse{animation:fa-pulse 7s ease-in-out infinite;}
+                .fa-horn{animation:fa-horn 7s ease-in-out infinite;}
+                .fa-panel{animation:fa-panel 7s ease-in-out infinite;}
+                .fa-bk{animation:fa-backup 7s ease-in-out infinite;}
+              </style>
+              <!-- Floor plan -->
+              <rect x="100" y="40" width="400" height="220" rx="4" fill="none" stroke="#1C2B3A" stroke-width="1.5"/>
+              <!-- Room dividers -->
+              <line x1="300" y1="40" x2="300" y2="180" stroke="#1C2B3A" stroke-width="0.5"/>
+              <line x1="100" y1="180" x2="500" y2="180" stroke="#1C2B3A" stroke-width="0.5"/>
+              <!-- Detectors -->
+              <circle cx="160" cy="80" r="4" class="fa-det" fill="#8A9BAE"/>
+              <circle cx="440" cy="80" r="4" fill="#8A9BAE" opacity="0.5"/>
+              <circle cx="160" cy="220" r="4" fill="#8A9BAE" opacity="0.5"/>
+              <circle cx="440" cy="220" r="4" fill="#8A9BAE" opacity="0.5"/>
+              <!-- Red pulse from activated detector -->
+              <circle cx="160" cy="80" class="fa-pulse" fill="#FF3B3B" opacity="0" r="8"/>
+              <!-- Smoke waves on detector -->
+              <path d="M152 72 Q156 68 160 72 Q164 68 168 72" stroke="#8A9BAE" stroke-width="0.5" fill="none" opacity="0.4"/>
+              <path d="M152 68 Q156 64 160 68 Q164 64 168 68" stroke="#8A9BAE" stroke-width="0.5" fill="none" opacity="0.3"/>
+              <!-- Panel -->
+              <rect x="105" y="100" width="40" height="60" rx="3" class="fa-panel" fill="#111827" stroke="#1C2B3A" stroke-width="1"/>
+              <text x="125" y="126" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#8A9BAE">FACP</text>
+              <text x="125" y="136" text-anchor="middle" font-family="Space Mono,monospace" font-size="5" fill="#8A9BAE">PANEL</text>
+              <!-- Horn/strobes -->
+              <rect x="230" y="42" width="12" height="8" rx="1" fill="#FF3B3B" class="fa-horn" opacity="0.2"/>
+              <rect x="370" y="42" width="12" height="8" rx="1" fill="#FF3B3B" class="fa-horn" opacity="0.2" style="animation-delay:0.15s;"/>
+              <rect x="230" y="252" width="12" height="8" rx="1" fill="#FF3B3B" class="fa-horn" opacity="0.2" style="animation-delay:0.1s;"/>
+              <rect x="370" y="252" width="12" height="8" rx="1" fill="#FF3B3B" class="fa-horn" opacity="0.2" style="animation-delay:0.2s;"/>
+              <!-- Backup unit -->
+              <rect x="105" y="170" width="40" height="24" rx="2" fill="#111827" stroke="#1C2B3A" stroke-width="0.5"/>
+              <circle cx="140" cy="182" r="3" fill="#00E5FF" class="fa-bk" opacity="0"/>
+              <!-- Backup text -->
+              <text x="300" y="300" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#00E5FF" class="fa-bk" opacity="0">BACKUP ACTIVE</text>
+              <!-- Label -->
+              <text x="300" y="312" text-anchor="middle" font-family="Space Mono,monospace" font-size="7" fill="#2A3A4A">// UL1481 FIRE ALARM BACKUP SEQUENCE</text>
+            </svg>
           </div>
         </div>
       </div>

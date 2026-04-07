@@ -86,13 +86,60 @@ const applications = [
         </div>
 
         <div class="lg:col-span-2">
-          <div class="card-glow bg-slate rounded-2xl p-8 flex items-center justify-center min-h-[280px] mb-4">
-            <svg class="w-32 h-32 text-voltage/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-          </div>
-          <div class="flex items-center justify-center gap-4">
-            {['ISO 9001', 'UL Listed', 'IP65'].map(badge => (
-              <span class="px-3 py-1.5 bg-slate border border-steel/30 rounded text-xs font-mono text-ash">{badge}</span>
-            ))}
+          <div style="background:#0A0A0F;border-radius:12px;overflow:hidden;width:100%;">
+            <svg viewBox="0 0 600 320" width="100%" xmlns="http://www.w3.org/2000/svg">
+              <style>
+                @keyframes lcr-open { 0%,30%{transform:rotate(0deg);} 35%,85%{transform:rotate(-30deg);} 90%{transform:rotate(0deg);} }
+                @keyframes lcr-dim { 0%,30%{opacity:0.8;fill:#00E5FF;} 35%{opacity:0.15;fill:#1C2B3A;} 85%{opacity:0.15;fill:#1C2B3A;} 90%{opacity:0.8;fill:#00E5FF;} }
+                @keyframes lcr-stay { 0%,100%{opacity:0.8;} }
+                @keyframes lcr-label { 0%,35%{opacity:0;} 40%,82%{opacity:1;} 88%{opacity:0;} }
+                .lcr-sw{transform-origin:center bottom;animation:lcr-open 7s ease-in-out infinite;}
+                .lcr-dim{animation:lcr-dim 7s ease-in-out infinite;}
+                .lcr-lbl{animation:lcr-label 7s ease-in-out infinite;}
+              </style>
+              <!-- Main bus -->
+              <line x1="50" y1="50" x2="550" y2="50" stroke="#00E5FF" stroke-width="2"/>
+              <text x="50" y="40" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE">MAIN BUS</text>
+              <!-- Branch 1 - essential (stays closed) -->
+              <line x1="120" y1="50" x2="120" y2="80" stroke="#1C2B3A" stroke-width="1.5"/>
+              <line x1="120" y1="80" x2="120" y2="120" stroke="#00E5FF" stroke-width="1.5"/>
+              <rect x="95" y="120" width="50" height="60" rx="3" fill="#111827" stroke="#00E5FF" stroke-width="0.5"/>
+              <text x="120" y="150" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#00E5FF">EXIT</text>
+              <text x="120" y="162" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#00E5FF">SIGNS</text>
+              <circle cx="120" cy="195" r="6" fill="#00E5FF" opacity="0.8"/>
+              <!-- Branch 2 - essential (stays closed) -->
+              <line x1="240" y1="50" x2="240" y2="80" stroke="#1C2B3A" stroke-width="1.5"/>
+              <line x1="240" y1="80" x2="240" y2="120" stroke="#00E5FF" stroke-width="1.5"/>
+              <rect x="215" y="120" width="50" height="60" rx="3" fill="#111827" stroke="#00E5FF" stroke-width="0.5"/>
+              <text x="240" y="150" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#00E5FF">STAIR</text>
+              <text x="240" y="162" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#00E5FF">LIGHTS</text>
+              <circle cx="240" cy="195" r="6" fill="#00E5FF" opacity="0.8"/>
+              <!-- Branch 3 - non-essential (opens) -->
+              <line x1="380" y1="50" x2="380" y2="80" stroke="#1C2B3A" stroke-width="1.5"/>
+              <g class="lcr-sw"><line x1="380" y1="80" x2="380" y2="120" stroke="#8A9BAE" stroke-width="1.5"/></g>
+              <rect x="355" y="120" width="50" height="60" rx="3" fill="#111827" stroke="#1C2B3A" stroke-width="0.5"/>
+              <text x="380" y="150" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#8A9BAE">LOBBY</text>
+              <text x="380" y="162" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#8A9BAE">DECOR</text>
+              <circle cx="380" cy="195" r="6" class="lcr-dim"/>
+              <!-- Branch 4 - non-essential (opens) -->
+              <line x1="500" y1="50" x2="500" y2="80" stroke="#1C2B3A" stroke-width="1.5"/>
+              <g class="lcr-sw" style="transform-origin:500px 80px;"><line x1="500" y1="80" x2="500" y2="120" stroke="#8A9BAE" stroke-width="1.5"/></g>
+              <rect x="475" y="120" width="50" height="60" rx="3" fill="#111827" stroke="#1C2B3A" stroke-width="0.5"/>
+              <text x="500" y="150" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#8A9BAE">OFFICE</text>
+              <text x="500" y="162" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#8A9BAE">AMBIENT</text>
+              <circle cx="500" cy="195" r="6" class="lcr-dim"/>
+              <!-- Labels -->
+              <text x="180" y="230" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#00E5FF" class="lcr-lbl" opacity="0">ESSENTIAL</text>
+              <text x="440" y="230" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE" class="lcr-lbl" opacity="0">NON-ESSENTIAL</text>
+              <!-- Relay coil symbols -->
+              <ellipse cx="120" cy="80" rx="8" ry="5" fill="none" stroke="#00E5FF" stroke-width="0.5"/>
+              <ellipse cx="240" cy="80" rx="8" ry="5" fill="none" stroke="#00E5FF" stroke-width="0.5"/>
+              <ellipse cx="380" cy="80" rx="8" ry="5" fill="none" stroke="#8A9BAE" stroke-width="0.5"/>
+              <ellipse cx="500" cy="80" rx="8" ry="5" fill="none" stroke="#8A9BAE" stroke-width="0.5"/>
+              <!-- Badge -->
+              <text x="300" y="270" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#00E5FF" class="lcr-lbl" opacity="0">UL 924 LOAD CONTROL</text>
+              <text x="300" y="300" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#2A3A4A">// INTELLIGENT LOAD SHEDDING</text>
+            </svg>
           </div>
         </div>
       </div>

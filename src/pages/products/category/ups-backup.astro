@@ -88,13 +88,54 @@ const applications = [
         </div>
 
         <div class="lg:col-span-2">
-          <div class="card-glow bg-slate rounded-2xl p-8 flex items-center justify-center min-h-[280px] mb-4">
-            <img src="/images/products/host-power.png" alt="ups-backup by Online Power" class="w-full h-auto object-contain max-h-[250px]" />
-          </div>
-          <div class="flex items-center justify-center gap-4">
-            {['ISO 9001', 'UL Listed', 'NFPA'].map(badge => (
-              <span class="px-3 py-1.5 bg-slate border border-steel/30 rounded text-xs font-mono text-ash">{badge}</span>
-            ))}
+          <div style="background:#0A0A0F;border-radius:12px;overflow:hidden;width:100%;">
+            <svg viewBox="0 0 600 320" width="100%" xmlns="http://www.w3.org/2000/svg">
+              <style>
+                @keyframes ups-utilCut { 0%,25%{stroke:#00E5FF;} 30%{stroke:#1C2B3A;} 85%{stroke:#1C2B3A;} 90%{stroke:#00E5FF;} }
+                @keyframes ups-battOn { 0%,28%{stroke:#1C2B3A;fill:none;} 32%{stroke:#00E5FF;fill:#00E5FF10;} 85%{stroke:#00E5FF;fill:#00E5FF10;} 90%{stroke:#1C2B3A;fill:none;} }
+                @keyframes ups-led1 { 0%,100%{opacity:0.3;} 50%{opacity:1;} }
+                @keyframes ups-text { 0%,32%{opacity:0;} 36%,82%{opacity:1;} 88%{opacity:0;} }
+                @keyframes ups-drain { 0%,30%{width:80px;} 85%{width:20px;} 90%{width:80px;} }
+                .ups-util{animation:ups-utilCut 7s ease-in-out infinite;}
+                .ups-batt{animation:ups-battOn 7s ease-in-out infinite;}
+                .ups-led{animation:ups-led1 1s ease-in-out infinite;}
+                .ups-txt{animation:ups-text 7s ease-in-out infinite;}
+                .ups-bar{animation:ups-drain 7s ease-in-out infinite;}
+              </style>
+              <!-- Utility input -->
+              <line x1="40" y1="120" x2="160" y2="120" class="ups-util" stroke="#00E5FF" stroke-width="2"/>
+              <text x="40" y="110" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE">UTILITY</text>
+              <!-- UPS unit -->
+              <rect x="160" y="80" width="120" height="100" rx="6" class="ups-batt" fill="none" stroke="#1C2B3A" stroke-width="1.5"/>
+              <text x="220" y="120" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10" font-weight="700" fill="#F8FAFC">UPS</text>
+              <text x="220" y="136" text-anchor="middle" font-family="Space Mono,monospace" font-size="7" fill="#8A9BAE">ONLINE POWER</text>
+              <!-- Battery bar -->
+              <rect x="180" y="155" width="80" height="8" rx="2" fill="#00E5FF" opacity="0.3" class="ups-bar"/>
+              <rect x="180" y="155" width="80" height="8" rx="2" fill="none" stroke="#1C2B3A" stroke-width="0.5"/>
+              <!-- Output to rack -->
+              <line x1="280" y1="120" x2="380" y2="120" stroke="#00E5FF" stroke-width="2"/>
+              <!-- Server rack -->
+              <rect x="380" y="40" width="140" height="220" rx="4" fill="#111827" stroke="#1C2B3A" stroke-width="1.5"/>
+              <!-- Server units -->
+              <rect x="392" y="55" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
+              <rect x="392" y="85" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
+              <rect x="392" y="115" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
+              <rect x="392" y="145" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
+              <rect x="392" y="175" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
+              <rect x="392" y="205" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
+              <!-- LEDs -->
+              <circle cx="500" cy="66" r="2" fill="#00E5FF" class="ups-led"/>
+              <circle cx="500" cy="96" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:0.2s;"/>
+              <circle cx="500" cy="126" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:0.4s;"/>
+              <circle cx="500" cy="156" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:0.6s;"/>
+              <circle cx="500" cy="186" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:0.8s;"/>
+              <circle cx="500" cy="216" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:1.0s;"/>
+              <!-- Transfer text -->
+              <text x="330" y="90" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#00E5FF" class="ups-txt" opacity="0">&lt;4ms</text>
+              <text x="330" y="104" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE" class="ups-txt" opacity="0">TRANSFER</text>
+              <!-- Label -->
+              <text x="300" y="300" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#2A3A4A">// ZERO-INTERRUPTION POWER TRANSFER</text>
+            </svg>
           </div>
         </div>
       </div>
