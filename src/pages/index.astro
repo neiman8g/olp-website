@@ -48,7 +48,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
               100% { opacity: 0; }
             }
           </style>
-          <p class="text-lg md:text-xl text-muted-blue max-w-xl leading-relaxed mb-10" style="margin-top:1.25rem;">
+          <p class="text-[15px] md:text-xl text-muted-blue max-w-xl leading-relaxed mb-10" style="margin-top:1.25rem;">
             The widest range of UL listed power protection from a single manufacturer. Built to order in Los Angeles since 1975.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -162,10 +162,10 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
         <div>
           <p class="eyebrow text-muted-blue mb-4">Custom Engineering</p>
           <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">Built to Your Spec.</h2>
-          <p class="text-muted-blue leading-relaxed mb-6">
+          <p class="text-[15px] text-muted-blue leading-relaxed mb-6">
             Our in-house engineering team designs and manufactures custom power protection solutions tailored to your exact requirements. From modified standard products to ground-up OEM designs, we build it in Los Angeles and ship direct.
           </p>
-          <p class="text-muted-blue leading-relaxed mb-8">
+          <p class="text-[15px] text-muted-blue leading-relaxed mb-8">
             With 48 years of manufacturing experience and ISO 9001 quality systems, your custom solution gets the same precision engineering as our standard product lines.
           </p>
           <Button href="/contact/" size="lg" icon="arrow-right">Discuss Your Project</Button>
@@ -242,14 +242,10 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   <section class="bg-deep-navy py-12 md:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Ready to Spec Online Power?</h2>
-      <p class="text-muted-blue mb-8 max-w-xl mx-auto">Get a quote, discuss a custom solution, or register for product training.</p>
+      <p class="text-[15px] text-muted-blue mb-8 max-w-xl mx-auto">Get a quote, discuss a custom solution, or register for product training.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact/" class="px-8 py-3.5 bg-steel-blue text-white font-semibold rounded-lg hover:bg-steel-blue/90 transition-colors text-sm text-center inline-flex items-center justify-center">
-          Request a Quote
-        </a>
-        <a href="/training/" class="px-8 py-3.5 border-2 border-navy-mid text-white font-semibold rounded-lg hover:bg-navy-mid/30 transition-colors text-sm text-center inline-flex items-center justify-center">
-          Register for Training
-        </a>
+        <Button href="/contact/" size="lg">Request a Quote</Button>
+        <Button href="/training/" variant="ghost" size="lg">Register for Training</Button>
       </div>
     </div>
   </section>
