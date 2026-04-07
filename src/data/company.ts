@@ -16,7 +16,7 @@ export const company = {
     { label: 'MANUFACTURED', value: 'Los Angeles' },
   ],
   heroStats: [
-    '48 Years',
+    'Since 1975',
     '12 Product Lines',
     'ISO 9001 Certified',
     'Made in Los Angeles, CA',
@@ -33,18 +33,18 @@ export const company = {
 
 export const testimonials = [
   {
+    quote: 'Online Power and their staff couple technical ability with speed, taking the complicated and turning it into the digestible. I have lost track of the number of times they have saved a job or offered the assurance a customer needed at the eleventh hour. Our reputation is strong because of our partnership with them.',
+    author: 'Joe Gangl',
+    company: 'JTH Lighting Alliance',
+  },
+  {
     quote: 'Online Power has been our go-to for emergency lighting inverters. Their engineering team is responsive and the products are absolutely rock solid.',
     author: 'Alex Jenkins',
     company: 'Green MEP Engineering',
   },
   {
-    quote: 'The custom OEM solutions team understood our requirements from day one. Factory-direct support makes all the difference when you need answers fast.',
-    author: 'Joe Gangl',
-    company: 'JTH Lighting Alliance',
-  },
-  {
-    quote: 'We switched to Online Power for our fire alarm backup systems and the reliability improvement was immediate. Training was outstanding.',
-    author: 'John R. Blackmon',
-    company: 'Blackmon Engineering',
+    quote: 'I am always able to get quick, complete information from Online Power and with their broad range of lighting inverter product options and sizes I am always able to find something that fits the needs of my projects.',
+    author: 'Nathan Short, PE',
+    company: 'Energy Systems Design Inc.',
   },
 ];
