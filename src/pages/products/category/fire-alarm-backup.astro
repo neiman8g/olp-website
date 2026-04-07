@@ -15,7 +15,7 @@ const specs = [
   ['Transfer Time', 'Zero (online double conversion)'],
   ['Efficiency', '>92% at full load'],
   ['Battery Type', 'Sealed VRLA'],
-  ['Battery Runtime', '24 hours+ (configurable)'],
+  ['Battery Runtime', '24 hours standby + 5-minute alarm per NFPA 72 §10.6.7.2 · 15-minute alarm for voice evacuation systems'],
   ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
   ['Enclosure', 'NEMA 1 standard'],
   ['Certifications', 'UL 1481, NFPA 72'],
@@ -61,16 +61,16 @@ const applications = [
 
           <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-5">Fire Alarm Backup Systems</h1>
           <p class="text-lg text-ash leading-relaxed mb-8">
-            UL1481 fire alarm notification appliance circuit backup systems. Continuous power for life safety compliance. Built in Los Angeles.
+            When a fire alarm panel loses utility power, NFPA 72 demands 24 hours of standby plus 5 minutes of full alarm — and 15 minutes if you have voice evacuation. Internal panel batteries max out at 55Ah, which means any large building, high-rise, or voice evacuation system needs external backup power. Online Power's UL 1481-listed Fire Alarm Backup powers the entire fire alarm control panel with zero transfer time — not just individual NAC circuits like commodity extenders. From 500W to 15kW, it scales from a single panel to campus-wide systems, with supervised battery charging and Form-C trouble relay contacts for full monitoring integration.
           </p>
 
           <!-- Key Stats -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             {[
-              { label: 'Standard', value: 'UL1481' },
-              { label: 'Compliance', value: 'NFPA 72' },
-              { label: 'Backup', value: '24hr+' },
-              { label: 'Certified', value: 'UL Listed' },
+              { label: 'Standby', value: '24h + 5min alarm' },
+              { label: 'Standard', value: 'NFPA 72 §10.6.7.2' },
+              { label: 'Transfer', value: 'Zero (online)' },
+              { label: 'Certifications', value: 'UL 1481 · NFPA 72' },
             ].map(s => (
               <div class="bg-slate border border-steel/30 rounded-lg p-3 text-center">
                 <p class="font-mono text-[10px] uppercase tracking-widest text-ash mb-1">{s.label}</p>
@@ -81,7 +81,7 @@ const applications = [
 
           <!-- CTAs -->
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Request a Quote</a>
+            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Send Us Your Battery Calculation — We'll Confirm Sizing in 48 Hours</a>
             <button class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center justify-center gap-2 doc-download-btn" data-url="/pdf/fab_DS.pdf" data-name="Fire Alarm Backup - Spec Sheet" data-product="Fire Alarm Backup Systems">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path></svg>
               Download Spec Sheet
@@ -159,28 +159,52 @@ const applications = [
       <!-- OVERVIEW TAB -->
       <div class="tab-content" data-tab="overview">
         <!-- Benefit Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Life Safety Compliance</h3>
-            <p class="text-sm text-ash">UL1481 listed and NFPA 72 compliant. Ensures fire alarm systems remain powered during utility outages for continuous life safety protection.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Back up the entire panel — not just the NAC circuits</h3>
+            <p class="text-sm text-ash leading-relaxed">NAC power extenders only add notification circuit capacity. Online Power's Fire Alarm Backup provides AC power to the FACP itself, backing up every function: addressable loops, signaling line circuits, NAC outputs, communications, and supervisory circuits. One UPS. Complete protection.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Continuous NAC Power</h3>
-            <p class="text-sm text-ash">24+ hours of backup power for notification appliance circuits. Keeps horns, strobes, and speakers operating through extended outages.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Zero transfer means zero panel reset</h3>
+            <p class="text-sm text-ash leading-relaxed">Standard battery switchover can cause a momentary power interruption that resets the fire alarm control panel — losing alarm history, zone status, and potentially triggering false trouble signals to the monitoring station. True online double conversion eliminates this risk entirely.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35"></path></svg>
+              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Built to Order</h3>
-            <p class="text-sm text-ash">Custom configurations built and shipped from our Los Angeles facility. Factory-direct engineering support for fire alarm applications.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">VRLA batteries with 10-year design life</h3>
+            <p class="text-sm text-ash leading-relaxed">Panel-internal batteries typically last 3-5 years and require semi-annual testing under NFPA 72 §14.4. Online Power's premium VRLA batteries deliver 10-year expected life with 250+ discharge cycles. The integrated supervised charger meets NFPA 72's 48-hour full-recharge requirement per §10.6.10.3.2 and monitors for low voltage, charger failure, and ground faults.</p>
           </div>
+        </div>
+
+        <!-- Technical Callout -->
+        <div class="bg-bg-elevated border-l-2 border-voltage p-6 mb-10" style="border-radius: 0 12px 12px 0;">
+          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-3">// What your spec sheet won't tell you</p>
+          <p class="text-sm text-ash leading-relaxed">NFPA 72 §10.6.7.2 requires a 20% safety margin in all battery calculations — the formula is: Battery Capacity (Ah) = [(Standby Current × 24h) + (Alarm Current × 0.0833h)] × 1.20. Most specifiers run this math against panel-internal batteries and find they are undersized on day one. The bigger trap: NFPA 72 §10.6.10.3.2 requires batteries to recharge fully within 48 hours after complete discharge. Many fire alarm panels have chargers sized for their maximum internal battery, not for an oversized external battery bank. An external UPS with its own properly sized charger solves both problems. Also note: effective January 2024 under NFPA 72 2022 edition, all rechargeable batteries used as secondary fire alarm power must be listed per UL 1989 or UL 2054.</p>
+        </div>
+
+        <!-- Codes & Standards -->
+        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Codes &amp; Standards</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-16">
+          {[
+            { code: 'UL 1481', desc: 'Power Supplies for Fire Alarm Systems' },
+            { code: 'NFPA 72 §10.6.7.2', desc: 'Standby and Alarm Runtime' },
+            { code: 'NFPA 72 §10.6.10.3.2', desc: '48-Hour Recharge Requirement' },
+            { code: 'NEC Article 760', desc: 'Fire Alarm Systems' },
+            { code: 'NEC Article 700', desc: 'Emergency Systems' },
+            { code: 'UL 864', desc: 'Fire Alarm Control Units' },
+          ].map(item => (
+            <div class="bg-obsidian border border-steel/30 rounded-lg p-4">
+              <p class="font-display font-bold text-voltage text-sm">{item.code}</p>
+              <p class="text-xs text-ash mt-0.5">{item.desc}</p>
+            </div>
+          ))}
         </div>
 
         <!-- Applications -->
@@ -246,6 +270,24 @@ const applications = [
     </div>
   </section>
 
+  <!-- TESTIMONIAL -->
+  <section class="py-16 md:py-24 bg-slate">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="bg-obsidian border border-steel/30 rounded-2xl p-8 md:p-10">
+        <div class="flex gap-1 mb-4">
+          {[1,2,3,4,5].map(() => (
+            <svg class="w-5 h-5 text-voltage" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          ))}
+        </div>
+        <p class="text-pure text-lg leading-relaxed mb-6 italic">"Online Power is highly responsive with helpful solutions and a range of products for our projects which is why we continue to specify their products."</p>
+        <div class="border-t border-steel/30 pt-4">
+          <p class="font-display font-semibold text-pure">Sothol Roeung</p>
+          <p class="text-sm text-ash">Electrical Engineer, S Y Lee and Associates</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- RELATED PRODUCTS -->
   <section class="py-16 md:py-24 bg-obsidian">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -290,7 +332,7 @@ const applications = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h2 class="font-display text-3xl font-bold text-obsidian mb-4">Ready to Spec This Product?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Request a Quote</a>
+        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Send Us Your Battery Calculation — We'll Confirm Sizing in 48 Hours</a>
         <a href="/training" class="px-8 py-3.5 border-2 border-obsidian/30 text-obsidian font-semibold rounded-lg hover:bg-obsidian/10 transition-colors text-sm">Register for Training</a>
       </div>
     </div>
