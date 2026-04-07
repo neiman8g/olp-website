@@ -8,19 +8,21 @@ const category = getCategoryBySlug('ups-backup')!;
 const categoryProducts = getProductsByCategory('ups-backup');
 
 const specs = [
-  ['Input Voltage', '208/480 VAC Three Phase'],
+  ['Input Voltage', '208/480 VAC Single and Three Phase'],
   ['Output Voltage', 'Matches input (field selectable)'],
   ['Frequency', '60 Hz'],
-  ['Waveform', 'PWM Sinusoidal'],
+  ['Topology', 'Online double conversion (IGBT PWM)'],
+  ['Output Waveform', 'Pure sine wave, less than 3% THD, ±2% voltage regulation'],
   ['Power Range', '10kVA to 500kVA'],
-  ['Phase', 'Three Phase (3Ø)'],
-  ['Efficiency', '90% at full load'],
-  ['Topology', 'Online Double Conversion'],
+  ['Phase', 'Single Phase and Three Phase (3Ø)'],
+  ['Static Bypass', 'Under 4ms automatic transfer'],
+  ['Maintenance Bypass', 'External wrap-around, make-before-break'],
+  ['Efficiency', 'Greater than 94% at full load, up to 99% in ECO mode'],
   ['Generator Compatible', 'Yes'],
   ['Battery Type', 'Sealed VRLA'],
   ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
   ['Enclosure', 'Modular assembly'],
-  ['Certifications', 'UL 1778, UL 924, UL 924A'],
+  ['Certifications', 'UL 1778, ISO 9001, UL 924 dual listed models available'],
   ['Warranty', '2 years parts and labor'],
 ];
 
@@ -35,8 +37,8 @@ const applications = [
 ---
 
 <BaseLayout
-  title="UPS Backup Systems | UL1778 | 10–500kVA | Online Power"
-  description="High-frequency UPS systems for critical loads from 10kVA to 500kVA. UL1778 listed, generator compatible. Built-in load distribution and modular assembly. Built in Los Angeles."
+  title="UPS Backup Systems | UL 1778 | 10 to 500kVA | Online Power"
+  description="Online double conversion UPS systems from 10kVA to 500kVA. UL 1778 listed with zero transfer time. Single and three phase. Built to order in Los Angeles."
 >
 
   <!-- HERO -->
@@ -60,15 +62,15 @@ const applications = [
 
           <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-5">UPS Backup Systems</h1>
           <p class="text-lg text-ash leading-relaxed mb-8">
-            High-frequency UPS systems for critical loads from 10kVA to 500kVA. Generator compatible. Built in Los Angeles.
+            Every power anomaly including sags, surges, spikes, brownouts, frequency variations, harmonic distortion, and complete blackouts costs U.S. businesses over $150 billion annually. Online Power's UL 1778 listed UPS systems use true online double-conversion topology with IGBT PWM and digital signal processing to eliminate all nine common power problems with zero transfer time. Unlike off-the-shelf UPS products that force you into fixed configurations, Online Power engineers each system to your exact load, voltage, runtime, and bypass requirements. From single-phase protection for a telecom closet to three-phase systems supporting data center redundancy. Built to order in Los Angeles.
           </p>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             {[
-              { label: 'Range', value: '10–500kVA' },
-              { label: 'Efficiency', value: '90%' },
-              { label: 'Phase', value: '3Ø' },
-              { label: 'Standard', value: 'UL1778' },
+              { label: 'Topology', value: 'Online Double Conv.' },
+              { label: 'Transfer', value: 'Zero (no gap)' },
+              { label: 'Configurations', value: '1Ø and 3Ø' },
+              { label: 'Certifications', value: 'UL 1778 · UL 924' },
             ].map(s => (
               <div class="bg-slate border border-steel/30 rounded-lg p-3 text-center">
                 <p class="font-mono text-[10px] uppercase tracking-widest text-ash mb-1">{s.label}</p>
@@ -78,8 +80,8 @@ const applications = [
           </div>
 
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Request a Quote</a>
-            <button class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center justify-center gap-2 doc-download-btn" data-url="/pdf/hostpower_DS.pdf" data-name="UPS Backup - Spec Sheet" data-product="UPS Backup Systems">
+            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Tell Us Your Critical Load for a Custom UPS Specification in 48 Hours</a>
+            <button class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center justify-center gap-2 doc-download-btn" data-url="/pdf/hostpower_DS.pdf" data-name="UPS Backup Spec Sheet" data-product="UPS Backup Systems">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path></svg>
               Download Spec Sheet
             </button>
@@ -102,39 +104,30 @@ const applications = [
                 .ups-txt{animation:ups-text 7s ease-in-out infinite;}
                 .ups-bar{animation:ups-drain 7s ease-in-out infinite;}
               </style>
-              <!-- Utility input -->
               <line x1="40" y1="120" x2="160" y2="120" class="ups-util" stroke="#00E5FF" stroke-width="2"/>
               <text x="40" y="110" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE">UTILITY</text>
-              <!-- UPS unit -->
               <rect x="160" y="80" width="120" height="100" rx="6" class="ups-batt" fill="none" stroke="#1C2B3A" stroke-width="1.5"/>
               <text x="220" y="120" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10" font-weight="700" fill="#F8FAFC">UPS</text>
               <text x="220" y="136" text-anchor="middle" font-family="Space Mono,monospace" font-size="7" fill="#8A9BAE">ONLINE POWER</text>
-              <!-- Battery bar -->
               <rect x="180" y="155" width="80" height="8" rx="2" fill="#00E5FF" opacity="0.3" class="ups-bar"/>
               <rect x="180" y="155" width="80" height="8" rx="2" fill="none" stroke="#1C2B3A" stroke-width="0.5"/>
-              <!-- Output to rack -->
               <line x1="280" y1="120" x2="380" y2="120" stroke="#00E5FF" stroke-width="2"/>
-              <!-- Server rack -->
               <rect x="380" y="40" width="140" height="220" rx="4" fill="#111827" stroke="#1C2B3A" stroke-width="1.5"/>
-              <!-- Server units -->
               <rect x="392" y="55" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
               <rect x="392" y="85" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
               <rect x="392" y="115" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
               <rect x="392" y="145" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
               <rect x="392" y="175" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
               <rect x="392" y="205" width="116" height="22" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="0.5"/>
-              <!-- LEDs -->
               <circle cx="500" cy="66" r="2" fill="#00E5FF" class="ups-led"/>
               <circle cx="500" cy="96" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:0.2s;"/>
               <circle cx="500" cy="126" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:0.4s;"/>
               <circle cx="500" cy="156" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:0.6s;"/>
               <circle cx="500" cy="186" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:0.8s;"/>
               <circle cx="500" cy="216" r="2" fill="#00E5FF" class="ups-led" style="animation-delay:1.0s;"/>
-              <!-- Transfer text -->
               <text x="330" y="90" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#00E5FF" class="ups-txt" opacity="0">&lt;4ms</text>
               <text x="330" y="104" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#8A9BAE" class="ups-txt" opacity="0">TRANSFER</text>
-              <!-- Label -->
-              <text x="300" y="300" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#2A3A4A">// ZERO-INTERRUPTION POWER TRANSFER</text>
+              <text x="300" y="300" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#2A3A4A">// ZERO INTERRUPTION POWER TRANSFER</text>
             </svg>
           </div>
         </div>
@@ -155,28 +148,52 @@ const applications = [
 
       <!-- OVERVIEW TAB -->
       <div class="tab-content" data-tab="overview">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">High-Frequency Technology</h3>
-            <p class="text-sm text-ash">Advanced high-frequency UPS topology delivers 90% efficiency with PWM sinusoidal waveform output. Designed for non-linear loads.</p>
-          </div>
-          <div class="card-glow bg-obsidian rounded-xl p-6">
-            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path></svg>
-            </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Generator Compatible</h3>
-            <p class="text-sm text-ash">Seamless integration with generator systems. Built-in load distribution and modular assembly for flexible deployment.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Zero transfer time eliminates the most dangerous milliseconds</h3>
+            <p class="text-sm text-ash leading-relaxed">Line-interactive UPS systems have a 4 to 10 millisecond transfer gap. Standby units gap for 5 to 12 milliseconds. For sensitive PLCs, process controllers, and medical instruments, those milliseconds cause shutdowns, data corruption, and production loss. Online double conversion means your load never sees the switch because there is no switch.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Modular Assembly</h3>
-            <p class="text-sm text-ash">Modular design allows easy installation and scalability. LCD self-diagnostics for simplified maintenance and monitoring.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Engineered to your load, not the nearest catalog size</h3>
+            <p class="text-sm text-ash leading-relaxed">Off-the-shelf UPS vendors offer fixed kVA increments that force oversizing or undersizing. Online Power builds to your exact specification including voltage, frequency, runtime, bypass configuration, enclosure type, and monitoring integration. No compromises and no wasted capacity.</p>
           </div>
+          <div class="card-glow bg-obsidian rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Internal static bypass plus external maintenance bypass</h3>
+            <p class="text-sm text-ash leading-relaxed">The internal static bypass activates automatically in under 4 milliseconds during a fault condition. The external wrap-around maintenance bypass uses make-before-break switching for zero-downtime UPS service, completely isolating the unit for repair without interrupting your critical load. Both should always be specified.</p>
+          </div>
+        </div>
+
+        <!-- Technical Callout -->
+        <div class="bg-bg-elevated border-l-2 border-voltage p-6 mb-10" style="border-radius: 0 12px 12px 0;">
+          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-3">// What your spec sheet won't tell you</p>
+          <p class="text-sm text-ash leading-relaxed">UL 1778 and UL 924 certify fundamentally different things. UL 1778 certifies power continuity and quality for UPS equipment. UL 924 certifies emergency life-safety lighting compliance including 90 minute runtime, 10 second activation, and tamperproof design. A UPS with only UL 1778 listing does not satisfy NEC Article 700 emergency system requirements and your AHJ will reject it for emergency lighting applications. Online Power offers dual-listed UL 924 and UL 1778 models that satisfy both standards with a single unit. Also, demand actual efficiency curves at 25 percent, 50 percent, 75 percent, and 100 percent load from any vendor, not just the peak number. A UPS running at 30 percent load for most of its life at 85 percent efficiency costs far more in electricity than one maintaining 94 percent across all load points.</p>
+        </div>
+
+        <!-- Codes & Standards -->
+        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Codes &amp; Standards</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-16">
+          {[
+            { code: 'UL 1778', desc: 'Uninterruptible Power Supply Equipment' },
+            { code: 'UL 924', desc: 'Emergency Lighting Equipment (dual listed)' },
+            { code: 'NEC Article 645', desc: 'Information Technology Equipment' },
+            { code: 'NEC Article 700', desc: 'Emergency Systems' },
+            { code: 'NEC Article 701', desc: 'Legally Required Standby' },
+            { code: 'TIA 942', desc: 'Data Center Infrastructure Standard' },
+          ].map(item => (
+            <div class="bg-obsidian border border-steel/30 rounded-lg p-4">
+              <p class="font-display font-bold text-voltage text-sm">{item.code}</p>
+              <p class="text-xs text-ash mt-0.5">{item.desc}</p>
+            </div>
+          ))}
         </div>
 
         <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Where It Gets Specified</p>
@@ -249,10 +266,10 @@ const applications = [
             <svg class="w-5 h-5 text-voltage" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
           ))}
         </div>
-        <p class="text-pure text-lg leading-relaxed mb-6 italic">"Our data center has relied on Online Power UPS systems for years. The generator compatibility and modular design made installation straightforward."</p>
+        <p class="text-pure text-lg leading-relaxed mb-6 italic">"Our Amazon customer needed an inverter on-site sooner than the standard lead time. Online Power was able to adhere to the customer's needs, expediting their order and delivering their product 2 weeks before their scheduled ship date. You can always count on Online Power."</p>
         <div class="border-t border-steel/30 pt-4">
-          <p class="font-display font-semibold text-pure">Sarah Mitchell</p>
-          <p class="text-sm text-ash">IT Infrastructure Director</p>
+          <p class="font-display font-semibold text-pure">Brittany Bromley</p>
+          <p class="text-sm text-ash">Purchasing, Dominion Electric Supply Co.</p>
         </div>
       </div>
     </div>
@@ -263,7 +280,7 @@ const applications = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h2 class="font-display text-3xl font-bold text-obsidian mb-4">Ready to Spec This Product?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Request a Quote</a>
+        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Tell Us Your Critical Load for a Custom UPS Specification in 48 Hours</a>
         <a href="/training" class="px-8 py-3.5 border-2 border-obsidian/30 text-obsidian font-semibold rounded-lg hover:bg-obsidian/10 transition-colors text-sm">Register for Training</a>
       </div>
     </div>
