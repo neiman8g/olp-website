@@ -61,13 +61,13 @@ const applications = [
 
           <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-5">Fire Alarm Backup Systems</h1>
           <p class="text-lg text-ash leading-relaxed mb-8">
-            When a fire alarm panel loses utility power, NFPA 72 demands 24 hours of standby plus 5 minutes of full alarm — and 15 minutes if you have voice evacuation. Internal panel batteries max out at 55Ah, which means any large building, high-rise, or voice evacuation system needs external backup power. Online Power's UL 1481-listed Fire Alarm Backup powers the entire fire alarm control panel with zero transfer time — not just individual NAC circuits like commodity extenders. From 500W to 15kW, it scales from a single panel to campus-wide systems, with supervised battery charging and Form-C trouble relay contacts for full monitoring integration.
+            When a fire alarm panel loses utility power, NFPA 72 demands 24 hours of standby plus 5 minutes of full alarm, and 15 minutes if you have voice evacuation. Internal panel batteries max out at 55Ah, which means any large building, high-rise, or voice evacuation system needs external backup power. Online Power's UL 1481 listed Fire Alarm Backup powers the entire fire alarm control panel with zero transfer time, not just individual NAC circuits like commodity extenders. From 500W to 15kW, it scales from a single panel to campus-wide systems, with supervised battery charging and Form-C trouble relay contacts for full monitoring integration.
           </p>
 
           <!-- Key Stats -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             {[
-              { label: 'Standby', value: '24h + 5min alarm' },
+              { label: 'Standby', value: '24hr Standby · 5min Alarm' },
               { label: 'Standard', value: 'NFPA 72 §10.6.7.2' },
               { label: 'Transfer', value: 'Zero (online)' },
               { label: 'Certifications', value: 'UL 1481 · NFPA 72' },
@@ -81,7 +81,7 @@ const applications = [
 
           <!-- CTAs -->
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Send Us Your Load Calculation — We'll Confirm Sizing in 48 Hours</a>
+            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Send Us Your Panel Load Calculation · We Will Size and Submit in 48 Hours</a>
             <button class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center justify-center gap-2 doc-download-btn" data-url="/pdf/fab_DS.pdf" data-name="Fire Alarm Backup - Spec Sheet" data-product="Fire Alarm Backup Systems">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path></svg>
               Download Spec Sheet
@@ -164,7 +164,7 @@ const applications = [
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Back up the entire panel — not just the NAC circuits</h3>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Back up the entire panel, not just the NAC circuits</h3>
             <p class="text-sm text-ash leading-relaxed">NAC power extenders only add notification circuit capacity. Online Power's Fire Alarm Backup provides AC power to the FACP itself, backing up every function: addressable loops, signaling line circuits, NAC outputs, communications, and supervisory circuits. One UPS. Complete protection.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
@@ -172,7 +172,7 @@ const applications = [
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
             <h3 class="font-display text-lg font-semibold text-pure mb-2">Zero transfer means zero panel reset</h3>
-            <p class="text-sm text-ash leading-relaxed">Standard battery switchover can cause a momentary power interruption that resets the fire alarm control panel — losing alarm history, zone status, and potentially triggering false trouble signals to the monitoring station. True online double conversion eliminates this risk entirely.</p>
+            <p class="text-sm text-ash leading-relaxed">Standard battery switchover can cause a momentary power interruption that resets the fire alarm control panel, losing alarm history, zone status, and potentially triggering false trouble signals to the monitoring station. True online double conversion eliminates this risk entirely.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
@@ -186,7 +186,41 @@ const applications = [
         <!-- Technical Callout -->
         <div class="bg-bg-elevated border-l-2 border-voltage p-6 mb-10" style="border-radius: 0 12px 12px 0;">
           <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-3">// What your spec sheet won't tell you</p>
-          <p class="text-sm text-ash leading-relaxed">NFPA 72 §10.6.7.2 requires a 20% safety margin in all battery calculations — the formula is: Battery Capacity (Ah) = [(Standby Current × 24h) + (Alarm Current × 0.0833h)] × 1.20. Most specifiers run this math against panel-internal batteries and find they are undersized on day one. The bigger trap: NFPA 72 §10.6.10.3.2 requires batteries to recharge fully within 48 hours after complete discharge. Many fire alarm panels have chargers sized for their maximum internal battery, not for an oversized external battery bank. An external UPS with its own properly sized charger solves both problems. Also note: effective January 2024 under NFPA 72 2022 edition, all rechargeable batteries used as secondary fire alarm power must be listed per UL 1989 or UL 2054.</p>
+          <p class="text-sm text-ash leading-relaxed">NFPA 72 §10.6.7.2 requires a 20% safety margin in all battery calculations. The formula is: Battery Capacity (Ah) = [(Standby Current × 24h) + (Alarm Current × 0.0833h)] × 1.20. Most specifiers run this math against panel-internal batteries and find they are undersized on day one. The bigger trap: NFPA 72 §10.6.10.3.2 requires batteries to recharge fully within 48 hours after complete discharge. Many fire alarm panels have chargers sized for their maximum internal battery, not for an oversized external battery bank. An external UPS with its own properly sized charger solves both problems. Also note: effective January 2024 under NFPA 72 2022 edition, all rechargeable batteries used as secondary fire alarm power must be listed per UL 1989 or UL 2054.</p>
+        </div>
+
+        <!-- Custom Alarm Mode Options -->
+        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Custom Alarm Mode Options</p>
+        <p class="text-sm text-ash leading-relaxed mb-6">Every building has different fire alarm loads, panel configurations, and code requirements. Online Power engineers each Fire Alarm Backup system to your exact specification. Tell us your panel make and model, your NAC circuit load in amps, your standby current draw, and your jurisdiction and we will size the system, calculate the battery capacity with the NFPA 72 required 20% safety margin, and provide a complete submittal package.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
+          <div class="bg-bg-elevated card-top-accent rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 class="font-display text-base font-semibold text-pure mb-2">Extended Runtime</h3>
+            <p class="text-sm text-ash leading-relaxed">Standard NFPA 72 requires 24 hours standby plus 5 minutes alarm. Online Power configures extended runtime batteries for jurisdictions requiring 60 hours, 72 hours, or beyond standard minimums. Ideal for remote facilities, critical government buildings, and projects with stringent AHJ requirements.</p>
+          </div>
+          <div class="bg-bg-elevated card-top-accent rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 010-7.072m-2.828 9.9a9 9 0 010-12.728"></path></svg>
+            </div>
+            <h3 class="font-display text-base font-semibold text-pure mb-2">Voice Evacuation Systems</h3>
+            <p class="text-sm text-ash leading-relaxed">Buildings with voice evacuation require 15 minutes of full alarm runtime instead of the standard 5 minutes per NFPA 72. Online Power sizes battery capacity to meet the higher drain of amplifiers, speakers, and mass notification equipment across large floor plates and campus environments.</p>
+          </div>
+          <div class="bg-bg-elevated card-top-accent rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            </div>
+            <h3 class="font-display text-base font-semibold text-pure mb-2">High Rise and Campus Systems</h3>
+            <p class="text-sm text-ash leading-relaxed">Large buildings with multiple fire alarm control panels and remote power supplies require coordinated backup across the entire system. Online Power designs multi-unit configurations that maintain NFPA 72 compliance for each panel independently while providing centralized monitoring through a single GMS interface.</p>
+          </div>
+          <div class="bg-bg-elevated card-top-accent rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h3 class="font-display text-base font-semibold text-pure mb-2">Generator Coordination</h3>
+            <p class="text-sm text-ash leading-relaxed">For buildings with standby generators, Online Power configures the Fire Alarm Backup to bridge the gap between utility failure and generator transfer with zero interruption, then seamlessly hand off to generator power for extended outages without panel reset or false alarm signals.</p>
+          </div>
         </div>
 
         <!-- Codes & Standards -->
@@ -332,7 +366,7 @@ const applications = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h2 class="font-display text-3xl font-bold text-obsidian mb-4">Ready to Spec This Product?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Send Us Your Load Calculation — We'll Confirm Sizing in 48 Hours</a>
+        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Send Us Your Panel Load Calculation · We Will Size and Submit in 48 Hours</a>
         <a href="/training" class="px-8 py-3.5 border-2 border-obsidian/30 text-obsidian font-semibold rounded-lg hover:bg-obsidian/10 transition-colors text-sm">Register for Training</a>
       </div>
     </div>
