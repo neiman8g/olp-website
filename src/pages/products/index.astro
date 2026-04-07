@@ -24,7 +24,7 @@ import { productCategories } from '../../data/navigation';
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {productCategories.map(cat => (
-          <a href={`/products/${cat.slug}/`} class="card-glow card-top-accent bg-obsidian rounded-xl overflow-hidden group">
+          <a href={`/products/category/${cat.slug}`} class="card-glow card-top-accent bg-obsidian rounded-xl overflow-hidden group">
             <div class="h-40 bg-gradient-to-br from-steel/30 to-obsidian flex items-center justify-center">
               <svg class="w-12 h-12 text-voltage/30 group-hover:text-voltage/60 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>

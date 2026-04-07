@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { categories, getProductsByCategory } from '../../../data/products';
+
+export function getStaticPaths() {
+  return categories.map(cat => ({
+    params: { slug: cat.slug },
+    props: { category: cat },
+  }));
+}
+
+const { category } = Astro.props;
+const categoryProducts = getProductsByCategory(category.slug);
+---
+
+<BaseLayout
+  title={`${category.name} | Online Power`}
+  description={category.description}
+>
+
+  <section class="py-20 md:py-28 border-b border-steel/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <nav class="font-mono text-xs uppercase tracking-widest text-ash mb-6">
+        <a href="/" class="hover:text-voltage transition-colors">Home</a>
+        <span class="mx-2 text-steel">/</span>
+        <a href="/products" class="hover:text-voltage transition-colors">Products</a>
+        <span class="mx-2 text-steel">/</span>
+        <span class="text-voltage">{category.name}</span>
+      </nav>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-pure mb-4">{category.name}</h1>
+      <p class="text-lg text-ash max-w-3xl">{category.description}</p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-slate">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">// {categoryProducts.length} Product{categoryProducts.length !== 1 ? 's' : ''}</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {categoryProducts.map(product => (
+          <a href={`/products/${product.slug}`} class="card-glow card-top-accent bg-obsidian rounded-xl p-6 group">
+            <h2 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">{product.name}</h2>
+            <p class="font-mono text-xs text-voltage mb-3">{product.tagline}</p>
+            <p class="text-sm text-ash mb-4 line-clamp-3">{product.description}</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              {product.standards.slice(0, 3).map(std => (
+                <span class="px-2 py-0.5 bg-steel/50 border border-steel/50 text-xs text-ash rounded font-mono">{std}</span>
+              ))}
+            </div>
+            <span class="text-sm font-medium text-voltage">View Details &rarr;</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="/training/" class="btn-primary px-8 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2">
+          Get Training on {category.name}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
