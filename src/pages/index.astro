@@ -19,7 +19,33 @@ import { company, testimonials } from '../data/company';
         <div>
           <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-pure leading-[1.05] tracking-tight mb-6">
             Power That<br/>Never Quits.
+            <span class="block mt-2 relative" style="min-height: 1.4em;">
+              <span class="cycle-word" style="animation-delay: 0s;">For Hospitals.</span>
+              <span class="cycle-word" style="animation-delay: 3s;">For Data Centers.</span>
+              <span class="cycle-word" style="animation-delay: 6s;">For High-Rise Buildings.</span>
+              <span class="cycle-word" style="animation-delay: 9s;">For Government.</span>
+              <span class="cycle-word" style="animation-delay: 12s;">For Any Application.</span>
+            </span>
           </h1>
+          <style>
+            .cycle-word {
+              display: block;
+              position: absolute;
+              color: #00E5FF;
+              font-size: 0.85em;
+              font-family: 'Space Grotesk', sans-serif;
+              font-weight: 700;
+              opacity: 0;
+              animation: cycleText 15s linear infinite;
+            }
+            @keyframes cycleText {
+              0%   { opacity: 0; transform: translateY(6px); }
+              5%   { opacity: 1; transform: translateY(0); }
+              18%  { opacity: 1; transform: translateY(0); }
+              23%  { opacity: 0; transform: translateY(-6px); }
+              100% { opacity: 0; }
+            }
+          </style>
           <p class="text-lg md:text-xl text-ash max-w-xl leading-relaxed mb-10">
             48 years of mission-critical power protection. UL Listed. ISO 9001. Made in the USA.
           </p>
