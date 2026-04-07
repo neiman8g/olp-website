@@ -89,7 +89,7 @@ const applications = [
 
         <div class="lg:col-span-2">
           <div class="card-glow bg-slate rounded-2xl p-8 flex items-center justify-center min-h-[280px] mb-4">
-            <svg class="w-32 h-32 text-voltage/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <img src="/images/products/host-power.png" alt="ups-backup by Online Power" class="w-full h-auto object-contain max-h-[250px]" />
           </div>
           <div class="flex items-center justify-center gap-4">
             {['ISO 9001', 'UL Listed', 'NFPA'].map(badge => (
@@ -183,11 +183,16 @@ const applications = [
       <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">// {categoryProducts.length} Models Available</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {categoryProducts.map(p => (
-          <a href={`/products/${p.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl p-6 group">
+          <a href={`/products/${p.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
+            <div class="h-[200px] bg-bg-elevated flex items-center justify-center p-4">
+              <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" />
+            </div>
+            <div class="p-6">
             <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">{p.name}</h3>
             <p class="font-mono text-xs text-voltage mb-3">{p.tagline}</p>
             <p class="text-sm text-ash mb-4 line-clamp-2">{p.description}</p>
             <span class="text-sm font-medium text-voltage">View Details &rarr;</span>
+            </div>
           </a>
         ))}
       </div>

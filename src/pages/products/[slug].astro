@@ -39,33 +39,37 @@ const relatedProducts = getProductsByCategory(product.category).filter(p => p.sl
         <span class="text-voltage">{product.name}</span>
       </nav>
 
-      <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
-        <div class="lg:col-span-3">
-          <div class="flex items-start gap-3 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-            </div>
-            <div>
-              <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-pure">{product.name}</h1>
-              <p class="font-mono text-sm text-voltage mt-1">{product.tagline}</p>
-            </div>
-          </div>
-          <p class="text-lg text-ash max-w-3xl leading-relaxed mt-6">{product.description}</p>
-          <div class="flex flex-wrap gap-3 mt-8">
-            <a href="/training/" class="btn-primary px-6 py-3 rounded-lg text-sm font-semibold inline-flex items-center gap-2">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              Get Training on This Product
-            </a>
-            <a href="/contact/" class="btn-ghost px-6 py-3 rounded-lg text-sm">Request a Quote</a>
-          </div>
-        </div>
-        <div class="lg:col-span-2">
-          <div class="card-glow bg-slate rounded-2xl p-4 overflow-hidden">
-            <img src={product.image} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[300px] mx-auto" loading="eager" />
-          </div>
-          <div class="flex items-center justify-center gap-3 mt-3">
+      <div class="grid lg:grid-cols-11 gap-8 lg:gap-12 items-start">
+        <!-- Left: 55% -->
+        <div class="lg:col-span-6">
+          <div class="flex flex-wrap gap-2 mb-4">
             {product.standards.slice(0, 3).map(std => (
-              <span class="px-2 py-1 bg-slate border border-steel/30 rounded text-[10px] font-mono text-ash">{std}</span>
+              <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">{std}</span>
+            ))}
+            <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">Made in USA</span>
+          </div>
+          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-2">{product.name}</h1>
+          <p class="font-mono text-sm text-voltage mb-6">{product.tagline}</p>
+          <p class="text-lg text-ash leading-relaxed mb-8">{product.description}</p>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <a href="/contact/" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2">
+              Request a Quote
+            </a>
+            <a href="/training/" class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center gap-2">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Get Training
+            </a>
+          </div>
+          <p class="font-mono text-xs text-ash">// Responds within 2 business hours</p>
+        </div>
+        <!-- Right: 45% -->
+        <div class="lg:col-span-5">
+          <div class="bg-bg-elevated border border-voltage/20 rounded-xl p-6 flex items-center justify-center min-h-[320px]">
+            <img src={product.image} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" />
+          </div>
+          <div class="flex items-center justify-center gap-3 mt-4">
+            {product.standards.slice(0, 4).map(std => (
+              <span class="px-2.5 py-1 bg-slate border border-steel/30 rounded text-[10px] font-mono text-ash">{std}</span>
             ))}
           </div>
         </div>
