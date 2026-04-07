@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { company } from '../data/company';
+import { productCategories } from '../data/navigation';
+---
+
+<BaseLayout
+  title="Product Training | Online Power - Expert Training on Power Protection Equipment"
+  description="Register for expert product training from Online Power's engineering team. In-person, virtual, or on-site training on emergency lighting inverters, UPS systems, fire alarm backup, and all power protection products."
+>
+
+  <!-- Hero -->
+  <section class="py-20 md:py-28 border-b border-steel/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Expert Training</p>
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-pure mb-6">Product Training</h1>
+      <p class="text-lg text-ash max-w-2xl">
+        Hands-on training from the engineers who designed and built your equipment. In-person at our LA facility, virtually, or on-site at your location.
+      </p>
+    </div>
+  </section>
+
+  <!-- What Training Covers + Formats -->
+  <section class="py-20 md:py-28 bg-slate">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div>
+          <h2 class="font-display text-3xl font-bold text-pure mb-8">What We Cover</h2>
+          <div class="space-y-5">
+            {[
+              { title: 'Product Operation & Setup', desc: 'Installation, configuration, and daily operation of your specific equipment.' },
+              { title: 'Preventive Maintenance', desc: 'Scheduled maintenance, battery testing, and performance monitoring.' },
+              { title: 'Troubleshooting & Diagnostics', desc: 'Fault codes, diagnostic procedures, and common issue resolution.' },
+              { title: 'Safety & Compliance', desc: 'UL, NFPA, and NEC requirements. Safety protocols and best practices.' },
+            ].map(item => (
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-voltage/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-pure text-sm">{item.title}</h3>
+                  <p class="text-sm text-ash mt-0.5">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <h3 class="font-display text-lg font-bold text-pure mt-12 mb-4">Who Should Attend</h3>
+          <div class="flex flex-wrap gap-2">
+            {['Engineers', 'Facility Managers', 'Maintenance Staff', 'Electricians', 'Fire Protection Engineers', 'Contractors', 'OEM Partners'].map(role => (
+              <span class="px-3 py-1.5 bg-steel/50 border border-steel/50 text-xs text-ash rounded font-mono uppercase tracking-wider">{role}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Training Formats -->
+        <div class="space-y-5">
+          {[
+            { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', title: 'In-Person Training', desc: 'Visit our manufacturing facility. See the production floor, meet the engineering team, get hands-on experience.' },
+            { icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z', title: 'Virtual Sessions', desc: 'Live video training with screen sharing, interactive Q&A, and recorded sessions for later reference.' },
+            { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z', title: 'On-Site Training', desc: 'We come to your facility. Training customized around your installed equipment and team needs.' },
+          ].map(item => (
+            <div class="card-glow bg-obsidian rounded-xl p-6 flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path></svg>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-pure mb-1">{item.title}</h3>
+                <p class="text-sm text-ash">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Form -->
+  <section class="py-20 md:py-28 bg-obsidian" id="register">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-display text-3xl font-bold text-pure mb-3">Register for Training</h2>
+        <p class="text-ash">Fill out the form and our team will schedule your session.</p>
+      </div>
+
+      <form id="training-form" class="bg-slate border border-steel/30 rounded-2xl p-6 md:p-10 space-y-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block text-xs font-mono uppercase tracking-wider text-ash mb-2">Full Name *</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+          </div>
+          <div>
+            <label for="email" class="block text-xs font-mono uppercase tracking-wider text-ash mb-2">Email *</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="phone" class="block text-xs font-mono uppercase tracking-wider text-ash mb-2">Phone *</label>
+            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+          </div>
+          <div>
+            <label for="company" class="block text-xs font-mono uppercase tracking-wider text-ash mb-2">Company *</label>
+            <input type="text" id="company" name="company" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="product" class="block text-xs font-mono uppercase tracking-wider text-ash mb-2">Product *</label>
+            <select id="product" name="product" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-ash focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors">
+              <option value="">Select product...</option>
+              {productCategories.map(cat => (
+                <option value={cat.name}>{cat.name}</option>
+              ))}
+              <option value="General Overview">General Overview</option>
+            </select>
+          </div>
+          <div>
+            <label for="format" class="block text-xs font-mono uppercase tracking-wider text-ash mb-2">Format *</label>
+            <select id="format" name="format" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-ash focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors">
+              <option value="">Select format...</option>
+              <option value="In-Person">In-Person</option>
+              <option value="Virtual">Virtual</option>
+              <option value="On-Site">On-Site</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="attendees" class="block text-xs font-mono uppercase tracking-wider text-ash mb-2">Attendees</label>
+            <select id="attendees" name="attendees" class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-ash focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors">
+              <option value="1-3">1-3</option><option value="4-8">4-8</option><option value="9-15">9-15</option><option value="16+">16+</option>
+            </select>
+          </div>
+          <div>
+            <label for="date_range" class="block text-xs font-mono uppercase tracking-wider text-ash mb-2">Preferred Dates</label>
+            <input type="text" id="date_range" name="date_range" placeholder="e.g., June 2026" class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+          </div>
+        </div>
+        <div>
+          <label for="message" class="block text-xs font-mono uppercase tracking-wider text-ash mb-2">Notes</label>
+          <textarea id="message" name="message" rows="3" class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors resize-y"></textarea>
+        </div>
+        <div class="hidden" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" /></div>
+        <button type="submit" id="training-submit-btn" class="btn-primary w-full py-4 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Register for Training
+        </button>
+        <div id="form-success" class="hidden p-4 bg-voltage/10 border border-voltage/30 rounded-lg text-voltage text-sm text-center">Submitted! We'll contact you within 1-2 business days.</div>
+        <div id="form-error" class="hidden p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm text-center">Something went wrong. Call {company.phone}.</div>
+      </form>
+
+      <p class="text-center text-sm text-ash mt-6">
+        Or call <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-voltage hover:underline font-mono">{company.phone}</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-28 bg-slate">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// FAQ</p>
+      <h2 class="font-display text-3xl font-bold text-pure mb-8">Training Questions</h2>
+      <div class="space-y-3">
+        {[
+          { q: 'How long is a typical training session?', a: 'Virtual sessions run 2-4 hours. In-person and on-site training is typically 4-8 hours. Duration depends on product complexity and topics covered.' },
+          { q: 'Is there a cost for training?', a: 'Contact us for pricing. Costs vary by format, duration, and attendees. Training may be included with new equipment purchases.' },
+          { q: 'Can training be customized for our installation?', a: 'Absolutely. On-site training is built around your specific equipment, building configuration, and team requirements.' },
+          { q: 'Do you provide training materials?', a: 'All attendees receive product documentation and reference materials. Virtual sessions are recorded. Certificates available on request.' },
+        ].map(item => (
+          <details class="group bg-obsidian border border-steel/30 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between p-5 cursor-pointer text-pure hover:text-voltage transition-colors">
+              <span class="font-medium text-sm">{item.q}</span>
+              <svg class="w-4 h-4 text-ash group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-ash leading-relaxed">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script is:inline>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+    s.onload = function() { emailjs.init('ZpNSMzngBD1uoKBg2'); };
+    document.head.appendChild(s);
+
+    var form = document.getElementById('training-form');
+    var btn = document.getElementById('training-submit-btn');
+    form && form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (form.querySelector('[name="website"]').value) return;
+      btn.disabled = true; btn.innerHTML = 'Submitting...';
+      var params = {
+        name: form.querySelector('#name').value,
+        email: form.querySelector('#email').value,
+        phone: form.querySelector('#phone').value,
+        company: form.querySelector('#company').value,
+        subject: 'Training: ' + form.querySelector('#product').value,
+        message: ['TRAINING REGISTRATION','---','Product: '+form.querySelector('#product').value,'Format: '+form.querySelector('#format').value,'Attendees: '+form.querySelector('#attendees').value,'Dates: '+(form.querySelector('#date_range').value||'TBD'),'---','Notes: '+(form.querySelector('#message').value||'None')].join('\n'),
+      };
+      emailjs.send('service_wwtue8f','template_tavsq3o',params).then(function(){
+        document.getElementById('form-success').classList.remove('hidden');
+        document.getElementById('form-error').classList.add('hidden');
+        form.reset(); btn.disabled=false; btn.innerHTML='Register for Training';
+      }).catch(function(){
+        document.getElementById('form-error').classList.remove('hidden');
+        btn.disabled=false; btn.innerHTML='Register for Training';
+      });
+    });
+  })();
+</script>

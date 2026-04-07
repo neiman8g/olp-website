@@ -1,0 +1,79 @@
+---
+import { company } from '../data/company';
+import { social } from '../data/social';
+
+interface Props {
+  type?: 'organization' | 'product' | 'faq';
+  product?: {
+    name: string;
+    description: string;
+    image: string;
+    category: string;
+    sku?: string;
+  };
+  faq?: Array<{ question: string; answer: string }>;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+}
+
+const { type = 'organization', product, faq, breadcrumbs } = Astro.props;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: company.legalName,
+  url: company.url,
+  logo: `${company.url}/images/logos/logo.png`,
+  telephone: company.phone,
+  email: company.email,
+  foundingDate: String(company.founded),
+  sameAs: [social.instagram, social.linkedin],
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'US',
+  },
+};
+
+const productSchema = product ? {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  description: product.description,
+  image: `${company.url}${product.image}`,
+  brand: { '@type': 'Brand', name: 'Online Power' },
+  manufacturer: { '@type': 'Organization', name: company.legalName },
+  category: product.category,
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'USD',
+    priceSpecification: { '@type': 'PriceSpecification' },
+    url: Astro.url.toString(),
+  },
+} : null;
+
+const faqSchema = faq?.length ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(item => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+} : null;
+
+const breadcrumbSchema = breadcrumbs?.length ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: item.url,
+  })),
+} : null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+{productSchema && <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />}
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+{breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}

@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+@theme {
+  /* Brand: Obsidian + Voltage */
+  --color-obsidian: #0A0A0F;
+  --color-voltage: #00E5FF;
+  --color-voltage-dim: #00E5FF1A;
+  --color-voltage-glow: #00E5FF33;
+  --color-steel: #1C2B3A;
+  --color-ash: #8A9BAE;
+  --color-slate: #111827;
+  --color-pure: #F8FAFC;
+  --color-pure-dim: #F8FAFC0D;
+
+  /* Semantic aliases */
+  --color-bg: #0A0A0F;
+  --color-bg-elevated: #111827;
+  --color-bg-card: #1C2B3A;
+  --color-text: #F8FAFC;
+  --color-text-muted: #8A9BAE;
+  --color-accent: #00E5FF;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-pure);
+  background-color: var(--color-obsidian);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Voltage glow effect for card hover */
+.card-glow {
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-glow:hover {
+  border-color: var(--color-voltage);
+  box-shadow: 0 0 20px var(--color-voltage-glow), inset 0 1px 0 var(--color-voltage-dim);
+}
+
+/* Cyan top border card */
+.card-top-accent {
+  border-top: 2px solid var(--color-voltage);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--color-voltage);
+  color: var(--color-obsidian);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: #33EBFF;
+  box-shadow: 0 0 20px var(--color-voltage-glow);
+}
+
+.btn-ghost {
+  border: 1px solid var(--color-voltage);
+  color: var(--color-voltage);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+  background-color: var(--color-voltage);
+  color: var(--color-obsidian);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-obsidian); }
+::-webkit-scrollbar-thumb { background: var(--color-steel); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ash); }
+
+/* Selection */
+::selection {
+  background-color: var(--color-voltage-dim);
+  color: var(--color-voltage);
+}
