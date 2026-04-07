@@ -15,6 +15,129 @@ export function getStaticPaths() {
 const { product } = Astro.props as { product: Product };
 const category = getCategoryBySlug(product.category);
 const relatedProducts = getProductsByCategory(product.category).filter(p => p.slug !== product.slug).slice(0, 3);
+
+// Spec tables per product (Issue 4)
+const specTables: Record<string, [string, string][]> = {
+  'power-wave-1': [
+    ['Input Voltage', '120/208/240/277 VAC'],
+    ['Output Voltage', 'Matches input (field selectable)'],
+    ['Power Range', '2.1kW – 17kW'],
+    ['Phases', 'Single Phase'],
+    ['Transfer Time', 'Zero (true online double conversion)'],
+    ['Waveform', 'Pure Sine Wave (<3% THD)'],
+    ['Efficiency', '>95% at full load'],
+    ['Battery Type', 'Sealed VRLA'],
+    ['Battery Runtime', '90–120 minutes'],
+    ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
+    ['Enclosure', 'NEMA 1 standard'],
+    ['Certifications', 'UL 924, UL 1778, NFPA 101, NEC'],
+    ['Warranty', '2 years parts and labor'],
+  ],
+  'power-wave-3': [
+    ['Input Voltage', '120/208/240/277/480 VAC'],
+    ['Output Voltage', 'Matches input (field selectable)'],
+    ['Power Range', '8kW – 50kW'],
+    ['Phases', 'Three Phase'],
+    ['Transfer Time', '<4ms'],
+    ['Waveform', 'Pure Sine Wave (<3% THD)'],
+    ['Efficiency', '>95% at full load'],
+    ['Battery Type', 'Sealed VRLA'],
+    ['Battery Runtime', '90–120 minutes'],
+    ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
+    ['Enclosure', 'NEMA 1 standard'],
+    ['Certifications', 'UL 924, UL 1778, UL 1489, NFPA 101'],
+    ['Warranty', '2 years parts and labor'],
+  ],
+  'power-wave-4': [
+    ['Input Voltage', '120/208/240/277/480 VAC'],
+    ['Output Voltage', 'Matches input (field selectable)'],
+    ['Power Range', '8kW – 400kW'],
+    ['Phases', 'Three Phase'],
+    ['Transfer Time', '<4ms (Green Mode) / Zero (Double Conversion)'],
+    ['Waveform', 'Pure Sine Wave (<3% THD)'],
+    ['Efficiency', '>95% at full load'],
+    ['Battery Type', 'Sealed VRLA'],
+    ['Battery Runtime', '90–120 minutes'],
+    ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
+    ['Enclosure', 'NEMA 1 standard'],
+    ['Certifications', 'UL 924, UL 1778, NFPA 101'],
+    ['Warranty', '2 years parts and labor'],
+  ],
+  'mini-power-wave': [
+    ['Input Voltage', '120/208/240/277 VAC'],
+    ['Output Voltage', 'Matches input'],
+    ['Power Range', '500W – 2.7kW'],
+    ['Phases', 'Single Phase'],
+    ['Transfer Time', '<4ms'],
+    ['Waveform', 'Pure Sine Wave'],
+    ['Efficiency', '>92%'],
+    ['Battery Type', 'Sealed VRLA (internal)'],
+    ['Battery Runtime', '90–120 minutes'],
+    ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
+    ['Enclosure', 'NEMA 1 all-in-one'],
+    ['Certifications', 'UL 924, UL 1778'],
+    ['Warranty', '2 years parts and labor'],
+  ],
+  'micro-power-wave': [
+    ['Input Voltage', '120/208/240/277 VAC'],
+    ['Output Voltage', 'Matches input'],
+    ['Power Range', '200W – 490W'],
+    ['Phases', 'Single Phase'],
+    ['Transfer Time', '<4ms'],
+    ['Waveform', 'Pure Sine Wave'],
+    ['Battery Type', 'Sealed VRLA (internal)'],
+    ['Battery Runtime', '90 minutes minimum'],
+    ['Enclosure', 'NEMA 1 compact'],
+    ['Certifications', 'UL 924 (ETL Listed)'],
+    ['Warranty', '2 years parts and labor'],
+  ],
+  'nano-wave': [
+    ['Input Voltage', '120/277 VAC'],
+    ['Output Voltage', 'Matches input'],
+    ['Power Range', '27W – 100W'],
+    ['Phases', 'Single Phase'],
+    ['Battery Type', 'Lithium Ion'],
+    ['Battery Runtime', '90 min (derate to 2hr available)'],
+    ['Lamp Compatibility', 'LED and Fluorescent'],
+    ['Dimming', 'Supported'],
+    ['Certifications', 'UL 924'],
+    ['Warranty', '2 years parts and labor'],
+  ],
+  'elevate': [
+    ['Input Voltage', '208/480 VAC'],
+    ['Output Voltage', 'Matches input'],
+    ['Power Range', '24kW – 240kW'],
+    ['Phases', 'Three Phase'],
+    ['Application', 'Elevator Emergency Backup'],
+    ['Battery Type', 'Sealed VRLA'],
+    ['Battery Runtime', 'Per code requirements'],
+    ['Certifications', 'UL 924, UL 1778'],
+    ['Warranty', '2 years parts and labor'],
+  ],
+  'fire-alarm-backup': [
+    ['Standard', 'UL 1481'],
+    ['Application', 'Fire Alarm NAC Circuits'],
+    ['Compliance', 'NFPA 72'],
+    ['Battery Type', 'Sealed VRLA'],
+    ['Battery Runtime', '24+ hours'],
+    ['Self-Testing', 'Automatic'],
+    ['Certifications', 'UL 1481, NFPA 72'],
+    ['Warranty', '2 years parts and labor'],
+  ],
+  'host-power': [
+    ['Input Voltage', '208/480 VAC'],
+    ['Output Voltage', 'Matches input'],
+    ['Power Range', '10kVA – 500kVA'],
+    ['Phases', 'Three Phase'],
+    ['Efficiency', '90% typical'],
+    ['Waveform', 'PWM Sinusoidal'],
+    ['Generator Compatible', 'Yes'],
+    ['Certifications', 'UL 1778, UL 924, UL 924A'],
+    ['Warranty', '2 years limited factory'],
+  ],
+};
+
+const specs = specTables[product.slug] || null;
 ---
 
 <BaseLayout
@@ -42,6 +165,7 @@ const relatedProducts = getProductsByCategory(product.category).filter(p => p.sl
       <div class="grid lg:grid-cols-11 gap-8 lg:gap-12 items-start">
         <!-- Left: 55% -->
         <div class="lg:col-span-6">
+          <!-- Certification badges (hero only) -->
           <div class="flex flex-wrap gap-2 mb-4">
             {product.standards.slice(0, 3).map(std => (
               <span class="px-3 py-1 border border-voltage/40 rounded-full text-xs font-mono uppercase tracking-wider text-voltage">{std}</span>
@@ -62,7 +186,7 @@ const relatedProducts = getProductsByCategory(product.category).filter(p => p.sl
           </div>
           <p class="font-mono text-xs text-ash">// Responds within 2 business hours</p>
         </div>
-        <!-- Right: 45% -->
+        <!-- Right: 45% — Product image -->
         <div class="lg:col-span-5">
           <div class="bg-bg-elevated border border-voltage/20 rounded-xl p-6 flex items-center justify-center min-h-[320px]">
             <img src={product.image} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" />
@@ -77,56 +201,45 @@ const relatedProducts = getProductsByCategory(product.category).filter(p => p.sl
     </div>
   </section>
 
-  <!-- Features + Standards -->
+  <!-- Key Features -->
   <section class="py-16 md:py-24 bg-slate">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
-        <!-- Features -->
-        <div>
-          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Key Features</p>
-          <div class="space-y-3">
-            {product.features.map(feature => (
-              <div class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-voltage flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                <span class="text-pure">{feature}</span>
-              </div>
-            ))}
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Key Features</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {product.features.map(feature => (
+          <div class="flex items-start gap-3 bg-obsidian border border-steel/20 rounded-lg p-4">
+            <svg class="w-5 h-5 text-voltage flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-sm text-pure">{feature}</span>
           </div>
-        </div>
-
-        <!-- Standards + Docs -->
-        <div>
-          {product.standards.length > 0 && (
-            <div class="mb-10">
-              <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Standards & Certifications</p>
-              <div class="flex flex-wrap gap-2">
-                {product.standards.map(std => (
-                  <span class="px-3 py-1.5 bg-obsidian border border-steel/50 rounded text-sm text-pure font-mono">{std}</span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {product.docs.length > 0 && (
-            <div>
-              <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Documents</p>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {product.docs.map(doc => (
-                  <a href={doc.url} target="_blank" rel="noopener" class="card-glow flex items-center gap-3 bg-obsidian rounded-lg p-4 group">
-                    <svg class="w-5 h-5 text-voltage flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                    <span class="text-sm text-ash group-hover:text-voltage transition-colors">{doc.label}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Documents (Email-Gated) -->
+  <!-- Specifications Table (Issue 4) -->
   <section class="py-16 md:py-24 bg-obsidian">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Specifications</p>
+      {specs ? (
+        <div class="border border-steel/20 rounded-xl overflow-hidden">
+          {specs.map(([label, value], i) => (
+            <div class={`flex items-center justify-between px-5 py-3.5 ${i % 2 === 0 ? 'bg-bg-elevated' : 'bg-[#0D1117]'} ${i < specs.length - 1 ? 'border-b border-steel/10' : ''}`}>
+              <span class="text-sm text-ash">{label}</span>
+              <span class="text-sm text-pure font-medium text-right ml-4">{value}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="bg-bg-elevated border border-steel/20 rounded-xl p-8 text-center">
+          <p class="text-ash mb-3">Full specifications available on request.</p>
+          <a href="/contact" class="text-sm font-medium text-voltage hover:text-pure transition-colors">Contact us for full specifications &rarr;</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Documents (Email-Gated only — no duplicate raw links) -->
+  <section class="py-16 md:py-24 bg-slate">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <DocumentGate productSlug={product.slug} />
     </div>
@@ -139,11 +252,16 @@ const relatedProducts = getProductsByCategory(product.category).filter(p => p.sl
         <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-8">// Related Products</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {relatedProducts.map(rp => (
-            <a href={`/products/${rp.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl p-6 group">
-              <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">{rp.name}</h3>
-              <p class="font-mono text-xs text-ash mb-3">{rp.tagline}</p>
-              <p class="text-sm text-ash mb-4 line-clamp-2">{rp.description}</p>
-              <span class="text-sm font-medium text-voltage">View Product &rarr;</span>
+            <a href={`/products/${rp.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
+              <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4">
+                <img src={rp.image} alt={`${rp.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+              </div>
+              <div class="p-6">
+                <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">{rp.name}</h3>
+                <p class="font-mono text-xs text-ash mb-3">{rp.tagline}</p>
+                <p class="text-sm text-ash mb-4 line-clamp-2">{rp.description}</p>
+                <span class="text-sm font-medium text-voltage">View Product &rarr;</span>
+              </div>
             </a>
           ))}
         </div>
