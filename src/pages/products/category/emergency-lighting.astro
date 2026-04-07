@@ -46,7 +46,7 @@ const applications = [
 >
 
   <!-- HERO -->
-  <section class="py-16 md:py-24 bg-off-white border-b border-steel-gray">
+  <section class="py-10 md:py-14 bg-off-white border-b border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <nav class="eyebrow text-slate mb-8">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
@@ -56,7 +56,7 @@ const applications = [
         <span class="text-steel-blue">Emergency Lighting Inverters</span>
       </nav>
 
-      <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+      <div class="grid lg:grid-cols-5 gap-6 lg:gap-12 items-start">
         <!-- Left: Content -->
         <div class="lg:col-span-3">
           <div class="flex flex-wrap gap-2 mb-5">
@@ -66,7 +66,7 @@ const applications = [
           </div>
 
           <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-5">Emergency Lighting Inverters</h1>
-          <p class="text-lg text-slate leading-relaxed mb-8">
+          <p class="text-[15px] text-slate leading-relaxed mb-8">
             When the lights go out, your emergency lighting system determines whether occupants reach the exit safely. Online Power's UL 924 inverters deliver pure sine wave output from 35W to 400kW — the widest range in the industry — maintaining full illumination for the entire 90-minute code-required duration. Built to order in Los Angeles since 1975, with OSHPD/HCAI seismic models for California's most demanding hospital projects.
           </p>
 
@@ -101,7 +101,7 @@ const applications = [
   </section>
 
   <!-- TAB SECTION -->
-  <section class="py-16 md:py-24 bg-off-white">
+  <section class="pt-6 md:pt-8 pb-10 md:pb-14 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <!-- Tab Buttons -->
       <div class="flex gap-1 border-b border-steel-gray mb-10">
@@ -120,21 +120,21 @@ const applications = [
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-near-black mb-2">Full brightness for the full 90 minutes</h3>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Full brightness for the full 90 minutes</h3>
             <p class="text-sm text-slate leading-relaxed">Distributed battery packs dim as they discharge, often dropping below the 0.6 fc minimum NFPA 101 requires at the 90-minute mark. Online Power inverters maintain full rated output from first second to last, ensuring egress paths stay code-compliant through the entire emergency.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-near-black mb-2">Pure sine wave output — every LED driver, every time</h3>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Pure sine wave output — every LED driver, every time</h3>
             <p class="text-sm text-slate leading-relaxed">Modified sine wave inverters cause LED flickering, buzzing, and premature driver failure. Online Power's pure sine wave output with less than 3% THD is identical to utility power, ensuring compatibility with every dimmable LED driver, 0-10V control, and architectural fixture.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-near-black mb-2">One system replaces hundreds of battery packs</h3>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">One system replaces hundreds of battery packs</h3>
             <p class="text-sm text-slate leading-relaxed">Centralized inverter batteries last 10-15 years in a controlled environment versus 3-5 years for distributed packs. One annual 90-minute test replaces hundreds of individual fixture tests — cutting maintenance labor by up to 90% and eliminating thousands in recurring battery costs.</p>
           </div>
         </div>
@@ -205,7 +205,7 @@ const applications = [
   </section>
 
   <!-- PRODUCT MODELS -->
-  <section class="py-16 md:py-24 bg-off-white">
+  <section class="py-10 md:py-14 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <p class="eyebrow text-steel-blue mb-8">{categoryProducts.length} Models Available</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -219,7 +219,7 @@ const applications = [
               )}
             </div>
             <div class="p-6">
-            <h3 class="font-display text-lg font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
             <p class="font-display font-semibold text-xs text-steel-blue mb-3">{p.tagline}</p>
             <p class="text-sm text-slate mb-4 line-clamp-2">{p.description}</p>
             <span class="text-sm font-medium text-steel-blue">View Details &rarr;</span>
@@ -231,7 +231,7 @@ const applications = [
   </section>
 
   <!-- TESTIMONIAL -->
-  <section class="py-16 md:py-24 bg-off-white">
+  <section class="py-10 md:py-14 bg-off-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <div class="bg-white border border-steel-gray rounded-2xl p-8 md:p-10">
         <div class="flex gap-1 mb-4">

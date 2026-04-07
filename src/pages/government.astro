@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout
+  title="Government & Compliance | BAA & TAA | Online Power"
+  description="Online Power products meet Buy American Act and Trade Agreements Act requirements. ISO 9001 certified. Manufactured in Los Angeles. Federal, state, and municipal procurement."
+>
+
+  <section class="py-10 md:py-14 bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <nav class="eyebrow text-slate mb-6">
+        <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
+        <span class="mx-2 text-steel-gray">/</span>
+        <span class="text-steel-blue">Government & Compliance</span>
+      </nav>
+      <h1 class="font-display text-4xl md:text-[40px] font-bold text-near-black mb-4">Government & Compliance</h1>
+      <p class="text-[15px] text-slate max-w-3xl leading-relaxed">Online Power products are available to meet Buy American Act and Trade Agreements Act requirements for federal, state, and municipal procurement. All products are designed, engineered, and manufactured at our Los Angeles facility under ISO 9001 certified quality systems.</p>
+    </div>
+  </section>
+
+  <section class="py-10 md:py-14 bg-deep-navy">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-navy-mid">
+        <div class="lg:px-8 first:lg:pl-0 last:lg:pr-0 text-center lg:text-left">
+          <p class="font-display text-[11px] uppercase tracking-[0.1em] text-steel-blue font-semibold mb-2">Compliance</p>
+          <p class="font-display text-3xl md:text-4xl font-bold text-white">BAA</p>
+        </div>
+        <div class="lg:px-8 first:lg:pl-0 last:lg:pr-0 text-center lg:text-left">
+          <p class="font-display text-[11px] uppercase tracking-[0.1em] text-steel-blue font-semibold mb-2">Compliance</p>
+          <p class="font-display text-3xl md:text-4xl font-bold text-white">TAA</p>
+        </div>
+        <div class="lg:px-8 first:lg:pl-0 last:lg:pr-0 text-center lg:text-left">
+          <p class="font-display text-[11px] uppercase tracking-[0.1em] text-steel-blue font-semibold mb-2">Certified</p>
+          <p class="font-display text-3xl md:text-4xl font-bold text-white">ISO 9001</p>
+        </div>
+        <div class="lg:px-8 first:lg:pl-0 last:lg:pr-0 text-center lg:text-left">
+          <p class="font-display text-[11px] uppercase tracking-[0.1em] text-steel-blue font-semibold mb-2">Manufactured</p>
+          <p class="font-display text-3xl md:text-4xl font-bold text-white">Made in USA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 md:py-14 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white border border-steel-gray rounded-lg p-8">
+          <h2 class="font-display text-2xl font-bold text-near-black mb-4">BAA & TAA Compliance</h2>
+          <p class="text-[15px] text-slate leading-relaxed">Our power protection products can be specified and procured to meet Buy American Act and Trade Agreements Act requirements. Suitable for federal agencies, GSA procurement, and state and municipal contracts.</p>
+        </div>
+        <div class="bg-white border border-steel-gray rounded-lg p-8">
+          <h2 class="font-display text-2xl font-bold text-near-black mb-4">Manufacturing</h2>
+          <p class="text-[15px] text-slate leading-relaxed">Every Online Power product is designed, engineered, tested, and manufactured in Los Angeles, California. No offshore assembly. Factory-direct from a single US manufacturer since 1975.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-deep-navy py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-6">Need Compliance Documentation?</h2>
+      <Button href="/contact/" size="lg">Request Compliance Documentation</Button>
+    </div>
+  </section>
+
+</BaseLayout>

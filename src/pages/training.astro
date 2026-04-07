@@ -12,20 +12,20 @@ import { productCategories } from '../data/navigation';
 >
 
   <!-- Hero -->
-  <section class="py-20 md:py-28 bg-off-white border-b border-steel-gray">
+  <section class="py-14 md:py-[72px] bg-off-white border-b border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <p class="eyebrow text-steel-blue mb-4">Expert Training</p>
-      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-near-black mb-6">Product Training</h1>
-      <p class="text-lg text-slate max-w-2xl">
+      <h1 class="font-display text-4xl md:text-[48px] font-bold text-near-black mb-6">Product Training</h1>
+      <p class="text-[15px] text-slate max-w-2xl">
         Hands-on training from the engineers who designed and built your equipment. In-person at our LA facility, virtually, or on-site at your location.
       </p>
     </div>
   </section>
 
   <!-- What Training Covers + Formats -->
-  <section class="py-20 md:py-28 bg-off-white">
+  <section class="py-14 md:py-[72px] bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-16">
+      <div class="grid lg:grid-cols-2 gap-8">
         <div>
           <h2 class="font-display text-3xl font-bold text-near-black mb-8">What We Cover</h2>
           <div class="space-y-5">
@@ -40,14 +40,14 @@ import { productCategories } from '../data/navigation';
                   <svg class="w-3.5 h-3.5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-near-black text-sm">{item.title}</h3>
+                  <h3 class="font-semibold text-near-black text-[16px]">{item.title}</h3>
                   <p class="text-sm text-slate mt-0.5">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <h3 class="font-display text-lg font-bold text-near-black mt-12 mb-4">Who Should Attend</h3>
+          <h3 class="font-display text-2xl font-bold text-near-black mt-12 mb-4">Who Should Attend</h3>
           <div class="flex flex-wrap gap-2">
             {['Engineers', 'Facility Managers', 'Maintenance Staff', 'Electricians', 'Fire Protection Engineers', 'Contractors', 'OEM Partners'].map(role => (
               <span class="badge-light">{role}</span>
@@ -78,7 +78,7 @@ import { productCategories } from '../data/navigation';
   </section>
 
   <!-- Registration Form -->
-  <section class="py-20 md:py-28 bg-white" id="register">
+  <section class="py-14 md:py-[72px] bg-white" id="register">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-10">
         <h2 class="font-display text-3xl font-bold text-near-black mb-3">Register for Training</h2>
@@ -156,7 +156,7 @@ import { productCategories } from '../data/navigation';
   </section>
 
   <!-- FAQ -->
-  <section class="py-20 md:py-28 bg-off-white">
+  <section class="py-14 md:py-[72px] bg-off-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <p class="eyebrow text-steel-blue mb-4">FAQ</p>
       <h2 class="font-display text-3xl font-bold text-near-black mb-8">Training Questions</h2>

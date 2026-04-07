@@ -10,6 +10,7 @@ export const navigation = {
     { name: 'Custom OEM Solutions', href: '/products/category/custom-oem', description: 'Custom Engineered Solutions' },
     { name: 'Monitoring & Software', href: '/products/category/monitoring', description: 'GMS, BAS & Software Solutions' },
     { name: 'Load Control Relays', href: '/products/category/load-control-relays', description: 'LCR-20 Load Control Relays' },
+    { name: 'Why Online Power for UL 924', href: '/ul924-leader', description: 'The industry standard in UL 924 lighting inverters' },
   ],
   support: [
     { name: 'Product Documents', href: '/support/documents' },
@@ -27,6 +28,7 @@ export const navigation = {
     { name: 'Laboratory Testing', href: '/company#lab-testing' },
     { name: 'Careers', href: '/company#careers' },
     { name: 'Terms & Conditions', href: '/terms' },
+    { name: 'Government & Compliance', href: '/government', description: 'BAA, TAA, and federal procurement' },
   ],
 };
 

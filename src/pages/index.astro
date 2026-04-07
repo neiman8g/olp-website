@@ -14,11 +14,11 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
 
   <!-- ========== HERO ========== -->
   <section class="min-h-[calc(100vh-4rem)] flex flex-col justify-center relative overflow-hidden bg-deep-navy">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-28 lg:py-32">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-[72px] lg:py-[72px]">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
         <!-- Left: Text -->
         <div>
-          <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-6">
+          <h1 class="font-display text-5xl sm:text-6xl lg:text-[72px] font-bold text-white leading-[1.05] mb-6">
             Power That<br/>Never Quits.
             <span class="block mt-2 text-sky-blue font-display font-bold text-2xl sm:text-3xl sm:hidden">For Any Application.</span>
             <span class="hidden sm:block mt-2 relative" style="min-height: 1.4em; margin-bottom: 0;">
@@ -29,6 +29,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
               <span class="cycle-word" style="animation-delay: 12s;">For Any Application.</span>
             </span>
           </h1>
+          <p class="font-display text-[13px] font-semibold uppercase tracking-[0.1em] text-muted-blue mt-6 mb-2">Trusted by 100+ Fortune 500 Companies</p>
           <style>
             .cycle-word {
               display: block;
@@ -48,7 +49,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
               100% { opacity: 0; }
             }
           </style>
-          <p class="text-[15px] md:text-xl text-muted-blue max-w-xl leading-relaxed mb-10" style="margin-top:1.25rem;">
+          <p class="text-[15px] md:text-[16px] text-muted-blue max-w-xl leading-relaxed mb-10" style="margin-top:1.25rem;">
             The widest range of UL listed power protection from a single manufacturer. Built to order in Los Angeles since 1975.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -66,14 +67,14 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
       <!-- Stat Bar -->
       <div class="flex flex-wrap items-center gap-3 md:gap-0 md:divide-x md:divide-navy-mid mt-8 lg:mt-12">
         {company.heroStats.map(stat => (
-          <span class="font-display text-[12px] uppercase tracking-[0.1em] text-muted-blue font-semibold md:px-5 first:md:pl-0">{stat}</span>
+          <span class="font-display text-[11px] uppercase tracking-[0.1em] text-muted-blue font-semibold md:px-5 first:md:pl-0">{stat}</span>
         ))}
       </div>
     </div>
   </section>
 
   <!-- ========== PRODUCTS GRID ========== -->
-  <section class="py-20 md:py-28 bg-off-white">
+  <section class="py-14 md:py-[72px] bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <p class="eyebrow mb-8">Product Lines</p>
 
@@ -83,7 +84,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
           </div>
-          <h3 class="font-display text-lg font-semibold text-near-black mb-1">Lighting Inverters</h3>
+          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Lighting Inverters</h3>
           <p class="text-sm text-slate mb-4">UL924 emergency lighting inverter systems from 35W to 400kW</p>
           <span class="text-sm font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
         </Card>
@@ -93,7 +94,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg>
           </div>
-          <h3 class="font-display text-lg font-semibold text-near-black mb-1">Fire Alarm Backup</h3>
+          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Fire Alarm Backup</h3>
           <p class="text-sm text-slate mb-4">UL1481 fire alarm notification appliance circuit backup</p>
           <span class="text-sm font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
         </Card>
@@ -103,7 +104,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4 4 4M8 17l4 4 4-4M3 12h18"></path></svg>
           </div>
-          <h3 class="font-display text-lg font-semibold text-near-black mb-1">Elevator Backup</h3>
+          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Elevator Backup</h3>
           <p class="text-sm text-slate mb-4">UL924 elevator backup systems for safe evacuation during outages</p>
           <span class="text-sm font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
         </Card>
@@ -113,7 +114,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
           </div>
-          <h3 class="font-display text-lg font-semibold text-near-black mb-1">UPS Backup</h3>
+          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">UPS Backup</h3>
           <p class="text-sm text-slate mb-4">UL1778 uninterruptible power supply systems for critical loads</p>
           <span class="text-sm font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
         </Card>
@@ -123,7 +124,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
           </div>
-          <h3 class="font-display text-lg font-semibold text-near-black mb-1">Medical Grade Systems</h3>
+          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Medical Grade Systems</h3>
           <p class="text-sm text-slate mb-4">Hospital-grade isolation and power protection for critical care</p>
           <span class="text-sm font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
         </Card>
@@ -133,7 +134,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
           </div>
-          <h3 class="font-display text-lg font-semibold text-near-black mb-1">Voltage Regulators</h3>
+          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Voltage Regulators</h3>
           <p class="text-sm text-slate mb-4">Power conditioning and voltage regulation for sensitive equipment</p>
           <span class="text-sm font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
         </Card>
@@ -156,9 +157,9 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   </section>
 
   <!-- ========== CUSTOM OEM ========== -->
-  <section class="py-20 md:py-28 bg-deep-navy">
+  <section class="py-14 md:py-[72px] bg-deep-navy">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
         <div>
           <p class="eyebrow text-muted-blue mb-4">Custom Engineering</p>
           <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">Built to Your Spec.</h2>
@@ -179,7 +180,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   </section>
 
   <!-- ========== TRAINING SECTION ========== -->
-  <section class="py-20 md:py-28 bg-off-white">
+  <section class="py-14 md:py-[72px] bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <p class="eyebrow mb-4">Expert Training</p>
       <h2 class="font-display text-3xl md:text-4xl font-bold text-near-black mb-4">Learn From the Engineers Who Built It.</h2>
@@ -190,7 +191,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
           </div>
-          <h3 class="font-display text-lg font-semibold text-near-black mb-2">In-Person</h3>
+          <h3 class="font-display text-2xl font-semibold text-near-black mb-2">In-Person</h3>
           <p class="text-sm text-slate mb-4">Visit our LA facility. Hands-on with actual equipment.</p>
           <a href="/training/" class="text-sm font-medium text-steel-blue hover:text-near-black transition-colors">Register &rarr;</a>
         </Card>
@@ -198,7 +199,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
           </div>
-          <h3 class="font-display text-lg font-semibold text-near-black mb-2">Virtual</h3>
+          <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Virtual</h3>
           <p class="text-sm text-slate mb-4">Live sessions with Q&A. Recorded for your team.</p>
           <a href="/training/" class="text-sm font-medium text-steel-blue hover:text-near-black transition-colors">Register &rarr;</a>
         </Card>
@@ -206,7 +207,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
           </div>
-          <h3 class="font-display text-lg font-semibold text-near-black mb-2">On-Site</h3>
+          <h3 class="font-display text-2xl font-semibold text-near-black mb-2">On-Site</h3>
           <p class="text-sm text-slate mb-4">We come to you. Customized for your installation.</p>
           <a href="/training/" class="text-sm font-medium text-steel-blue hover:text-near-black transition-colors">Register &rarr;</a>
         </Card>
@@ -215,7 +216,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   </section>
 
   <!-- ========== TESTIMONIALS ========== -->
-  <section class="py-20 md:py-28 bg-white">
+  <section class="py-14 md:py-[72px] bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <p class="eyebrow mb-8">What Engineers Say</p>
 
@@ -251,9 +252,9 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   </section>
 
   <!-- ========== CONTACT FORM ========== -->
-  <section class="py-20 md:py-28 bg-deep-navy">
+  <section class="py-14 md:py-[72px] bg-deep-navy">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-8">
         <!-- Left: Contact Info -->
         <div class="lg:col-span-2">
           <p class="eyebrow text-muted-blue mb-4">Get in Touch</p>

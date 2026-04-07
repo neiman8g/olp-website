@@ -20,6 +20,8 @@ export const company = {
     '12 Product Lines',
     'ISO 9001 Certified',
     'Made in Los Angeles, CA',
+    'BAA Compliant',
+    'TAA Compliant',
   ],
   certifications: [
     'ISO 9001:2015',
