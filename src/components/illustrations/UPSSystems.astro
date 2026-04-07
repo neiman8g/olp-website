@@ -167,39 +167,6 @@
       <stop offset="100%" stop-color="#1A3F6A" />
     </linearGradient>
 
-    <!-- Glow filter for cyan elements -->
-    <filter id="cyanGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feFlood flood-color="#2A7AE2" flood-opacity="0.6" result="color" />
-      <feComposite in="color" in2="blur" operator="in" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <!-- Red flash filter -->
-    <filter id="redFlash" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feFlood flood-color="#FF3B3B" flood-opacity="0.8" result="color" />
-      <feComposite in="color" in2="blur" operator="in" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <!-- Callout glow -->
-    <filter id="calloutGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
-      <feFlood flood-color="#2A7AE2" flood-opacity="0.5" result="color" />
-      <feComposite in="color" in2="blur" operator="in" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
     <!-- Paths for motion -->
     <path id="pathUtilToUPS" d="M 120 165 L 225 165" />
     <path id="pathUPSToLoad" d="M 380 165 L 470 165" />
@@ -264,7 +231,7 @@
 
     <!-- Red flash burst at break point -->
     <g style="animation: utilityFlash 7s infinite;" opacity="0">
-      <circle cx="155" cy="165" r="14" fill="none" stroke="#FF3B3B" stroke-width="2" filter="url(#redFlash)" />
+      <circle cx="155" cy="165" r="14" fill="none" stroke="#FF3B3B" stroke-width="2" />
       <line x1="148" y1="158" x2="162" y2="172" stroke="#FF3B3B" stroke-width="2.5" />
       <line x1="162" y1="158" x2="148" y2="172" stroke="#FF3B3B" stroke-width="2.5" />
     </g>
@@ -278,9 +245,9 @@
     >UTILITY FAIL</text>
 
     <!-- Power dots utility -> UPS -->
-    <circle r="3" fill="#2A7AE2" filter="url(#cyanGlow)" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite;">
+    <circle r="3" fill="#2A7AE2" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite;">
     </circle>
-    <circle r="3" fill="#2A7AE2" filter="url(#cyanGlow)" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite 0.4s;">
+    <circle r="3" fill="#2A7AE2" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite 0.4s;">
     </circle>
   </g>
 
@@ -412,9 +379,9 @@
   <line x1="380" y1="165" x2="470" y2="165" stroke="#2A7AE2" stroke-width="3" stroke-linecap="round" opacity="0.9" />
 
   <!-- Power dots UPS -> Load (always flowing) -->
-  <circle r="3" fill="#2A7AE2" filter="url(#cyanGlow)" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite;" />
-  <circle r="3" fill="#2A7AE2" filter="url(#cyanGlow)" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 0.6s;" />
-  <circle r="3" fill="#2A7AE2" filter="url(#cyanGlow)" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 1.2s;" />
+  <circle r="3" fill="#2A7AE2" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite;" />
+  <circle r="3" fill="#2A7AE2" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 0.6s;" />
+  <circle r="3" fill="#2A7AE2" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 1.2s;" />
 
   <!-- ============================================================ -->
   <!-- RIGHT SECTION — PROTECTED SERVER RACK                         -->
@@ -464,7 +431,7 @@
     opacity="0"
   >
     <!-- Callout background pill -->
-    <rect x="-42" y="-18" width="84" height="36" rx="18" fill="#0F2A4A" stroke="#2A7AE2" stroke-width="1.5" filter="url(#calloutGlow)" />
+    <rect x="-42" y="-18" width="84" height="36" rx="18" fill="#0F2A4A" stroke="#2A7AE2" stroke-width="1.5" />
     <!-- Main text -->
     <text x="0" y="2" text-anchor="middle" class="font-display" fill="#2A7AE2" font-size="18" font-weight="700">&lt;4ms</text>
     <!-- Sub label -->

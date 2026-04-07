@@ -113,24 +113,6 @@
       .clock-colon { animation: colonBlink 1s step-end infinite; }
     </style>
 
-    <!-- Glow filter for cyan accents -->
-    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <!-- Subtle glow for status dots -->
-    <filter id="glow-dot" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="1.5" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
     <!-- Battery gauge gradient arc -->
     <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#FF3B3B" />
@@ -170,7 +152,7 @@
     <line x1="63" y1="48" x2="537" y2="48" stroke="#1A3F6A" stroke-width="0.5" />
 
     <!-- GMS Logo -->
-    <text x="74" y="41" class="font-display" font-size="11" font-weight="700" fill="#2A7AE2" filter="url(#glow-cyan)">GMS</text>
+    <text x="74" y="41" class="font-display" font-size="11" font-weight="700" fill="#2A7AE2">GMS</text>
 
     <!-- ONLINE POWER branding -->
     <text x="104" y="41" class="font-display" font-size="8" font-weight="400" fill="#94AECF">ONLINE POWER</text>
@@ -183,7 +165,7 @@
     <text x="400" y="41" class="font-mono" font-size="8" fill="#94AECF">07</text>
 
     <!-- Connection status -->
-    <circle cx="430" cy="38" r="2.5" fill="#34D399" class="conn-dot" filter="url(#glow-dot)" />
+    <circle cx="430" cy="38" r="2.5" fill="#34D399" class="conn-dot" />
     <text x="436" y="41" class="font-mono" font-size="7" fill="#34D399">CONNECTED</text>
 
     <!-- Protocol badges -->
@@ -241,23 +223,23 @@
     <text x="100" y="110" class="font-mono" font-size="4.5" fill="#1A3F6A">RM-B2</text>
 
     <!-- Equipment dots — Room A1 (green healthy) -->
-    <circle cx="25" cy="55" r="3" fill="#34D399" class="dot-green" filter="url(#glow-dot)" />
-    <circle cx="40" cy="70" r="3" fill="#34D399" class="dot-green-slow" filter="url(#glow-dot)" />
+    <circle cx="25" cy="55" r="3" fill="#34D399" class="dot-green" />
+    <circle cx="40" cy="70" r="3" fill="#34D399" class="dot-green-slow" />
 
     <!-- Equipment dots — Room A2 (green + amber warning) -->
-    <circle cx="78" cy="60" r="3" fill="#34D399" class="dot-green-mid" filter="url(#glow-dot)" />
-    <circle cx="90" cy="78" r="3" fill="#FBBF24" class="dot-amber" filter="url(#glow-dot)" />
+    <circle cx="78" cy="60" r="3" fill="#34D399" class="dot-green-mid" />
+    <circle cx="90" cy="78" r="3" fill="#FBBF24" class="dot-amber" />
 
     <!-- Equipment dots — Room A3 (green) -->
-    <circle cx="125" cy="58" r="3" fill="#34D399" class="dot-green" filter="url(#glow-dot)" />
+    <circle cx="125" cy="58" r="3" fill="#34D399" class="dot-green" />
 
     <!-- Equipment dots — Room B1 (red alert) -->
-    <circle cx="35" cy="135" r="3" fill="#FF3B3B" class="dot-red" filter="url(#glow-dot)" />
-    <circle cx="55" cy="150" r="3" fill="#34D399" class="dot-green-slow" filter="url(#glow-dot)" />
+    <circle cx="35" cy="135" r="3" fill="#FF3B3B" class="dot-red" />
+    <circle cx="55" cy="150" r="3" fill="#34D399" class="dot-green-slow" />
 
     <!-- Equipment dots — Room B2 (green) -->
-    <circle cx="110" cy="140" r="3" fill="#34D399" class="dot-green-mid" filter="url(#glow-dot)" />
-    <circle cx="130" cy="155" r="3" fill="#34D399" class="dot-green" filter="url(#glow-dot)" />
+    <circle cx="110" cy="140" r="3" fill="#34D399" class="dot-green-mid" />
+    <circle cx="130" cy="155" r="3" fill="#34D399" class="dot-green" />
 
     <!-- Legend -->
     <circle cx="14" cy="186" r="2" fill="#34D399" />
@@ -311,7 +293,7 @@
 
     <!-- 9 WEEKS NOTICE badge -->
     <rect x="24" y="138" width="102" height="20" rx="3" fill="#0F2A4A" stroke="#2A7AE2" stroke-width="0.75" />
-    <text x="75" y="148" class="font-mono" font-size="5.5" fill="#2A7AE2" text-anchor="middle" filter="url(#glow-cyan)">9 WEEKS NOTICE</text>
+    <text x="75" y="148" class="font-mono" font-size="5.5" fill="#2A7AE2" text-anchor="middle">9 WEEKS NOTICE</text>
     <text x="75" y="156" class="font-mono" font-size="4" fill="#94AECF" text-anchor="middle">Predictive Alert</text>
 
     <!-- Sub label -->
@@ -336,27 +318,27 @@
 
     <!-- INV-01 — Online -->
     <text x="10" y="48" class="font-mono" font-size="6.5" fill="#FFFFFF">INV-01</text>
-    <circle cx="66" cy="45.5" r="2.5" fill="#34D399" filter="url(#glow-dot)" />
+    <circle cx="66" cy="45.5" r="2.5" fill="#34D399" />
     <text x="80" y="48" class="font-mono" font-size="6" fill="#34D399">Online</text>
 
     <!-- INV-02 — Online -->
     <text x="10" y="66" class="font-mono" font-size="6.5" fill="#FFFFFF">INV-02</text>
-    <circle cx="66" cy="63.5" r="2.5" fill="#34D399" filter="url(#glow-dot)" />
+    <circle cx="66" cy="63.5" r="2.5" fill="#34D399" />
     <text x="80" y="66" class="font-mono" font-size="6" fill="#34D399">Online</text>
 
     <!-- INV-03 — Warning -->
     <text x="10" y="84" class="font-mono" font-size="6.5" fill="#FFFFFF">INV-03</text>
-    <circle cx="66" cy="81.5" r="2.5" fill="#FBBF24" class="dot-amber" filter="url(#glow-dot)" />
+    <circle cx="66" cy="81.5" r="2.5" fill="#FBBF24" class="dot-amber" />
     <text x="80" y="84" class="font-mono" font-size="6" fill="#FBBF24">Warning</text>
 
     <!-- INV-04 — Online -->
     <text x="10" y="102" class="font-mono" font-size="6.5" fill="#FFFFFF">INV-04</text>
-    <circle cx="66" cy="99.5" r="2.5" fill="#34D399" filter="url(#glow-dot)" />
+    <circle cx="66" cy="99.5" r="2.5" fill="#34D399" />
     <text x="80" y="102" class="font-mono" font-size="6" fill="#34D399">Online</text>
 
     <!-- INV-05 — Online -->
     <text x="10" y="120" class="font-mono" font-size="6.5" fill="#FFFFFF">INV-05</text>
-    <circle cx="66" cy="117.5" r="2.5" fill="#34D399" filter="url(#glow-dot)" />
+    <circle cx="66" cy="117.5" r="2.5" fill="#34D399" />
     <text x="80" y="120" class="font-mono" font-size="6" fill="#34D399">Online</text>
 
     <!-- Separator -->

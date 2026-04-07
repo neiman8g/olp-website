@@ -58,39 +58,6 @@
       }
     </style>
 
-    <!-- Glow filter for cyan accent elements -->
-    <filter id="cyanGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feFlood flood-color="#2A7AE2" flood-opacity="0.6" result="color" />
-      <feComposite in="color" in2="blur" operator="in" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <!-- Subtle glow for LEDs -->
-    <filter id="ledGlow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="2" result="blur" />
-      <feFlood flood-color="#34D399" flood-opacity="0.5" result="color" />
-      <feComposite in="color" in2="blur" operator="in" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <!-- Monitor screen glow -->
-    <filter id="screenGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2" result="blur" />
-      <feFlood flood-color="#2A7AE2" flood-opacity="0.3" result="color" />
-      <feComposite in="color" in2="blur" operator="in" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
     <!-- Input cable path -->
     <path id="inputCablePath" d="M 80,40 L 80,80 Q 80,100 100,100 L 220,100 L 220,130" />
 
@@ -134,13 +101,13 @@
     <text x="135" y="87" text-anchor="middle" fill="#94AECF" font-size="8" font-weight="400" class="font-mono">480V 3&#x3A6;</text>
 
     <!-- Animated flow dots on input cable -->
-    <circle r="3" fill="#2A7AE2" filter="url(#cyanGlow)">
+    <circle r="3" fill="#2A7AE2">
       <animateMotion dur="2s" repeatCount="indefinite" path="M 80,28 L 80,80 Q 80,100 100,100 L 220,100 L 220,130" />
     </circle>
-    <circle r="2.5" fill="#2A7AE2" filter="url(#cyanGlow)" opacity="0.7">
+    <circle r="2.5" fill="#2A7AE2" opacity="0.7">
       <animateMotion dur="2s" repeatCount="indefinite" begin="0.7s" path="M 80,28 L 80,80 Q 80,100 100,100 L 220,100 L 220,130" />
     </circle>
-    <circle r="2" fill="#2A7AE2" filter="url(#cyanGlow)" opacity="0.5">
+    <circle r="2" fill="#2A7AE2" opacity="0.5">
       <animateMotion dur="2s" repeatCount="indefinite" begin="1.3s" path="M 80,28 L 80,80 Q 80,100 100,100 L 220,100 L 220,130" />
     </circle>
   </g>
@@ -239,7 +206,7 @@
     <rect x="12" y="178" width="176" height="72" rx="2" fill="#0D1520" stroke="#1A3F6A" stroke-width="0.5" />
 
     <!-- Monitor screen -->
-    <rect x="18" y="184" width="100" height="58" rx="3" fill="#0A0F18" stroke="#2A7AE2" stroke-width="0.6" filter="url(#screenGlow)">
+    <rect x="18" y="184" width="100" height="58" rx="3" fill="#0A0F18" stroke="#2A7AE2" stroke-width="0.6">
       <animate attributeName="opacity" values="0.85;1;0.85" dur="3s" repeatCount="indefinite" />
     </rect>
 
@@ -282,17 +249,17 @@
     <text x="154" y="197" text-anchor="middle" fill="#2A7AE2" font-size="7" font-weight="700" class="font-mono">SNMP v3</text>
 
     <!-- Status indicator lights next to SNMP -->
-    <circle cx="134" cy="210" r="2.5" fill="#34D399" filter="url(#ledGlow)">
+    <circle cx="134" cy="210" r="2.5" fill="#34D399">
       <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
     </circle>
     <text x="142" y="213" fill="#94AECF" font-size="5" class="font-mono">NET</text>
 
-    <circle cx="134" cy="222" r="2.5" fill="#34D399" filter="url(#ledGlow)">
+    <circle cx="134" cy="222" r="2.5" fill="#34D399">
       <animate attributeName="opacity" values="1;0.5;1" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
     </circle>
     <text x="142" y="225" fill="#94AECF" font-size="5" class="font-mono">COMM</text>
 
-    <circle cx="134" cy="234" r="2.5" fill="#34D399" filter="url(#ledGlow)">
+    <circle cx="134" cy="234" r="2.5" fill="#34D399">
       <animate attributeName="opacity" values="1;0.6;1" dur="3s" repeatCount="indefinite" begin="1s" />
     </circle>
     <text x="142" y="237" fill="#94AECF" font-size="5" class="font-mono">ALARM</text>
@@ -311,7 +278,7 @@
     <line x1="408" y1="149" x2="408" y2="145" stroke="#2A7AE2" stroke-width="1" />
     <line x1="412" y1="149" x2="412" y2="145" stroke="#2A7AE2" stroke-width="1" />
     <!-- LED -->
-    <circle cx="420" cy="140" r="2" fill="#34D399" filter="url(#ledGlow)">
+    <circle cx="420" cy="140" r="2" fill="#34D399">
       <animate attributeName="opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite" begin="0.1s" />
     </circle>
     <!-- Server rack icon -->
@@ -326,7 +293,7 @@
     </g>
     <text x="501" y="160" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">SERVER</text>
     <!-- Animated dot -->
-    <circle r="2" fill="#2A7AE2" filter="url(#cyanGlow)">
+    <circle r="2" fill="#2A7AE2">
       <animateMotion dur="1.8s" repeatCount="indefinite" begin="0s" path="M 360,155 L 400,155 L 430,140 L 490,140" />
     </circle>
 
@@ -336,7 +303,7 @@
     <line x1="408" y1="178" x2="408" y2="172" stroke="#2A7AE2" stroke-width="1" />
     <line x1="412" y1="178" x2="412" y2="172" stroke="#2A7AE2" stroke-width="1" />
     <!-- LED -->
-    <circle cx="420" cy="173" r="2" fill="#34D399" filter="url(#ledGlow)">
+    <circle cx="420" cy="173" r="2" fill="#34D399">
       <animate attributeName="opacity" values="1;0.4;1" dur="2.5s" repeatCount="indefinite" begin="0.4s" />
     </circle>
     <!-- Lighting icon (bulb) -->
@@ -349,7 +316,7 @@
     </g>
     <text x="502" y="184" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">LIGHTS</text>
     <!-- Animated dot -->
-    <circle r="2" fill="#2A7AE2" filter="url(#cyanGlow)">
+    <circle r="2" fill="#2A7AE2">
       <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.3s" path="M 360,175 L 400,175 L 490,170" />
     </circle>
 
@@ -359,7 +326,7 @@
     <line x1="408" y1="203" x2="408" y2="197" stroke="#2A7AE2" stroke-width="1" />
     <line x1="412" y1="203" x2="412" y2="197" stroke="#2A7AE2" stroke-width="1" />
     <!-- LED -->
-    <circle cx="420" cy="200" r="2" fill="#34D399" filter="url(#ledGlow)">
+    <circle cx="420" cy="200" r="2" fill="#34D399">
       <animate attributeName="opacity" values="1;0.4;1" dur="2.8s" repeatCount="indefinite" begin="0.7s" />
     </circle>
     <!-- HVAC icon (fan/snowflake hybrid) -->
@@ -373,7 +340,7 @@
     </g>
     <text x="502" y="216" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">HVAC</text>
     <!-- Animated dot -->
-    <circle r="2" fill="#2A7AE2" filter="url(#cyanGlow)">
+    <circle r="2" fill="#2A7AE2">
       <animateMotion dur="1.9s" repeatCount="indefinite" begin="0.5s" path="M 360,200 L 400,200 L 490,200" />
     </circle>
 
@@ -383,7 +350,7 @@
     <line x1="408" y1="228" x2="408" y2="222" stroke="#2A7AE2" stroke-width="1" />
     <line x1="412" y1="228" x2="412" y2="222" stroke="#2A7AE2" stroke-width="1" />
     <!-- LED -->
-    <circle cx="420" cy="225" r="2" fill="#34D399" filter="url(#ledGlow)">
+    <circle cx="420" cy="225" r="2" fill="#34D399">
       <animate attributeName="opacity" values="1;0.4;1" dur="2.3s" repeatCount="indefinite" begin="1s" />
     </circle>
     <!-- Medical icon (cross) -->
@@ -394,7 +361,7 @@
     </g>
     <text x="502" y="246" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">MEDICAL</text>
     <!-- Animated dot -->
-    <circle r="2" fill="#2A7AE2" filter="url(#cyanGlow)">
+    <circle r="2" fill="#2A7AE2">
       <animateMotion dur="2.1s" repeatCount="indefinite" begin="0.8s" path="M 360,225 L 400,225 L 490,230" />
     </circle>
 
@@ -404,7 +371,7 @@
     <line x1="408" y1="253" x2="408" y2="247" stroke="#2A7AE2" stroke-width="1" />
     <line x1="412" y1="253" x2="412" y2="247" stroke="#2A7AE2" stroke-width="1" />
     <!-- LED -->
-    <circle cx="420" cy="250" r="2" fill="#34D399" filter="url(#ledGlow)">
+    <circle cx="420" cy="250" r="2" fill="#34D399">
       <animate attributeName="opacity" values="1;0.4;1" dur="2.6s" repeatCount="indefinite" begin="1.3s" />
     </circle>
     <!-- Elevator icon -->
@@ -419,7 +386,7 @@
     </g>
     <text x="502" y="276" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">ELEVATOR</text>
     <!-- Animated dot -->
-    <circle r="2" fill="#2A7AE2" filter="url(#cyanGlow)">
+    <circle r="2" fill="#2A7AE2">
       <animateMotion dur="2s" repeatCount="indefinite" begin="1.1s" path="M 360,250 L 400,250 L 490,260" />
     </circle>
 
@@ -429,7 +396,7 @@
     <line x1="408" y1="278" x2="408" y2="272" stroke="#2A7AE2" stroke-width="1" />
     <line x1="412" y1="278" x2="412" y2="272" stroke="#2A7AE2" stroke-width="1" />
     <!-- LED -->
-    <circle cx="420" cy="275" r="2" fill="#34D399" filter="url(#ledGlow)">
+    <circle cx="420" cy="275" r="2" fill="#34D399">
       <animate attributeName="opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="1.5s" />
     </circle>
     <!-- Custom load icon (? mark) -->
@@ -439,7 +406,7 @@
     </g>
     <text x="502" y="306" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">CUSTOM</text>
     <!-- Animated dot -->
-    <circle r="2" fill="#2A7AE2" filter="url(#cyanGlow)">
+    <circle r="2" fill="#2A7AE2">
       <animateMotion dur="2.2s" repeatCount="indefinite" begin="1.4s" path="M 360,275 L 400,275 L 490,290" />
     </circle>
   </g>
