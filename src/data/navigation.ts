@@ -31,7 +31,7 @@ export const navigation = {
 };
 
 export const productCategories = [
-  { name: 'Emergency Lighting Inverters', slug: 'emergency-lighting', description: 'UL924 listed emergency lighting inverters from 27W to 400kW', image: '/images/products/power-wave-1.png' },
+  { name: 'Emergency Lighting Inverters', slug: 'emergency-lighting', description: 'UL924 listed emergency lighting inverters from 35W to 400kW', image: '/images/products/power-wave-1.png' },
   { name: 'Elevator Backup', slug: 'elevator-backup', description: 'UL924 elevator backup systems for safe evacuation', image: '/images/products/elevate.png' },
   { name: 'UPS Systems', slug: 'ups-backup', description: 'UL1778 uninterruptible power supply systems', image: '/images/products/ups-backup.png' },
   { name: 'Fire Alarm Backup', slug: 'fire-alarm-backup', description: 'UL1481 fire alarm notification appliance circuit backup', image: '/images/products/fire-alarm-backup.png' },

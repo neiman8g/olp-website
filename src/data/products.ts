@@ -94,7 +94,7 @@ export const products: Product[] = [
     slug: 'nano-wave',
     image: '/images/products/nano-wave.png',
     name: 'Nano Power Wave',
-    tagline: 'Single Phase, 27W – 100W (Lithium Ion)',
+    tagline: 'Single Phase, 35W – 100W (Lithium Ion)',
     description: 'Lithium ion powered UL924 remote emergency lighting dimming inverter for LED and fluorescent fixtures. Supports 90-minute emergency lighting with option to derate for 2-hour run time per Life Safety Code.',
     category: 'emergency-lighting',
     features: ['Lithium Ion Battery', 'LED & Fluorescent Compatible', 'Dimming Capability', '90-Min or 2-Hour Runtime', 'Remote Mounting', 'Life Safety Code Compliant'],
@@ -491,7 +491,7 @@ export const products: Product[] = [
 // Category definitions
 export const categories = [
   { slug: 'emergency-lighting',
-    image: '/images/products/emergency-lighting.png', name: 'Emergency Lighting Inverters', tagline: 'UL924 Emergency Lighting Inverter Systems', description: 'Single and three phase emergency lighting inverters from 27W to 400kW. UL924 listed with 90-120 minute battery backup. Standard, seismic-certified, and harsh environment models.' },
+    image: '/images/products/emergency-lighting.png', name: 'Emergency Lighting Inverters', tagline: 'UL924 Emergency Lighting Inverter Systems', description: 'Single and three phase emergency lighting inverters from 35W to 400kW. UL924 listed with 90-120 minute battery backup. Standard, seismic-certified, and harsh environment models.' },
   { slug: 'elevator-backup',
     image: '/images/products/elevator-backup.png', name: 'Elevator Backup', tagline: 'UL924 Elevator Emergency Backup Systems', description: 'Three phase elevator emergency backup systems for safe building evacuation during power outages. UL924 and UL1778 listed.' },
   { slug: 'fire-alarm-backup',
