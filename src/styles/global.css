@@ -139,3 +139,122 @@ select {
     color: var(--color-obsidian);
   }
 }
+
+/* ========== MICRO-INTERACTIONS ========== */
+
+/* E1: Stat bar hover */
+.font-mono[class*="tracking-widest"] {
+  transition: color 0.2s ease;
+  cursor: default;
+}
+.font-mono[class*="tracking-widest"]:hover {
+  color: var(--color-voltage);
+}
+
+/* E2: Feature card headline hover */
+.card-glow h3 { transition: color 0.25s ease; }
+.card-glow { transition: border-color 0.25s ease, box-shadow 0.3s ease; }
+.card-glow:hover h3 { color: var(--color-voltage); }
+
+/* E4: Product card scan line */
+@keyframes scanLine {
+  0% { top: 0; opacity: 0.15; }
+  100% { top: 100%; opacity: 0; }
+}
+.card-glow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: var(--color-voltage);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.card-glow:hover::after {
+  animation: scanLine 0.6s ease-out forwards;
+}
+.card-glow { position: relative; overflow: hidden; }
+
+/* E6: Spec table row highlight */
+.tab-content div[class*="flex items-center justify-between"] {
+  transition: background 0.15s ease;
+}
+.tab-content div[class*="flex items-center justify-between"]:hover {
+  background: rgba(0, 229, 255, 0.04) !important;
+}
+.tab-content div[class*="flex items-center justify-between"]:hover span:first-child {
+  color: #A8B8C8;
+}
+
+/* E7: Nav link underline draw */
+header nav a:not(.btn-primary):not(.btn-ghost) {
+  position: relative;
+}
+header nav a:not(.btn-primary):not(.btn-ghost)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-voltage);
+  transition: width 0.2s ease;
+  transform-origin: left;
+}
+header nav a:not(.btn-primary):not(.btn-ghost):hover::after {
+  width: 100%;
+}
+
+/* E8: Technical callout border pulse */
+@keyframes borderPulse {
+  0%, 100% { border-left-color: var(--color-voltage); }
+  50% { border-left-color: rgba(0, 229, 255, 0.4); }
+}
+.border-l-2.border-voltage {
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+/* E9: Testimonial quote mark */
+.bg-obsidian.border.border-steel\/30.rounded-2xl {
+  position: relative;
+  overflow: hidden;
+}
+.bg-obsidian.border.border-steel\/30.rounded-2xl::before {
+  content: '\201C';
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-voltage);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* E10: Page load fade-in */
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeOnly {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.font-display.text-5xl { animation: heroFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.cycle-word { animation-fill-mode: both; }
+[style*="margin-top:1.25rem"] { animation: heroFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
