@@ -1,0 +1,45 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0A0A0F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0A0A0F"/>
+  <!-- Grid -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="#1C2B3A" stroke-width="0.5"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#1C2B3A" stroke-width="0.5"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#1C2B3A" stroke-width="0.5"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1C2B3A" stroke-width="0.5"/>
+  <line x1="0" y1="525" x2="1200" y2="525" stroke="#1C2B3A" stroke-width="0.5"/>
+  <line x1="200" y1="0" x2="200" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
+  <line x1="1000" y1="0" x2="1000" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
+  <!-- Glow -->
+  <circle cx="600" cy="280" r="300" fill="url(#glow)"/>
+  <!-- Lightning bolt -->
+  <path d="M610 160 L585 215 L605 215 L580 260" stroke="#00E5FF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M610 160 L585 215 L605 215 L580 260" stroke="#00E5FF" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.15"/>
+  <!-- Bolt filled shape -->
+  <path d="M608 165 L592 205 L604 205 L583 255 L600 218 L590 218 L608 165Z" fill="#00E5FF" opacity="0.12"/>
+  <!-- ONLINE POWER -->
+  <text x="600" y="310" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="72" font-weight="900" fill="#F8FAFC" letter-spacing="-1">ONLINE <tspan fill="#00E5FF">POWER</tspan></text>
+  <!-- Tagline -->
+  <text x="600" y="365" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#00E5FF">Power That Never Quits.</text>
+  <!-- Subtitle -->
+  <text x="600" y="410" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#8A9BAE" letter-spacing="2">MISSION-CRITICAL POWER PROTECTION SINCE 1975</text>
+  <!-- Badges -->
+  <rect x="380" y="440" width="80" height="28" rx="4" fill="none" stroke="#1C2B3A" stroke-width="1"/>
+  <text x="420" y="459" text-anchor="middle" font-family="Courier New, monospace" font-size="11" fill="#8A9BAE">UL Listed</text>
+  <rect x="480" y="440" width="80" height="28" rx="4" fill="none" stroke="#1C2B3A" stroke-width="1"/>
+  <text x="520" y="459" text-anchor="middle" font-family="Courier New, monospace" font-size="11" fill="#8A9BAE">ISO 9001</text>
+  <rect x="580" y="440" width="100" height="28" rx="4" fill="none" stroke="#1C2B3A" stroke-width="1"/>
+  <text x="630" y="459" text-anchor="middle" font-family="Courier New, monospace" font-size="11" fill="#8A9BAE">Made in USA</text>
+  <rect x="700" y="440" width="120" height="28" rx="4" fill="none" stroke="#1C2B3A" stroke-width="1"/>
+  <text x="760" y="459" text-anchor="middle" font-family="Courier New, monospace" font-size="11" fill="#8A9BAE">Los Angeles, CA</text>
+  <!-- URL -->
+  <text x="600" y="595" text-anchor="middle" font-family="Courier New, monospace" font-size="13" fill="#1C2B3A" letter-spacing="1">onlinepower.com</text>
+</svg>

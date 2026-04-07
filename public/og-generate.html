@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Space+Mono&display=swap');
+  body { width: 1200px; height: 630px; background: #0A0A0F; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  /* Grid lines */
+  .grid { position: absolute; inset: 0; }
+  .grid line { stroke: #1C2B3A; stroke-width: 0.5; }
+  /* Glow */
+  .glow { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .content { position: relative; text-align: center; z-index: 1; }
+  .bolt { font-size: 48px; color: #00E5FF; margin-bottom: 16px; }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 72px; color: #F8FAFC; letter-spacing: -1px; line-height: 1.1; }
+  h1 span { color: #00E5FF; }
+  .tagline { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 32px; color: #00E5FF; margin-top: 12px; }
+  .sub { font-family: 'Space Mono', monospace; font-size: 14px; color: #8A9BAE; margin-top: 20px; letter-spacing: 2px; text-transform: uppercase; }
+  .url { font-family: 'Space Mono', monospace; font-size: 13px; color: #1C2B3A; position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); letter-spacing: 1px; }
+  .badges { display: flex; gap: 12px; justify-content: center; margin-top: 24px; }
+  .badge { font-family: 'Space Mono', monospace; font-size: 11px; color: #8A9BAE; border: 1px solid #1C2B3A; padding: 4px 12px; border-radius: 4px; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <svg class="grid" width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="200" y1="0" x2="200" y2="630"/><line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/><line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </svg>
+  <div class="content">
+    <div class="bolt">⚡</div>
+    <h1>ONLINE <span>POWER</span></h1>
+    <div class="tagline">Power That Never Quits.</div>
+    <div class="sub">Mission-Critical Power Protection Since 1975</div>
+    <div class="badges">
+      <span class="badge">UL Listed</span>
+      <span class="badge">ISO 9001</span>
+      <span class="badge">Made in USA</span>
+    </div>
+  </div>
+  <div class="url">onlinepower.com</div>
+</body>
+</html>
