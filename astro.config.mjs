@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.onlinepower.com',
+  site: 'https://olp-website-tau.vercel.app',
   trailingSlash: 'ignore',
   redirects: {
     '/products/elevate': '/products/category/elevator-backup',
