@@ -4,6 +4,8 @@ import Button from '../../../components/Button.astro';
 import DocumentGate from '../../../components/DocumentGate.astro';
 import { getProductsByCategory, getCategoryBySlug } from '../../../data/products';
 import { company } from '../../../data/company';
+import { Image } from 'astro:assets';
+import { getProductImage } from '../../../utils/images';
 import PowerDistribution from '../../../components/illustrations/PowerDistribution.astro';
 
 const category = getCategoryBySlug('power-distribution')!;
@@ -198,7 +200,11 @@ const applications = [
         {categoryProducts.map(p => (
           <a href={`/products/${p.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
             <div class="h-[200px] bg-bg-elevated flex items-center justify-center p-4">
-              <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" />
+              {typeof getProductImage(p.image) === 'string' ? (
+                <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" />
+              ) : (
+                <Image src={getProductImage(p.image) as ImageMetadata} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" format="webp" quality={80} widths={[200, 400]} sizes="(max-width: 640px) 100vw, 33vw" />
+              )}
             </div>
             <div class="p-6">
             <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">{p.name}</h3>

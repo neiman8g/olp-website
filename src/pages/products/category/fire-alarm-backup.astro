@@ -4,6 +4,8 @@ import Button from '../../../components/Button.astro';
 import DocumentGate from '../../../components/DocumentGate.astro';
 import { getProductsByCategory, getCategoryBySlug } from '../../../data/products';
 import { company } from '../../../data/company';
+import { Image } from 'astro:assets';
+import { getProductImage } from '../../../utils/images';
 import FireAlarmBackup from '../../../components/illustrations/FireAlarmBackup.astro';
 
 const category = getCategoryBySlug('fire-alarm-backup')!;
@@ -281,7 +283,11 @@ const applications = [
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <a href="/products/category/emergency-lighting" class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
           <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4">
-            <img src="/images/products/power-wave-1.png" alt="Emergency Lighting by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+            {typeof getProductImage('/images/products/power-wave-1.png') === 'string' ? (
+              <img src="/images/products/power-wave-1.png" alt="Emergency Lighting by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+            ) : (
+              <Image src={getProductImage('/images/products/power-wave-1.png') as ImageMetadata} alt="Emergency Lighting by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" format="webp" quality={80} widths={[200, 400]} sizes="(max-width: 640px) 100vw, 33vw" />
+            )}
           </div>
           <div class="p-6">
             <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">Emergency Lighting Inverters</h3>
@@ -291,7 +297,11 @@ const applications = [
         </a>
         <a href="/products/category/medical-grade" class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
           <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4">
-            <img src="/images/products/medical-grade.png" alt="Medical Grade by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+            {typeof getProductImage('/images/products/medical-grade.png') === 'string' ? (
+              <img src="/images/products/medical-grade.png" alt="Medical Grade by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+            ) : (
+              <Image src={getProductImage('/images/products/medical-grade.png') as ImageMetadata} alt="Medical Grade by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" format="webp" quality={80} widths={[200, 400]} sizes="(max-width: 640px) 100vw, 33vw" />
+            )}
           </div>
           <div class="p-6">
             <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">Medical Grade Systems</h3>
@@ -301,7 +311,11 @@ const applications = [
         </a>
         <a href="/products/category/monitoring" class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
           <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4">
-            <img src="/images/products/gms.png" alt="Monitoring by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+            {typeof getProductImage('/images/products/gms.png') === 'string' ? (
+              <img src="/images/products/gms.png" alt="Monitoring by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+            ) : (
+              <Image src={getProductImage('/images/products/gms.png') as ImageMetadata} alt="Monitoring by Online Power" class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" format="webp" quality={80} widths={[200, 400]} sizes="(max-width: 640px) 100vw, 33vw" />
+            )}
           </div>
           <div class="p-6">
             <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">Monitoring & Software</h3>

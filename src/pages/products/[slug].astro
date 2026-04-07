@@ -1,10 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
 import DocumentGate from '../../components/DocumentGate.astro';
 import { products, getProductsByCategory, getCategoryBySlug } from '../../data/products';
 import { company } from '../../data/company';
 import type { Product } from '../../data/products';
+import { getProductImage } from '../../utils/images';
 
 export function getStaticPaths() {
   return products.map(product => ({
@@ -207,7 +209,11 @@ const specs = specTables[product.slug] || null;
         <!-- Right: 45% — Product image -->
         <div class="lg:col-span-5">
           <div class="bg-bg-elevated border border-voltage/20 rounded-xl p-6 flex items-center justify-center min-h-[320px]">
-            <img src={product.image} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" />
+            {typeof getProductImage(product.image) === 'string' ? (
+              <img src={product.image} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" />
+            ) : (
+              <Image src={getProductImage(product.image) as ImageMetadata} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" format="webp" quality={85} widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 45vw" />
+            )}
           </div>
           <div class="flex items-center justify-center gap-3 mt-4">
             {product.standards.slice(0, 4).map(std => (
@@ -272,7 +278,11 @@ const specs = specTables[product.slug] || null;
           {relatedProducts.map(rp => (
             <a href={`/products/${rp.slug}`} class="card-glow card-top-accent bg-steel/30 rounded-xl overflow-hidden group">
               <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4">
-                <img src={rp.image} alt={`${rp.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+                {typeof getProductImage(rp.image) === 'string' ? (
+                  <img src={rp.image} alt={`${rp.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+                ) : (
+                  <Image src={getProductImage(rp.image) as ImageMetadata} alt={`${rp.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" format="webp" quality={80} widths={[200, 400]} sizes="(max-width: 640px) 100vw, 33vw" />
+                )}
               </div>
               <div class="p-6">
                 <h3 class="font-display text-lg font-semibold text-pure mb-1 group-hover:text-voltage transition-colors">{rp.name}</h3>
