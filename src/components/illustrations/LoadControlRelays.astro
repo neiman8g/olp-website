@@ -31,10 +31,10 @@
 
     /* Normal LED */
     @keyframes lcr-led-normal {
-      0%, 28%   { fill: #22C55E; opacity: 1; }
-      32%, 48%  { fill: #22C55E; opacity: 1; }
-      52%, 88%  { fill: #22C55E; opacity: 0.15; }
-      92%, 100% { fill: #22C55E; opacity: 1; }
+      0%, 28%   { fill: #34D399; opacity: 1; }
+      32%, 48%  { fill: #34D399; opacity: 1; }
+      52%, 88%  { fill: #34D399; opacity: 0.15; }
+      92%, 100% { fill: #34D399; opacity: 1; }
     }
 
     /* Emergency LED */
@@ -146,7 +146,7 @@
       offset-rotate: 0deg;
       animation: lcr-flow 2s linear infinite;
     }
-    .lcr-mono { font-family: 'DM Sans', monospace; }
+    .lcr-mono { font-family: 'DM Sans', sans-serif; }
     .lcr-sans { font-family: 'Barlow Condensed', sans-serif; }
   </style>
 
@@ -291,11 +291,11 @@
 
     <!-- Emergency input terminal -->
     <rect x="148" y="72" width="10" height="10" rx="1" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5"/>
-    <circle cx="153" cy="77" r="2.5" fill="#0F2A4A" stroke="#FF4444" stroke-width="0.5"/>
+    <circle cx="153" cy="77" r="2.5" fill="#0F2A4A" stroke="#FF3B3B" stroke-width="0.5"/>
     <text x="153" y="87" text-anchor="middle" class="lcr-mono" fill="#94AECF" font-size="5">EMG</text>
 
     <!-- Mode display -->
-    <text x="90" y="56" text-anchor="middle" class="lcr-sans" fill="#22C55E" font-size="9" font-weight="600" style="animation: lcr-mode-normal 10s ease-in-out infinite;">NORMAL</text>
+    <text x="90" y="56" text-anchor="middle" class="lcr-sans" fill="#34D399" font-size="9" font-weight="600" style="animation: lcr-mode-normal 10s ease-in-out infinite;">NORMAL</text>
     <text x="90" y="56" text-anchor="middle" class="lcr-sans" fill="#FBBF24" font-size="9" font-weight="600" style="animation: lcr-mode-dimmed 10s ease-in-out infinite;">DIMMED</text>
     <text x="90" y="56" text-anchor="middle" class="lcr-sans" fill="#2A7AE2" font-size="9" font-weight="600" style="animation: lcr-mode-emerg 10s ease-in-out infinite;">EMERGENCY</text>
   </g>
@@ -333,7 +333,7 @@
   <g transform="translate(30, 268)">
     <rect x="8" y="0" width="64" height="30" rx="3" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="1"/>
     <text x="40" y="14" text-anchor="middle" class="lcr-sans" fill="#FFFFFF" font-size="8" font-weight="600">INVERTER</text>
-    <text x="40" y="24" text-anchor="middle" class="lcr-mono" fill="#FF4444" font-size="6" opacity="0.7">EMERG PWR</text>
+    <text x="40" y="24" text-anchor="middle" class="lcr-mono" fill="#FF3B3B" font-size="6" opacity="0.7">EMERG PWR</text>
   </g>
 
   <!-- ==================== WIRING / SIGNAL FLOW ==================== -->
@@ -351,9 +351,9 @@
   <line x1="300" y1="148" x2="300" y2="108" stroke="#2A7AE2" stroke-width="1" opacity="0.4" stroke-dasharray="3 2"/>
 
   <!-- Bypass line: Inverter to LCR emergency terminal -->
-  <path d="M 94,280 L 140,280 L 363,248" fill="none" stroke="#FF4444" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+  <path d="M 94,280 L 140,280 L 363,248" fill="none" stroke="#FF3B3B" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
   <!-- Animated bypass signal (emergency only) -->
-  <circle r="2" fill="#FF4444">
+  <circle r="2" fill="#FF3B3B">
     <animate attributeName="cx" values="94;140;363" keyTimes="0;0.3;1" dur="2s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="280;280;248" keyTimes="0;0.3;1" dur="2s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0;0;0;0;0;1;1;0" keyTimes="0;0.1;0.2;0.3;0.48;0.52;0.88;1" dur="10s" repeatCount="indefinite"/>
@@ -369,12 +369,12 @@
 
   <!-- ==================== POWER FAIL INDICATOR ==================== -->
   <g style="animation: lcr-powerfail 10s ease-in-out infinite;" transform="translate(440, 145)">
-    <rect x="0" y="0" width="90" height="22" rx="3" fill="#FF4444" opacity="0.15" stroke="#FF4444" stroke-width="1"/>
-    <text x="45" y="14" text-anchor="middle" class="lcr-sans" fill="#FF4444" font-size="9" font-weight="700" letter-spacing="1">POWER FAIL</text>
+    <rect x="0" y="0" width="90" height="22" rx="3" fill="#FF3B3B" opacity="0.15" stroke="#FF3B3B" stroke-width="1"/>
+    <text x="45" y="14" text-anchor="middle" class="lcr-sans" fill="#FF3B3B" font-size="9" font-weight="700" letter-spacing="1">POWER FAIL</text>
     <!-- Flash burst -->
-    <line x1="-6" y1="11" x2="-2" y2="6" stroke="#FF4444" stroke-width="1.5"/>
-    <line x1="-2" y1="6" x2="-4" y2="11" stroke="#FF4444" stroke-width="1.5"/>
-    <line x1="-4" y1="11" x2="0" y2="16" stroke="#FF4444" stroke-width="1.5"/>
+    <line x1="-6" y1="11" x2="-2" y2="6" stroke="#FF3B3B" stroke-width="1.5"/>
+    <line x1="-2" y1="6" x2="-4" y2="11" stroke="#FF3B3B" stroke-width="1.5"/>
+    <line x1="-4" y1="11" x2="0" y2="16" stroke="#FF3B3B" stroke-width="1.5"/>
   </g>
 
   <!-- ==================== OVERRIDE ACTIVE ==================== -->
@@ -404,9 +404,9 @@
     <text x="222" y="12" text-anchor="middle" class="lcr-mono" fill="#94AECF" font-size="7">LIGHTS</text>
 
     <!-- Bypass arrow from below -->
-    <text x="126" y="30" text-anchor="middle" class="lcr-mono" fill="#FF4444" font-size="5" opacity="0.6">INVERTER BYPASS</text>
-    <line x1="126" y1="22" x2="126" y2="18" stroke="#FF4444" stroke-width="0.75" stroke-dasharray="2 2" opacity="0.5"/>
-    <polygon points="124,19 126,17 128,19" fill="#FF4444" opacity="0.5"/>
+    <text x="126" y="30" text-anchor="middle" class="lcr-mono" fill="#FF3B3B" font-size="5" opacity="0.6">INVERTER BYPASS</text>
+    <line x1="126" y1="22" x2="126" y2="18" stroke="#FF3B3B" stroke-width="0.75" stroke-dasharray="2 2" opacity="0.5"/>
+    <polygon points="124,19 126,17 128,19" fill="#FF3B3B" opacity="0.5"/>
   </g>
 
   <!-- ==================== UL LISTED BADGE ==================== -->

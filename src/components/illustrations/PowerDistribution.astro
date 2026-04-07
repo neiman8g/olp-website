@@ -20,7 +20,7 @@
       /* Fonts inherited from BaseLayout */
 
       .font-display { font-family: 'Barlow Condensed', sans-serif; }
-      .font-mono { font-family: 'DM Sans', monospace; }
+      .font-mono { font-family: 'DM Sans', sans-serif; }
 
       /* Power flow animation along input cable */
       @keyframes flowInput {
@@ -116,14 +116,14 @@
   <!-- ======================== MAIN CABINET (Isometric) ======================== -->
   <g transform="translate(160, 60)">
     <!-- Cabinet right side panel (3D depth) -->
-    <path d="M 200,0 L 240,20 L 240,280 L 200,260 Z" fill="#0D1520" stroke="#1A3F6A" stroke-width="1" />
+    <path d="M 200,0 L 240,20 L 240,280 L 200,260 Z" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="1" />
     <!-- Vertical line details on right panel -->
     <line x1="210" y1="8" x2="210" y2="262" stroke="#1A3F6A" stroke-width="0.5" opacity="0.5" />
     <line x1="220" y1="14" x2="220" y2="268" stroke="#1A3F6A" stroke-width="0.5" opacity="0.3" />
     <line x1="230" y1="18" x2="230" y2="274" stroke="#1A3F6A" stroke-width="0.5" opacity="0.2" />
 
     <!-- Cabinet top panel (3D depth) -->
-    <path d="M 0,0 L 200,0 L 240,20 L 40,20 Z" fill="#141E2A" stroke="#1A3F6A" stroke-width="1" />
+    <path d="M 0,0 L 200,0 L 240,20 L 40,20 Z" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="1" />
     <!-- Grid lines on top -->
     <line x1="40" y1="15" x2="230" y2="15" stroke="#1A3F6A" stroke-width="0.3" opacity="0.4" />
     <!-- Vent slots on top -->
@@ -145,7 +145,7 @@
     <text x="100" y="25" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700" class="font-display" letter-spacing="3">PDU</text>
 
     <!-- ---- MAIN INPUT LUG SECTION (top area) ---- -->
-    <rect x="12" y="36" width="176" height="32" rx="2" fill="#0D1520" stroke="#1A3F6A" stroke-width="0.5" />
+    <rect x="12" y="36" width="176" height="32" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.5" />
     <text x="100" y="48" text-anchor="middle" fill="#94AECF" font-size="7" class="font-mono">MAIN INPUT LUGS</text>
     <!-- Three phase lug indicators -->
     <g transform="translate(40, 52)">
@@ -162,7 +162,7 @@
     </g>
 
     <!-- ---- CIRCUIT BREAKER SECTION ---- -->
-    <rect x="12" y="74" width="176" height="110" rx="2" fill="#0D1520" stroke="#1A3F6A" stroke-width="0.5" />
+    <rect x="12" y="74" width="176" height="110" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.5" />
     <text x="100" y="86" text-anchor="middle" fill="#94AECF" font-size="7" class="font-mono">BRANCH CIRCUITS</text>
 
     <!-- Row 1 of breakers -->
@@ -203,10 +203,10 @@
 
 
     <!-- ---- MONITORING / DISPLAY SECTION ---- -->
-    <rect x="12" y="178" width="176" height="72" rx="2" fill="#0D1520" stroke="#1A3F6A" stroke-width="0.5" />
+    <rect x="12" y="178" width="176" height="72" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.5" />
 
     <!-- Monitor screen -->
-    <rect x="18" y="184" width="100" height="58" rx="3" fill="#0A0F18" stroke="#2A7AE2" stroke-width="0.6">
+    <rect x="18" y="184" width="100" height="58" rx="3" fill="#0F2A4A" stroke="#2A7AE2" stroke-width="0.6">
       <animate attributeName="opacity" values="0.85;1;0.85" dur="3s" repeatCount="indefinite" />
     </rect>
 
@@ -221,7 +221,7 @@
     <!-- Screen content: Bar graph -->
     <text x="24" y="224" fill="#94AECF" font-size="6" class="font-mono">LOAD %</text>
     <!-- Bar 1 (Phase A) -->
-    <rect x="24" y="228" width="12" height="10" rx="1" fill="#0D1520" />
+    <rect x="24" y="228" width="12" height="10" rx="1" fill="#0F2A4A" />
     <rect x="24" y="231" width="12" height="7" rx="1" fill="#2A7AE2" opacity="0.7">
       <animate attributeName="height" values="7;5;7" dur="4s" repeatCount="indefinite" />
       <animate attributeName="y" values="231;233;231" dur="4s" repeatCount="indefinite" />
@@ -229,7 +229,7 @@
     <text x="30" y="226" text-anchor="middle" fill="#94AECF" font-size="4" class="font-mono">A</text>
 
     <!-- Bar 2 (Phase B) -->
-    <rect x="40" y="228" width="12" height="10" rx="1" fill="#0D1520" />
+    <rect x="40" y="228" width="12" height="10" rx="1" fill="#0F2A4A" />
     <rect x="40" y="230" width="12" height="8" rx="1" fill="#2A7AE2" opacity="0.8">
       <animate attributeName="height" values="8;6;8" dur="3.5s" repeatCount="indefinite" begin="0.3s" />
       <animate attributeName="y" values="230;232;230" dur="3.5s" repeatCount="indefinite" begin="0.3s" />
@@ -237,7 +237,7 @@
     <text x="46" y="226" text-anchor="middle" fill="#94AECF" font-size="4" class="font-mono">B</text>
 
     <!-- Bar 3 (Phase C) -->
-    <rect x="56" y="228" width="12" height="10" rx="1" fill="#0D1520" />
+    <rect x="56" y="228" width="12" height="10" rx="1" fill="#0F2A4A" />
     <rect x="56" y="232" width="12" height="6" rx="1" fill="#2A7AE2" opacity="0.6">
       <animate attributeName="height" values="6;4;6" dur="4.5s" repeatCount="indefinite" begin="0.6s" />
       <animate attributeName="y" values="232;234;232" dur="4.5s" repeatCount="indefinite" begin="0.6s" />

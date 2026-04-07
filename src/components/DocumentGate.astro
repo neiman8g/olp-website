@@ -52,7 +52,7 @@ const gatedDocs = docs.filter(d => isGated(d));
           {openDocs.map(doc => {
             const ext = doc.url.split('.').pop()?.toUpperCase() || 'PDF';
             return (
-              <a href={doc.url} target="_blank" rel="noopener" class="card-glow bg-white rounded-xl p-5 flex items-start gap-4 group">
+              <a href={doc.url} target="_blank" rel="noopener" class="card-hover bg-white rounded-xl p-5 flex items-start gap-4 group">
                 <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0">
                   <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                 </div>
@@ -83,7 +83,7 @@ const gatedDocs = docs.filter(d => isGated(d));
             const ext = doc.url.split('.').pop()?.toUpperCase() || 'PDF';
             return (
               <button
-                class="doc-download-btn card-glow bg-white rounded-xl p-5 text-left group flex items-start gap-4 w-full"
+                class="doc-download-btn card-hover bg-white rounded-xl p-5 text-left group flex items-start gap-4 w-full"
                 data-url={doc.url}
                 data-name={`${product?.name} - ${doc.label}`}
                 data-product={product?.name}

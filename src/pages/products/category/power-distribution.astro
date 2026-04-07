@@ -73,7 +73,7 @@ const applications = [
               { label: 'Manufacturing', value: 'Build to order · ISO 9001' },
             ].map(s => (
               <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
-                <p class="font-display text-[9px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
+                <p class="font-display text-[10px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
                 <p class="font-display text-sm font-bold text-near-black">{s.value}</p>
               </div>
             ))}
@@ -106,21 +106,21 @@ const applications = [
       <!-- OVERVIEW TAB -->
       <div class="tab-content" data-tab="overview">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-          <div class="card-glow bg-white rounded-xl p-6">
+          <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"></path></svg>
             </div>
             <h3 class="font-display text-lg font-semibold text-near-black mb-2">Regulation, isolation, and distribution in one chassis</h3>
             <p class="text-sm text-slate">Standard PDUs just distribute power. Online Power integrates voltage regulation, isolation transformers, and power distribution into single units giving you fewer boxes, less complexity, and a single point of accountability for your entire power chain.</p>
           </div>
-          <div class="card-glow bg-white rounded-xl p-6">
+          <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
             </div>
             <h3 class="font-display text-lg font-semibold text-near-black mb-2">Custom outlet configurations for any application</h3>
             <p class="text-sm text-slate">NEMA 5-15, NEMA 5-20, NEMA L6-30, IEC C13, IEC C19, bus bars, MIL-spec connectors, and hospital grade receptacles configured exactly as your equipment requires. No adapter cables, no outlet conversion, and no compromises on connection integrity.</p>
           </div>
-          <div class="card-glow bg-white rounded-xl p-6">
+          <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35"></path></svg>
             </div>
@@ -198,7 +198,7 @@ const applications = [
       <p class="eyebrow text-steel-blue mb-8">{categoryProducts.length} Models Available</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {categoryProducts.map(p => (
-          <a href={`/products/${p.slug}`} class="card-glow card-top-accent bg-white rounded-xl overflow-hidden group">
+          <a href={`/products/${p.slug}`} class="card-hover border-t-2 border-t-steel-blue bg-white rounded-xl overflow-hidden group">
             <div class="h-[200px] bg-off-white flex items-center justify-center p-4">
               {typeof getProductImage(p.image) === 'string' ? (
                 <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" />
@@ -241,8 +241,8 @@ const applications = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h2 class="font-display text-3xl font-bold text-white mb-4">Ready to Spec This Product?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="px-8 py-3.5 bg-steel-blue text-white font-semibold rounded-lg hover:bg-steel-blue/90 transition-colors text-sm">Send Us Your One Line Diagram for a Custom PDU Design in 48 Hours</a>
-        <a href="/training" class="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-sm">Register for Training</a>
+        <a href="/contact" class="px-8 py-3.5 bg-steel-blue text-white font-semibold rounded hover:bg-steel-blue/90 transition-colors text-sm">Send Us Your One Line Diagram for a Custom PDU Design in 48 Hours</a>
+        <a href="/training" class="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded hover:bg-white/10 transition-colors text-sm">Register for Training</a>
       </div>
     </div>
   </section>
