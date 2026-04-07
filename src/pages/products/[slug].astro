@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import DocumentGate from '../../components/DocumentGate.astro';
 import { products, getProductsByCategory, getCategoryBySlug } from '../../data/products';
 import { company } from '../../data/company';
 import type { Product } from '../../data/products';
@@ -105,6 +106,13 @@ const relatedProducts = getProductsByCategory(product.category).filter(p => p.sl
           )}
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Documents (Email-Gated) -->
+  <section class="py-16 md:py-24 bg-obsidian">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <DocumentGate productSlug={product.slug} />
     </div>
   </section>
 

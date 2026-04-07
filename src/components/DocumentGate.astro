@@ -1,0 +1,208 @@
+---
+/**
+ * DocumentGate - Email-gated document download system
+ * Renders a card grid of product documents. On download click,
+ * shows an email capture modal before allowing download.
+ *
+ * Usage: <DocumentGate productSlug="power-wave-1" />
+ */
+import { getProductBySlug } from '../data/products';
+
+interface Props {
+  productSlug: string;
+}
+
+const { productSlug } = Astro.props;
+const product = getProductBySlug(productSlug);
+const docs = product?.docs || [];
+
+// Extended document types mapped from the product docs
+// This component also supports additional doc types beyond what's in the base data
+---
+
+{docs.length > 0 && (
+  <section class="py-16 md:py-20" id={`docs-${productSlug}`}>
+    <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Documents &amp; Downloads</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id={`doc-grid-${productSlug}`}>
+      {docs.map((doc, i) => {
+        const ext = doc.url.split('.').pop()?.toUpperCase() || 'PDF';
+        return (
+          <button
+            class="doc-download-btn card-glow bg-slate/50 rounded-xl p-5 text-left group flex items-start gap-4 w-full"
+            data-url={doc.url}
+            data-name={`${product?.name} - ${doc.label}`}
+            data-product={product?.name}
+          >
+            {/* File type icon */}
+            <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center flex-shrink-0">
+              {ext === 'PDF' ? (
+                <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+              ) : ext === 'DWG' || ext === 'DXF' ? (
+                <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path></svg>
+              ) : ext === 'DOC' || ext === 'DOCX' ? (
+                <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              ) : (
+                <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              )}
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-pure group-hover:text-voltage transition-colors truncate">{doc.label}</p>
+              <div class="flex items-center gap-2 mt-1.5">
+                <span class="px-2 py-0.5 border border-voltage/30 rounded text-[10px] font-mono uppercase tracking-wider text-voltage">{ext}</span>
+                <span class="text-xs text-ash">Download</span>
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-ash group-hover:text-voltage transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          </button>
+        );
+      })}
+    </div>
+  </section>
+)}
+
+<!-- Email Gate Modal -->
+<div id="doc-gate-modal" class="fixed inset-0 z-[100] hidden">
+  <div class="absolute inset-0 bg-obsidian/80 backdrop-blur-sm" id="doc-gate-overlay"></div>
+  <div class="relative flex items-center justify-center min-h-screen p-4">
+    <div class="bg-slate border border-steel/30 rounded-2xl p-6 md:p-8 w-full max-w-md shadow-2xl shadow-black/50 relative">
+      <button id="doc-gate-close" class="absolute top-4 right-4 text-ash hover:text-pure transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-xl bg-voltage/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-6 h-6 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-pure" id="doc-gate-title">Get Document</h3>
+        <p class="text-sm text-ash mt-1" id="doc-gate-subtitle">Enter your details to download</p>
+      </div>
+
+      <form id="doc-gate-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-mono uppercase tracking-wider text-ash mb-1.5">First Name *</label>
+          <input type="text" name="firstName" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+        </div>
+        <div>
+          <label class="block text-xs font-mono uppercase tracking-wider text-ash mb-1.5">Email *</label>
+          <input type="email" name="email" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+        </div>
+        <div>
+          <label class="block text-xs font-mono uppercase tracking-wider text-ash mb-1.5">Company *</label>
+          <input type="text" name="company" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-pure placeholder:text-ash/40 focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors" />
+        </div>
+        <div>
+          <label class="block text-xs font-mono uppercase tracking-wider text-ash mb-1.5">Role *</label>
+          <select name="role" required class="w-full px-4 py-3 bg-obsidian border border-steel/50 rounded-lg text-sm text-ash focus:border-voltage/50 focus:ring-1 focus:ring-voltage/30 outline-none transition-colors">
+            <option value="">Select your role...</option>
+            <option value="Electrical Engineer">Electrical Engineer</option>
+            <option value="Lighting Designer">Lighting Designer</option>
+            <option value="Electrical Contractor">Electrical Contractor</option>
+            <option value="Facility Manager">Facility Manager</option>
+            <option value="Architect">Architect</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <input type="hidden" name="docUrl" id="doc-gate-url" />
+        <input type="hidden" name="docName" id="doc-gate-name" />
+        <input type="hidden" name="productName" id="doc-gate-product" />
+
+        <button type="submit" id="doc-gate-submit" class="btn-primary w-full py-3.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          Get Document
+        </button>
+      </form>
+
+      <div id="doc-gate-success" class="hidden text-center py-6">
+        <svg class="w-12 h-12 text-voltage mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <p class="font-display text-lg font-bold text-pure mb-1">Download Starting</p>
+        <p class="text-sm text-ash">Your document is downloading now.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    var modal = document.getElementById('doc-gate-modal');
+    var form = document.getElementById('doc-gate-form');
+    var overlay = document.getElementById('doc-gate-overlay');
+    var closeBtn = document.getElementById('doc-gate-close');
+    var successEl = document.getElementById('doc-gate-success');
+    var pendingUrl = '';
+
+    // Check if user already provided email (stored in sessionStorage)
+    function isGateCleared() {
+      return sessionStorage.getItem('olp_doc_gate') === 'true';
+    }
+
+    function openModal(url, name, product) {
+      pendingUrl = url;
+      document.getElementById('doc-gate-url').value = url;
+      document.getElementById('doc-gate-name').value = name;
+      document.getElementById('doc-gate-product').value = product;
+      document.getElementById('doc-gate-subtitle').textContent = name;
+      form.style.display = '';
+      successEl.classList.add('hidden');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function triggerDownload(url) {
+      var a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.click();
+    }
+
+    // Attach click handlers to all download buttons
+    document.querySelectorAll('.doc-download-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var url = btn.getAttribute('data-url');
+        var name = btn.getAttribute('data-name');
+        var product = btn.getAttribute('data-product');
+
+        if (isGateCleared()) {
+          // Already captured email this session — direct download
+          triggerDownload(url);
+        } else {
+          openModal(url, name, product);
+        }
+      });
+    });
+
+    // Close modal
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+    overlay && overlay.addEventListener('click', closeModal);
+
+    // Form submit
+    form && form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      var lead = {};
+      data.forEach(function(v, k) { lead[k] = v; });
+
+      // Log to console (placeholder for CRM integration)
+      console.log('[OLP Lead Capture]', JSON.stringify(lead, null, 2));
+
+      // Mark gate as cleared for this session
+      sessionStorage.setItem('olp_doc_gate', 'true');
+      sessionStorage.setItem('olp_lead_email', lead.email);
+
+      // Show success, trigger download
+      form.style.display = 'none';
+      successEl.classList.remove('hidden');
+      triggerDownload(pendingUrl);
+
+      // Auto-close after 2s
+      setTimeout(closeModal, 2000);
+    });
+  })();
+</script>
