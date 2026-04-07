@@ -1,31 +1,56 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <radialGradient id="glow" cx="50%" cy="50%" r="40%">
-      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#0A0A0F" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
   <!-- Background -->
-  <rect width="1200" height="630" fill="#0A0A0F"/>
-  <!-- Grid -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="#1C2B3A" stroke-width="0.5"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="#1C2B3A" stroke-width="0.5"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="#1C2B3A" stroke-width="0.5"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1C2B3A" stroke-width="0.5"/>
-  <line x1="0" y1="525" x2="1200" y2="525" stroke="#1C2B3A" stroke-width="0.5"/>
-  <line x1="200" y1="0" x2="200" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
-  <line x1="400" y1="0" x2="400" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
-  <line x1="600" y1="0" x2="600" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
-  <line x1="800" y1="0" x2="800" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
-  <line x1="1000" y1="0" x2="1000" y2="630" stroke="#1C2B3A" stroke-width="0.5"/>
-  <!-- Glow -->
-  <circle cx="600" cy="280" r="300" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="#0F2A4A"/>
+
+  <!-- Subtle grid pattern -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="#1A3F6A" stroke-width="0.5"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#1A3F6A" stroke-width="0.5"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#1A3F6A" stroke-width="0.5"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1A3F6A" stroke-width="0.5"/>
+  <line x1="0" y1="525" x2="1200" y2="525" stroke="#1A3F6A" stroke-width="0.5"/>
+  <line x1="200" y1="0" x2="200" y2="630" stroke="#1A3F6A" stroke-width="0.5"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#1A3F6A" stroke-width="0.5"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#1A3F6A" stroke-width="0.5"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#1A3F6A" stroke-width="0.5"/>
+  <line x1="1000" y1="0" x2="1000" y2="630" stroke="#1A3F6A" stroke-width="0.5"/>
+
+  <!-- Bolt icon -->
+  <path d="M589 195 L579 211h9l-1 8 10-12h-9l1-8z" fill="#2A7AE2"/>
+
   <!-- ONLINE POWER -->
-  <text x="600" y="280" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="72" font-weight="900" fill="#F8FAFC" letter-spacing="-1">ONLINE <tspan fill="#00E5FF">POWER</tspan></text>
+  <text x="600" y="270" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="68" font-weight="900" fill="#FFFFFF" letter-spacing="2">ONLINE <tspan fill="#2A7AE2">POWER</tspan></text>
+
   <!-- Tagline -->
-  <text x="600" y="335" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#00E5FF">Power That Never Quits.</text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#7EB3F5" letter-spacing="1">Power That Never Quits.</text>
+
+  <!-- Divider line -->
+  <line x1="480" y1="355" x2="720" y2="355" stroke="#2A7AE2" stroke-width="2"/>
+
   <!-- Subtitle -->
-  <text x="600" y="390" text-anchor="middle" font-family="Courier New, monospace" font-size="18" fill="#F8FAFC" letter-spacing="3" opacity="0.8">MISSION-CRITICAL POWER PROTECTION SINCE 1975</text>
+  <text x="600" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#94AECF" letter-spacing="4" font-weight="600">MISSION-CRITICAL POWER PROTECTION</text>
+
+  <!-- Certifications -->
+  <rect x="390" y="425" width="70" height="26" rx="3" fill="#1A3F6A"/>
+  <text x="425" y="443" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" font-weight="700" letter-spacing="1">UL 924</text>
+
+  <rect x="470" y="425" width="76" height="26" rx="3" fill="#1A3F6A"/>
+  <text x="508" y="443" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" font-weight="700" letter-spacing="1">UL 1778</text>
+
+  <rect x="556" y="425" width="88" height="26" rx="3" fill="#1A3F6A"/>
+  <text x="600" y="443" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" font-weight="700" letter-spacing="1">ISO 9001</text>
+
+  <rect x="654" y="425" width="80" height="26" rx="3" fill="#1A3F6A"/>
+  <text x="694" y="443" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" font-weight="700" letter-spacing="1">MADE IN USA</text>
+
+  <rect x="744" y="425" width="66" height="26" rx="3" fill="#1A3F6A"/>
+  <text x="777" y="443" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" font-weight="700" letter-spacing="1">NFPA</text>
+
+  <!-- Since 1975 -->
+  <text x="600" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#94AECF" letter-spacing="3">MANUFACTURER SINCE 1975  ·  LOS ANGELES, CA</text>
+
+  <!-- Bottom border accent -->
+  <rect x="0" y="620" width="1200" height="10" fill="#2A7AE2"/>
+
   <!-- URL -->
-  <text x="600" y="595" text-anchor="middle" font-family="Courier New, monospace" font-size="13" fill="#1C2B3A" letter-spacing="1">onlinepower.com</text>
+  <text x="600" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#94AECF" letter-spacing="2">onlinepower.com</text>
 </svg>
