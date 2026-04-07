@@ -70,23 +70,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Button styles */
 .btn-primary {
-  background-color: var(--color-action);
-  color: #FFFFFF;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-.btn-primary:hover {
-  background-color: var(--color-action-hover);
-  box-shadow: 0 0 20px var(--color-action-glow);
-}
-
-.btn-secondary {
   background-color: var(--color-voltage);
   color: var(--color-obsidian);
   font-weight: 600;
   transition: all 0.2s ease;
 }
-.btn-secondary:hover {
+.btn-primary:hover {
   background-color: #33EBFF;
   box-shadow: 0 0 20px var(--color-voltage-glow);
 }
