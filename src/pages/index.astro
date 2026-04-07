@@ -14,26 +14,183 @@ import { company, testimonials } from '../data/company';
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-voltage/5 rounded-full blur-[150px] pointer-events-none"></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-28 lg:py-32">
-      <div class="max-w-3xl">
-        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-pure leading-[1.05] tracking-tight mb-6">
-          Power That<br/>Never Quits.
-        </h1>
-        <p class="text-lg md:text-xl text-ash max-w-xl leading-relaxed mb-10">
-          48 years of mission-critical power protection. UL Listed. ISO 9001. Made in the USA.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 mb-12">
-          <a href="/products/" class="btn-primary px-8 py-3.5 rounded-lg text-sm font-semibold text-center inline-flex items-center justify-center gap-2">
-            View Products
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </a>
-          <a href="/contact/" class="btn-ghost px-8 py-3.5 rounded-lg text-sm text-center inline-flex items-center justify-center">
-            Request a Quote
-          </a>
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text -->
+        <div>
+          <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-pure leading-[1.05] tracking-tight mb-6">
+            Power That<br/>Never Quits.
+          </h1>
+          <p class="text-lg md:text-xl text-ash max-w-xl leading-relaxed mb-10">
+            48 years of mission-critical power protection. UL Listed. ISO 9001. Made in the USA.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-12">
+            <a href="/products/" class="btn-primary px-8 py-3.5 rounded-lg text-sm font-semibold text-center inline-flex items-center justify-center gap-2">
+              View Products
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            <a href="/contact/" class="btn-ghost px-8 py-3.5 rounded-lg text-sm text-center inline-flex items-center justify-center">
+              Request a Quote
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Animated SVG Schematic -->
+        <div class="hidden md:block" id="hero-schematic-wrap">
+          <svg viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" id="hero-schematic">
+            <style>
+              @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Space+Mono&display=swap');
+              .sch-label { font-family: 'Space Mono', monospace; font-size: 10px; fill: #8A9BAE; }
+              .sch-label-main { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: #F8FAFC; font-weight: 700; }
+              .sch-line { stroke: #1C2B3A; stroke-width: 2; fill: none; }
+              .sch-line-active { stroke: #00E5FF; stroke-width: 2; fill: none; opacity: 0; }
+              .sch-box { stroke: #1C2B3A; stroke-width: 1.5; fill: none; rx: 6; }
+              .sch-inverter { stroke: #00E5FF; stroke-width: 1.5; fill: rgba(0,229,255,0.05); rx: 8; }
+              .sch-dot { fill: #00E5FF; r: 4; }
+              .sch-outage { font-family: 'Space Mono', monospace; font-size: 9px; fill: #EF4444; opacity: 0; }
+
+              /* Utility dot: travels along utility line */
+              @keyframes utilDot {
+                0% { cx: 20; opacity: 1; }
+                60% { cx: 170; opacity: 1; }
+                61% { opacity: 0; }
+                100% { opacity: 0; }
+              }
+              /* Outage label fade in */
+              @keyframes outageIn {
+                0%, 35% { opacity: 0; }
+                40% { opacity: 1; }
+                85% { opacity: 1; }
+                95% { opacity: 0; }
+                100% { opacity: 0; }
+              }
+              /* Utility line dims */
+              @keyframes utilDim {
+                0%, 35% { stroke: #1C2B3A; }
+                40% { stroke: #0F1620; }
+                85% { stroke: #0F1620; }
+                95% { stroke: #1C2B3A; }
+                100% { stroke: #1C2B3A; }
+              }
+              /* Inverter pulse */
+              @keyframes inverterPulse {
+                0%, 38% { stroke: #00E5FF; filter: none; }
+                42% { stroke: #00E5FF; filter: drop-shadow(0 0 12px #00E5FF); }
+                50% { stroke: #00E5FF; filter: drop-shadow(0 0 4px #00E5FF); }
+                85% { stroke: #00E5FF; filter: drop-shadow(0 0 4px #00E5FF); }
+                95% { stroke: #00E5FF; filter: none; }
+              }
+              /* Output lines light up */
+              @keyframes outputOn {
+                0%, 42% { opacity: 0; }
+                48% { opacity: 1; }
+                85% { opacity: 1; }
+                95% { opacity: 0; }
+                100% { opacity: 0; }
+              }
+              /* Output dots travel */
+              @keyframes outDot1 {
+                0%, 42% { offset-distance: 0%; opacity: 0; }
+                48% { opacity: 1; }
+                80% { offset-distance: 100%; opacity: 1; }
+                81% { opacity: 0; }
+                100% { opacity: 0; }
+              }
+              #util-dot { animation: utilDot 8s ease-in-out infinite; }
+              #outage-label { animation: outageIn 8s ease-in-out infinite; }
+              #util-line-main { animation: utilDim 8s ease-in-out infinite; }
+              #inverter-box { animation: inverterPulse 8s ease-in-out infinite; }
+              .out-line-glow { animation: outputOn 8s ease-in-out infinite; }
+              .out-dot { animation: outDot1 8s ease-in-out infinite; }
+              .out-dot-d1 { animation-delay: 0.1s; }
+              .out-dot-d2 { animation-delay: 0.25s; }
+            </style>
+
+            <!-- UTILITY SOURCE -->
+            <rect x="10" y="130" width="100" height="50" class="sch-box" />
+            <text x="60" y="160" text-anchor="middle" class="sch-label">UTILITY</text>
+
+            <!-- Utility line to inverter -->
+            <line x1="110" y1="155" x2="190" y2="155" id="util-line-main" class="sch-line" />
+            <!-- Utility traveling dot -->
+            <circle id="util-dot" cy="155" class="sch-dot" />
+
+            <!-- Outage label -->
+            <text x="150" y="140" text-anchor="middle" id="outage-label" class="sch-outage">OUTAGE</text>
+
+            <!-- INVERTER -->
+            <rect x="190" y="118" width="140" height="74" id="inverter-box" class="sch-inverter" />
+            <text x="260" y="150" text-anchor="middle" class="sch-label-main">ONLINE POWER</text>
+            <text x="260" y="168" text-anchor="middle" class="sch-label">INVERTER</text>
+
+            <!-- Output trunk -->
+            <line x1="330" y1="155" x2="370" y2="155" class="sch-line" />
+            <line x1="330" y1="155" x2="370" y2="155" class="sch-line-active out-line-glow" />
+
+            <!-- Branch point -->
+            <circle cx="370" cy="155" r="3" fill="#1C2B3A" />
+
+            <!-- Branch 1: Emergency Lighting (top) -->
+            <path d="M370 155 L370 80 L460 80" class="sch-line" />
+            <path d="M370 155 L370 80 L460 80" class="sch-line-active out-line-glow" />
+            <rect x="400" y="62" width="110" height="36" class="sch-box" />
+            <rect x="400" y="62" width="110" height="36" class="sch-line-active out-line-glow" style="stroke-width:1;" />
+            <text x="455" y="76" text-anchor="middle" class="sch-label" style="font-size:8px;">EMERGENCY</text>
+            <text x="455" y="88" text-anchor="middle" class="sch-label" style="font-size:8px;">LIGHTING</text>
+            <!-- dot -->
+            <circle cx="370" cy="80" r="3" class="sch-dot out-dot" style="opacity:0;" />
+
+            <!-- Branch 2: Elevator (middle) -->
+            <path d="M370 155 L460 155" class="sch-line" />
+            <path d="M370 155 L460 155" class="sch-line-active out-line-glow" />
+            <rect x="400" y="137" width="110" height="36" class="sch-box" />
+            <rect x="400" y="137" width="110" height="36" class="sch-line-active out-line-glow" style="stroke-width:1;" />
+            <text x="455" y="159" text-anchor="middle" class="sch-label" style="font-size:8px;">ELEVATOR</text>
+            <!-- dot -->
+            <circle cx="400" cy="155" r="3" class="sch-dot out-dot out-dot-d1" style="opacity:0;" />
+
+            <!-- Branch 3: Fire Alarm (bottom) -->
+            <path d="M370 155 L370 230 L460 230" class="sch-line" />
+            <path d="M370 155 L370 230 L460 230" class="sch-line-active out-line-glow" />
+            <rect x="400" y="212" width="110" height="36" class="sch-box" />
+            <rect x="400" y="212" width="110" height="36" class="sch-line-active out-line-glow" style="stroke-width:1;" />
+            <text x="455" y="234" text-anchor="middle" class="sch-label" style="font-size:8px;">FIRE ALARM</text>
+            <!-- dot -->
+            <circle cx="370" cy="230" r="3" class="sch-dot out-dot out-dot-d2" style="opacity:0;" />
+
+            <!-- Small lightning bolt icon on inverter -->
+            <path d="M254 132 L250 142 L256 142 L252 152" stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.4" />
+          </svg>
+          <p class="font-mono text-[10px] uppercase tracking-widest text-steel text-center mt-3">// Single-Line Emergency Power Diagram</p>
         </div>
       </div>
 
+      <!-- Mobile: Show schematic below text -->
+      <div class="md:hidden mt-8 overflow-x-auto" id="hero-schematic-mobile">
+        <svg viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full min-w-[400px] h-auto">
+          <use href="#hero-schematic > *" />
+          <!-- Duplicate key elements for mobile since <use> on inner elements is limited -->
+          <rect x="10" y="130" width="100" height="50" stroke="#1C2B3A" stroke-width="1.5" fill="none" rx="6" />
+          <text x="60" y="160" text-anchor="middle" font-family="Space Mono, monospace" font-size="10" fill="#8A9BAE">UTILITY</text>
+          <line x1="110" y1="155" x2="190" y2="155" stroke="#1C2B3A" stroke-width="2" />
+          <rect x="190" y="118" width="140" height="74" stroke="#00E5FF" stroke-width="1.5" fill="rgba(0,229,255,0.05)" rx="8" />
+          <text x="260" y="150" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#F8FAFC" font-weight="700">ONLINE POWER</text>
+          <text x="260" y="168" text-anchor="middle" font-family="Space Mono, monospace" font-size="10" fill="#8A9BAE">INVERTER</text>
+          <line x1="330" y1="155" x2="370" y2="155" stroke="#1C2B3A" stroke-width="2" />
+          <path d="M370 155 L370 80 L460 80" stroke="#1C2B3A" stroke-width="2" fill="none" />
+          <rect x="400" y="62" width="110" height="36" stroke="#1C2B3A" stroke-width="1.5" fill="none" rx="6" />
+          <text x="455" y="76" text-anchor="middle" font-family="Space Mono, monospace" font-size="8" fill="#8A9BAE">EMERGENCY</text>
+          <text x="455" y="88" text-anchor="middle" font-family="Space Mono, monospace" font-size="8" fill="#8A9BAE">LIGHTING</text>
+          <path d="M370 155 L460 155" stroke="#1C2B3A" stroke-width="2" fill="none" />
+          <rect x="400" y="137" width="110" height="36" stroke="#1C2B3A" stroke-width="1.5" fill="none" rx="6" />
+          <text x="455" y="159" text-anchor="middle" font-family="Space Mono, monospace" font-size="8" fill="#8A9BAE">ELEVATOR</text>
+          <path d="M370 155 L370 230 L460 230" stroke="#1C2B3A" stroke-width="2" fill="none" />
+          <rect x="400" y="212" width="110" height="36" stroke="#1C2B3A" stroke-width="1.5" fill="none" rx="6" />
+          <text x="455" y="234" text-anchor="middle" font-family="Space Mono, monospace" font-size="8" fill="#8A9BAE">FIRE ALARM</text>
+        </svg>
+      </div>
+
       <!-- Stat Bar -->
-      <div class="flex flex-wrap items-center gap-3 md:gap-0 md:divide-x md:divide-steel/50">
+      <div class="flex flex-wrap items-center gap-3 md:gap-0 md:divide-x md:divide-steel/50 mt-8 lg:mt-12">
         {company.heroStats.map(stat => (
           <span class="font-mono text-xs uppercase tracking-widest text-ash md:px-5 first:md:pl-0">{stat}</span>
         ))}
