@@ -1,0 +1,657 @@
+<!-- ChatWidget.astro — Online Power AI Chat -->
+<div id="olp-chat-widget">
+  <!-- Floating Button -->
+  <button id="olp-chat-btn" aria-label="Open chat">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z" fill="#0A0A0F"/>
+      <path d="M7 9H17V11H7V9ZM7 5H17V7H7V5ZM7 13H14V15H7V13Z" fill="#0A0A0F"/>
+    </svg>
+    <span class="olp-online-dot"></span>
+  </button>
+
+  <!-- Chat Panel -->
+  <div id="olp-chat-panel" class="olp-hidden">
+    <!-- Header -->
+    <div class="olp-chat-header">
+      <div class="olp-chat-header-info">
+        <div class="olp-chat-avatar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#00E5FF"/><path d="M2 17L12 22L22 17" stroke="#00E5FF" stroke-width="2" fill="none"/><path d="M2 12L12 17L22 12" stroke="#00E5FF" stroke-width="2" fill="none"/></svg>
+        </div>
+        <div>
+          <div class="olp-chat-title">Online Power Engineer</div>
+          <div class="olp-chat-status-text">Technical Sales Support</div>
+        </div>
+      </div>
+      <button id="olp-chat-close" aria-label="Close chat">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#8A9BAE" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Status bar -->
+    <div class="olp-chat-statusbar">
+      <span class="olp-statusbar-dot"></span>
+      <span>// Powered by AI &middot; Available 24/7</span>
+    </div>
+
+    <!-- Messages -->
+    <div id="olp-chat-messages"></div>
+
+    <!-- Quick Replies -->
+    <div id="olp-chat-chips">
+      <button class="olp-chip" data-msg="What emergency lighting inverters do you offer?">Emergency Lighting</button>
+      <button class="olp-chip" data-msg="Tell me about your elevator backup systems.">Elevator Backup</button>
+      <button class="olp-chip" data-msg="What UPS systems do you manufacture?">UPS Systems</button>
+      <button class="olp-chip" data-msg="I need help sizing a system for my project.">Help Me Size a System</button>
+    </div>
+
+    <!-- Input -->
+    <div class="olp-chat-input-wrap">
+      <textarea id="olp-chat-input" placeholder="Ask about our power systems..." rows="1"></textarea>
+      <button id="olp-chat-send" aria-label="Send message">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2 21L23 12L2 3V10L17 12L2 14V21Z" fill="#00E5FF"/></svg>
+      </button>
+    </div>
+
+    <!-- Rate limit notice -->
+    <div id="olp-chat-limit" class="olp-hidden">
+      <p>You have reached the message limit for this session. Please call us at <a href="tel:8007842576">800.784.2576</a> or <a href="/contact">contact us</a> to continue the conversation.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=Space+Mono:wght@400&display=swap');
+
+  #olp-chat-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Floating button */
+  #olp-chat-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #00E5FF;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  #olp-chat-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(0, 229, 255, 0.45);
+  }
+  .olp-online-dot {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    background: #22C55E;
+    border-radius: 50%;
+    border: 2px solid #0A0A0F;
+  }
+
+  /* Panel */
+  #olp-chat-panel {
+    position: fixed;
+    bottom: 90px;
+    right: 24px;
+    width: 380px;
+    max-height: 600px;
+    background: #0A0A0F;
+    border: 1px solid #1C2B3A;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+    animation: olp-slide-up 0.25s ease-out;
+  }
+  #olp-chat-panel.olp-hidden {
+    display: none;
+  }
+
+  @keyframes olp-slide-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Header */
+  .olp-chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: #111827;
+    border-bottom: 1px solid #1C2B3A;
+  }
+  .olp-chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .olp-chat-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(0, 229, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .olp-chat-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #F8FAFC;
+  }
+  .olp-chat-status-text {
+    font-size: 11px;
+    color: #8A9BAE;
+  }
+  #olp-chat-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #olp-chat-close:hover {
+    background: rgba(255,255,255,0.05);
+  }
+
+  /* Status bar */
+  .olp-chat-statusbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: #0A0A0F;
+    border-bottom: 1px solid #1C2B3A;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: #8A9BAE;
+  }
+  .olp-statusbar-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22C55E;
+    flex-shrink: 0;
+  }
+
+  /* Messages */
+  #olp-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 280px;
+    max-height: 380px;
+    scroll-behavior: smooth;
+  }
+  #olp-chat-messages::-webkit-scrollbar {
+    width: 4px;
+  }
+  #olp-chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  #olp-chat-messages::-webkit-scrollbar-thumb {
+    background: #1C2B3A;
+    border-radius: 2px;
+  }
+
+  .olp-msg {
+    max-width: 88%;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #F8FAFC;
+    word-wrap: break-word;
+  }
+  .olp-msg-assistant {
+    align-self: flex-start;
+    background: #111827;
+    border: 1px solid #1C2B3A;
+    border-radius: 4px 12px 12px 12px;
+  }
+  .olp-msg-user {
+    align-self: flex-end;
+    background: rgba(0, 229, 255, 0.12);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 12px 4px 12px 12px;
+  }
+
+  /* Typing indicator */
+  .olp-typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 14px;
+    align-self: flex-start;
+    background: #111827;
+    border: 1px solid #1C2B3A;
+    border-radius: 4px 12px 12px 12px;
+  }
+  .olp-typing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #8A9BAE;
+    animation: olp-bounce 1.2s infinite;
+  }
+  .olp-typing-dot:nth-child(2) { animation-delay: 0.15s; }
+  .olp-typing-dot:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes olp-bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-4px); }
+  }
+
+  /* Chips */
+  #olp-chat-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 16px 12px;
+  }
+  #olp-chat-chips.olp-hidden {
+    display: none;
+  }
+  .olp-chip {
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 16px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-family: 'Space Mono', monospace;
+    color: #00E5FF;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .olp-chip:hover {
+    background: rgba(0, 229, 255, 0.16);
+  }
+
+  /* Input */
+  .olp-chat-input-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid #1C2B3A;
+    background: #111827;
+  }
+  #olp-chat-input {
+    flex: 1;
+    background: #0A0A0F;
+    border: 1px solid #1C2B3A;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    color: #F8FAFC;
+    resize: none;
+    max-height: 100px;
+    line-height: 1.4;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  #olp-chat-input::placeholder {
+    color: #8A9BAE;
+  }
+  #olp-chat-input:focus {
+    border-color: #00E5FF;
+  }
+  #olp-chat-send {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(0, 229, 255, 0.12);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  #olp-chat-send:hover {
+    background: rgba(0, 229, 255, 0.24);
+  }
+
+  /* Rate limit */
+  #olp-chat-limit {
+    padding: 12px 16px;
+    background: #111827;
+    border-top: 1px solid #1C2B3A;
+    font-size: 12px;
+    color: #8A9BAE;
+    text-align: center;
+  }
+  #olp-chat-limit.olp-hidden {
+    display: none;
+  }
+  #olp-chat-limit a {
+    color: #00E5FF;
+    text-decoration: none;
+  }
+  #olp-chat-limit a:hover {
+    text-decoration: underline;
+  }
+
+  /* Lead capture form */
+  .olp-lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 12px;
+    background: rgba(0, 229, 255, 0.04);
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    border-radius: 8px;
+  }
+  .olp-lead-form input {
+    background: #0A0A0F;
+    border: 1px solid #1C2B3A;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    color: #F8FAFC;
+    outline: none;
+  }
+  .olp-lead-form input::placeholder {
+    color: #8A9BAE;
+  }
+  .olp-lead-form input:focus {
+    border-color: #00E5FF;
+  }
+  .olp-lead-form button {
+    background: #00E5FF;
+    color: #0A0A0F;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .olp-lead-form button:hover {
+    opacity: 0.85;
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    #olp-chat-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-height: 100%;
+      border-radius: 0;
+      border: none;
+    }
+    #olp-chat-messages {
+      max-height: none;
+      flex: 1;
+    }
+    #olp-chat-btn {
+      bottom: 16px;
+      right: 16px;
+    }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  const MAX_MESSAGES = 20;
+  const STORAGE_KEY = 'olp_chat_count';
+
+  const btn = document.getElementById('olp-chat-btn');
+  const panel = document.getElementById('olp-chat-panel');
+  const closeBtn = document.getElementById('olp-chat-close');
+  const messagesEl = document.getElementById('olp-chat-messages');
+  const chipsEl = document.getElementById('olp-chat-chips');
+  const inputEl = document.getElementById('olp-chat-input');
+  const sendBtn = document.getElementById('olp-chat-send');
+  const limitEl = document.getElementById('olp-chat-limit');
+
+  let conversationHistory = [];
+  let isStreaming = false;
+  let hasInteracted = false;
+
+  function getMessageCount() {
+    try {
+      return parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function incrementMessageCount() {
+    try {
+      const count = getMessageCount() + 1;
+      localStorage.setItem(STORAGE_KEY, String(count));
+      return count;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function isRateLimited() {
+    return getMessageCount() >= MAX_MESSAGES;
+  }
+
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function addMessage(role, content) {
+    const div = document.createElement('div');
+    div.className = 'olp-msg olp-msg-' + role;
+    div.textContent = content;
+    messagesEl.appendChild(div);
+    scrollToBottom();
+    return div;
+  }
+
+  function showTyping() {
+    const div = document.createElement('div');
+    div.className = 'olp-typing';
+    div.id = 'olp-typing-indicator';
+    div.innerHTML = '<span class="olp-typing-dot"></span><span class="olp-typing-dot"></span><span class="olp-typing-dot"></span>';
+    messagesEl.appendChild(div);
+    scrollToBottom();
+  }
+
+  function hideTyping() {
+    const el = document.getElementById('olp-typing-indicator');
+    if (el) el.remove();
+  }
+
+  function checkLeadCapture(text) {
+    if (text.includes('Can I get your name')) {
+      const existing = messagesEl.querySelector('.olp-lead-form');
+      if (existing) return;
+
+      const form = document.createElement('div');
+      form.className = 'olp-lead-form';
+      form.innerHTML =
+        '<input type="text" placeholder="Your name" data-field="name" />' +
+        '<input type="email" placeholder="Email address" data-field="email" />' +
+        '<input type="text" placeholder="Company" data-field="company" />' +
+        '<button type="button">Send to Engineering Team</button>';
+      messagesEl.appendChild(form);
+
+      form.querySelector('button').addEventListener('click', function() {
+        var name = form.querySelector('[data-field="name"]').value.trim();
+        var email = form.querySelector('[data-field="email"]').value.trim();
+        var company = form.querySelector('[data-field="company"]').value.trim();
+
+        if (!name || !email) {
+          alert('Please enter your name and email.');
+          return;
+        }
+
+        form.remove();
+        var msg = 'Name: ' + name + '\nEmail: ' + email + (company ? '\nCompany: ' + company : '');
+        sendMessage(msg);
+      });
+
+      scrollToBottom();
+    }
+  }
+
+  function autoGrow() {
+    inputEl.style.height = 'auto';
+    inputEl.style.height = Math.min(inputEl.scrollHeight, 100) + 'px';
+  }
+
+  async function sendMessage(text) {
+    if (!text.trim() || isStreaming) return;
+
+    if (isRateLimited()) {
+      limitEl.classList.remove('olp-hidden');
+      return;
+    }
+
+    if (!hasInteracted) {
+      hasInteracted = true;
+      chipsEl.classList.add('olp-hidden');
+    }
+
+    addMessage('user', text.trim());
+    conversationHistory.push({ role: 'user', content: text.trim() });
+    incrementMessageCount();
+
+    inputEl.value = '';
+    inputEl.style.height = 'auto';
+    isStreaming = true;
+
+    showTyping();
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: conversationHistory }),
+      });
+
+      hideTyping();
+
+      if (!res.ok) {
+        addMessage('assistant', 'I apologize, something went wrong. Please try again or call us at 800.784.2576.');
+        isStreaming = false;
+        return;
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let assistantText = '';
+      let msgDiv = null;
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        var lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line.startsWith('data: ')) continue;
+          var data = line.slice(6);
+          if (data === '[DONE]') continue;
+
+          try {
+            var parsed = JSON.parse(data);
+            if (parsed.type === 'content_block_delta' && parsed.delta && parsed.delta.text) {
+              assistantText += parsed.delta.text;
+              if (!msgDiv) {
+                msgDiv = addMessage('assistant', assistantText);
+              } else {
+                msgDiv.textContent = assistantText;
+              }
+              scrollToBottom();
+            }
+          } catch (e) {
+            // skip unparseable lines
+          }
+        }
+      }
+
+      if (assistantText) {
+        conversationHistory.push({ role: 'assistant', content: assistantText });
+        checkLeadCapture(assistantText);
+      }
+    } catch (err) {
+      hideTyping();
+      addMessage('assistant', 'Connection error. Please try again or call us at 800.784.2576.');
+    }
+
+    isStreaming = false;
+
+    if (isRateLimited()) {
+      limitEl.classList.remove('olp-hidden');
+    }
+  }
+
+  // Open / Close
+  btn.addEventListener('click', function() {
+    panel.classList.remove('olp-hidden');
+    btn.style.display = 'none';
+    if (messagesEl.children.length === 0) {
+      addMessage('assistant', 'Welcome to Online Power. I am an AI technical sales engineer with deep knowledge of our emergency power systems, UPS units, voltage regulators, and monitoring solutions. How can I help you today?');
+    }
+    inputEl.focus();
+  });
+
+  closeBtn.addEventListener('click', function() {
+    panel.classList.add('olp-hidden');
+    btn.style.display = 'flex';
+  });
+
+  // Send
+  sendBtn.addEventListener('click', function() {
+    sendMessage(inputEl.value);
+  });
+
+  inputEl.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage(inputEl.value);
+    }
+  });
+
+  inputEl.addEventListener('input', autoGrow);
+
+  // Chips
+  chipsEl.addEventListener('click', function(e) {
+    var chip = e.target.closest('.olp-chip');
+    if (chip) {
+      sendMessage(chip.getAttribute('data-msg'));
+    }
+  });
+})();
+</script>
