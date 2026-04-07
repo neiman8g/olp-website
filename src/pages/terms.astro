@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { company } from '../data/company';
+---
+
+<BaseLayout title="Terms & Conditions | Online Power" description="Online Power terms and conditions, warranty policy, payment terms, and legal information.">
+
+  <section class="py-20 md:py-28 border-b border-steel/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <nav class="font-mono text-xs uppercase tracking-widest text-ash mb-6">
+        <a href="/" class="hover:text-voltage transition-colors">Home</a>
+        <span class="mx-2 text-steel">/</span>
+        <span class="text-voltage">Terms & Conditions</span>
+      </nav>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-pure mb-4">Terms & Conditions</h1>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-slate">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-10">
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-pure mb-3">Acceptance</h2>
+        <p class="text-sm text-ash leading-relaxed">All orders are subject to acceptance by Online Power. Acceptance of any order is expressly conditioned upon the buyer's agreement to these terms. All orders are subject to credit approval.</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-pure mb-3">Prices</h2>
+        <p class="text-sm text-ash leading-relaxed">All prices are FOB origin unless otherwise stated. Quoted prices are valid for 60 days from the date of the quotation unless otherwise specified.</p>
+      </div>
+
+      <div id="warranty">
+        <h2 class="font-display text-xl font-bold text-pure mb-3">Warranty</h2>
+        <div class="text-sm text-ash leading-relaxed space-y-3">
+          <p>Online Power warrants its products to be free from defects in material and workmanship for a period of 24 months from the date of installation or 30 months from the date of shipment, whichever occurs first.</p>
+          <p>Warranty coverage for months 13-24 requires that a preventive maintenance service has been performed by Online Power or an authorized service provider.</p>
+          <p>Warranty does not cover filters, fuses, light bulbs, or damage caused by misuse, neglect, or unauthorized modification. All warranty returns require a valid RMA number and must be submitted within 90 days.</p>
+          <p>Freight for warranty returns is prepaid inbound, collect outbound.</p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-pure mb-3">Payment</h2>
+        <p class="text-sm text-ash leading-relaxed">Payment terms are Net 30 days after shipment. Storage charges of 3% per month apply to orders not shipped within the agreed timeframe due to buyer delay.</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-pure mb-3">Cancellation or Changes</h2>
+        <p class="text-sm text-ash leading-relaxed">Change orders and cancellations must be submitted in writing. Cancellation charges may apply based on the stage of production at the time of cancellation.</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-pure mb-3">Applicable Law</h2>
+        <p class="text-sm text-ash leading-relaxed">These terms and conditions are governed by the laws of the State of California. Any disputes shall be resolved in the courts of Los Angeles County, California.</p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-pure mb-3">Default</h2>
+        <p class="text-sm text-ash leading-relaxed">Late payments are subject to a finance charge of 1.5% per month (18% per annum). Buyer agrees to pay all costs of collection, including reasonable attorney fees.</p>
+      </div>
+
+      <div class="border-t border-steel/30 pt-8">
+        <p class="text-xs text-steel">Factory acceptance testing is included in all quotations unless otherwise noted. For questions about these terms, contact {company.email} or call {company.phone}.</p>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>

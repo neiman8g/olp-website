@@ -13,12 +13,20 @@ export const navigation = {
   ],
   support: [
     { name: 'Product Documents', href: '/support/documents' },
-    { name: 'Warranty Registration', href: '/support/warranty' },
+    { name: 'Service Request', href: 'https://customer.800pwrsrvc.com/customer_forms/service.php' },
+    { name: 'Request Turn On', href: 'https://customer.800pwrsrvc.com/customer_forms/turnon.php' },
+    { name: 'Preventive Maintenance', href: 'https://customer.800pwrsrvc.com/customer_forms/pm.php' },
+    { name: 'Parts & Training', href: 'https://customer.800pwrsrvc.com/customer_forms/partstrain.php?src=IN' },
+    { name: 'Warranty Registration', href: 'https://customer.800pwrsrvc.com/customer_forms/warranty.php' },
     { name: 'Contact Us', href: '/contact' },
   ],
   company: [
     { name: 'About Online Power', href: '/company' },
-    { name: 'Training', href: '/training' },
+    { name: 'ISO 9001 Certification', href: '/company#iso9001' },
+    { name: 'Safety Standards', href: '/company#safety-standards' },
+    { name: 'Laboratory Testing', href: '/company#lab-testing' },
+    { name: 'Careers', href: '/company#careers' },
+    { name: 'Terms & Conditions', href: '/terms' },
   ],
 };
 

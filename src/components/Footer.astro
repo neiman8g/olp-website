@@ -25,7 +25,7 @@ const year = new Date().getFullYear();
         <h3 class="font-mono text-xs uppercase tracking-widest text-voltage mb-5">Support</h3>
         <ul class="space-y-2.5">
           {navigation.support.map(item => (
-            <li><a href={item.href} class="text-sm text-ash hover:text-pure transition-colors">{item.name}</a></li>
+            <li><a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined} class="text-sm text-ash hover:text-pure transition-colors">{item.name}</a></li>
           ))}
           <li><a href="/training/" class="text-sm text-ash hover:text-pure transition-colors">Product Training</a></li>
         </ul>
@@ -35,9 +35,9 @@ const year = new Date().getFullYear();
       <div>
         <h3 class="font-mono text-xs uppercase tracking-widest text-voltage mb-5">Company</h3>
         <ul class="space-y-2.5">
-          <li><a href="/company/" class="text-sm text-ash hover:text-pure transition-colors">About Online Power</a></li>
-          <li><a href="/company/#certifications" class="text-sm text-ash hover:text-pure transition-colors">Certifications</a></li>
-          <li><a href="/company/#careers" class="text-sm text-ash hover:text-pure transition-colors">Careers</a></li>
+          {navigation.company.map(item => (
+            <li><a href={item.href} class="text-sm text-ash hover:text-pure transition-colors">{item.name}</a></li>
+          ))}
         </ul>
       </div>
 

@@ -44,13 +44,30 @@ import { company } from '../data/company';
           <div class="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
             <div class="bg-slate border border-steel/50 rounded-lg py-2 w-56 shadow-2xl shadow-black/50">
               {navigation.support.map(item => (
+                <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined} class="block px-4 py-2.5 text-sm text-ash hover:text-voltage hover:bg-pure-dim transition-colors font-medium">
+                  {item.name}
+                  {item.href.startsWith('http') && <svg class="w-3 h-3 inline ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Company Dropdown -->
+        <div class="relative group">
+          <button class="px-3 py-2 text-sm font-medium text-ash hover:text-pure transition-colors flex items-center gap-1">
+            Company
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-slate border border-steel/50 rounded-lg py-2 w-56 shadow-2xl shadow-black/50">
+              {navigation.company.map(item => (
                 <a href={item.href} class="block px-4 py-2.5 text-sm text-ash hover:text-voltage hover:bg-pure-dim transition-colors font-medium">{item.name}</a>
               ))}
             </div>
           </div>
         </div>
 
-        <a href="/company/" class="px-3 py-2 text-sm font-medium text-ash hover:text-pure transition-colors">Company</a>
         <a href="/training/" class="px-3 py-2 text-sm font-medium text-ash hover:text-pure transition-colors">Training</a>
       </nav>
 
@@ -96,12 +113,23 @@ import { company } from '../data/company';
         </button>
         <div class="hidden mt-1 space-y-0.5 mobile-accordion-content">
           {navigation.support.map(item => (
-            <a href={item.href} class="block py-2.5 pl-4 text-sm text-ash hover:text-voltage transition-colors">{item.name}</a>
+            <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} class="block py-2.5 pl-4 text-sm text-ash hover:text-voltage transition-colors">{item.name}</a>
           ))}
         </div>
       </div>
 
-      <a href="/company/" class="block py-3 font-medium text-pure hover:text-voltage border-b border-steel/30">Company</a>
+      <!-- Company Accordion (Mobile) -->
+      <div class="border-b border-steel/30 pb-3">
+        <button class="flex justify-between items-center w-full py-3 text-left font-medium text-pure mobile-accordion-btn">
+          Company
+          <svg class="w-5 h-5 text-ash transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="hidden mt-1 space-y-0.5 mobile-accordion-content">
+          {navigation.company.map(item => (
+            <a href={item.href} class="block py-2.5 pl-4 text-sm text-ash hover:text-voltage transition-colors">{item.name}</a>
+          ))}
+        </div>
+      </div>
       <a href="/training/" class="block py-3 font-medium text-voltage border-b border-steel/30">Training</a>
       <a href="/contact/" class="block py-3 font-medium text-ash hover:text-voltage">Request a Quote</a>
 
