@@ -299,21 +299,112 @@ import { company, testimonials } from '../data/company';
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </a>
         </div>
-        <!-- Circuit schematic card -->
-        <div class="card-glow bg-slate rounded-2xl p-8 md:p-12 flex items-center justify-center min-h-[300px]">
-          <svg class="w-full max-w-sm text-voltage opacity-30" viewBox="0 0 400 200" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="20" y1="100" x2="80" y2="100"/>
-            <rect x="80" y="80" width="40" height="40" rx="4"/>
-            <line x1="120" y1="100" x2="160" y2="100"/>
-            <circle cx="180" cy="100" r="20"/>
-            <line x1="200" y1="100" x2="240" y2="100"/>
-            <path d="M240 80 L260 120 L280 80 L300 120 L320 80"/>
-            <line x1="320" y1="100" x2="380" y2="100"/>
-            <line x1="100" y1="80" x2="100" y2="40"/>
-            <line x1="100" y1="40" x2="300" y2="40"/>
-            <line x1="300" y1="40" x2="300" y2="80"/>
-            <circle cx="180" cy="100" r="3" fill="currentColor"/>
-            <text x="90" y="105" font-size="12" fill="currentColor" font-family="Space Mono">AC</text>
+        <!-- Circuit board trace illustration -->
+        <div class="card-glow bg-bg-elevated rounded-2xl p-6 md:p-8 flex items-center justify-center min-h-[300px]">
+          <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+            <style>
+              @keyframes tracePulse {
+                0% { cx: 30; cy: 140; opacity: 0; }
+                5% { opacity: 1; }
+                25% { cx: 120; cy: 140; }
+                30% { cx: 120; cy: 60; }
+                50% { cx: 200; cy: 60; }
+                55% { cx: 200; cy: 140; }
+                75% { cx: 310; cy: 140; }
+                80% { cx: 310; cy: 60; }
+                95% { cx: 370; cy: 60; opacity: 1; }
+                100% { cx: 370; cy: 60; opacity: 0; }
+              }
+              #trace-dot { animation: tracePulse 3s ease-in-out infinite; }
+            </style>
+
+            <!-- Main horizontal bus -->
+            <line x1="30" y1="140" x2="370" y2="140" stroke="#1C2B3A" stroke-width="1"/>
+            <!-- Top horizontal bus -->
+            <line x1="120" y1="60" x2="370" y2="60" stroke="#1C2B3A" stroke-width="1"/>
+            <!-- Bottom horizontal bus -->
+            <line x1="80" y1="220" x2="320" y2="220" stroke="#1C2B3A" stroke-width="1"/>
+
+            <!-- Vertical connections -->
+            <line x1="120" y1="60" x2="120" y2="220" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="200" y1="60" x2="200" y2="220" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="310" y1="60" x2="310" y2="220" stroke="#1C2B3A" stroke-width="1"/>
+
+            <!-- Stub traces -->
+            <line x1="30" y1="140" x2="30" y2="100" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="370" y1="60" x2="370" y2="100" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="80" y1="220" x2="80" y2="180" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="320" y1="220" x2="320" y2="180" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="160" y1="60" x2="160" y2="30" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="260" y1="60" x2="260" y2="30" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="160" y1="220" x2="160" y2="250" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="260" y1="220" x2="260" y2="250" stroke="#1C2B3A" stroke-width="1"/>
+
+            <!-- IC Chip 1 (main) -->
+            <rect x="148" y="108" width="104" height="64" rx="3" fill="#0D1117" stroke="#00E5FF" stroke-width="1"/>
+            <!-- IC pins left -->
+            <line x1="148" y1="122" x2="138" y2="122" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="148" y1="140" x2="138" y2="140" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="148" y1="158" x2="138" y2="158" stroke="#1C2B3A" stroke-width="1"/>
+            <!-- IC pins right -->
+            <line x1="252" y1="122" x2="262" y2="122" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="252" y1="140" x2="262" y2="140" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="252" y1="158" x2="262" y2="158" stroke="#1C2B3A" stroke-width="1"/>
+            <!-- IC label -->
+            <text x="200" y="137" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="700" fill="#F8FAFC">ONLINE</text>
+            <text x="200" y="152" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="700" fill="#F8FAFC">POWER</text>
+            <!-- Pin 1 dot -->
+            <circle cx="155" cy="115" r="1.5" fill="#00E5FF" opacity="0.5"/>
+
+            <!-- IC Chip 2 (small, top right) -->
+            <rect x="330" y="85" width="40" height="30" rx="2" fill="#0D1117" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="330" y1="95" x2="322" y2="95" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="330" y1="105" x2="322" y2="105" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="370" y1="100" x2="370" y2="85" stroke="#1C2B3A" stroke-width="1"/>
+
+            <!-- Resistor 1 (zigzag on top bus) -->
+            <path d="M55 140 L60 132 L68 148 L76 132 L84 148 L92 132 L97 140" stroke="#00E5FF" stroke-width="1" opacity="0.5"/>
+
+            <!-- Resistor 2 (bottom) -->
+            <path d="M230 220 L235 212 L243 228 L251 212 L259 228 L267 212 L272 220" stroke="#1C2B3A" stroke-width="1"/>
+
+            <!-- Capacitor 1 -->
+            <line x1="116" y1="52" x2="116" y2="68" stroke="#00E5FF" stroke-width="1" opacity="0.5"/>
+            <line x1="124" y1="52" x2="124" y2="68" stroke="#00E5FF" stroke-width="1" opacity="0.5"/>
+
+            <!-- Capacitor 2 -->
+            <line x1="306" y1="132" x2="306" y2="148" stroke="#1C2B3A" stroke-width="1"/>
+            <line x1="314" y1="132" x2="314" y2="148" stroke="#1C2B3A" stroke-width="1"/>
+
+            <!-- Diode (triangle + line) -->
+            <polygon points="80,176 80,184 88,180" stroke="#1C2B3A" stroke-width="1" fill="none"/>
+            <line x1="88" y1="176" x2="88" y2="184" stroke="#1C2B3A" stroke-width="1"/>
+
+            <!-- Junction dots (solder points) -->
+            <circle cx="120" cy="140" r="2.5" fill="#00E5FF" opacity="0.3"/>
+            <circle cx="200" cy="140" r="2.5" fill="#00E5FF" opacity="0.3"/>
+            <circle cx="310" cy="140" r="2.5" fill="#00E5FF" opacity="0.3"/>
+            <circle cx="120" cy="60" r="2.5" fill="#00E5FF" opacity="0.3"/>
+            <circle cx="200" cy="60" r="2.5" fill="#00E5FF" opacity="0.3"/>
+            <circle cx="310" cy="60" r="2.5" fill="#00E5FF" opacity="0.3"/>
+            <circle cx="120" cy="220" r="2" fill="#1C2B3A"/>
+            <circle cx="200" cy="220" r="2" fill="#1C2B3A"/>
+            <circle cx="310" cy="220" r="2" fill="#1C2B3A"/>
+
+            <!-- Via holes -->
+            <circle cx="160" cy="30" r="3" stroke="#1C2B3A" stroke-width="1" fill="none"/>
+            <circle cx="160" cy="30" r="1" fill="#1C2B3A"/>
+            <circle cx="260" cy="30" r="3" stroke="#1C2B3A" stroke-width="1" fill="none"/>
+            <circle cx="260" cy="30" r="1" fill="#1C2B3A"/>
+            <circle cx="160" cy="250" r="3" stroke="#1C2B3A" stroke-width="1" fill="none"/>
+            <circle cx="160" cy="250" r="1" fill="#1C2B3A"/>
+            <circle cx="260" cy="250" r="3" stroke="#1C2B3A" stroke-width="1" fill="none"/>
+            <circle cx="260" cy="250" r="1" fill="#1C2B3A"/>
+
+            <!-- Traveling pulse dot -->
+            <circle id="trace-dot" r="3" fill="#00E5FF" opacity="0">
+              <animate attributeName="opacity" values="0;1;1;1;0" dur="3s" repeatCount="indefinite"/>
+            </circle>
           </svg>
         </div>
       </div>
