@@ -90,14 +90,29 @@ const applications = [
           <p class="font-mono text-xs text-ash">// Responds within 2 business hours</p>
         </div>
 
-        <!-- Right: Product Image + Trust -->
-        <div class="lg:col-span-2">
-          <div class="card-glow bg-slate rounded-2xl p-8 flex items-center justify-center min-h-[280px] mb-4">
-            <svg class="w-32 h-32 text-voltage/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+        <!-- Right: Video + Product Image -->
+        <div class="lg:col-span-2 space-y-4">
+          <!-- Elevator Video -->
+          <div class="card-glow bg-slate rounded-2xl overflow-hidden">
+            <video
+              class="w-full aspect-video object-cover"
+              poster="/images/products/elevate.png"
+              controls
+              preload="metadata"
+              playsinline
+            >
+              <source src="/video/OLP-Elevate.mp4" type="video/mp4" />
+            </video>
           </div>
-          <div class="flex items-center justify-center gap-4">
+          <p class="font-mono text-[10px] uppercase tracking-widest text-ash text-center">// Power Wave Elevate — Elevator Emergency Backup Demo</p>
+
+          <!-- Product Image -->
+          <div class="bg-bg-elevated border border-voltage/20 rounded-xl p-4 flex items-center justify-center">
+            <img src="/images/products/elevate.png" alt="Power Wave Elevate by Online Power" class="h-[200px] w-auto object-contain" loading="lazy" />
+          </div>
+          <div class="flex items-center justify-center gap-3">
             {['ISO 9001', 'UL Listed', 'NFPA'].map(badge => (
-              <span class="px-3 py-1.5 bg-slate border border-steel/30 rounded text-xs font-mono text-ash">{badge}</span>
+              <span class="px-2.5 py-1 bg-slate border border-steel/30 rounded text-[10px] font-mono text-ash">{badge}</span>
             ))}
           </div>
         </div>

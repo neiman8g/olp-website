@@ -22,10 +22,10 @@ export const products: Product[] = [
     features: ['True Online Double Conversion', 'Zero Transfer Time', 'Pure Sine Wave PWM', 'TVSS Surge Suppression (Class C)', 'Input Power Factor Correction', 'Microprocessor LCD Display', 'Self-Test & Battery Exerciser', 'Multiple Output Voltages'],
     standards: ['UL 924', 'UL 1778', 'NFPA 101', 'NFPA 70', 'NEC'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/powerwave1_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/powerwave1_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/powerwave1_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/powerwave1_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/powerwave1_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/powerwave1_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/powerwave1_TD.pdf' },
+      { label: 'Manual', url: '/pdf/powerwave1_TM.pdf' },
     ],
   },
   {
@@ -38,9 +38,9 @@ export const products: Product[] = [
     features: ['Three Phase Output', 'Internal Maintenance Bypass', 'TVSS Surge Suppression (Class C)', 'Main Input & Output Breakers (UL1489)', 'Microprocessor LCD Display', 'Self-Test & Battery Exerciser'],
     standards: ['UL 924', 'UL 1778', 'UL 1489', 'NFPA 101'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/powerwave3_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/powerwave3_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/powerwave3_TD.pdf' },
+      { label: 'Data Sheet', url: '/pdf/powerwave3_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/powerwave3_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/powerwave3_TD.pdf' },
     ],
   },
   {
@@ -53,9 +53,9 @@ export const products: Product[] = [
     features: ['Field-Selectable UPS/Green Mode', 'Independent Phase Control', 'GMS Remote Monitoring', 'Internal Maintenance Bypass', 'TVSS Surge Suppression', 'Self-Test & Battery Exerciser'],
     standards: ['UL 924', 'UL 1778', 'NFPA 101', 'NFPA 70'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/powerwave4_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/powerwave4_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/powerwave4_TD.pdf' },
+      { label: 'Data Sheet', url: '/pdf/powerwave4_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/powerwave4_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/powerwave4_TD.pdf' },
     ],
   },
   {
@@ -68,10 +68,10 @@ export const products: Product[] = [
     features: ['All-in-One Enclosure', 'Pure Sine Wave Output', '90-120 Minute Backup', 'Compact Form Factor', 'Microprocessor Controlled', 'Self-Test & Battery Exerciser'],
     standards: ['UL 924', 'UL 1778'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/minipowerwave_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/minipowerwave_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/minipowerwave_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/minipowerwave_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/minipowerwave_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/minipowerwave_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/minipowerwave_TD.pdf' },
+      { label: 'Manual', url: '/pdf/minipowerwave_TM.pdf' },
     ],
   },
   {
@@ -84,10 +84,10 @@ export const products: Product[] = [
     features: ['Ultra-Compact Enclosure', 'Pure Sine Wave Output', '90-Minute Minimum Backup', 'ETL Listed to UL924', 'Single Enclosure Design'],
     standards: ['UL 924'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/micropowerwave_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/micropowerwave_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/micropowerwave_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/micropowerwave_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/micropowerwave_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/micropowerwave_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/micropowerwave_TD.pdf' },
+      { label: 'Manual', url: '/pdf/micropowerwave_TM.pdf' },
     ],
   },
   {
@@ -100,10 +100,10 @@ export const products: Product[] = [
     features: ['Lithium Ion Battery', 'LED & Fluorescent Compatible', 'Dimming Capability', '90-Min or 2-Hour Runtime', 'Remote Mounting', 'Life Safety Code Compliant'],
     standards: ['UL 924'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/nanowave_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/nanowave_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/nanowave_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/nanowave_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/nanowave_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/nanowave_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/nanowave_TD.pdf' },
+      { label: 'Manual', url: '/pdf/nanowave_TM.pdf' },
     ],
   },
   {
@@ -116,10 +116,10 @@ export const products: Product[] = [
     features: ['NEMA 3R Steel Enclosure', 'Conformal Coated Electronics', 'Filtered Ventilation', 'Industrial Grade Construction', 'Pure Sine Wave Output', 'Zero Transfer Time'],
     standards: ['UL 924', 'UL 1778', 'NEMA 3R'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/heu_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/heu_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/heu_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/heu_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/heu_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/heu_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/heu_TD.pdf' },
+      { label: 'Manual', url: '/pdf/heu_TM.pdf' },
     ],
   },
   // === SEISMIC CERTIFIED ===
@@ -133,10 +133,10 @@ export const products: Product[] = [
     features: ['Shaker Table Tested', 'OSHPD/HCAI Certified', 'Zero Transfer Time', 'Pure Sine Wave PWM', 'TVSS Surge Suppression', 'Self-Test & Battery Exerciser'],
     standards: ['UL 924', 'UL 1778', 'OSHPD', 'HCAI', 'NFPA 101'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/svpowerwave1_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/svpowerwave1_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/svpowerwave1_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/powerwave1_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/svpowerwave1_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/svpowerwave1_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/svpowerwave1_TD.pdf' },
+      { label: 'Manual', url: '/pdf/powerwave1_TM.pdf' },
     ],
   },
   {
@@ -149,9 +149,9 @@ export const products: Product[] = [
     features: ['Shaker Table Tested', 'OSHPD/HCAI Certified', 'Three Phase Output', 'Internal Maintenance Bypass', 'Zero Transfer Time'],
     standards: ['UL 924', 'UL 1778', 'OSHPD', 'HCAI'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/svpowerwave3_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/svpowerwave3_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/svpowerwave3_TD.pdf' },
+      { label: 'Data Sheet', url: '/pdf/svpowerwave3_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/svpowerwave3_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/svpowerwave3_TD.pdf' },
     ],
   },
   {
@@ -164,10 +164,10 @@ export const products: Product[] = [
     features: ['Shaker Table Tested', 'OSHPD/HCAI Certified', 'Independent Phase Control', 'GMS Remote Monitoring', 'Internal Maintenance Bypass'],
     standards: ['UL 924', 'UL 1778', 'OSHPD', 'HCAI'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/svpowerwave4_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/svpowerwave4_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/svpowerwave4_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/svpowerwave4_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/svpowerwave4_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/svpowerwave4_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/svpowerwave4_TD.pdf' },
+      { label: 'Manual', url: '/pdf/svpowerwave4_TM.pdf' },
     ],
   },
   // === ELEVATOR BACKUP ===
@@ -181,10 +181,10 @@ export const products: Product[] = [
     features: ['Elevator-Specific Design', 'Three Phase Output', 'UL924 & UL1778 Listed', 'Safe Evacuation Power', 'Building Code Compliant'],
     standards: ['UL 924', 'UL 1778'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/PW-Elevate_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/PW-Elevate_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/PW-Elevate_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/PW-Elevate_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/PW-Elevate_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/PW-Elevate_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/PW-Elevate_TD.pdf' },
+      { label: 'Manual', url: '/pdf/PW-Elevate_TM.pdf' },
     ],
   },
   // === FIRE ALARM BACKUP ===
@@ -198,10 +198,10 @@ export const products: Product[] = [
     features: ['UL1481 Listed', 'Fire Alarm NAC Backup', 'Life Safety Compliant', 'Continuous Power During Outages', 'Self-Testing'],
     standards: ['UL 1481', 'NFPA 72'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/fab_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/fab_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/fab_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/fab_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/fab_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/fab_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/fab_TD.pdf' },
+      { label: 'Manual', url: '/pdf/fab_TM.pdf' },
     ],
   },
   // === UPS BACKUP ===
@@ -215,8 +215,8 @@ export const products: Product[] = [
     features: ['High Frequency Technology', 'Built-in Load Distribution', '90% Efficiency', 'PWM Sinusoidal Output', 'Generator Compatible', 'Modular Assembly', 'LCD Self-Diagnostics'],
     standards: ['UL 1778', 'UL 924', 'UL 924A'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/hostpower_DS.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/hostpower_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/hostpower_DS.pdf' },
+      { label: 'Manual', url: '/pdf/hostpower_TM.pdf' },
     ],
   },
   {
@@ -263,8 +263,8 @@ export const products: Product[] = [
     features: ['UL60601-1 Listed', '1% Voltage Stabilization', 'Independent Phase Control', 'Seamless Redundant Paths', 'Service Without Shutdown', '12-Pulse Harmonic Reduction', 'Front Service Clearance Only'],
     standards: ['UL 60601-1'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/medpower_DS.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/medpower_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/medpower_DS.pdf' },
+      { label: 'Manual', url: '/pdf/medpower_TM.pdf' },
     ],
   },
   {
@@ -277,9 +277,9 @@ export const products: Product[] = [
     features: ['±1.5% Voltage Regulation', 'Input Filter (-40 dB)', 'Output Filter (-60 dB/decade)', 'Controlled Impedance', 'Secondary Surge Suppression'],
     standards: ['UL 1950', 'NFPA', 'NEC'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/phasestab_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/phasestab_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/phasestab_TD.pdf' },
+      { label: 'Data Sheet', url: '/pdf/phasestab_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/phasestab_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/phasestab_TD.pdf' },
     ],
   },
   // === VOLTAGE REGULATORS ===
@@ -304,10 +304,10 @@ export const products: Product[] = [
     features: ['±3% Output Regulation', '>97% Efficiency', 'Zero Crossing Tap Switching', 'Common-Mode Noise Attenuation (-152 dB)', 'Low Distortion', 'Single Point Grounding'],
     standards: ['UL 1950', 'NFPA', 'NEMA'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/powerreg_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/powerreg_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/powerreg_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/powerreg_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/powerreg_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/powerreg_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/powerreg_TD.pdf' },
+      { label: 'Manual', url: '/pdf/powerreg_TM.pdf' },
     ],
   },
   {
@@ -320,10 +320,10 @@ export const products: Product[] = [
     features: ['Dual-Shielded Transformer', 'Input +10%/-26% Tolerance', 'Output ±3% Regulation', 'Input/Output Filter (-60 dB)', 'Distribution Receptacles', 'Compact Footprint'],
     standards: ['UL 1950', 'NFPA', 'NEMA'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/cp6_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/cp6_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/cp6_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/cp_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/cp6_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/cp6_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/cp6_TD.pdf' },
+      { label: 'Manual', url: '/pdf/cp_TM.pdf' },
     ],
   },
   {
@@ -336,9 +336,9 @@ export const products: Product[] = [
     features: ['Low-Profile Cabinet', 'SCR Regulation', 'Main Breaker with Shunt Trip', 'Dual-Shielded Transformer', 'Input Filter (-40 dB)', 'Bypass Switch'],
     standards: ['UL 1950', 'NFPA', 'NEMA'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/cp18_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/cp18_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/cp18_TD.pdf' },
+      { label: 'Data Sheet', url: '/pdf/cp18_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/cp18_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/cp18_TD.pdf' },
     ],
   },
   // === ISOLATION TRANSFORMERS ===
@@ -352,10 +352,10 @@ export const products: Product[] = [
     features: ['Common-Mode Noise Attenuation (-152 dB)', '3-5% Low Impedance', 'Adjustable Input Taps', 'NEMA 12 Certified', 'Indoor & Outdoor Rated', 'Temperature Sensor'],
     standards: ['UL 506', 'NFPA', 'NEMA'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/isocare_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/isocare_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/isocare_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/isocare_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/isocare_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/isocare_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/isocare_TD.pdf' },
+      { label: 'Manual', url: '/pdf/isocare_TM.pdf' },
     ],
   },
   // === POWER DISTRIBUTION ===
@@ -380,8 +380,8 @@ export const products: Product[] = [
     features: ['Modular Design', 'Neutral & Ground Bus', 'Tiered Conduit Landing', 'Single or Three Phase', 'Square D Compatible', 'Easy Access'],
     standards: ['UL Listed'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/powerisland_DS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/powerisland_TD.pdf' },
+      { label: 'Data Sheet', url: '/pdf/powerisland_DS.pdf' },
+      { label: 'Drawings', url: '/pdf/powerisland_TD.pdf' },
     ],
   },
   {
@@ -394,9 +394,9 @@ export const products: Product[] = [
     features: ['Built-in Regulation', '>96% Efficiency', 'Remote Distribution', 'System Monitoring Panel', 'Designed for Harmonic Loads', 'Swivel Caster & Leveling'],
     standards: ['UL 50', 'UL 67', 'UL 489', 'NFPA', 'NEMA'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/powerpac_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/powerpac_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/powerpac_TD.pdf' },
+      { label: 'Data Sheet', url: '/pdf/powerpac_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/powerpac_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/powerpac_TD.pdf' },
     ],
   },
   {
@@ -409,9 +409,9 @@ export const products: Product[] = [
     features: ['High Isolation', '>96% Efficiency', 'Harmonic Load Support', 'Overload Protection', 'Remote Distribution', 'System Monitoring'],
     standards: ['UL 50', 'UL 67', 'UL 489', 'NFPA', 'NEMA'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/powerpal_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/powerpal_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/powerpal_TD.pdf' },
+      { label: 'Data Sheet', url: '/pdf/powerpal_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/powerpal_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/powerpal_TD.pdf' },
     ],
   },
   // === MONITORING ===
@@ -425,7 +425,7 @@ export const products: Product[] = [
     features: ['24/7 Monitoring', 'Real-Time Notifications', 'Remote Access', 'Proactive Maintenance Alerts', 'System Performance Tracking'],
     standards: [],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/gms_DS.pdf' },
+      { label: 'Data Sheet', url: '/pdf/gms_DS.pdf' },
     ],
   },
   {
@@ -438,7 +438,7 @@ export const products: Product[] = [
     features: ['Ohmic Value Testing', 'Wireless or Wired', 'Touch Screen Display', 'Battery Voltage Monitoring', 'String Current Monitoring', 'Temperature Sensing', 'Impedance Measurement'],
     standards: [],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/bms_DS.pdf' },
+      { label: 'Data Sheet', url: '/pdf/bms_DS.pdf' },
     ],
   },
   // === LOAD CONTROL ===
@@ -452,9 +452,9 @@ export const products: Product[] = [
     features: ['UL924 Listed', '0-10V Dimmer Override', 'IP65 Rated Connections', 'Quick-Connect Test Switch', 'Aluminum Case', '5-Year Warranty'],
     standards: ['UL 924', 'UL 1778', 'NFPA 101'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/LCR20_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/LCR20_TS.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/LCR20_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/LCR20_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/LCR20_TS.pdf' },
+      { label: 'Manual', url: '/pdf/LCR20_TM.pdf' },
     ],
   },
   // === FREQUENCY CONVERTER ===
@@ -468,10 +468,10 @@ export const products: Product[] = [
     features: ['True Galvanic Isolation', '±0.1Hz Accuracy', 'Redundant Power Supply', 'Harsh Environment Construction', 'Modular Plug-and-Play', 'Intelligent Fan Control', 'DSP & IGBT Technology'],
     standards: ['UL 924', 'UL 1778', 'NFPA 101'],
     docs: [
-      { label: 'Data Sheet', url: 'https://www.onlinepower.com/pdf/fc_DS.pdf' },
-      { label: 'Tech Specs', url: 'https://www.onlinepower.com/pdf/fc_TS.pdf' },
-      { label: 'Drawings', url: 'https://www.onlinepower.com/pdf/fc_TD.pdf' },
-      { label: 'Manual', url: 'https://www.onlinepower.com/pdf/fc_TM.pdf' },
+      { label: 'Data Sheet', url: '/pdf/fc_DS.pdf' },
+      { label: 'Tech Specs', url: '/pdf/fc_TS.pdf' },
+      { label: 'Drawings', url: '/pdf/fc_TD.pdf' },
+      { label: 'Manual', url: '/pdf/fc_TM.pdf' },
     ],
   },
   // === CUSTOM OEM ===
