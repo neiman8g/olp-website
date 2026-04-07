@@ -23,16 +23,16 @@
       .font-display { font-family: 'Space Grotesk', sans-serif; }
       .font-mono    { font-family: 'Space Mono', monospace; }
 
-      /* ── ECG heartbeat scroll ── */
+      /* ── ECG heartbeat scroll (left to right) ── */
       @keyframes ecgScroll {
-        0%   { transform: translateX(0); }
-        100% { transform: translateX(-160px); }
+        0%   { transform: translateX(-160px); }
+        100% { transform: translateX(0); }
       }
 
-      /* ── Clean sine wave scroll (power flow) ── */
+      /* ── Clean sine wave scroll (left to right, power flow) ── */
       @keyframes sineScroll {
-        0%   { transform: translateX(0); }
-        100% { transform: translateX(-80px); }
+        0%   { transform: translateX(-80px); }
+        100% { transform: translateX(0); }
       }
 
       /* ── LED pulse (green) ── */
