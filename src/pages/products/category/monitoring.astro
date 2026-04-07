@@ -8,17 +8,15 @@ const category = getCategoryBySlug('monitoring')!;
 const categoryProducts = getProductsByCategory('monitoring');
 
 const specs = [
-  ['Monitoring', '24/7 real-time system oversight'],
-  ['Access', 'Remote web-based interface'],
-  ['Display', 'Touch screen (BAS)'],
-  ['Connection', 'Wired and wireless options'],
-  ['Notifications', 'Real-time email/SMS alerts'],
-  ['Battery Monitoring', 'Voltage, impedance, temperature'],
-  ['String Current', 'Continuous monitoring'],
-  ['Ohmic Testing', 'Scheduled impedance testing'],
-  ['Data Logging', 'Historical trend analysis'],
-  ['Compatibility', 'All Online Power systems'],
-  ['Protocol', 'SNMP, Modbus, BACnet'],
+  ['Communication Protocols', 'BACnet/IP, Modbus RTU/TCP, SNMP v3'],
+  ['Battery Monitoring', 'Continuous impedance trending, State of Health scoring'],
+  ['Prediction Window', '9 weeks advance failure warning'],
+  ['Compliance Logging', 'Automated NFPA 110 test records'],
+  ['Alert Types', 'Low voltage, high impedance, charger failure, ground fault, temperature'],
+  ['BMS Integration', 'Compatible with all major platforms'],
+  ['Data Retention', 'Full event history with timestamps'],
+  ['Access', 'Web browser, mobile, API'],
+  ['Certifications', 'Compatible with UL Listed equipment'],
   ['Warranty', '2 years parts and labor'],
 ];
 
@@ -58,15 +56,15 @@ const applications = [
 
           <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-5">Monitoring & Software</h1>
           <p class="text-lg text-ash leading-relaxed mb-8">
-            Global Monitoring System and Battery Advisor System for comprehensive power system oversight. Real-time alerts and battery health tracking.
+            Your emergency power system is only as reliable as your last test and NFPA 110 demands documented proof. Online Power's Global Monitoring System transforms compliance from a manual burden into automated documentation, providing real-time visibility into voltage, current, battery health, alarms, and runtime across every unit in your fleet via BACnet, Modbus, and SNMP. The Battery Advisor System goes further, using continuous impedance trending to detect battery degradation 9 weeks before voltage changes become visible. This replaces calendar based replacement with data-driven decisions that eliminate both premature replacement waste and the catastrophic risk of undetected failure. Every test logged. Every alarm documented. Every AHJ audit answered before it is asked.
           </p>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             {[
-              { label: 'Monitoring', value: '24/7' },
-              { label: 'Access', value: 'Remote' },
-              { label: 'Display', value: 'Touch Screen' },
-              { label: 'Connection', value: 'Wired/Wireless' },
+              { label: 'Protocols', value: 'BACnet \u00B7 Modbus \u00B7 SNMP' },
+              { label: 'Prediction', value: '9 Weeks Warning' },
+              { label: 'Compliance', value: 'Auto NFPA 110' },
+              { label: 'Integration', value: 'All BMS Platforms' },
             ].map(s => (
               <div class="bg-slate border border-steel/30 rounded-lg p-3 text-center">
                 <p class="font-mono text-[10px] uppercase tracking-widest text-ash mb-1">{s.label}</p>
@@ -76,7 +74,7 @@ const applications = [
           </div>
 
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Request a Quote</a>
+            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Schedule a GMS Demo and See Your System Health Data in 15 Minutes</a>
             <button class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center justify-center gap-2 doc-download-btn" data-url="/pdf/gms_DS.pdf" data-name="GMS - Spec Sheet" data-product="Monitoring & Software">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path></svg>
               Download Spec Sheet
@@ -158,28 +156,52 @@ const applications = [
 
       <!-- OVERVIEW TAB -->
       <div class="tab-content" data-tab="overview">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Global Monitoring System</h3>
-            <p class="text-sm text-ash">24/7 remote monitoring and notification for all power protection equipment. Real-time visibility into system performance from anywhere.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">NFPA 110 compliance on autopilot</h3>
+            <p class="text-sm text-ash">NFPA 110 requires weekly inspections, monthly load testing, and 36 month full duration tests for Level 1 systems, all with documented records available for AHJ review. GMS automates the recording, timestamps every event, and generates audit-ready reports. Your compliance records are complete before the inspector arrives.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Battery Advisor System</h3>
-            <p class="text-sm text-ash">Comprehensive battery health tracking with voltage, impedance, temperature, and string current monitoring. Wired or wireless deployment.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Impedance trending catches what voltage monitoring misses</h3>
+            <p class="text-sm text-ash">Research demonstrates that VRLA battery impedance rises critically 9 weeks before voltage changes become detectable. A battery can show normal float voltage while having virtually zero stored energy. BAS tracks impedance trends for every cell, flags outliers against the string average, and calculates State of Health scores that predict replacement needs weeks in advance with demonstrated 98 percent accuracy in data center validation studies.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Proactive Alerts</h3>
-            <p class="text-sm text-ash">Real-time email and SMS notifications for system events, battery degradation, and maintenance scheduling. Prevent failures before they happen.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">One platform for every protocol your BMS speaks</h3>
+            <p class="text-sm text-ash">BACnet for building automation, Modbus for industrial equipment, SNMP for IT infrastructure. GMS communicates natively in all three without protocol converters, gateway boxes, or middleware. Connect once and see everything: power quality, battery health, transfer switch status, runtime remaining, and alarm history in a single dashboard.</p>
           </div>
+        </div>
+
+        <!-- Technical Callout -->
+        <div class="bg-bg-elevated border-l-2 border-voltage p-6 mb-10" style="border-radius: 0 12px 12px 0;">
+          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-3">// What your spec sheet won't tell you</p>
+          <p class="text-sm text-ash leading-relaxed">For every 18 degrees Fahrenheit above the 77 degree reference temperature, VRLA battery service life decreases by 50 percent. A battery room running at 95 degrees Fahrenheit is cutting your battery life in half. BAS logs cumulative temperature exposure to calculate accelerated aging, giving you actual remaining life estimates based on real conditions rather than the manufacturer's 25 degree Celsius laboratory rating. IEEE 1188 recommends replacing VRLA batteries when impedance rises 30 percent above baseline but without continuous impedance trending you will not know when that threshold is crossed. Annual ohmic testing gives you one data point per year. BAS gives you a continuous trend line. The difference between those approaches is the difference between prediction and surprise. For monitoring integration, insist on SNMP v3 rather than v1 or v2. Version 1 and version 2 transmit community strings in plaintext, creating a network vulnerability in your critical infrastructure.</p>
+        </div>
+
+        <!-- Codes & Standards -->
+        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Codes &amp; Standards</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-16">
+          {[
+            { code: 'NFPA 110', desc: 'Emergency and Standby Power Systems' },
+            { code: 'NFPA 111', desc: 'Stored Electrical Energy Systems' },
+            { code: 'IEEE 1188', desc: 'VRLA Battery Maintenance and Testing' },
+            { code: 'IEEE 450', desc: 'Lead Acid Battery Recommended Practice' },
+            { code: 'ASHRAE', desc: 'Data Center Environmental Standards' },
+            { code: 'Joint Commission', desc: 'Healthcare Facility Compliance' },
+          ].map(item => (
+            <div class="bg-obsidian border border-steel/30 rounded-lg p-4">
+              <p class="font-display font-bold text-voltage text-sm">{item.code}</p>
+              <p class="text-xs text-ash mt-0.5">{item.desc}</p>
+            </div>
+          ))}
         </div>
 
         <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Where It Gets Specified</p>
@@ -252,10 +274,11 @@ const applications = [
             <svg class="w-5 h-5 text-voltage" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
           ))}
         </div>
-        <p class="text-pure text-lg leading-relaxed mb-6 italic">"The GMS monitoring system gives us complete visibility into our power infrastructure across multiple sites. The proactive alerts have saved us from several potential failures."</p>
+        <p class="text-pure text-lg leading-relaxed mb-6 italic">"I just want to share that the customer service and technical support team did a great job supporting all my projects. Working with this team makes me feel like having a designer right here with me which makes my work so simple. Keep up the good work."</p>
         <div class="border-t border-steel/30 pt-4">
-          <p class="font-display font-semibold text-pure">Lisa Chang</p>
-          <p class="text-sm text-ash">Facilities Operations Director</p>
+          <p class="font-display font-semibold text-pure">Dennis Sese</p>
+          <p class="text-sm text-ash">Principal, Electrical Engineer</p>
+          <p class="text-sm text-ash">DS&amp;A Consulting Engineers Inc.</p>
         </div>
       </div>
     </div>
@@ -266,7 +289,7 @@ const applications = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h2 class="font-display text-3xl font-bold text-obsidian mb-4">Ready to Spec This Product?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Request a Quote</a>
+        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Schedule a GMS Demo and See Your System Health Data in 15 Minutes</a>
         <a href="/training" class="px-8 py-3.5 border-2 border-obsidian/30 text-obsidian font-semibold rounded-lg hover:bg-obsidian/10 transition-colors text-sm">Register for Training</a>
       </div>
     </div>
