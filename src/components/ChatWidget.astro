@@ -215,22 +215,36 @@
     border-radius: 2px;
   }
 
-  .olp-msg {
+  .olp-msg-wrap {
+    display: flex;
+    flex-direction: column;
     max-width: 88%;
+    gap: 2px;
+  }
+  .olp-msg-wrap-assistant { align-self: flex-start; }
+  .olp-msg-wrap-user { align-self: flex-end; }
+  .olp-msg-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    padding: 0 4px;
+  }
+  .olp-msg-label-assistant { color: #00E5FF; }
+  .olp-msg-label-user { color: #8A9BAE; text-align: right; }
+  .olp-msg {
     padding: 10px 14px;
     font-size: 13px;
     line-height: 1.55;
     color: #F8FAFC;
     word-wrap: break-word;
+    white-space: pre-wrap;
   }
   .olp-msg-assistant {
-    align-self: flex-start;
     background: #111827;
     border: 1px solid #1C2B3A;
     border-radius: 4px 12px 12px 12px;
   }
   .olp-msg-user {
-    align-self: flex-end;
     background: rgba(0, 229, 255, 0.12);
     border: 1px solid rgba(0, 229, 255, 0.2);
     border-radius: 12px 4px 12px 12px;
@@ -422,6 +436,9 @@
 </style>
 
 <script is:inline>
+// Load EmailJS for conversation logging
+(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';s.onload=function(){emailjs.init('ZpNSMzngBD1uoKBg2');};document.head.appendChild(s);})();
+
 (function() {
   const MAX_MESSAGES = 20;
   const STORAGE_KEY = 'olp_chat_count';
@@ -466,10 +483,17 @@
   }
 
   function addMessage(role, content) {
+    const wrap = document.createElement('div');
+    wrap.className = 'olp-msg-wrap olp-msg-wrap-' + role;
+    const label = document.createElement('div');
+    label.className = 'olp-msg-label olp-msg-label-' + role;
+    label.textContent = role === 'assistant' ? 'AB Bot' : 'You';
     const div = document.createElement('div');
     div.className = 'olp-msg olp-msg-' + role;
     div.textContent = content;
-    messagesEl.appendChild(div);
+    wrap.appendChild(label);
+    wrap.appendChild(div);
+    messagesEl.appendChild(wrap);
     scrollToBottom();
     return div;
   }
@@ -627,9 +651,45 @@
     inputEl.focus();
   });
 
+  // Email conversation log via EmailJS when chat closes
+  function emailConversationLog() {
+    if (conversationHistory.length < 2) return; // no real conversation
+    if (sessionStorage.getItem('olp_chat_logged')) return; // already logged this session
+    try {
+      var transcript = conversationHistory.map(function(m) {
+        return (m.role === 'user' ? 'VISITOR' : 'AB BOT') + ': ' + m.content;
+      }).join('\n\n');
+      var leadInfo = '';
+      var leadForm = messagesEl.querySelector('.olp-lead-form');
+      if (leadForm) {
+        var nameEl = leadForm.querySelector('[data-field="name"]');
+        var emailEl = leadForm.querySelector('[data-field="email"]');
+        var companyEl = leadForm.querySelector('[data-field="company"]');
+        if (nameEl && nameEl.value) leadInfo = '\n\nLEAD CAPTURED:\nName: ' + nameEl.value + '\nEmail: ' + emailEl.value + '\nCompany: ' + companyEl.value;
+      }
+      var sessionId = 'AB-' + Date.now().toString(36);
+      if (typeof emailjs !== 'undefined') {
+        emailjs.send('service_wwtue8f', 'template_tavsq3o', {
+          name: 'AB Bot Chat Log',
+          email: 'chatbot@onlinepower.com',
+          phone: sessionId,
+          subject: 'AB Bot Conversation Log (' + conversationHistory.length + ' messages)',
+          message: 'Session: ' + sessionId + '\nTimestamp: ' + new Date().toISOString() + '\nMessages: ' + conversationHistory.length + leadInfo + '\n\n--- TRANSCRIPT ---\n\n' + transcript
+        });
+        sessionStorage.setItem('olp_chat_logged', 'true');
+      }
+    } catch(e) { console.log('Chat log email failed:', e); }
+  }
+
   closeBtn.addEventListener('click', function() {
+    emailConversationLog();
     panel.classList.add('olp-hidden');
     btn.style.display = 'flex';
+  });
+
+  // Also log on page unload if conversation happened
+  window.addEventListener('beforeunload', function() {
+    emailConversationLog();
   });
 
   // Send
