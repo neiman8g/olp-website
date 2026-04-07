@@ -8,17 +8,17 @@ const category = getCategoryBySlug('power-distribution')!;
 const categoryProducts = getProductsByCategory('power-distribution');
 
 const specs = [
-  ['Input Voltage', '120/208/240/480 VAC'],
-  ['Output Voltage', 'Configurable per application'],
-  ['Frequency', '60 Hz'],
+  ['Configurations', 'Rack-mount, floor-standing, wall-mount, custom enclosure'],
+  ['Input Voltage', 'Any voltage, custom configured'],
+  ['Outlet Types', 'NEMA, IEC, MIL-spec, hospital grade, bus bar, custom'],
+  ['Monitoring', 'SNMP v3, Modbus RTU/TCP, BACnet/IP, web interface'],
+  ['Measurement Accuracy', 'Plus or minus 1% (ISO/IEC 62053-21 compliant)'],
+  ['Communication', 'Ethernet, RS-485, custom protocols'],
   ['Power Range', '15kVA to 450kVA'],
-  ['Phase', 'Single and Three Phase'],
-  ['Efficiency', '>96% at full load'],
-  ['Regulation', 'Built-in (Power Pac models)'],
-  ['Monitoring', 'System monitoring panel'],
-  ['Distribution', 'Remote panel board matching'],
-  ['Construction', 'Swivel caster & leveling feet'],
-  ['Certifications', 'UL 50, UL 67, UL 489, NFPA, NEMA'],
+  ['Medical Capability', 'UL 60601-1 for OEM applications'],
+  ['Efficiency', 'Greater than 96% at full load'],
+  ['Manufacturing', 'Build to order, ISO 9001, Los Angeles CA'],
+  ['Certifications', 'UL Listed, NEMA, ISO 9001'],
   ['Warranty', '2 years parts and labor'],
 ];
 
@@ -58,15 +58,15 @@ const applications = [
 
           <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-pure leading-tight mb-5">Power Distribution Units</h1>
           <p class="text-lg text-ash leading-relaxed mb-8">
-            Customizable power distribution solutions for permanent and temporary installations. Modular designs with monitoring. Built in Los Angeles.
+            When off-the-shelf PDUs do not fit your voltage, your enclosure, or your monitoring requirements, you need a manufacturer who builds to your specification rather than a catalog that forces you to compromise. Online Power designs and manufactures custom power distribution units from their Los Angeles facility, integrating voltage regulation, isolation, branch circuit monitoring, and power distribution into a single engineered solution. From rack-mount units serving individual cabinets to floor-standing systems feeding entire data center rows, every PDU is built to order with the outlet configurations, breaker arrangements, and communication protocols your application demands. With 50 years of custom power manufacturing and UL 60601-1 capability for medical OEM applications, Online Power builds the PDU that does not exist in anyone else's catalog.
           </p>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             {[
-              { label: 'Range', value: '15–450kVA' },
-              { label: 'Efficiency', value: '>96%' },
-              { label: 'Config', value: 'Modular' },
-              { label: 'Certified', value: 'UL Listed' },
+              { label: 'Configurations', value: 'Rack, floor, wall, custom' },
+              { label: 'Monitoring', value: 'SNMP v3 · Modbus · BACnet' },
+              { label: 'Accuracy', value: '±1% power measurement' },
+              { label: 'Manufacturing', value: 'Build to order · ISO 9001' },
             ].map(s => (
               <div class="bg-slate border border-steel/30 rounded-lg p-3 text-center">
                 <p class="font-mono text-[10px] uppercase tracking-widest text-ash mb-1">{s.label}</p>
@@ -76,7 +76,7 @@ const applications = [
           </div>
 
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Request a Quote</a>
+            <a href="/contact" class="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">Send Us Your One Line Diagram for a Custom PDU Design in 48 Hours</a>
             <button class="btn-ghost px-6 py-3.5 rounded-lg text-sm inline-flex items-center justify-center gap-2 doc-download-btn" data-url="/pdf/powerpac_DS.pdf" data-name="Power Distribution - Spec Sheet" data-product="Power Distribution Units">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path></svg>
               Download Spec Sheet
@@ -159,28 +159,52 @@ const applications = [
 
       <!-- OVERVIEW TAB -->
       <div class="tab-content" data-tab="overview">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Modular Design</h3>
-            <p class="text-sm text-ash">Configurable power distribution with neutral and ground bus, tiered conduit landing brackets. Supports single and three-phase applications.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Regulation, isolation, and distribution in one chassis</h3>
+            <p class="text-sm text-ash">Standard PDUs just distribute power. Online Power integrates voltage regulation, isolation transformers, and power distribution into single units giving you fewer boxes, less complexity, and a single point of accountability for your entire power chain.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Built-in Monitoring</h3>
-            <p class="text-sm text-ash">System monitoring panel provides real-time visibility into power distribution, load levels, and system health for proactive maintenance.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Custom outlet configurations for any application</h3>
+            <p class="text-sm text-ash">NEMA 5-15, NEMA 5-20, NEMA L6-30, IEC C13, IEC C19, bus bars, MIL-spec connectors, and hospital grade receptacles configured exactly as your equipment requires. No adapter cables, no outlet conversion, and no compromises on connection integrity.</p>
           </div>
           <div class="card-glow bg-obsidian rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-voltage/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-voltage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35"></path></svg>
             </div>
-            <h3 class="font-display text-lg font-semibold text-pure mb-2">Permanent & Temporary</h3>
-            <p class="text-sm text-ash">Versatile solutions for permanent installations and temporary event setups. Swivel casters and leveling feet for easy deployment.</p>
+            <h3 class="font-display text-lg font-semibold text-pure mb-2">Branch circuit monitoring at plus or minus 1 percent accuracy</h3>
+            <p class="text-sm text-ash">Track voltage, current, power factor, and kWh at the individual circuit level for capacity planning, phase balancing, tenant billing, and PUE reporting. Remote visibility via SNMP, Modbus, or web interface means your facility team sees real-time load data from anywhere.</p>
           </div>
+        </div>
+
+        <!-- Technical Callout -->
+        <div class="bg-bg-elevated border-l-2 border-voltage p-6 mb-10" style="border-radius: 0 12px 12px 0;">
+          <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-3">// What your spec sheet won't tell you</p>
+          <p class="text-sm text-ash leading-relaxed">AI and HPC workloads are pushing data center rack densities to 30 to 60 kilowatts per cabinet, far beyond the 5 to 8 kilowatts that standard rack PDUs support. Floor-standing PDUs feeding multiple racks through sub panels are increasingly necessary but catalog PDU vendors do not offer the custom configurations these high density deployments require. For medical OEM applications, the PDU embedded in an imaging system must meet UL 60601-1 medical grade requirements including leakage current, isolation, and EMC specifications that no standard data center PDU carries. For colocation billing, monitoring grade accuracy of plus or minus 2 to 3 percent is not adequate for tenant billing. You need plus or minus 1 percent or better conforming to ISO/IEC 62053-21. Verify your PDU vendor's measurement accuracy specification because many quote accuracy at full load but degrade significantly at the 20 to 40 percent load points where most circuits actually operate.</p>
+        </div>
+
+        <!-- Codes & Standards -->
+        <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-4">// Codes &amp; Standards</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-16">
+          {[
+            { code: 'UL 891', desc: 'Switchboards' },
+            { code: 'UL 60601-1', desc: 'Medical Electrical Equipment (OEM PDUs)' },
+            { code: 'NEMA PB-2', desc: 'Deadfront Distribution Switchboards' },
+            { code: 'TIA-942', desc: 'Data Center Infrastructure Standard' },
+            { code: 'NEC Article 645', desc: 'Information Technology Equipment' },
+            { code: 'ISO/IEC 62053-21', desc: 'Power Measurement Accuracy' },
+          ].map(item => (
+            <div class="bg-obsidian border border-steel/30 rounded-lg p-4">
+              <p class="font-display font-bold text-voltage text-sm">{item.code}</p>
+              <p class="text-xs text-ash mt-0.5">{item.desc}</p>
+            </div>
+          ))}
         </div>
 
         <p class="font-mono text-xs uppercase tracking-widest text-voltage mb-6">// Where It Gets Specified</p>
@@ -253,10 +277,10 @@ const applications = [
             <svg class="w-5 h-5 text-voltage" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
           ))}
         </div>
-        <p class="text-pure text-lg leading-relaxed mb-6 italic">"The Power Pac units have simplified our distribution setup tremendously. The built-in regulation and monitoring give us complete confidence in our power delivery."</p>
+        <p class="text-pure text-lg leading-relaxed mb-6 italic">"In these uncertain times dealing with COVID-19, the US Government needed to build warehouses to help fight this tragedy. Time was critical so we turned to Online Power to provide 16 emergency lighting inverters. Online Power was able to build and ship all 16 units in 10 days. Great job Online Power."</p>
         <div class="border-t border-steel/30 pt-4">
-          <p class="font-display font-semibold text-pure">Kevin Park</p>
-          <p class="text-sm text-ash">Event Production Manager</p>
+          <p class="font-display font-semibold text-pure">Ready Electric Company</p>
+          <p class="text-sm text-ash">Electrical Contractor, Eckart Supply</p>
         </div>
       </div>
     </div>
@@ -267,7 +291,7 @@ const applications = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h2 class="font-display text-3xl font-bold text-obsidian mb-4">Ready to Spec This Product?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Request a Quote</a>
+        <a href="/contact" class="px-8 py-3.5 bg-obsidian text-pure font-semibold rounded-lg hover:bg-slate transition-colors text-sm">Send Us Your One Line Diagram for a Custom PDU Design in 48 Hours</a>
         <a href="/training" class="px-8 py-3.5 border-2 border-obsidian/30 text-obsidian font-semibold rounded-lg hover:bg-obsidian/10 transition-colors text-sm">Register for Training</a>
       </div>
     </div>
