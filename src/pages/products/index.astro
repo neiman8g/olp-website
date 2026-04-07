@@ -25,8 +25,17 @@ import { productCategories } from '../../data/navigation';
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {productCategories.map(cat => (
           <a href={`/products/category/${cat.slug}`} class="card-glow card-top-accent bg-obsidian rounded-xl overflow-hidden group">
-            <div class="h-40 bg-gradient-to-br from-steel/30 to-obsidian flex items-center justify-center">
-              <svg class="w-12 h-12 text-voltage/30 group-hover:text-voltage/60 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <div class="h-[180px] bg-bg-elevated flex items-center justify-center p-4 relative">
+              <img
+                src={cat.image}
+                alt={`${cat.name} by Online Power`}
+                class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200 ease-out"
+                loading="lazy"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+              />
+              <div class="absolute inset-0 items-center justify-center hidden" style="display:none;">
+                <svg class="w-12 h-12 text-voltage/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              </div>
             </div>
             <div class="p-6">
               <h2 class="font-display text-lg font-semibold text-pure mb-2 group-hover:text-voltage transition-colors">{cat.name}</h2>

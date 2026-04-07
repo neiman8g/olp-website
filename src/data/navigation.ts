@@ -31,14 +31,14 @@ export const navigation = {
 };
 
 export const productCategories = [
-  { name: 'Emergency Lighting Inverters', slug: 'emergency-lighting', description: 'UL924 listed emergency lighting inverters from 27W to 400kW' },
-  { name: 'Elevator Backup', slug: 'elevator-backup', description: 'UL924 elevator backup systems for safe evacuation' },
-  { name: 'UPS Systems', slug: 'ups-backup', description: 'UL1778 uninterruptible power supply systems' },
-  { name: 'Fire Alarm Backup', slug: 'fire-alarm-backup', description: 'UL1481 fire alarm notification appliance circuit backup' },
-  { name: 'Medical Grade', slug: 'medical-grade', description: 'Hospital-grade isolation and power protection systems' },
-  { name: 'Voltage Regulators', slug: 'voltage-regulators', description: 'Power conditioning and voltage regulation systems' },
-  { name: 'Power Distribution', slug: 'power-distribution', description: 'Power distribution units and power management' },
-  { name: 'Monitoring & Software', slug: 'monitoring', description: 'Remote monitoring and battery advisory systems' },
-  { name: 'Load Control Relays', slug: 'load-control-relays', description: 'Automatic load control relays for emergency lighting' },
-  { name: 'Custom OEM', slug: 'custom-oem', description: 'Custom engineered power solutions for OEM partners' },
+  { name: 'Emergency Lighting Inverters', slug: 'emergency-lighting', description: 'UL924 listed emergency lighting inverters from 27W to 400kW', image: '/images/products/power-wave-1.png' },
+  { name: 'Elevator Backup', slug: 'elevator-backup', description: 'UL924 elevator backup systems for safe evacuation', image: '/images/products/elevate.png' },
+  { name: 'UPS Systems', slug: 'ups-backup', description: 'UL1778 uninterruptible power supply systems', image: '/images/products/ups-backup.png' },
+  { name: 'Fire Alarm Backup', slug: 'fire-alarm-backup', description: 'UL1481 fire alarm notification appliance circuit backup', image: '/images/products/fire-alarm-backup.png' },
+  { name: 'Medical Grade', slug: 'medical-grade', description: 'Hospital-grade isolation and power protection systems', image: '/images/products/medical-grade.png' },
+  { name: 'Voltage Regulators', slug: 'voltage-regulators', description: 'Power conditioning and voltage regulation systems', image: '/images/products/voltage-regulators.png' },
+  { name: 'Power Distribution', slug: 'power-distribution', description: 'Power distribution units and power management', image: '/images/products/power-distribution.png' },
+  { name: 'Monitoring & Software', slug: 'monitoring', description: 'Remote monitoring and battery advisory systems', image: '/images/products/gms.png' },
+  { name: 'Load Control Relays', slug: 'load-control-relays', description: 'Automatic load control relays for emergency lighting', image: '/images/products/lcr20.png' },
+  { name: 'Custom OEM', slug: 'custom-oem', description: 'Custom engineered power solutions for OEM partners', image: '/images/products/custom-oem.png' },
 ];
