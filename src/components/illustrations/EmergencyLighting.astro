@@ -89,33 +89,28 @@
   <line x1="340" y1="120" x2="560" y2="120" stroke="#3D6A9E" stroke-width="0.5"/>
   <line x1="340" y1="200" x2="560" y2="200" stroke="#3D6A9E" stroke-width="0.5"/>
 
-  <!-- Emergency lights (blue-white, visible during emergency) -->
+  <!-- Emergency lights — only 1/3 of fixtures are on EM circuit -->
   <g class="el-emerg">
-    <!-- 3rd floor -->
+    <!-- 3rd floor: LEFT fixture ON (emergency), RIGHT fixture OFF -->
     <rect x="380" y="52" width="30" height="3" rx="1" fill="#7EB3F5"/>
     <circle cx="395" cy="65" r="18" fill="#2567C2" opacity="0.15"/>
     <circle cx="395" cy="65" r="10" fill="#7EB3F5" opacity="0.2"/>
-    <rect x="470" y="52" width="30" height="3" rx="1" fill="#7EB3F5"/>
-    <circle cx="485" cy="65" r="18" fill="#2567C2" opacity="0.15"/>
-    <circle cx="485" cy="65" r="10" fill="#7EB3F5" opacity="0.2"/>
+    <text x="395" y="95" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6" fill="#7EB3F5">EM</text>
+    <!-- Right fixture stays dark -->
+    <rect x="470" y="52" width="30" height="3" rx="1" fill="#3D6A9E" opacity="0.3"/>
 
-    <!-- 2nd floor -->
-    <rect x="380" y="132" width="30" height="3" rx="1" fill="#7EB3F5"/>
-    <circle cx="395" cy="145" r="18" fill="#2567C2" opacity="0.15"/>
-    <circle cx="395" cy="145" r="10" fill="#7EB3F5" opacity="0.2"/>
-    <rect x="470" y="132" width="30" height="3" rx="1" fill="#7EB3F5"/>
-    <circle cx="485" cy="145" r="18" fill="#2567C2" opacity="0.15"/>
-    <circle cx="485" cy="145" r="10" fill="#7EB3F5" opacity="0.2"/>
+    <!-- 2nd floor: both fixtures OFF (not on EM circuit) -->
+    <rect x="380" y="132" width="30" height="3" rx="1" fill="#3D6A9E" opacity="0.3"/>
+    <rect x="470" y="132" width="30" height="3" rx="1" fill="#3D6A9E" opacity="0.3"/>
 
-    <!-- 1st floor -->
-    <rect x="380" y="212" width="30" height="3" rx="1" fill="#7EB3F5"/>
-    <circle cx="395" cy="225" r="18" fill="#2567C2" opacity="0.15"/>
-    <circle cx="395" cy="225" r="10" fill="#7EB3F5" opacity="0.2"/>
+    <!-- 1st floor: RIGHT fixture ON (emergency near exit), LEFT OFF -->
+    <rect x="380" y="212" width="30" height="3" rx="1" fill="#3D6A9E" opacity="0.3"/>
     <rect x="470" y="212" width="30" height="3" rx="1" fill="#7EB3F5"/>
     <circle cx="485" cy="225" r="18" fill="#2567C2" opacity="0.15"/>
     <circle cx="485" cy="225" r="10" fill="#7EB3F5" opacity="0.2"/>
+    <text x="485" y="255" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6" fill="#7EB3F5">EM</text>
 
-    <!-- EXIT sign -->
+    <!-- EXIT sign (always on emergency circuit) -->
     <rect x="420" y="170" width="40" height="16" rx="2" fill="#34D399"/>
     <text x="440" y="182" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">EXIT</text>
   </g>
