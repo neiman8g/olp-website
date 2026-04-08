@@ -202,7 +202,7 @@ const specs = specTables[product.slug] || null;
           <p class="text-lg text-slate leading-relaxed mb-8">{product.description}</p>
           <div class="flex flex-wrap gap-3 mb-4">
             <Button href="/contact/" size="lg">Request a Quote</Button>
-            <Button href="/training/" variant="outline" size="lg" icon="bolt">Get Training</Button>
+            <Button href="#documents" variant="outline" size="lg" icon="arrow-down">Download Data Sheet</Button>
           </div>
           <p class="font-display text-[13px] text-slate">Responds within 2 business hours</p>
         </div>
@@ -263,7 +263,7 @@ const specs = specTables[product.slug] || null;
   </section>
 
   <!-- Documents (Email-Gated only — no duplicate raw links) -->
-  <section class="py-10 md:py-14 bg-off-white">
+  <section id="documents" class="py-10 md:py-14 bg-off-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <DocumentGate productSlug={product.slug} />
     </div>

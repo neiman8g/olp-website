@@ -68,7 +68,7 @@
         animation: power-cut 8s step-end infinite;
       }
       @keyframes power-cut {
-        0%, 15%  { stroke: #2A7AE2; }
+        0%, 15%  { stroke: #2567C2; }
         18%      { stroke: #FF3B3B; }
         22%,100% { stroke: #2B5580; }
       }
@@ -90,9 +90,9 @@
       }
       @keyframes inv-pulse {
         0%, 20%  { stroke: #2B5580; opacity: 0.7; }
-        25%      { stroke: #2A7AE2; opacity: 1; }
-        30%, 70% { stroke: #2A7AE2; opacity: 1; }
-        75%      { stroke: #2A7AE2; opacity: 1; }
+        25%      { stroke: #2567C2; opacity: 1; }
+        30%, 70% { stroke: #2567C2; opacity: 1; }
+        75%      { stroke: #2567C2; opacity: 1; }
         80%,100% { stroke: #2B5580; opacity: 0.7; }
       }
 
@@ -199,7 +199,7 @@
   <circle cx="316" cy="280" r="3" fill="none" stroke="#2B5580" stroke-width="1" />
 
   <!-- Active floor indicator (animated) -->
-  <circle class="floor-dot-active" cx="316" cy="104" r="3" fill="#2A7AE2" />
+  <circle class="floor-dot-active" cx="316" cy="104" r="3" fill="#2567C2" />
 
   <!-- ============================================================= -->
   <!--  ELEVATOR CABIN (starts at 4F ~ y=104)                        -->
@@ -216,14 +216,14 @@
     <line x1="280" y1="112" x2="280" y2="140" stroke="#0F2A4A" stroke-width="0.5" />
 
     <!-- Cabin roof indicator light -->
-    <circle class="cabin-light" cx="280" cy="100" r="2.5" fill="#2A7AE2" />
+    <circle class="cabin-light" cx="280" cy="100" r="2.5" fill="#2567C2" />
   </g>
 
   <!-- ============================================================= -->
   <!--  UTILITY POWER LINE (enters from left at ground level)        -->
   <!-- ============================================================= -->
   <!-- Live segment (before break) -->
-  <line class="utility-line-live" x1="20" y1="290" x2="110" y2="290" stroke="#2A7AE2" stroke-width="2" />
+  <line class="utility-line-live" x1="20" y1="290" x2="110" y2="290" stroke="#2567C2" stroke-width="2" />
 
   <!-- Power break point (animated flash) -->
   <g class="power-break-flash">
@@ -249,22 +249,22 @@
     <rect class="inverter-border" x="0" y="0" width="68" height="30" rx="3" fill="#2B5580" stroke="#2B5580" stroke-width="1.5" />
 
     <!-- OLP label -->
-    <text x="34" y="18" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="11" fill="#2A7AE2">OLP</text>
+    <text x="34" y="18" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="11" fill="#2567C2">OLP</text>
 
     <!-- Battery symbol (left of inverter) -->
     <g transform="translate(-30, 6)">
       <rect x="0" y="2" width="18" height="12" rx="2" fill="none" stroke="#B8D4F0" stroke-width="1" />
       <rect x="18" y="5" width="3" height="6" rx="1" fill="#B8D4F0" />
       <!-- Battery charge bars -->
-      <rect x="3" y="5" width="3" height="6" rx="0.5" fill="#2A7AE2" />
-      <rect x="8" y="5" width="3" height="6" rx="0.5" fill="#2A7AE2" />
-      <rect x="13" y="5" width="3" height="6" rx="0.5" fill="#2A7AE2" opacity="0.4" />
+      <rect x="3" y="5" width="3" height="6" rx="0.5" fill="#2567C2" />
+      <rect x="8" y="5" width="3" height="6" rx="0.5" fill="#2567C2" />
+      <rect x="13" y="5" width="3" height="6" rx="0.5" fill="#2567C2" opacity="0.4" />
     </g>
 
     <!-- 2HR RUNTIME badge -->
     <g transform="translate(74, 2)">
-      <rect x="0" y="0" width="62" height="18" rx="9" fill="none" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
-      <text x="31" y="12" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#2A7AE2">2HR RUNTIME</text>
+      <rect x="0" y="0" width="62" height="18" rx="9" fill="none" stroke="#2567C2" stroke-width="0.8" opacity="0.7" />
+      <text x="31" y="12" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="7" fill="#2567C2">2HR RUNTIME</text>
     </g>
   </g>
 
@@ -275,10 +275,10 @@
   <!--  BACKUP POWER FLOW DOTS (ascending the shaft)                 -->
   <!-- ============================================================= -->
   <g class="power-dots-group">
-    <circle class="power-dot" cx="280" cy="310" r="2" fill="#2A7AE2" style="animation-delay: 0s" />
-    <circle class="power-dot" cx="280" cy="310" r="2" fill="#2A7AE2" style="animation-delay: 0.5s" />
-    <circle class="power-dot" cx="280" cy="310" r="2" fill="#2A7AE2" style="animation-delay: 1.0s" />
-    <circle class="power-dot" cx="280" cy="310" r="2" fill="#2A7AE2" style="animation-delay: 1.5s" />
+    <circle class="power-dot" cx="280" cy="310" r="2" fill="#2567C2" style="animation-delay: 0s" />
+    <circle class="power-dot" cx="280" cy="310" r="2" fill="#2567C2" style="animation-delay: 0.5s" />
+    <circle class="power-dot" cx="280" cy="310" r="2" fill="#2567C2" style="animation-delay: 1.0s" />
+    <circle class="power-dot" cx="280" cy="310" r="2" fill="#2567C2" style="animation-delay: 1.5s" />
   </g>
 
   <!-- ============================================================= -->
@@ -291,7 +291,7 @@
     font-family="'Barlow Condensed', sans-serif"
     font-weight="700"
     font-size="13"
-    fill="#2A7AE2"
+    fill="#2567C2"
        opacity="0"
   >SAFE EVACUATION</text>
 

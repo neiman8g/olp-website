@@ -26,11 +26,11 @@
 
       /* Utility power line — cyan then breaks red */
       @keyframes utilityLine {
-        0%, 24% { stroke: #2A7AE2; stroke-dashoffset: 0; opacity: 1; }
+        0%, 24% { stroke: #2567C2; stroke-dashoffset: 0; opacity: 1; }
         25%, 26% { stroke: #FF3B3B; opacity: 1; }
         27%, 79% { stroke: #FF3B3B; opacity: 0; }
-        80%, 89% { stroke: #2A7AE2; stroke-dashoffset: 0; opacity: 0.5; }
-        90%, 100% { stroke: #2A7AE2; opacity: 1; }
+        80%, 89% { stroke: #2567C2; stroke-dashoffset: 0; opacity: 0.5; }
+        90%, 100% { stroke: #2567C2; opacity: 1; }
       }
 
       /* Red flash at break point */
@@ -78,15 +78,15 @@
       /* UPS border pulse when on battery */
       @keyframes borderPulse {
         0%, 24% { stroke: #2B5580; stroke-opacity: 1; }
-        30%, 33% { stroke: #2A7AE2; stroke-opacity: 1; }
+        30%, 33% { stroke: #2567C2; stroke-opacity: 1; }
         36%, 39% { stroke: #2B5580; stroke-opacity: 1; }
-        42%, 45% { stroke: #2A7AE2; stroke-opacity: 1; }
+        42%, 45% { stroke: #2567C2; stroke-opacity: 1; }
         48%, 51% { stroke: #2B5580; stroke-opacity: 1; }
-        54%, 57% { stroke: #2A7AE2; stroke-opacity: 1; }
+        54%, 57% { stroke: #2567C2; stroke-opacity: 1; }
         60%, 63% { stroke: #2B5580; stroke-opacity: 1; }
-        66%, 69% { stroke: #2A7AE2; stroke-opacity: 1; }
+        66%, 69% { stroke: #2567C2; stroke-opacity: 1; }
         72%, 75% { stroke: #2B5580; stroke-opacity: 1; }
-        78%, 80% { stroke: #2A7AE2; stroke-opacity: 0.5; }
+        78%, 80% { stroke: #2567C2; stroke-opacity: 0.5; }
         85%, 100% { stroke: #2B5580; stroke-opacity: 1; }
       }
 
@@ -184,7 +184,7 @@
   <rect width="600" height="360" fill="#0F2A4A" rx="6" />
 
   <!-- Subtle grid -->
-  <g opacity="0.04" stroke="#2A7AE2" stroke-width="0.5">
+  <g opacity="0.04" stroke="#2567C2" stroke-width="0.5">
     <line x1="0" y1="60" x2="600" y2="60" />
     <line x1="0" y1="120" x2="600" y2="120" />
     <line x1="0" y1="180" x2="600" y2="180" />
@@ -207,9 +207,9 @@
       <!-- Cross arm -->
       <rect x="-6" y="28" width="38" height="5" fill="#2B5580" rx="1" />
       <!-- Insulators -->
-      <circle cx="0" cy="28" r="4" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
-      <circle cx="26" cy="28" r="4" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
-      <circle cx="13" cy="24" r="4" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
+      <circle cx="0" cy="28" r="4" fill="#2B5580" stroke="#2567C2" stroke-width="0.8" opacity="0.7" />
+      <circle cx="26" cy="28" r="4" fill="#2B5580" stroke="#2567C2" stroke-width="0.8" opacity="0.7" />
+      <circle cx="13" cy="24" r="4" fill="#2B5580" stroke="#2567C2" stroke-width="0.8" opacity="0.7" />
       <!-- Wires from top -->
       <line x1="0" y1="28" x2="0" y2="10" stroke="#B8D4F0" stroke-width="1" />
       <line x1="26" y1="28" x2="26" y2="10" stroke="#B8D4F0" stroke-width="1" />
@@ -225,7 +225,7 @@
     <!-- Utility power line -->
     <line
       x1="100" y1="165" x2="225" y2="165"
-      stroke="#2A7AE2" stroke-width="3" stroke-linecap="round"
+      stroke="#2567C2" stroke-width="3" stroke-linecap="round"
       style="animation: utilityLine 7s infinite;"
     />
 
@@ -245,9 +245,9 @@
     >UTILITY FAIL</text>
 
     <!-- Power dots utility -> UPS -->
-    <circle r="3" fill="#2A7AE2" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite;">
+    <circle r="3" fill="#2567C2" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite;">
     </circle>
-    <circle r="3" fill="#2A7AE2" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite 0.4s;">
+    <circle r="3" fill="#2567C2" style="offset-path: path('M 120 165 L 225 165'); animation: flowFromUtility 7s infinite 0.4s;">
     </circle>
   </g>
 
@@ -290,7 +290,7 @@
 
     <!-- Brand area -->
     <rect x="10" y="8" width="130" height="20" rx="2" fill="#0F2A4A" />
-    <text x="75" y="22" text-anchor="middle" class="font-display" fill="#2A7AE2" font-size="9" font-weight="700" letter-spacing="2">ONLINE POWER</text>
+    <text x="75" y="22" text-anchor="middle" class="font-display" fill="#2567C2" font-size="9" font-weight="700" letter-spacing="2">ONLINE POWER</text>
 
     <!-- UPS designation -->
     <text x="75" y="42" text-anchor="middle" class="font-display" fill="#FFFFFF" font-size="16" font-weight="700" letter-spacing="4">UPS</text>
@@ -347,9 +347,9 @@
       style="animation: battBar1 7s infinite;" />
     <rect x="57" y="131" width="17" height="20" rx="1.5" fill="#34D399"
       style="animation: battBar2 7s infinite;" />
-    <rect x="78" y="131" width="17" height="20" rx="1.5" fill="#2A7AE2"
+    <rect x="78" y="131" width="17" height="20" rx="1.5" fill="#2567C2"
       style="animation: battBar3 7s infinite;" />
-    <rect x="99" y="131" width="17" height="20" rx="1.5" fill="#2A7AE2"
+    <rect x="99" y="131" width="17" height="20" rx="1.5" fill="#2567C2"
       style="animation: battBar4 7s infinite;" />
 
     <!-- Front feet -->
@@ -368,7 +368,7 @@
     <g style="animation: sineWave 1.2s linear infinite;">
       <path
         d="M 384 165 Q 390 150, 396 165 Q 402 180, 408 165 Q 414 150, 420 165 Q 426 180, 432 165 Q 438 150, 444 165 Q 450 180, 456 165 Q 462 150, 468 165 Q 474 180, 480 165"
-        stroke="#2A7AE2" stroke-width="1.5" fill="none" opacity="0.6"
+        stroke="#2567C2" stroke-width="1.5" fill="none" opacity="0.6"
       />
     </g>
   </g>
@@ -376,12 +376,12 @@
   <!-- ============================================================ -->
   <!-- CLEAN POWER LINE — UPS to Load                                -->
   <!-- ============================================================ -->
-  <line x1="380" y1="165" x2="470" y2="165" stroke="#2A7AE2" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+  <line x1="380" y1="165" x2="470" y2="165" stroke="#2567C2" stroke-width="3" stroke-linecap="round" opacity="0.9" />
 
   <!-- Power dots UPS -> Load (always flowing) -->
-  <circle r="3" fill="#2A7AE2" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite;" />
-  <circle r="3" fill="#2A7AE2" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 0.6s;" />
-  <circle r="3" fill="#2A7AE2" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 1.2s;" />
+  <circle r="3" fill="#2567C2" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite;" />
+  <circle r="3" fill="#2567C2" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 0.6s;" />
+  <circle r="3" fill="#2567C2" style="offset-path: path('M 380 165 L 470 165'); animation: flowToLoad 1.8s linear infinite 1.2s;" />
 
   <!-- ============================================================ -->
   <!-- RIGHT SECTION — PROTECTED SERVER RACK                         -->
@@ -431,9 +431,9 @@
     opacity="0"
   >
     <!-- Callout background pill -->
-    <rect x="-42" y="-18" width="84" height="36" rx="18" fill="#0F2A4A" stroke="#2A7AE2" stroke-width="1.5" />
+    <rect x="-42" y="-18" width="84" height="36" rx="18" fill="#0F2A4A" stroke="#2567C2" stroke-width="1.5" />
     <!-- Main text -->
-    <text x="0" y="2" text-anchor="middle" class="font-display" fill="#2A7AE2" font-size="18" font-weight="700">&lt;4ms</text>
+    <text x="0" y="2" text-anchor="middle" class="font-display" fill="#2567C2" font-size="18" font-weight="700">&lt;4ms</text>
     <!-- Sub label -->
     <text x="0" y="32" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="6" letter-spacing="1.5">ZERO TRANSFER</text>
   </g>

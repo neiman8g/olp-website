@@ -25,7 +25,7 @@
     }
     .el-dot {
       r: 2.5;
-      fill: #2A7AE2;
+      fill: #2567C2;
       offset-rotate: 0deg;
       animation: el-flow 2.4s linear infinite;
     }
@@ -44,8 +44,8 @@
     </radialGradient>
     <!-- Cyan emergency glow gradient -->
     <radialGradient id="el-cyan-grad">
-      <stop offset="0%" stop-color="#2A7AE2" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#2A7AE2" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#2567C2" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#2567C2" stop-opacity="0"/>
     </radialGradient>
     <!-- Inverter feed path (vertical line up through right building) -->
     <path id="el-feed-path" d="M 430,295 L 430,240 L 430,175 L 430,110" fill="none"/>
@@ -59,7 +59,7 @@
 
   <!-- Section headers -->
   <text x="150" y="28" text-anchor="middle" class="el-sans" fill="#B8D4F0" font-size="10" font-weight="600" letter-spacing="1.5">NORMAL POWER</text>
-  <text x="450" y="28" text-anchor="middle" class="el-sans" fill="#2A7AE2" font-size="10" font-weight="600" letter-spacing="1.5">EMERGENCY POWER</text>
+  <text x="450" y="28" text-anchor="middle" class="el-sans" fill="#2567C2" font-size="10" font-weight="600" letter-spacing="1.5">EMERGENCY POWER</text>
 
 
   <!-- ==================== LEFT BUILDING (Normal Power) ==================== -->
@@ -150,16 +150,16 @@
     <line x1="-15" y1="247" x2="8" y2="253" stroke="#FF3B3B" stroke-width="0.8" opacity="0.6"/>
 
     <!-- OLP Inverter unit at base -->
-    <rect x="95" y="240" width="60" height="22" rx="3" fill="#0F2A4A" stroke="#2A7AE2" stroke-width="1.5"/>
-    <text x="125" y="254" text-anchor="middle" class="el-sans" fill="#2A7AE2" font-size="9" font-weight="700">OLP</text>
+    <rect x="95" y="240" width="60" height="22" rx="3" fill="#0F2A4A" stroke="#2567C2" stroke-width="1.5"/>
+    <text x="125" y="254" text-anchor="middle" class="el-sans" fill="#2567C2" font-size="9" font-weight="700">OLP</text>
     <!-- Inverter status LED -->
-    <circle cx="102" cy="246" r="2" fill="#2A7AE2">
+    <circle cx="102" cy="246" r="2" fill="#2567C2">
       <animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/>
     </circle>
 
     <!-- 90 MIN badge -->
-    <rect x="160" y="243" width="34" height="14" rx="2" fill="none" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7"/>
-    <text x="177" y="253" text-anchor="middle" class="el-mono" fill="#2A7AE2" font-size="6.5" opacity="0.9">90 MIN</text>
+    <rect x="160" y="243" width="34" height="14" rx="2" fill="none" stroke="#2567C2" stroke-width="0.8" opacity="0.7"/>
+    <text x="177" y="253" text-anchor="middle" class="el-mono" fill="#2567C2" font-size="6.5" opacity="0.9">90 MIN</text>
 
     <!-- Battery indicator -->
     <rect x="97" y="265" width="22" height="8" rx="1.5" fill="none" stroke="#B8D4F0" stroke-width="0.8"/>
@@ -169,7 +169,7 @@
     <rect x="111" y="267" width="5" height="4" rx="0.5" fill="#34D399"/>
 
     <!-- Emergency power feed riser (vertical cyan line from inverter up) -->
-    <line x1="120" y1="240" x2="120" y2="25" stroke="#2A7AE2" stroke-width="1.5" opacity="0.4"/>
+    <line x1="120" y1="240" x2="120" y2="25" stroke="#2567C2" stroke-width="1.5" opacity="0.4"/>
 
     <!-- Animated power flow dots along the riser -->
     <circle style="offset-path:path('M 120,240 L 120,25');animation-delay:0s;" class="el-dot"/>
@@ -178,12 +178,12 @@
     <circle style="offset-path:path('M 120,240 L 120,25');animation-delay:1.8s;" class="el-dot"/>
 
     <!-- Branch lines from riser to each floor's lights -->
-    <line x1="120" y1="55" x2="90" y2="55" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="55" x2="175" y2="55" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="135" x2="90" y2="135" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="135" x2="175" y2="135" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="215" x2="90" y2="215" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
-    <line x1="120" y1="215" x2="175" y2="215" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="55" x2="90" y2="55" stroke="#2567C2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="55" x2="175" y2="55" stroke="#2567C2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="135" x2="90" y2="135" stroke="#2567C2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="135" x2="175" y2="135" stroke="#2567C2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="215" x2="90" y2="215" stroke="#2567C2" stroke-width="0.8" opacity="0.3"/>
+    <line x1="120" y1="215" x2="175" y2="215" stroke="#2567C2" stroke-width="0.8" opacity="0.3"/>
 
     <!-- 3rd Floor - emergency lights ON with cyan glow -->
     <rect x="80" y="28" width="20" height="4" rx="1" fill="#7EB3F5"/>
@@ -234,8 +234,8 @@
   <text x="60" y="323" class="el-mono" fill="#B8D4F0" font-size="7">MAINS OK</text>
 
   <!-- Right side: cyan emergency indicator -->
-  <circle cx="370" cy="320" r="4" fill="none" stroke="#2A7AE2" stroke-width="1"/>
-  <circle cx="370" cy="320" r="1.5" fill="#2A7AE2">
+  <circle cx="370" cy="320" r="4" fill="none" stroke="#2567C2" stroke-width="1"/>
+  <circle cx="370" cy="320" r="1.5" fill="#2567C2">
     <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
   </circle>
   <text x="378" y="323" class="el-mono" fill="#B8D4F0" font-size="7">INVERTER ACTIVE</text>

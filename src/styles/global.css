@@ -5,14 +5,14 @@
   /* Brand: Deep Navy + Steel Blue */
   --color-deep-navy: #0F2A4A;
   --color-navy-mid: #1A3F6A;
-  --color-steel-blue: #2A7AE2;
+  --color-steel-blue: #2567C2;
   --color-sky-blue: #7EB3F5;
   --color-off-white: #F8F9FB;
   --color-white: #FFFFFF;
   --color-steel-gray: #C9D4E0;
   --color-slate: #4A5568;
   --color-near-black: #0D1B2A;
-  --color-muted-blue: #94AECF;
+  --color-muted-blue: #A8BFD8;
 
   /* Semantic aliases */
   --color-bg-dark: #0F2A4A;
@@ -20,11 +20,11 @@
   --color-bg-card: #FFFFFF;
   --color-border-dark: #1A3F6A;
   --color-border-light: #C9D4E0;
-  --color-accent: #2A7AE2;
+  --color-accent: #2567C2;
   --color-text-dark: #0D1B2A;
   --color-text-body: #4A5568;
   --color-text-light: #FFFFFF;
-  --color-text-muted-dark: #94AECF;
+  --color-text-muted-dark: #A8BFD8;
 
   /* Typography */
   --font-display: 'Barlow Condensed', system-ui, sans-serif;

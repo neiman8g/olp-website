@@ -195,8 +195,8 @@
       }
       @keyframes olp-border-glow {
         0%, 34%  { stroke: #2B5580; }
-        38%      { stroke: #2A7AE2; }
-        82%      { stroke: #2A7AE2; }
+        38%      { stroke: #2567C2; }
+        82%      { stroke: #2567C2; }
         90%      { stroke: #2B5580; }
         100%     { stroke: #2B5580; }
       }
@@ -222,8 +222,8 @@
       }
       @keyframes batt-drain {
         0%, 34%  { width: 18px; fill: #34D399; }
-        40%      { width: 18px; fill: #2A7AE2; }
-        82%      { width: 12px; fill: #2A7AE2; }
+        40%      { width: 18px; fill: #2567C2; }
+        82%      { width: 12px; fill: #2567C2; }
         90%      { width: 18px; fill: #34D399; }
         100%     { width: 18px; fill: #34D399; }
       }
@@ -412,10 +412,10 @@
     <!-- Unit box -->
     <rect x="72" y="202" width="68" height="40" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="1.5" class="olp-border" />
     <!-- Cyan glow overlay -->
-    <rect x="72" y="202" width="68" height="40" rx="2" fill="#2A7AE2" opacity="0" class="olp-glow" />
+    <rect x="72" y="202" width="68" height="40" rx="2" fill="#2567C2" opacity="0" class="olp-glow" />
 
     <!-- OLP label -->
-    <text x="106" y="214" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-size="6" font-weight="700" fill="#2A7AE2" letter-spacing="1">OLP BACKUP</text>
+    <text x="106" y="214" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-size="6" font-weight="700" fill="#2567C2" letter-spacing="1">OLP BACKUP</text>
 
     <!-- Battery symbol -->
     <rect x="86" y="220" width="24" height="12" rx="1" fill="none" stroke="#B8D4F0" stroke-width="0.8" />
@@ -427,28 +427,28 @@
 
     <!-- 24HR STANDBY badge -->
     <g class="standby-badge">
-      <rect x="82" y="235" width="48" height="8" rx="3" fill="none" stroke="#2A7AE2" stroke-width="0.6" />
-      <text x="106" y="241" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="4.5" font-weight="700" fill="#2A7AE2" letter-spacing="0.5">24HR STANDBY</text>
+      <rect x="82" y="235" width="48" height="8" rx="3" fill="none" stroke="#2567C2" stroke-width="0.6" />
+      <text x="106" y="241" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="4.5" font-weight="700" fill="#2567C2" letter-spacing="0.5">24HR STANDBY</text>
     </g>
 
     <!-- Power line from OLP to FACP -->
-    <line x1="106" y1="202" x2="106" y2="194" stroke="#2A7AE2" stroke-width="1" opacity="0.3" />
-    <line x1="108" y1="202" x2="108" y2="194" stroke="#2A7AE2" stroke-width="1" opacity="0.3" />
+    <line x1="106" y1="202" x2="106" y2="194" stroke="#2567C2" stroke-width="1" opacity="0.3" />
+    <line x1="108" y1="202" x2="108" y2="194" stroke="#2567C2" stroke-width="1" opacity="0.3" />
 
     <!-- Animated power dots -->
-    <circle r="2" fill="#2A7AE2" class="power-dot power-dot-1">
+    <circle r="2" fill="#2567C2" class="power-dot power-dot-1">
       <animateMotion dur="7s" repeatCount="indefinite" keyTimes="0;0.34;0.36;0.82;0.85;1" keyPoints="0;0;0;1;1;0" calcMode="linear">
         <mpath href="#fa-power-path" />
       </animateMotion>
       <animate attributeName="opacity" dur="7s" repeatCount="indefinite" values="0;0;0;1;1;0;0" keyTimes="0;0.34;0.36;0.82;0.85;0.86;1" />
     </circle>
-    <circle r="2" fill="#2A7AE2" class="power-dot power-dot-2">
+    <circle r="2" fill="#2567C2" class="power-dot power-dot-2">
       <animateMotion dur="7s" repeatCount="indefinite" begin="0.6s" keyTimes="0;0.34;0.36;0.82;0.85;1" keyPoints="0;0;0;1;1;0" calcMode="linear">
         <mpath href="#fa-power-path" />
       </animateMotion>
       <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="0.6s" values="0;0;0;1;1;0;0" keyTimes="0;0.34;0.36;0.82;0.85;0.86;1" />
     </circle>
-    <circle r="2" fill="#2A7AE2" class="power-dot power-dot-3">
+    <circle r="2" fill="#2567C2" class="power-dot power-dot-3">
       <animateMotion dur="7s" repeatCount="indefinite" begin="1.2s" keyTimes="0;0.34;0.36;0.82;0.85;1" keyPoints="0;0;0;1;1;0" calcMode="linear">
         <mpath href="#fa-power-path" />
       </animateMotion>
@@ -545,8 +545,8 @@
        BACKUP ACTIVE TEXT (fades in at 85-90%)
        ============================================================ -->
   <g class="backup-text" opacity="0">
-    <rect x="210" y="270" width="180" height="24" rx="4" fill="#0F2A4A" stroke="#2A7AE2" stroke-width="1" opacity="0.9" />
-    <text x="300" y="286" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-size="10" font-weight="700" fill="#2A7AE2" letter-spacing="2">BACKUP ACTIVE</text>
+    <rect x="210" y="270" width="180" height="24" rx="4" fill="#0F2A4A" stroke="#2567C2" stroke-width="1" opacity="0.9" />
+    <text x="300" y="286" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-size="10" font-weight="700" fill="#2567C2" letter-spacing="2">BACKUP ACTIVE</text>
   </g>
 
   <!-- ============================================================

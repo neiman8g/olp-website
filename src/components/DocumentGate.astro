@@ -241,7 +241,17 @@ const gatedDocs = docs.filter(d => isGated(d));
       var lead = {};
       data.forEach(function(v, k) { lead[k] = v; });
 
-      console.log('[OLP Lead Capture]', JSON.stringify(lead, null, 2));
+      // Send lead to EmailJS
+      if (typeof emailjs !== 'undefined') {
+        emailjs.send('service_wwtue8f', 'template_tavsq3o', {
+          from_name: lead.first_name || '',
+          from_email: lead.email || '',
+          company: lead.company || '',
+          role: lead.role || '',
+          message: 'Document download lead — ' + (pendingUrl || 'unknown document'),
+          source: 'DocumentGate'
+        }).catch(function(err) { console.warn('EmailJS error:', err); });
+      }
 
       localStorage.setItem('olp_doc_gate', 'true');
       localStorage.setItem('olp_lead_email', lead.email);

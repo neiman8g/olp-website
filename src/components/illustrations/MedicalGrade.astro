@@ -110,8 +110,8 @@
     </linearGradient>
 
     <linearGradient id="mg-cyanGlow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#2A7AE2" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#2A7AE2" stop-opacity="0"/>
+      <stop offset="0%"   stop-color="#2567C2" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#2567C2" stop-opacity="0"/>
     </linearGradient>
 
     <!-- ECG clip region (monitor screen) -->
@@ -201,7 +201,7 @@
   <g id="mg-transformer" transform="translate(155, 180)">
 
     <!-- Ambient glow -->
-    <rect x="-4" y="-4" width="88" height="78" rx="8" fill="#2A7AE2" opacity="0.05"
+    <rect x="-4" y="-4" width="88" height="78" rx="8" fill="#2567C2" opacity="0.05"
           style="animation: ambientGlow 4s ease-in-out infinite;"/>
 
     <!-- Isometric box: top face -->
@@ -214,7 +214,7 @@
     <polygon points="80,8 40,26 40,66 80,48" fill="#2B5580" stroke="#2B5580" stroke-width="0.6"/>
 
     <!-- OLP label on right face -->
-    <text x="58" y="34" text-anchor="middle" class="font-display" font-size="10" font-weight="700" fill="#2A7AE2" opacity="0.9">OLP</text>
+    <text x="58" y="34" text-anchor="middle" class="font-display" font-size="10" font-weight="700" fill="#2567C2" opacity="0.9">OLP</text>
 
     <!-- ISO-CARE label on right face -->
     <text x="58" y="44" text-anchor="middle" class="font-mono" font-size="5" fill="#B8D4F0" letter-spacing="1">ISO-CARE</text>
@@ -234,14 +234,14 @@
     </g>
 
     <!-- ±1% REGULATION badge on top face -->
-    <rect x="6" y="-8" width="52" height="12" rx="2" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.6" opacity="0.85"/>
-    <text x="32" y="1" text-anchor="middle" class="font-mono" font-size="6" font-weight="700" fill="#2A7AE2" opacity="0.9">&plusmn;1% REG</text>
+    <rect x="6" y="-8" width="52" height="12" rx="2" fill="#2B5580" stroke="#2567C2" stroke-width="0.6" opacity="0.85"/>
+    <text x="32" y="1" text-anchor="middle" class="font-mono" font-size="6" font-weight="700" fill="#2567C2" opacity="0.9">&plusmn;1% REG</text>
 
     <!-- Input arrow (dirty) -->
     <line x1="-20" y1="35" x2="0" y2="28" stroke="#FF6B35" stroke-width="1.2" opacity="0.5" stroke-dasharray="3 2"/>
 
     <!-- Output arrow (clean) -->
-    <line x1="80" y1="28" x2="105" y2="28" stroke="#2A7AE2" stroke-width="1.2" opacity="0.6" stroke-dasharray="3 2"/>
+    <line x1="80" y1="28" x2="105" y2="28" stroke="#2567C2" stroke-width="1.2" opacity="0.6" stroke-dasharray="3 2"/>
   </g>
 
   <!-- ── Clean sine wave flowing out of transformer ── -->
@@ -249,7 +249,7 @@
     <g style="animation: sineScroll 2s linear infinite;">
       <path
         d="M180,235 C190,225 200,225 210,235 C220,245 230,245 240,235 C250,225 260,225 270,235 C280,245 290,245 300,235 C310,225 320,225 330,235 C340,245 350,245 360,235"
-        stroke="#2A7AE2"
+        stroke="#2567C2"
         stroke-width="1.5"
         fill="none"
         opacity="0.7"
@@ -259,15 +259,15 @@
   </g>
 
   <!-- ── Power-flow cyan dots (transformer to outlet) ── -->
-  <circle r="2.5" fill="#2A7AE2"
+  <circle r="2.5" fill="#2567C2"
           style="offset-path: path('M260,208 Q300,215 330,230 Q350,240 370,235'); animation: dotFlow 2s linear infinite;">
     <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite"/>
   </circle>
-  <circle r="2.5" fill="#2A7AE2"
+  <circle r="2.5" fill="#2567C2"
           style="offset-path: path('M260,208 Q300,215 330,230 Q350,240 370,235'); animation: dotFlow 2s linear infinite; animation-delay: 0.66s;">
     <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.66s" repeatCount="indefinite"/>
   </circle>
-  <circle r="2.5" fill="#2A7AE2"
+  <circle r="2.5" fill="#2567C2"
           style="offset-path: path('M260,208 Q300,215 330,230 Q350,240 370,235'); animation: dotFlow 2s linear infinite; animation-delay: 1.33s;">
     <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="1.33s" repeatCount="indefinite"/>
   </circle>
@@ -312,7 +312,7 @@
   <g id="mg-monitor" transform="translate(355, 72)">
 
     <!-- Monitor ambient glow -->
-    <rect x="-6" y="-6" width="162" height="110" rx="8" fill="#2A7AE2" opacity="0.04"
+    <rect x="-6" y="-6" width="162" height="110" rx="8" fill="#2567C2" opacity="0.04"
           style="animation: ambientGlow 5s ease-in-out infinite;"/>
 
     <!-- Monitor body -->
@@ -322,7 +322,7 @@
     <rect x="4" y="4" width="142" height="68" rx="3" fill="#0F2A4A"/>
 
     <!-- Screen scanline -->
-    <rect x="4" y="4" width="142" height="2" rx="1" fill="#2A7AE2" opacity="0.06"
+    <rect x="4" y="4" width="142" height="2" rx="1" fill="#2567C2" opacity="0.06"
           style="animation: monitorScan 4s linear infinite;"/>
 
     <!-- ── ECG waveform ── -->
@@ -363,7 +363,7 @@
     <!-- ── SpO2 reading ── -->
     <g transform="translate(80, 46)">
       <text x="0" y="8" class="font-mono" font-size="5.5" fill="#B8D4F0" opacity="0.7">SpO2</text>
-      <text x="0" y="20" class="font-mono" font-size="14" font-weight="700" fill="#2A7AE2"
+      <text x="0" y="20" class="font-mono" font-size="14" font-weight="700" fill="#2567C2"
             style="animation: bpmFlicker 3s ease-in-out infinite; animation-delay: 1s;">99</text>
       <text x="28" y="20" class="font-mono" font-size="7" fill="#B8D4F0" opacity="0.6">%</text>
     </g>
@@ -414,7 +414,7 @@
     <rect x="0" y="0" width="36" height="42" rx="3" fill="#2B5580" stroke="#2B5580" stroke-width="0.8"/>
 
     <!-- Ambient glow -->
-    <rect x="-3" y="-3" width="42" height="48" rx="5" fill="#2A7AE2" opacity="0.03"
+    <rect x="-3" y="-3" width="42" height="48" rx="5" fill="#2567C2" opacity="0.03"
           style="animation: ambientGlow 5s ease-in-out infinite; animation-delay: 1s;"/>
 
     <!-- Screen area -->
@@ -422,8 +422,8 @@
 
     <!-- Oscillating bar indicator -->
     <g style="animation: ventOsc 1.5s ease-in-out infinite;">
-      <rect x="8" y="8" width="20" height="2" rx="1" fill="#2A7AE2" opacity="0.6"/>
-      <rect x="12" y="13" width="12" height="2" rx="1" fill="#2A7AE2" opacity="0.35"/>
+      <rect x="8" y="8" width="20" height="2" rx="1" fill="#2567C2" opacity="0.6"/>
+      <rect x="12" y="13" width="12" height="2" rx="1" fill="#2567C2" opacity="0.35"/>
     </g>
 
     <!-- Status LED -->
@@ -453,14 +453,14 @@
     <text x="0" y="-5" class="font-mono" font-size="5.5" fill="#FF6B35" opacity="0.6" letter-spacing="0.5">DIRTY</text>
   </g>
   <g transform="translate(260, 215)">
-    <text x="0" y="0" class="font-mono" font-size="5.5" fill="#2A7AE2" opacity="0.6" letter-spacing="0.5">CLEAN</text>
+    <text x="0" y="0" class="font-mono" font-size="5.5" fill="#2567C2" opacity="0.6" letter-spacing="0.5">CLEAN</text>
   </g>
 
   <!-- Arrow from dirty to transformer -->
   <line x1="140" y1="235" x2="155" y2="228" stroke="#FF6B35" stroke-width="0.8" opacity="0.4" marker-end="url(#mg-arrowOrange)"/>
 
   <!-- Arrow from transformer to outlet -->
-  <line x1="260" y1="208" x2="370" y2="225" stroke="#2A7AE2" stroke-width="0.8" opacity="0.3"/>
+  <line x1="260" y1="208" x2="370" y2="225" stroke="#2567C2" stroke-width="0.8" opacity="0.3"/>
 
   <!-- ================================================================ -->
   <!-- BOTTOM CAPTION                                                   -->
@@ -482,7 +482,7 @@
       <path d="M0,0 L6,3 L0,6 Z" fill="#FF6B35"/>
     </marker>
     <marker id="mg-arrowCyan" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#2A7AE2"/>
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2567C2"/>
     </marker>
   </defs>
 </svg>
