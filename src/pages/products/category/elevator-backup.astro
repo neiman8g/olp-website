@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Button from '../../../components/Button.astro';
+import DocumentGate from '../../../components/DocumentGate.astro';
 import { getProductsByCategory, getCategoryBySlug } from '../../../data/products';
 import { company } from '../../../data/company';
 import { Image } from 'astro:assets';
@@ -33,8 +34,8 @@ const product = categoryProducts[0]; // Only one product: Power Wave Elevate
           </p>
 
           <div class="flex flex-wrap gap-3 mb-8">
-            <Button href="/contact" size="lg">Get a Quote</Button>
-            <Button href="/contact" variant="ghost" size="lg">Contact Sales</Button>
+            <Button href="/contact" size="lg">Size My Unit</Button>
+            <Button href="#documents" variant="ghost" size="lg" icon="arrow-down">Documents</Button>
           </div>
 
           <div class="inline-flex items-center gap-4 bg-[#1A3F6A] rounded-lg px-5 py-3">
@@ -155,6 +156,13 @@ const product = categoryProducts[0]; // Only one product: Power Wave Elevate
           Your browser does not support the video tag.
         </video>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== DOCUMENTS ========== -->
+  <section id="documents" class="py-10 md:py-14 bg-off-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <DocumentGate productSlug="elevate" />
     </div>
   </section>
 
