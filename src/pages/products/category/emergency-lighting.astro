@@ -36,7 +36,7 @@ const categoryProducts = getProductsByCategory('emergency-lighting');
       <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
         <!-- Left: 3 cols -->
         <div class="lg:col-span-3">
-          <p class="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-steel-blue mb-4">UL 924 · UL 1778 · OSHPD/HCAI · ISO 9001</p>
+          <p class="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-steel-blue mb-2">UL 924 · UL 1778 · OSHPD/HCAI · ISO 9001</p>
 
           <h1 class="font-display text-4xl md:text-5xl lg:text-[54px] font-bold text-white leading-[1.1] mb-5">
             Emergency Lighting<br/>Inverters
@@ -52,18 +52,18 @@ const categoryProducts = getProductsByCategory('emergency-lighting');
           </div>
 
           <!-- Power range callout -->
-          <div class="bg-[#1A3F6A] rounded-lg p-5 flex items-center gap-5">
-            <div>
-              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.1em] text-steel-blue mb-1">Power Range</p>
-              <p class="font-display text-3xl md:text-4xl font-bold text-white leading-none">35W – 400kW</p>
-            </div>
-            <p class="text-[13px] text-muted-blue border-l border-navy-mid pl-5 max-w-[200px]">No other single manufacturer covers this range under one UL 924 listing.</p>
+          <div class="inline-flex items-center gap-4 bg-[#1A3F6A] rounded-lg px-5 py-3">
+            <p class="font-display text-[11px] font-semibold uppercase tracking-[0.1em] text-steel-blue">Range</p>
+            <p class="font-display text-2xl md:text-3xl font-bold text-white leading-none">35W – 400kW</p>
+            <p class="text-[14px] text-muted-blue">Widest from a single manufacturer</p>
           </div>
         </div>
 
-        <!-- Right: 2 cols — SVG illustration -->
-        <div class="hidden lg:block lg:col-span-2">
-          <EmergencyLighting />
+        <!-- Right: 2 cols — SVG illustration, scaled up -->
+        <div class="hidden lg:flex lg:col-span-2 items-center justify-center" style="min-height: 420px;">
+          <div style="width: 110%; max-width: 550px;">
+            <EmergencyLighting />
+          </div>
         </div>
       </div>
     </div>
@@ -78,9 +78,9 @@ const categoryProducts = getProductsByCategory('emergency-lighting');
             { label: 'Configurations', value: 'Single & 3-Phase' },
             { label: 'Manufactured', value: 'Los Angeles, CA' },
           ].map(s => (
-            <div class="py-5 px-4 md:px-6 text-center md:text-left">
-              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.1em] text-steel-blue mb-1">{s.label}</p>
-              <p class="font-display text-base font-bold text-white">{s.value}</p>
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[13px] font-semibold uppercase tracking-[0.1em] text-steel-blue mb-1">{s.label}</p>
+              <p class="font-display text-lg md:text-xl font-bold text-white">{s.value}</p>
             </div>
           ))}
         </div>
