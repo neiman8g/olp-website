@@ -65,7 +65,7 @@ const applications = [
           </div>
 
           <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-5">UPS Backup Systems</h1>
-          <p class="text-[15px] text-slate leading-relaxed mb-8">
+          <p class="text-base text-slate leading-relaxed mb-8">
             Every power anomaly including sags, surges, spikes, brownouts, frequency variations, harmonic distortion, and complete blackouts costs U.S. businesses over $150 billion annually. Online Power's UL 1778 listed UPS systems use true online double-conversion topology with IGBT PWM and digital signal processing to eliminate all nine common power problems with zero transfer time. Unlike off-the-shelf UPS products that force you into fixed configurations, Online Power engineers each system to your exact load, voltage, runtime, and bypass requirements. From single-phase protection for a telecom closet to three-phase systems supporting data center redundancy. Built to order in Los Angeles.
           </p>
 
@@ -77,8 +77,8 @@ const applications = [
               { label: 'Certifications', value: 'UL 1778 · UL 924' },
             ].map(s => (
               <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
-                <p class="font-display text-[10px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
-                <p class="font-display text-sm font-bold text-near-black">{s.value}</p>
+                <p class="font-display text-[12px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
+                <p class="font-display text-base font-bold text-near-black">{s.value}</p>
               </div>
             ))}
           </div>
@@ -86,7 +86,7 @@ const applications = [
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
             <Button href="/contact" size="lg">Tell Us Your Critical Load for a Custom UPS Specification in 48 Hours</Button>
           </div>
-          <p class="font-display text-xs text-slate">Responds within 2 business hours</p>
+          <p class="font-display text-[13px] text-slate">Responds within 2 business hours</p>
         </div>
 
         <div class="hidden lg:block lg:col-span-2">
@@ -115,28 +115,28 @@ const applications = [
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Zero transfer time eliminates the most dangerous milliseconds</h3>
-            <p class="text-sm text-slate leading-relaxed">Line-interactive UPS systems have a 4 to 10 millisecond transfer gap. Standby units gap for 5 to 12 milliseconds. For sensitive PLCs, process controllers, and medical instruments, those milliseconds cause shutdowns, data corruption, and production loss. Online double conversion means your load never sees the switch because there is no switch.</p>
+            <p class="text-[15px] text-slate leading-relaxed">Line-interactive UPS systems have a 4 to 10 millisecond transfer gap. Standby units gap for 5 to 12 milliseconds. For sensitive PLCs, process controllers, and medical instruments, those milliseconds cause shutdowns, data corruption, and production loss. Online double conversion means your load never sees the switch because there is no switch.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Engineered to your load, not the nearest catalog size</h3>
-            <p class="text-sm text-slate leading-relaxed">Off-the-shelf UPS vendors offer fixed kVA increments that force oversizing or undersizing. Online Power builds to your exact specification including voltage, frequency, runtime, bypass configuration, enclosure type, and monitoring integration. No compromises and no wasted capacity.</p>
+            <p class="text-[15px] text-slate leading-relaxed">Off-the-shelf UPS vendors offer fixed kVA increments that force oversizing or undersizing. Online Power builds to your exact specification including voltage, frequency, runtime, bypass configuration, enclosure type, and monitoring integration. No compromises and no wasted capacity.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Internal static bypass plus external maintenance bypass</h3>
-            <p class="text-sm text-slate leading-relaxed">The internal static bypass activates automatically in under 4 milliseconds during a fault condition. The external wrap-around maintenance bypass uses make-before-break switching for zero-downtime UPS service, completely isolating the unit for repair without interrupting your critical load. Both should always be specified.</p>
+            <p class="text-[15px] text-slate leading-relaxed">The internal static bypass activates automatically in under 4 milliseconds during a fault condition. The external wrap-around maintenance bypass uses make-before-break switching for zero-downtime UPS service, completely isolating the unit for repair without interrupting your critical load. Both should always be specified.</p>
           </div>
         </div>
 
         <!-- Technical Callout -->
         <div class="bg-off-white border-l-2 border-steel-blue p-6 mb-10" style="border-radius: 0 12px 12px 0;">
           <p class="eyebrow text-steel-blue mb-3">What your spec sheet won't tell you</p>
-          <p class="text-sm text-slate leading-relaxed">UL 1778 and UL 924 certify fundamentally different things. UL 1778 certifies power continuity and quality for UPS equipment. UL 924 certifies emergency life-safety lighting compliance including 90 minute runtime, 10 second activation, and tamperproof design. A UPS with only UL 1778 listing does not satisfy NEC Article 700 emergency system requirements and your AHJ will reject it for emergency lighting applications. Online Power offers dual-listed UL 924 and UL 1778 models that satisfy both standards with a single unit. Also, demand actual efficiency curves at 25 percent, 50 percent, 75 percent, and 100 percent load from any vendor, not just the peak number. A UPS running at 30 percent load for most of its life at 85 percent efficiency costs far more in electricity than one maintaining 94 percent across all load points.</p>
+          <p class="text-[15px] text-slate leading-relaxed">UL 1778 and UL 924 certify fundamentally different things. UL 1778 certifies power continuity and quality for UPS equipment. UL 924 certifies emergency life-safety lighting compliance including 90 minute runtime, 10 second activation, and tamperproof design. A UPS with only UL 1778 listing does not satisfy NEC Article 700 emergency system requirements and your AHJ will reject it for emergency lighting applications. Online Power offers dual-listed UL 924 and UL 1778 models that satisfy both standards with a single unit. Also, demand actual efficiency curves at 25 percent, 50 percent, 75 percent, and 100 percent load from any vendor, not just the peak number. A UPS running at 30 percent load for most of its life at 85 percent efficiency costs far more in electricity than one maintaining 94 percent across all load points.</p>
         </div>
 
         <!-- Codes & Standards -->
@@ -169,7 +169,7 @@ const applications = [
 
         <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
           <p class="text-sm text-near-black font-medium mb-1">Critical Load Protection</p>
-          <p class="text-sm text-slate">Designed for servers, networking equipment, broadcast systems, and other critical loads requiring uninterrupted power. Contact our engineering team for load analysis.</p>
+          <p class="text-[15px] text-slate">Designed for servers, networking equipment, broadcast systems, and other critical loads requiring uninterrupted power. Contact our engineering team for load analysis.</p>
         </div>
       </div>
 
@@ -178,7 +178,7 @@ const applications = [
         <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
           {specs.map(([label, value], i) => (
             <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
-              <span class="text-sm text-slate font-medium">{label}</span>
+              <span class="text-[15px] text-slate font-medium">{label}</span>
               <span class="text-sm text-near-black font-medium text-right">{value}</span>
             </div>
           ))}
@@ -190,7 +190,7 @@ const applications = [
 
       <!-- DOCUMENTS TAB -->
       <div class="tab-content hidden" data-tab="documents">
-        <p class="font-display text-xs text-slate mb-6">All documents available for immediate download after a quick registration.</p>
+        <p class="font-display text-[13px] text-slate mb-6">All documents available for immediate download after a quick registration.</p>
         <DocumentGate productSlug="host-power" />
       </div>
     </div>
@@ -213,7 +213,7 @@ const applications = [
             <div class="p-6">
             <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
             <p class="font-display font-semibold text-xs text-steel-blue mb-3">{p.tagline}</p>
-            <p class="text-sm text-slate mb-4 line-clamp-2">{p.description}</p>
+            <p class="text-[15px] text-slate mb-4 line-clamp-2">{p.description}</p>
             <span class="text-sm font-medium text-steel-blue">View Details &rarr;</span>
             </div>
           </a>
@@ -234,7 +234,7 @@ const applications = [
         <p class="text-near-black text-lg leading-relaxed mb-6 italic">"Our Amazon customer needed an inverter on-site sooner than the standard lead time. Online Power was able to adhere to the customer's needs, expediting their order and delivering their product 2 weeks before their scheduled ship date. You can always count on Online Power."</p>
         <div class="border-t border-steel-gray pt-4">
           <p class="font-display font-semibold text-near-black">Brittany Bromley</p>
-          <p class="text-sm text-slate">Purchasing, Dominion Electric Supply Co.</p>
+          <p class="text-[15px] text-slate">Purchasing, Dominion Electric Supply Co.</p>
         </div>
       </div>
     </div>

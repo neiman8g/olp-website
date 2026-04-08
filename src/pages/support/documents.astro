@@ -70,7 +70,7 @@ import { products, categories } from '../../data/products';
         return (
           <div class="mb-12">
             <h2 class="font-display text-xl font-bold text-near-black mb-2">{cat.name}</h2>
-            <p class="text-sm text-slate mb-6">{cat.tagline}</p>
+            <p class="text-[15px] text-slate mb-6">{cat.tagline}</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {catProducts.map(product => (
                 <a href={`/products/${product.slug}`} class="card-hover bg-white rounded-xl p-5 group">
@@ -90,7 +90,7 @@ import { products, categories } from '../../data/products';
         );
       })}
 
-      <p class="text-center text-sm text-slate mt-8">Need something specific? <a href="/contact" class="text-steel-blue hover:underline">Contact us</a> and we'll send it directly.</p>
+      <p class="text-center text-[15px] text-slate mt-8">Need something specific? <a href="/contact" class="text-steel-blue hover:underline">Contact us</a> and we'll send it directly.</p>
     </div>
   </section>
 

@@ -61,7 +61,7 @@ const applications = [
           </div>
 
           <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-5">Load Control Relays</h1>
-          <p class="text-[15px] text-slate leading-relaxed mb-8">
+          <p class="text-base text-slate leading-relaxed mb-8">
             UL924 automatic load control relays for emergency lighting dimmer override. IP65 rated. 5-year warranty.
           </p>
 
@@ -73,8 +73,8 @@ const applications = [
               { label: 'Warranty', value: '5 Years' },
             ].map(s => (
               <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
-                <p class="font-display text-[10px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
-                <p class="font-display text-sm font-bold text-near-black">{s.value}</p>
+                <p class="font-display text-[12px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
+                <p class="font-display text-base font-bold text-near-black">{s.value}</p>
               </div>
             ))}
           </div>
@@ -82,7 +82,7 @@ const applications = [
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
             <Button href="/contact" size="lg">Request a Quote</Button>
           </div>
-          <p class="font-display text-xs text-slate">Responds within 2 business hours</p>
+          <p class="font-display text-[13px] text-slate">Responds within 2 business hours</p>
         </div>
 
         <div class="hidden lg:block lg:col-span-2">
@@ -111,21 +111,21 @@ const applications = [
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Automatic Dimmer Override</h3>
-            <p class="text-sm text-slate">Automatically overrides 0-10V dimming controls during emergency conditions to bring lighting to full brightness for safe evacuation.</p>
+            <p class="text-[15px] text-slate">Automatically overrides 0-10V dimming controls during emergency conditions to bring lighting to full brightness for safe evacuation.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">IP65 Rated</h3>
-            <p class="text-sm text-slate">IP65 rated quick-connect test switch in durable aluminum housing. Built for reliable operation in demanding commercial environments.</p>
+            <p class="text-[15px] text-slate">IP65 rated quick-connect test switch in durable aluminum housing. Built for reliable operation in demanding commercial environments.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">5-Year Warranty</h3>
-            <p class="text-sm text-slate">Industry-leading 5-year warranty demonstrates our confidence in the LCR20's reliability and long-term performance.</p>
+            <p class="text-[15px] text-slate">Industry-leading 5-year warranty demonstrates our confidence in the LCR20's reliability and long-term performance.</p>
           </div>
         </div>
 
@@ -141,7 +141,7 @@ const applications = [
 
         <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
           <p class="text-sm text-near-black font-medium mb-1">Dimming System Compatibility</p>
-          <p class="text-sm text-slate">Compatible with all 0-10V dimming systems including Lutron, Leviton, and Wattstopper. Contact our engineering team for dimming system compatibility verification.</p>
+          <p class="text-[15px] text-slate">Compatible with all 0-10V dimming systems including Lutron, Leviton, and Wattstopper. Contact our engineering team for dimming system compatibility verification.</p>
         </div>
       </div>
 
@@ -150,7 +150,7 @@ const applications = [
         <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
           {specs.map(([label, value], i) => (
             <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
-              <span class="text-sm text-slate font-medium">{label}</span>
+              <span class="text-[15px] text-slate font-medium">{label}</span>
               <span class="text-sm text-near-black font-medium text-right">{value}</span>
             </div>
           ))}
@@ -162,7 +162,7 @@ const applications = [
 
       <!-- DOCUMENTS TAB -->
       <div class="tab-content hidden" data-tab="documents">
-        <p class="font-display text-xs text-slate mb-6">All documents available for immediate download after a quick registration.</p>
+        <p class="font-display text-[13px] text-slate mb-6">All documents available for immediate download after a quick registration.</p>
         <DocumentGate productSlug="lcr20" />
       </div>
     </div>
@@ -205,7 +205,7 @@ const applications = [
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">Emergency Lighting Inverters</h3>
-            <p class="text-sm text-slate mb-4">UL924 emergency lighting inverters from 35W to 400kW</p>
+            <p class="text-[15px] text-slate mb-4">UL924 emergency lighting inverters from 35W to 400kW</p>
             <span class="text-sm font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
@@ -219,7 +219,7 @@ const applications = [
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">Elevator Backup Systems</h3>
-            <p class="text-sm text-slate mb-4">UL924 elevator backup for safe evacuation</p>
+            <p class="text-[15px] text-slate mb-4">UL924 elevator backup for safe evacuation</p>
             <span class="text-sm font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
@@ -233,7 +233,7 @@ const applications = [
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">Voltage Regulators</h3>
-            <p class="text-sm text-slate mb-4">Power conditioning and voltage regulation systems</p>
+            <p class="text-[15px] text-slate mb-4">Power conditioning and voltage regulation systems</p>
             <span class="text-sm font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
