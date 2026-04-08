@@ -1,102 +1,171 @@
-<svg viewBox="0 0 480 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 560 340" width="100%" xmlns="http://www.w3.org/2000/svg">
   <style>
-    @keyframes ev-dot-down {
+    @keyframes ev-normal {
+      0%, 35%   { opacity: 1; }
+      40%, 85%  { opacity: 0; }
+      90%, 100% { opacity: 1; }
+    }
+    @keyframes ev-em {
+      0%, 38%   { opacity: 0; }
+      42%, 87%  { opacity: 1; }
+      90%, 100% { opacity: 0; }
+    }
+    @keyframes ev-flash {
+      0%, 38% { opacity: 0; }
+      39%     { opacity: 1; }
+      41%     { opacity: 0; }
+      43%     { opacity: 0.7; }
+      45%,100%{ opacity: 0; }
+    }
+    @keyframes ev-dot {
       0%   { offset-distance: 0%; opacity: 0; }
       10%  { opacity: 1; }
       90%  { opacity: 1; }
       100% { offset-distance: 100%; opacity: 0; }
     }
-    @keyframes ev-dot-up {
-      0%   { offset-distance: 100%; opacity: 0; }
-      10%  { opacity: 1; }
-      90%  { opacity: 1; }
-      100% { offset-distance: 0%; opacity: 0; }
-    }
-    .dot-down { animation: ev-dot-down 2s linear infinite; }
-    .dot-up   { animation: ev-dot-up 2s linear infinite; }
+    .normal { animation: ev-normal 8s ease-in-out infinite; }
+    .em     { animation: ev-em 8s ease-in-out infinite; }
+    .flash  { animation: ev-flash 8s ease-in-out infinite; }
+    .dot    { animation: ev-dot 2s linear infinite; }
   </style>
 
-  <!-- ====== UTILITY / GRID (top left) ====== -->
-  <rect x="30" y="30" width="130" height="60" rx="4" fill="#1A3F6A" stroke="#3D6A9E" stroke-width="1.5"/>
-  <text x="95" y="55" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" letter-spacing="1">UTILITY GRID</text>
-  <text x="95" y="72" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B8D4F0">480V 3-Phase</text>
-
-  <!-- ====== OLP INVERTER (center) ====== -->
-  <rect x="140" y="145" width="200" height="70" rx="5" fill="#2B5580" stroke="#2567C2" stroke-width="2"/>
-  <text x="240" y="172" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" letter-spacing="1">OLP INVERTER</text>
-  <text x="240" y="195" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B8D4F0">UL 924 · UL 1778 · Bidirectional</text>
-
-  <!-- ====== ELEVATOR MOTOR (top right) ====== -->
-  <rect x="320" y="30" width="130" height="60" rx="4" fill="#1A3F6A" stroke="#3D6A9E" stroke-width="1.5"/>
-  <circle cx="385" cy="55" r="16" fill="none" stroke="#7EB3F5" stroke-width="2"/>
-  <text x="385" y="61" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="14" fill="#7EB3F5" font-weight="700">M</text>
-  <text x="385" y="105" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#B8D4F0">ELEVATOR</text>
-
-  <!-- ====== BATTERY (bottom center) ====== -->
-  <rect x="170" y="275" width="140" height="50" rx="4" fill="#2B5580" stroke="#3D6A9E" stroke-width="1.5"/>
-  <rect x="185" y="288" width="14" height="22" rx="2" fill="#34D399" opacity="0.7"/>
-  <rect x="205" y="288" width="14" height="22" rx="2" fill="#34D399" opacity="0.55"/>
-  <rect x="225" y="288" width="14" height="22" rx="2" fill="#34D399" opacity="0.4"/>
-  <rect x="245" y="288" width="14" height="22" rx="2" fill="#34D399" opacity="0.25"/>
-  <rect x="265" y="288" width="14" height="22" rx="2" fill="#3D6A9E" opacity="0.3"/>
-  <text x="240" y="340" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#B8D4F0">BATTERY · 2HR RUNTIME</text>
+  <!-- Labels -->
+  <text x="140" y="18" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="11" font-weight="700" fill="#B8D4F0" letter-spacing="2">NORMAL — PASS THROUGH</text>
+  <text x="420" y="18" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="11" font-weight="700" fill="#2567C2" letter-spacing="2">EMERGENCY — BACKUP + REGEN</text>
+  <line x1="280" y1="8" x2="280" y2="325" stroke="#3D6A9E" stroke-width="0.5" stroke-dasharray="6 4"/>
 
   <!-- ============================================ -->
-  <!-- POWER FLOW: Utility → Inverter (blue, down)  -->
+  <!-- LEFT: NORMAL MODE — unit is pass-through     -->
   <!-- ============================================ -->
-  <line x1="95" y1="90" x2="180" y2="145" stroke="#2567C2" stroke-width="2.5"/>
-  <circle r="4" fill="#2567C2" class="dot-down" style="offset-path: path('M95,90 L180,145');"/>
-  <circle r="4" fill="#2567C2" class="dot-down" style="offset-path: path('M95,90 L180,145'); animation-delay: 1s;"/>
-  <!-- Arrow label -->
-  <text x="110" y="118" font-family="Barlow Condensed, sans-serif" font-size="10" fill="#2567C2" font-weight="600" transform="rotate(-28 110 118)">POWER IN</text>
+
+  <!-- Utility -->
+  <g class="normal">
+    <rect x="30" y="40" width="80" height="40" rx="3" fill="#1A3F6A" stroke="#34D399" stroke-width="1.5"/>
+    <text x="70" y="58" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">UTILITY</text>
+    <text x="70" y="70" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="#34D399">ONLINE</text>
+  </g>
+
+  <!-- Inverter (pass-through, dimmed) -->
+  <rect x="70" y="130" width="140" height="50" rx="4" fill="#2B5580" stroke="#3D6A9E" stroke-width="1"/>
+  <text x="140" y="152" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">OLP INVERTER</text>
+  <g class="normal">
+    <text x="140" y="168" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">Pass-Through Mode</text>
+  </g>
+
+  <!-- Elevator -->
+  <g class="normal">
+    <rect x="170" y="40" width="80" height="40" rx="3" fill="#1A3F6A" stroke="#3D6A9E" stroke-width="1.5"/>
+    <circle cx="210" cy="55" r="10" fill="none" stroke="#7EB3F5" stroke-width="1.5"/>
+    <text x="210" y="59" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#7EB3F5" font-weight="700">M</text>
+    <text x="210" y="92" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">ELEVATOR</text>
+  </g>
+
+  <!-- Battery (idle/charging) -->
+  <rect x="95" y="220" width="90" height="35" rx="3" fill="#2B5580" stroke="#3D6A9E" stroke-width="1"/>
+  <rect x="103" y="228" width="10" height="18" rx="1" fill="#34D399" opacity="0.7"/>
+  <rect x="117" y="228" width="10" height="18" rx="1" fill="#34D399" opacity="0.6"/>
+  <rect x="131" y="228" width="10" height="18" rx="1" fill="#34D399" opacity="0.5"/>
+  <rect x="145" y="228" width="10" height="18" rx="1" fill="#34D399" opacity="0.4"/>
+  <rect x="159" y="228" width="10" height="18" rx="1" fill="#34D399" opacity="0.3"/>
+  <text x="140" y="268" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">BATTERY (CHARGING)</text>
+
+  <!-- Normal flows: straight pass-through -->
+  <g class="normal">
+    <!-- Utility → straight through inverter → Elevator -->
+    <line x1="70" y1="80" x2="100" y2="130" stroke="#2567C2" stroke-width="2"/>
+    <line x1="180" y1="130" x2="210" y2="80" stroke="#2567C2" stroke-width="2"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M70,80 L140,155 L210,80');"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M70,80 L140,155 L210,80'); animation-delay: 0.7s;"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M70,80 L140,155 L210,80'); animation-delay: 1.4s;"/>
+
+    <!-- Label: pass through -->
+    <text x="140" y="110" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#2567C2" font-weight="600">PASS THROUGH →</text>
+
+    <!-- Battery trickle charge line -->
+    <line x1="140" y1="180" x2="140" y2="220" stroke="#3D6A9E" stroke-width="1" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- Normal bottom label -->
+  <g class="normal">
+    <rect x="25" y="295" width="230" height="24" rx="4" fill="#1A3F6A"/>
+    <text x="140" y="311" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B8D4F0">Unit passes utility power straight through</text>
+  </g>
 
   <!-- ============================================ -->
-  <!-- POWER FLOW: Inverter → Elevator (blue, up)   -->
+  <!-- RIGHT: EM MODE — backup + regen capture      -->
   <!-- ============================================ -->
-  <line x1="300" y1="145" x2="385" y2="90" stroke="#2567C2" stroke-width="2.5"/>
-  <circle r="4" fill="#2567C2" class="dot-down" style="offset-path: path('M300,145 L385,90');"/>
-  <circle r="4" fill="#2567C2" class="dot-down" style="offset-path: path('M300,145 L385,90'); animation-delay: 1s;"/>
-  <!-- Arrow label -->
-  <text x="355" y="132" font-family="Barlow Condensed, sans-serif" font-size="10" fill="#2567C2" font-weight="600" transform="rotate(28 355 132)">TO MOTOR</text>
 
-  <!-- ============================================ -->
-  <!-- REGEN FLOW: Elevator → Inverter (GREEN, back) -->
-  <!-- ============================================ -->
-  <line x1="370" y1="90" x2="310" y2="145" stroke="#34D399" stroke-width="2" stroke-dasharray="6 3"/>
-  <circle r="3.5" fill="#34D399" class="dot-up" style="offset-path: path('M310,145 L370,90');"/>
-  <circle r="3.5" fill="#34D399" class="dot-up" style="offset-path: path('M310,145 L370,90'); animation-delay: 0.9s;"/>
-  <!-- Arrow label -->
-  <rect x="340" y="112" width="70" height="16" rx="3" fill="#0F2A4A"/>
-  <text x="375" y="124" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#34D399" font-weight="700" letter-spacing="0.5">REGEN ↩</text>
+  <!-- Utility FAILED -->
+  <g class="em">
+    <rect x="310" y="40" width="80" height="40" rx="3" fill="#1A3F6A" stroke="#FF3B3B" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <line x1="335" y1="50" x2="365" y2="70" stroke="#FF3B3B" stroke-width="1.5"/>
+    <line x1="365" y1="50" x2="335" y2="70" stroke="#FF3B3B" stroke-width="1.5"/>
+    <text x="350" y="92" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#FF3B3B" font-weight="700">UTILITY FAIL</text>
+  </g>
 
-  <!-- ============================================ -->
-  <!-- REGEN → UTILITY (GREEN, inverter to grid)    -->
-  <!-- ============================================ -->
-  <line x1="170" y1="155" x2="95" y2="90" stroke="#34D399" stroke-width="2" stroke-dasharray="6 3"/>
-  <circle r="3.5" fill="#34D399" class="dot-up" style="offset-path: path('M95,90 L170,155');"/>
-  <!-- Arrow label -->
-  <rect x="70" y="118" width="85" height="16" rx="3" fill="#0F2A4A"/>
-  <text x="112" y="130" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#34D399" font-weight="700" letter-spacing="0.5">→ BACK TO GRID</text>
+  <!-- Inverter ACTIVE -->
+  <g class="em">
+    <rect x="350" y="130" width="140" height="50" rx="4" fill="#2B5580" stroke="#2567C2" stroke-width="2"/>
+    <text x="420" y="152" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">OLP INVERTER</text>
+    <text x="420" y="168" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#2567C2" font-weight="700">BACKUP ACTIVE</text>
+  </g>
 
-  <!-- ============================================ -->
-  <!-- Battery ↔ Inverter (bidirectional)           -->
-  <!-- ============================================ -->
-  <line x1="240" y1="215" x2="240" y2="275" stroke="#2567C2" stroke-width="2"/>
-  <circle r="3" fill="#2567C2" class="dot-down" style="offset-path: path('M240,215 L240,275'); animation-delay: 0.5s;"/>
-  <!-- Also receives regen in EM -->
-  <line x1="250" y1="275" x2="250" y2="215" stroke="#34D399" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.5"/>
-  <text x="275" y="250" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">Charge /</text>
-  <text x="275" y="261" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">Backup</text>
+  <!-- Elevator -->
+  <g class="em">
+    <rect x="450" y="40" width="80" height="40" rx="3" fill="#1A3F6A" stroke="#2567C2" stroke-width="1.5"/>
+    <circle cx="490" cy="55" r="10" fill="none" stroke="#7EB3F5" stroke-width="1.5"/>
+    <text x="490" y="59" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#7EB3F5" font-weight="700">M</text>
+    <text x="490" y="92" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">ELEVATOR</text>
+  </g>
 
-  <!-- ====== LEGEND ====== -->
-  <g transform="translate(30, 280)">
-    <line x1="0" y1="8" x2="20" y2="8" stroke="#2567C2" stroke-width="2.5"/>
-    <text x="25" y="12" font-family="DM Sans, sans-serif" font-size="9" fill="#B8D4F0">Power draw</text>
+  <!-- Battery DISCHARGING -->
+  <g class="em">
+    <rect x="375" y="220" width="90" height="35" rx="3" fill="#2B5580" stroke="#2567C2" stroke-width="1.5"/>
+    <rect x="383" y="228" width="10" height="18" rx="1" fill="#34D399" opacity="0.6"/>
+    <rect x="397" y="228" width="10" height="18" rx="1" fill="#34D399" opacity="0.35"/>
+    <rect x="411" y="228" width="10" height="18" rx="1" fill="#3D6A9E" opacity="0.3"/>
+    <rect x="425" y="228" width="10" height="18" rx="1" fill="#3D6A9E" opacity="0.2"/>
+    <rect x="439" y="228" width="10" height="18" rx="1" fill="#3D6A9E" opacity="0.15"/>
+    <text x="420" y="268" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">BATTERY (DISCHARGING)</text>
+  </g>
 
-    <line x1="0" y1="28" x2="20" y2="28" stroke="#34D399" stroke-width="2" stroke-dasharray="5 3"/>
-    <text x="25" y="32" font-family="DM Sans, sans-serif" font-size="9" fill="#B8D4F0">Regen return</text>
+  <!-- EM flows -->
+  <g class="em">
+    <!-- Battery → Inverter (powering system) -->
+    <line x1="420" y1="220" x2="420" y2="180" stroke="#2567C2" stroke-width="2"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M420,220 L420,180');"/>
+
+    <!-- Inverter → Elevator (power to motor) -->
+    <line x1="460" y1="130" x2="490" y2="80" stroke="#2567C2" stroke-width="2"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M460,130 L490,80');"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M460,130 L490,80'); animation-delay: 0.7s;"/>
+
+    <!-- REGEN: Elevator → Inverter → Battery (GREEN) -->
+    <line x1="480" y1="80" x2="450" y2="130" stroke="#34D399" stroke-width="2" stroke-dasharray="6 3"/>
+    <line x1="420" y1="180" x2="420" y2="220" stroke="#34D399" stroke-width="1.5" stroke-dasharray="6 3" opacity="0.6"/>
+    <circle r="3" fill="#34D399" class="dot" style="offset-path: path('M480,80 L420,155 L420,220'); animation-delay: 0.5s;"/>
+    <circle r="3" fill="#34D399" class="dot" style="offset-path: path('M480,80 L420,155 L420,220'); animation-delay: 1.3s;"/>
+
+    <!-- Regen label -->
+    <rect x="445" y="100" width="75" height="18" rx="3" fill="#0F2A4A"/>
+    <text x="482" y="113" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#34D399" font-weight="700">REGEN ↩</text>
+
+    <!-- Power label -->
+    <text x="408" y="200" font-family="Barlow Condensed, sans-serif" font-size="8" fill="#2567C2" font-weight="600">POWER ↑</text>
+  </g>
+
+  <!-- EM bottom label -->
+  <g class="em">
+    <rect x="310" y="295" width="230" height="24" rx="4" fill="#1A3F6A"/>
+    <text x="425" y="311" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B8D4F0">Battery powers elevator, regen recharges</text>
+  </g>
+
+  <!-- Flash on left utility when failing -->
+  <g class="flash">
+    <line x1="55" y1="50" x2="85" y2="70" stroke="#FF3B3B" stroke-width="2"/>
+    <line x1="85" y1="50" x2="55" y2="70" stroke="#FF3B3B" stroke-width="2"/>
   </g>
 
   <!-- Caption -->
-  <text x="240" y="356" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="#3D6A9E">POWER WAVE ELEVATE · BIDIRECTIONAL REGEN · UL 924</text>
+  <text x="280" y="335" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="#3D6A9E">POWER WAVE ELEVATE · UL 924 · UL 1778</text>
 </svg>
