@@ -27,12 +27,6 @@
     .em     { animation: ev-em 8s ease-in-out infinite; }
     .flash  { animation: ev-flash 8s ease-in-out infinite; }
     .dot    { animation: ev-dot 2s linear infinite; }
-    @keyframes ev-cabin {
-      0%, 10%  { transform: translateY(0); }
-      40%, 60% { transform: translateY(55px); }
-      90%, 100%{ transform: translateY(0); }
-    }
-    .cabin { animation: ev-cabin 4s ease-in-out infinite; }
   </style>
 
   <!-- Labels -->
@@ -60,10 +54,9 @@
 
   <!-- Elevator -->
   <g class="normal">
-    <rect x="170" y="40" width="80" height="40" rx="3" fill="#1A3F6A" stroke="#3D6A9E" stroke-width="1.5"/>
-    <circle cx="210" cy="55" r="10" fill="none" stroke="#7EB3F5" stroke-width="1.5"/>
-    <text x="210" y="59" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#7EB3F5" font-weight="700">M</text>
-    <text x="210" y="92" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">ELEVATOR</text>
+    <rect x="170" y="40" width="90" height="40" rx="3" fill="#1A3F6A" stroke="#3D6A9E" stroke-width="1.5"/>
+    <text x="215" y="58" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">ELEVATOR</text>
+    <text x="215" y="70" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="#7EB3F5">3-Phase Motor</text>
   </g>
 
   <!-- Battery (idle/charging) -->
@@ -75,32 +68,14 @@
   <rect x="159" y="228" width="10" height="18" rx="1" fill="#34D399" opacity="0.3"/>
   <text x="140" y="268" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">BATTERY (CHARGING)</text>
 
-  <!-- Elevator shaft (left side) -->
-  <g class="normal">
-    <rect x="230" y="40" width="28" height="80" rx="2" fill="#0F2A4A" stroke="#3D6A9E" stroke-width="0.8"/>
-    <!-- Guide rails -->
-    <line x1="233" y1="40" x2="233" y2="120" stroke="#3D6A9E" stroke-width="0.5"/>
-    <line x1="255" y1="40" x2="255" y2="120" stroke="#3D6A9E" stroke-width="0.5"/>
-    <!-- Floor indicators -->
-    <circle cx="262" cy="50" r="2" fill="#3D6A9E"/>
-    <circle cx="262" cy="70" r="2" fill="#3D6A9E"/>
-    <circle cx="262" cy="90" r="2" fill="#3D6A9E"/>
-    <circle cx="262" cy="110" r="2" fill="#34D399"/>
-    <!-- Cabin -->
-    <g class="cabin">
-      <rect x="235" y="48" width="18" height="14" rx="1" fill="#2B5580" stroke="#7EB3F5" stroke-width="1"/>
-      <line x1="244" y1="50" x2="244" y2="60" stroke="#3D6A9E" stroke-width="0.5"/>
-    </g>
-  </g>
-
   <!-- Normal flows: straight pass-through -->
   <g class="normal">
     <!-- Utility → straight through inverter → Elevator -->
     <line x1="70" y1="80" x2="100" y2="130" stroke="#2567C2" stroke-width="2"/>
-    <line x1="180" y1="130" x2="210" y2="80" stroke="#2567C2" stroke-width="2"/>
-    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M70,80 L140,155 L210,80');"/>
-    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M70,80 L140,155 L210,80'); animation-delay: 0.7s;"/>
-    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M70,80 L140,155 L210,80'); animation-delay: 1.4s;"/>
+    <line x1="180" y1="130" x2="215" y2="80" stroke="#2567C2" stroke-width="2"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M70,80 L140,155 L215,80');"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M70,80 L140,155 L215,80'); animation-delay: 0.7s;"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M70,80 L140,155 L215,80'); animation-delay: 1.4s;"/>
 
     <!-- Label: pass through -->
     <text x="140" y="110" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#2567C2" font-weight="600">PASS THROUGH →</text>
@@ -136,10 +111,9 @@
 
   <!-- Elevator -->
   <g class="em">
-    <rect x="450" y="40" width="80" height="40" rx="3" fill="#1A3F6A" stroke="#2567C2" stroke-width="1.5"/>
-    <circle cx="490" cy="55" r="10" fill="none" stroke="#7EB3F5" stroke-width="1.5"/>
-    <text x="490" y="59" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#7EB3F5" font-weight="700">M</text>
-    <text x="490" y="92" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">ELEVATOR</text>
+    <rect x="450" y="40" width="90" height="40" rx="3" fill="#1A3F6A" stroke="#2567C2" stroke-width="1.5"/>
+    <text x="495" y="58" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">ELEVATOR</text>
+    <text x="495" y="70" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="#7EB3F5">3-Phase Motor</text>
   </g>
 
   <!-- Battery DISCHARGING -->
@@ -153,21 +127,6 @@
     <text x="420" y="268" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8D4F0">BATTERY (DISCHARGING)</text>
   </g>
 
-  <!-- Elevator shaft (right side) -->
-  <g class="em">
-    <rect x="510" y="40" width="28" height="80" rx="2" fill="#0F2A4A" stroke="#3D6A9E" stroke-width="0.8"/>
-    <line x1="513" y1="40" x2="513" y2="120" stroke="#3D6A9E" stroke-width="0.5"/>
-    <line x1="535" y1="40" x2="535" y2="120" stroke="#3D6A9E" stroke-width="0.5"/>
-    <circle cx="542" cy="50" r="2" fill="#3D6A9E"/>
-    <circle cx="542" cy="70" r="2" fill="#3D6A9E"/>
-    <circle cx="542" cy="90" r="2" fill="#3D6A9E"/>
-    <circle cx="542" cy="110" r="2" fill="#2567C2"/>
-    <g class="cabin">
-      <rect x="515" y="48" width="18" height="14" rx="1" fill="#2B5580" stroke="#7EB3F5" stroke-width="1"/>
-      <line x1="524" y1="50" x2="524" y2="60" stroke="#3D6A9E" stroke-width="0.5"/>
-    </g>
-  </g>
-
   <!-- EM flows -->
   <g class="em">
     <!-- Battery → Inverter (powering system) -->
@@ -175,15 +134,15 @@
     <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M420,220 L420,180');"/>
 
     <!-- Inverter → Elevator (power to motor) -->
-    <line x1="460" y1="130" x2="490" y2="80" stroke="#2567C2" stroke-width="2"/>
-    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M460,130 L490,80');"/>
-    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M460,130 L490,80'); animation-delay: 0.7s;"/>
+    <line x1="460" y1="130" x2="495" y2="80" stroke="#2567C2" stroke-width="2"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M460,130 L495,80');"/>
+    <circle r="3.5" fill="#2567C2" class="dot" style="offset-path: path('M460,130 L495,80'); animation-delay: 0.7s;"/>
 
     <!-- REGEN: Elevator → Inverter → Battery (GREEN) -->
-    <line x1="480" y1="80" x2="450" y2="130" stroke="#34D399" stroke-width="2" stroke-dasharray="6 3"/>
+    <line x1="485" y1="80" x2="450" y2="130" stroke="#34D399" stroke-width="2" stroke-dasharray="6 3"/>
     <line x1="420" y1="180" x2="420" y2="220" stroke="#34D399" stroke-width="1.5" stroke-dasharray="6 3" opacity="0.6"/>
-    <circle r="3" fill="#34D399" class="dot" style="offset-path: path('M480,80 L420,155 L420,220'); animation-delay: 0.5s;"/>
-    <circle r="3" fill="#34D399" class="dot" style="offset-path: path('M480,80 L420,155 L420,220'); animation-delay: 1.3s;"/>
+    <circle r="3" fill="#34D399" class="dot" style="offset-path: path('M485,80 L420,155 L420,220'); animation-delay: 0.5s;"/>
+    <circle r="3" fill="#34D399" class="dot" style="offset-path: path('M485,80 L420,155 L420,220'); animation-delay: 1.3s;"/>
 
     <!-- Regen label -->
     <rect x="445" y="100" width="75" height="18" rx="3" fill="#0F2A4A"/>
