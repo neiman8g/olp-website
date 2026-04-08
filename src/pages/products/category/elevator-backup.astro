@@ -30,7 +30,7 @@ const product = categoryProducts[0]; // Only one product: Power Wave Elevate
           </h1>
 
           <p class="text-lg text-muted-blue leading-relaxed mb-8 max-w-lg">
-            2 hours of uninterrupted three-phase power for safe building evacuation. Hydraulic, traction, and regenerative elevators from 24kW to 240kW. Zero transfer time.
+            2 hours of uninterrupted three-phase power for safe building evacuation. Traction and regenerative elevators from 24kW to 240kW. No load bank. No ATS switch. Multiple output breakers for separate lighting and elevator loads.
           </p>
 
           <div class="flex flex-wrap gap-3 mb-8">
@@ -41,7 +41,7 @@ const product = categoryProducts[0]; // Only one product: Power Wave Elevate
           <div class="inline-flex items-center gap-4 bg-[#1A3F6A] rounded-lg px-5 py-3">
             <p class="font-display text-[11px] font-semibold uppercase tracking-[0.1em] text-steel-blue">Range</p>
             <p class="font-display text-2xl md:text-3xl font-bold text-white leading-none">24 – 240kW</p>
-            <p class="text-[14px] text-muted-blue">Three Phase · 2-Hour Runtime</p>
+            <p class="text-[14px] text-muted-blue">3-Phase · Online & Fast Transfer</p>
           </div>
         </div>
 
@@ -56,10 +56,10 @@ const product = categoryProducts[0]; // Only one product: Power Wave Elevate
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
           {[
-            { label: 'Runtime', value: '2 Hours' },
-            { label: 'Transfer Time', value: 'Zero (online)' },
-            { label: 'Elevator Types', value: 'All Types' },
-            { label: 'Manufactured', value: 'Los Angeles, CA' },
+            { label: 'Transfer', value: 'Online + Fast' },
+            { label: 'Load Bank', value: 'Not Required' },
+            { label: 'ATS Switch', value: 'Not Required' },
+            { label: 'Outputs', value: 'Multiple Breakers' },
           ].map(s => (
             <div class="py-6 px-4 md:px-6 text-center md:text-left">
               <p class="font-display text-[13px] font-semibold uppercase tracking-[0.1em] text-steel-blue mb-1">{s.label}</p>
@@ -117,8 +117,18 @@ const product = categoryProducts[0]; // Only one product: Power Wave Elevate
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
           </div>
           <div>
-            <h3 class="font-display text-xl font-bold text-near-black mb-2">Regenerative-ready — no resistor bank required</h3>
-            <p class="text-base text-slate leading-relaxed">Modern traction elevators generate power during descent. The Power Wave Elevate redirects regenerative energy to the building grid or to battery charging — eliminating the expensive, heat-generating resistor banks competitors require.</p>
+            <h3 class="font-display text-xl font-bold text-near-black mb-2">No load bank. No ATS switch.</h3>
+            <p class="text-base text-slate leading-relaxed">The Power Wave Elevate handles regenerative energy natively — no external load bank needed. And because it provides both online and fast transfer modes, there's no automatic transfer switch to install, maintain, or fail.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 items-start">
+          <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0 mt-1">
+            <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-near-black mb-2">Multiple output breakers for code compliance</h3>
+            <p class="text-base text-slate leading-relaxed">Separate lighting and elevator loads on independent output breakers from a single unit. Satisfies NEC Article 700 wiring independence requirements without separate panels or additional equipment.</p>
           </div>
         </div>
 
@@ -127,8 +137,8 @@ const product = categoryProducts[0]; // Only one product: Power Wave Elevate
             <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           </div>
           <div>
-            <h3 class="font-display text-xl font-bold text-near-black mb-2">One unit. Two certifications. Every code satisfied.</h3>
-            <p class="text-base text-slate leading-relaxed">Dual UL 924 and UL 1778 listing satisfies NEC Article 700 emergency systems, IBC Section 3007.8 fire service access, and IBC Section 1009.4.1 accessible means of egress. One product, one submittal, one AHJ approval.</p>
+            <h3 class="font-display text-xl font-bold text-near-black mb-2">Online and fast transfer — both included</h3>
+            <p class="text-base text-slate leading-relaxed">The unit ships with both online (zero transfer) and fast transfer modes. Online for continuous power quality. Fast transfer for efficiency. Switch between modes based on your application requirements.</p>
           </div>
         </div>
 
