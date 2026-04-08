@@ -18,24 +18,10 @@ const categoryProducts = getProductsByCategory('emergency-lighting');
 
   <!-- ========== HERO ========== -->
   <section class="bg-deep-navy">
-    <!-- Breadcrumb bar -->
-    <div class="border-b border-navy-mid">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
-        <nav class="font-display text-[12px] uppercase tracking-[0.1em] text-muted-blue">
-          <a href="/" class="hover:text-white transition-colors">Home</a>
-          <span class="mx-2 opacity-40">/</span>
-          <a href="/products" class="hover:text-white transition-colors">Products</a>
-          <span class="mx-2 opacity-40">/</span>
-          <span class="text-white">Emergency Lighting</span>
-        </nav>
-      </div>
-    </div>
-
-    <!-- Main hero content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-      <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
-        <!-- Left: 3 cols -->
-        <div class="lg:col-span-3">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <!-- Left -->
+        <div>
           <p class="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-steel-blue mb-2">UL 924 · UL 1778 · OSHPD/HCAI · ISO 9001</p>
 
           <h1 class="font-display text-4xl md:text-5xl lg:text-[54px] font-bold text-white leading-[1.1] mb-5">
@@ -59,11 +45,9 @@ const categoryProducts = getProductsByCategory('emergency-lighting');
           </div>
         </div>
 
-        <!-- Right: 2 cols — SVG illustration, full bleed -->
-        <div class="hidden lg:flex lg:col-span-2 items-center justify-center overflow-hidden" style="margin: -20px -40px -20px 0;">
-          <div style="width: 140%; max-width: 700px;">
-            <EmergencyLighting />
-          </div>
+        <!-- Right — SVG illustration -->
+        <div class="hidden lg:block">
+          <EmergencyLighting />
         </div>
       </div>
     </div>
