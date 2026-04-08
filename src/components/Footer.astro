@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
       <!-- Products -->
       <div>
-        <h3 class="font-display text-[12px] uppercase tracking-[0.12em] font-bold text-steel-blue mb-5">Products</h3>
+        <h3 class="font-display text-[13px] uppercase tracking-[0.12em] font-bold text-steel-blue mb-5">Products</h3>
         <ul class="space-y-0.5 lg:space-y-2.5">
           {navigation.products.map(item => (
             <li><a href={item.href} class="text-[13px] text-muted-blue hover:text-white transition-colors block py-2 lg:py-0">{item.name}</a></li>
@@ -22,7 +22,7 @@ const year = new Date().getFullYear();
 
       <!-- Support -->
       <div>
-        <h3 class="font-display text-[12px] uppercase tracking-[0.12em] font-bold text-steel-blue mb-5">Support</h3>
+        <h3 class="font-display text-[13px] uppercase tracking-[0.12em] font-bold text-steel-blue mb-5">Support</h3>
         <ul class="space-y-0.5 lg:space-y-2.5">
           {navigation.support.map(item => (
             <li><a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined} class="text-[13px] text-muted-blue hover:text-white transition-colors block py-2 lg:py-0">{item.name}</a></li>
@@ -33,7 +33,7 @@ const year = new Date().getFullYear();
 
       <!-- Company -->
       <div>
-        <h3 class="font-display text-[12px] uppercase tracking-[0.12em] font-bold text-steel-blue mb-5">Company</h3>
+        <h3 class="font-display text-[13px] uppercase tracking-[0.12em] font-bold text-steel-blue mb-5">Company</h3>
         <ul class="space-y-0.5 lg:space-y-2.5">
           {navigation.company.map(item => (
             <li><a href={item.href} class="text-[13px] text-muted-blue hover:text-white transition-colors block py-2 lg:py-0">{item.name}</a></li>
@@ -43,7 +43,7 @@ const year = new Date().getFullYear();
 
       <!-- Contact -->
       <div>
-        <h3 class="font-display text-[12px] uppercase tracking-[0.12em] font-bold text-steel-blue mb-5">Contact</h3>
+        <h3 class="font-display text-[13px] uppercase tracking-[0.12em] font-bold text-steel-blue mb-5">Contact</h3>
         <ul class="space-y-3">
           <li>
             <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-[13px] text-muted-blue hover:text-steel-blue transition-colors font-display font-semibold">{company.phone}</a>

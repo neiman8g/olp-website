@@ -75,7 +75,7 @@ const applications = [
               { label: 'Type', value: 'Built to Spec' },
             ].map(s => (
               <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
-                <p class="font-display text-[12px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
+                <p class="font-display text-[13px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
                 <p class="font-display text-base font-bold text-near-black">{s.value}</p>
               </div>
             ))}
@@ -113,21 +113,21 @@ const applications = [
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Engineered to Spec</h3>
-            <p class="text-[15px] text-slate">48 years of custom power engineering. Every unit designed and built to your exact requirements with full engineering support throughout the process.</p>
+            <p class="text-base text-slate">48 years of custom power engineering. Every unit designed and built to your exact requirements with full engineering support throughout the process.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Frequency Conversion</h3>
-            <p class="text-[15px] text-slate">Industrial frequency converters with true galvanic isolation and ±0.1Hz accuracy. 50/60/400Hz conversion with DSP and IGBT technology.</p>
+            <p class="text-base text-slate">Industrial frequency converters with true galvanic isolation and ±0.1Hz accuracy. 50/60/400Hz conversion with DSP and IGBT technology.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Global Compatibility</h3>
-            <p class="text-[15px] text-slate">Multi-voltage input systems for worldwide deployment. AC/DC voltage conversion, noise isolation, and plug-and-play system integration.</p>
+            <p class="text-base text-slate">Multi-voltage input systems for worldwide deployment. AC/DC voltage conversion, noise isolation, and plug-and-play system integration.</p>
           </div>
         </div>
 
@@ -143,7 +143,7 @@ const applications = [
 
         <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
           <p class="text-sm text-near-black font-medium mb-1">Start Your Custom Project</p>
-          <p class="text-[15px] text-slate">From initial concept to final delivery, our engineering team works with you at every stage. Contact us with your requirements and we will provide a detailed proposal and timeline.</p>
+          <p class="text-base text-slate">From initial concept to final delivery, our engineering team works with you at every stage. Contact us with your requirements and we will provide a detailed proposal and timeline.</p>
         </div>
       </div>
 
@@ -152,7 +152,7 @@ const applications = [
         <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
           {specs.map(([label, value], i) => (
             <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
-              <span class="text-[15px] text-slate font-medium">{label}</span>
+              <span class="text-base text-slate font-medium">{label}</span>
               <span class="text-sm text-near-black font-medium text-right">{value}</span>
             </div>
           ))}
@@ -187,8 +187,8 @@ const applications = [
             <div class="p-6">
             <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
             <p class="font-display font-semibold text-xs text-steel-blue mb-3">{p.tagline}</p>
-            <p class="text-[15px] text-slate mb-4 line-clamp-2">{p.description}</p>
-            <span class="text-sm font-medium text-steel-blue">View Details &rarr;</span>
+            <p class="text-base text-slate mb-4 line-clamp-2">{p.description}</p>
+            <span class="text-[15px] font-medium text-steel-blue">View Details &rarr;</span>
             </div>
           </a>
         ))}
@@ -208,7 +208,7 @@ const applications = [
         <p class="text-near-black text-lg leading-relaxed mb-6 italic">"Online Power designed a custom frequency converter that met our exact specifications. Their 48 years of experience shows in every detail of the engineering."</p>
         <div class="border-t border-steel-gray pt-4">
           <p class="font-display font-semibold text-near-black">Tom Nakamura</p>
-          <p class="text-[15px] text-slate">Defense Systems Integrator</p>
+          <p class="text-base text-slate">Defense Systems Integrator</p>
         </div>
       </div>
     </div>

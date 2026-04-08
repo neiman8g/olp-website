@@ -41,7 +41,7 @@ import Button from './Button.astro';
                 </a>
               ))}
               <div class="border-t border-steel-gray mt-2 pt-2 px-4">
-                <a href="/products/" role="menuitem" tabindex="-1" class="text-sm font-medium text-steel-blue hover:text-near-black transition-colors">All Products &rarr;</a>
+                <a href="/products/" role="menuitem" tabindex="-1" class="text-[15px] font-medium text-steel-blue hover:text-near-black transition-colors">All Products &rarr;</a>
               </div>
             </div>
           </div>
@@ -103,6 +103,7 @@ import Button from './Button.astro';
         </div>
 
         <a href="/training/" class="px-3 py-2 text-[14px] font-display font-semibold uppercase tracking-wide text-slate hover:text-near-black transition-colors">Training</a>
+        <a href="/support/documents" class="px-3 py-2 text-[14px] font-display font-semibold uppercase tracking-wide text-slate hover:text-near-black transition-colors">Documents</a>
       </nav>
 
       <!-- CTA -->
@@ -144,7 +145,7 @@ import Button from './Button.astro';
         {navigation.products.map(item => (
           <a href={item.href} class="block py-2.5 pl-4 text-sm text-slate hover:text-steel-blue transition-colors">{item.name}</a>
         ))}
-        <a href="/products/" class="block py-2.5 pl-4 text-sm font-medium text-steel-blue">All Products &rarr;</a>
+        <a href="/products/" class="block py-2.5 pl-4 text-[15px] font-medium text-steel-blue">All Products &rarr;</a>
       </div>
     </div>
 
@@ -172,6 +173,7 @@ import Button from './Button.astro';
       </div>
     </div>
     <a href="/training/" class="block py-3 font-medium text-steel-blue border-b border-steel/30">Training</a>
+    <a href="/support/documents" class="block py-3 font-medium text-steel-blue border-b border-steel/30">Documents</a>
     <a href="/contact/" class="block py-3 font-medium text-slate hover:text-steel-blue">Request a Quote</a>
 
     <div class="pt-6 space-y-3 border-t border-steel/30 mt-4">
@@ -266,11 +268,27 @@ import Button from './Button.astro';
     return trigger?.getAttribute('aria-expanded') === 'true';
   }
 
+  let closeTimer = null;
+
   dropdowns.forEach(dd => {
     const trigger = dd.querySelector('[data-dropdown-trigger]');
     const menu = dd.querySelector('[data-dropdown-menu]');
 
-    // Click toggle
+    // Hover open (desktop)
+    dd.addEventListener('mouseenter', () => {
+      clearTimeout(closeTimer);
+      closeAllDropdowns(dd);
+      openDropdown(dd);
+    });
+
+    // Hover close with small delay (prevents flicker when moving to submenu)
+    dd.addEventListener('mouseleave', () => {
+      closeTimer = setTimeout(() => {
+        closeAllDropdowns();
+      }, 150);
+    });
+
+    // Click also works (for touch-screen laptops)
     trigger?.addEventListener('click', (e) => {
       e.stopPropagation();
       if (isDropdownOpen(dd)) {

@@ -217,7 +217,7 @@ const specs = specTables[product.slug] || null;
           </div>
           <div class="flex items-center justify-center gap-3 mt-4">
             {product.standards.slice(0, 4).map(std => (
-              <span class="badge-light text-[12px]">{std}</span>
+              <span class="badge-light text-[13px]">{std}</span>
             ))}
           </div>
         </div>
@@ -248,7 +248,7 @@ const specs = specTables[product.slug] || null;
         <div class="border border-steel-gray rounded-xl overflow-hidden">
           {specs.map(([label, value], i) => (
             <div class={`flex items-center justify-between px-5 py-3.5 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
-              <span class="text-[15px] text-slate">{label}</span>
+              <span class="text-base text-slate">{label}</span>
               <span class="text-sm text-near-black font-medium text-right ml-4">{value}</span>
             </div>
           ))}
@@ -256,7 +256,7 @@ const specs = specTables[product.slug] || null;
       ) : (
         <div class="bg-off-white border border-steel-gray rounded-xl p-8 text-center">
           <p class="text-slate mb-3">Full specifications available on request.</p>
-          <a href="/contact" class="text-sm font-medium text-steel-blue hover:text-near-black transition-colors">Contact us for full specifications &rarr;</a>
+          <a href="/contact" class="text-[15px] font-medium text-steel-blue hover:text-near-black transition-colors">Contact us for full specifications &rarr;</a>
         </div>
       )}
     </div>
@@ -286,9 +286,9 @@ const specs = specTables[product.slug] || null;
               </div>
               <div class="p-6">
                 <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{rp.name}</h3>
-                <p class="font-display text-[13px] text-slate mb-3">{rp.tagline}</p>
-                <p class="text-[15px] text-slate mb-4 line-clamp-2">{rp.description}</p>
-                <span class="text-sm font-medium text-steel-blue">View Product &rarr;</span>
+                <p class="font-display text-sm text-slate mb-3">{rp.tagline}</p>
+                <p class="text-base text-slate mb-4 line-clamp-2">{rp.description}</p>
+                <span class="text-[15px] font-medium text-steel-blue">View Product &rarr;</span>
               </div>
             </a>
           ))}

@@ -77,7 +77,7 @@ const applications = [
               { label: 'Certifications', value: 'UL 1481 · NFPA 72' },
             ].map(s => (
               <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
-                <p class="font-display text-[12px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
+                <p class="font-display text-[13px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
                 <p class="font-display text-base font-bold text-near-black">{s.value}</p>
               </div>
             ))}
@@ -119,61 +119,61 @@ const applications = [
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Back up the entire panel, not just the NAC circuits</h3>
-            <p class="text-[15px] text-slate leading-relaxed">NAC power extenders only add notification circuit capacity. Online Power's Fire Alarm Backup provides AC power to the FACP itself, backing up every function: addressable loops, signaling line circuits, NAC outputs, communications, and supervisory circuits. One UPS. Complete protection.</p>
+            <p class="text-base text-slate leading-relaxed">NAC power extenders only add notification circuit capacity. Online Power's Fire Alarm Backup provides AC power to the FACP itself, backing up every function: addressable loops, signaling line circuits, NAC outputs, communications, and supervisory circuits. One UPS. Complete protection.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Zero transfer means zero panel reset</h3>
-            <p class="text-[15px] text-slate leading-relaxed">Standard battery switchover can cause a momentary power interruption that resets the fire alarm control panel, losing alarm history, zone status, and potentially triggering false trouble signals to the monitoring station. True online double conversion eliminates this risk entirely.</p>
+            <p class="text-base text-slate leading-relaxed">Standard battery switchover can cause a momentary power interruption that resets the fire alarm control panel, losing alarm history, zone status, and potentially triggering false trouble signals to the monitoring station. True online double conversion eliminates this risk entirely.</p>
           </div>
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <h3 class="font-display text-2xl font-semibold text-near-black mb-2">VRLA batteries with 10-year design life</h3>
-            <p class="text-[15px] text-slate leading-relaxed">Panel-internal batteries typically last 3-5 years and require semi-annual testing under NFPA 72 §14.4. Online Power's premium VRLA batteries deliver 10-year expected life with 250+ discharge cycles. The integrated supervised charger meets NFPA 72's 48-hour full-recharge requirement per §10.6.10.3.2 and monitors for low voltage, charger failure, and ground faults.</p>
+            <p class="text-base text-slate leading-relaxed">Panel-internal batteries typically last 3-5 years and require semi-annual testing under NFPA 72 §14.4. Online Power's premium VRLA batteries deliver 10-year expected life with 250+ discharge cycles. The integrated supervised charger meets NFPA 72's 48-hour full-recharge requirement per §10.6.10.3.2 and monitors for low voltage, charger failure, and ground faults.</p>
           </div>
         </div>
 
         <!-- Technical Callout -->
         <div class="bg-off-white border-l-2 border-steel-blue p-6 mb-10" style="border-radius: 0 12px 12px 0;">
           <p class="eyebrow text-steel-blue mb-3">What your spec sheet won't tell you</p>
-          <p class="text-[15px] text-slate leading-relaxed">NFPA 72 §10.6.7.2 requires a 20% safety margin in all battery calculations. The formula is: Battery Capacity (Ah) = [(Standby Current × 24h) + (Alarm Current × 0.0833h)] × 1.20. Most specifiers run this math against panel-internal batteries and find they are undersized on day one. The bigger trap: NFPA 72 §10.6.10.3.2 requires batteries to recharge fully within 48 hours after complete discharge. Many fire alarm panels have chargers sized for their maximum internal battery, not for an oversized external battery bank. An external UPS with its own properly sized charger solves both problems. Also note: effective January 2024 under NFPA 72 2022 edition, all rechargeable batteries used as secondary fire alarm power must be listed per UL 1989 or UL 2054.</p>
+          <p class="text-base text-slate leading-relaxed">NFPA 72 §10.6.7.2 requires a 20% safety margin in all battery calculations. The formula is: Battery Capacity (Ah) = [(Standby Current × 24h) + (Alarm Current × 0.0833h)] × 1.20. Most specifiers run this math against panel-internal batteries and find they are undersized on day one. The bigger trap: NFPA 72 §10.6.10.3.2 requires batteries to recharge fully within 48 hours after complete discharge. Many fire alarm panels have chargers sized for their maximum internal battery, not for an oversized external battery bank. An external UPS with its own properly sized charger solves both problems. Also note: effective January 2024 under NFPA 72 2022 edition, all rechargeable batteries used as secondary fire alarm power must be listed per UL 1989 or UL 2054.</p>
         </div>
 
         <!-- Custom Alarm Mode Options -->
         <p class="eyebrow text-steel-blue mb-4">Custom Alarm Mode Options</p>
-        <p class="text-[15px] text-slate leading-relaxed mb-6">Every building has different fire alarm loads, panel configurations, and code requirements. Online Power engineers each Fire Alarm Backup system to your exact specification. Tell us your panel make and model, your NAC circuit load in amps, your standby current draw, and your jurisdiction and we will size the system, calculate the battery capacity with the NFPA 72 required 20% safety margin, and provide a complete submittal package.</p>
+        <p class="text-base text-slate leading-relaxed mb-6">Every building has different fire alarm loads, panel configurations, and code requirements. Online Power engineers each Fire Alarm Backup system to your exact specification. Tell us your panel make and model, your NAC circuit load in amps, your standby current draw, and your jurisdiction and we will size the system, calculate the battery capacity with the NFPA 72 required 20% safety margin, and provide a complete submittal package.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
           <div class="bg-off-white border-t-2 border-t-steel-blue rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <h3 class="font-display text-base font-semibold text-near-black mb-2">Extended Runtime</h3>
-            <p class="text-[15px] text-slate leading-relaxed">Standard NFPA 72 requires 24 hours standby plus 5 minutes alarm. Online Power configures extended runtime batteries for jurisdictions requiring 60 hours, 72 hours, or beyond standard minimums. Ideal for remote facilities, critical government buildings, and projects with stringent AHJ requirements.</p>
+            <p class="text-base text-slate leading-relaxed">Standard NFPA 72 requires 24 hours standby plus 5 minutes alarm. Online Power configures extended runtime batteries for jurisdictions requiring 60 hours, 72 hours, or beyond standard minimums. Ideal for remote facilities, critical government buildings, and projects with stringent AHJ requirements.</p>
           </div>
           <div class="bg-off-white border-t-2 border-t-steel-blue rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 010-7.072m-2.828 9.9a9 9 0 010-12.728"></path></svg>
             </div>
             <h3 class="font-display text-base font-semibold text-near-black mb-2">Voice Evacuation Systems</h3>
-            <p class="text-[15px] text-slate leading-relaxed">Buildings with voice evacuation require 15 minutes of full alarm runtime instead of the standard 5 minutes per NFPA 72. Online Power sizes battery capacity to meet the higher drain of amplifiers, speakers, and mass notification equipment across large floor plates and campus environments.</p>
+            <p class="text-base text-slate leading-relaxed">Buildings with voice evacuation require 15 minutes of full alarm runtime instead of the standard 5 minutes per NFPA 72. Online Power sizes battery capacity to meet the higher drain of amplifiers, speakers, and mass notification equipment across large floor plates and campus environments.</p>
           </div>
           <div class="bg-off-white border-t-2 border-t-steel-blue rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
             </div>
             <h3 class="font-display text-base font-semibold text-near-black mb-2">High Rise and Campus Systems</h3>
-            <p class="text-[15px] text-slate leading-relaxed">Large buildings with multiple fire alarm control panels and remote power supplies require coordinated backup across the entire system. Online Power designs multi-unit configurations that maintain NFPA 72 compliance for each panel independently while providing centralized monitoring through a single GMS interface.</p>
+            <p class="text-base text-slate leading-relaxed">Large buildings with multiple fire alarm control panels and remote power supplies require coordinated backup across the entire system. Online Power designs multi-unit configurations that maintain NFPA 72 compliance for each panel independently while providing centralized monitoring through a single GMS interface.</p>
           </div>
           <div class="bg-off-white border-t-2 border-t-steel-blue rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
             <h3 class="font-display text-base font-semibold text-near-black mb-2">Generator Coordination</h3>
-            <p class="text-[15px] text-slate leading-relaxed">For buildings with standby generators, Online Power configures the Fire Alarm Backup to bridge the gap between utility failure and generator transfer with zero interruption, then seamlessly hand off to generator power for extended outages without panel reset or false alarm signals.</p>
+            <p class="text-base text-slate leading-relaxed">For buildings with standby generators, Online Power configures the Fire Alarm Backup to bridge the gap between utility failure and generator transfer with zero interruption, then seamlessly hand off to generator power for extended outages without panel reset or false alarm signals.</p>
           </div>
         </div>
 
@@ -209,7 +209,7 @@ const applications = [
         <!-- Compatibility -->
         <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
           <p class="text-sm text-near-black font-medium mb-1">Fire Alarm Panel Compatibility</p>
-          <p class="text-[15px] text-slate">Compatible with all major fire alarm control panels including Notifier, Simplex, Edwards, and Honeywell. Contact our engineering team for panel compatibility verification.</p>
+          <p class="text-base text-slate">Compatible with all major fire alarm control panels including Notifier, Simplex, Edwards, and Honeywell. Contact our engineering team for panel compatibility verification.</p>
         </div>
       </div>
 
@@ -218,7 +218,7 @@ const applications = [
         <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
           {specs.map(([label, value], i) => (
             <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
-              <span class="text-[15px] text-slate font-medium">{label}</span>
+              <span class="text-base text-slate font-medium">{label}</span>
               <span class="text-sm text-near-black font-medium text-right">{value}</span>
             </div>
           ))}
@@ -270,7 +270,7 @@ const applications = [
         <p class="text-near-black text-lg leading-relaxed mb-6 italic">"Online Power is highly responsive with helpful solutions and a range of products for our projects which is why we continue to specify their products."</p>
         <div class="border-t border-steel-gray pt-4">
           <p class="font-display font-semibold text-near-black">Sothol Roeung</p>
-          <p class="text-[15px] text-slate">Electrical Engineer, S Y Lee and Associates</p>
+          <p class="text-base text-slate">Electrical Engineer, S Y Lee and Associates</p>
         </div>
       </div>
     </div>
@@ -291,8 +291,8 @@ const applications = [
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">Emergency Lighting Inverters</h3>
-            <p class="text-[15px] text-slate mb-4">UL924 emergency lighting inverters from 35W to 400kW</p>
-            <span class="text-sm font-medium text-steel-blue">View Products &rarr;</span>
+            <p class="text-base text-slate mb-4">UL924 emergency lighting inverters from 35W to 400kW</p>
+            <span class="text-[15px] font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
         <a href="/products/category/medical-grade" class="card-hover border-t-2 border-t-steel-blue bg-white rounded-xl overflow-hidden group">
@@ -305,8 +305,8 @@ const applications = [
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">Medical Grade Systems</h3>
-            <p class="text-[15px] text-slate mb-4">Hospital-grade isolation and power protection</p>
-            <span class="text-sm font-medium text-steel-blue">View Products &rarr;</span>
+            <p class="text-base text-slate mb-4">Hospital-grade isolation and power protection</p>
+            <span class="text-[15px] font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
         <a href="/products/category/monitoring" class="card-hover border-t-2 border-t-steel-blue bg-white rounded-xl overflow-hidden group">
@@ -319,8 +319,8 @@ const applications = [
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">Monitoring & Software</h3>
-            <p class="text-[15px] text-slate mb-4">Remote monitoring and battery advisory systems</p>
-            <span class="text-sm font-medium text-steel-blue">View Products &rarr;</span>
+            <p class="text-base text-slate mb-4">Remote monitoring and battery advisory systems</p>
+            <span class="text-[15px] font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
       </div>

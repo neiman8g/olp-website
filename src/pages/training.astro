@@ -41,7 +41,7 @@ import { productCategories } from '../data/navigation';
                 </div>
                 <div>
                   <h3 class="font-semibold text-near-black text-[16px]">{item.title}</h3>
-                  <p class="text-[15px] text-slate mt-0.5">{item.desc}</p>
+                  <p class="text-base text-slate mt-0.5">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -68,7 +68,7 @@ import { productCategories } from '../data/navigation';
               </div>
               <div>
                 <h3 class="font-display font-semibold text-near-black mb-1">{item.title}</h3>
-                <p class="text-[15px] text-slate">{item.desc}</p>
+                <p class="text-base text-slate">{item.desc}</p>
               </div>
             </Card>
           ))}
@@ -89,27 +89,27 @@ import { productCategories } from '../data/navigation';
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="name" class="block eyebrow text-slate mb-2">Full Name *</label>
-            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-sm text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
           <div>
             <label for="email" class="block eyebrow text-slate mb-2">Email *</label>
-            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-sm text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="phone" class="block eyebrow text-slate mb-2">Phone *</label>
-            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-sm text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
           <div>
             <label for="company" class="block eyebrow text-slate mb-2">Company *</label>
-            <input type="text" id="company" name="company" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-sm text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <input type="text" id="company" name="company" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="product" class="block eyebrow text-slate mb-2">Product *</label>
-            <select id="product" name="product" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-[15px] text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
+            <select id="product" name="product" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
               <option value="">Select product...</option>
               {productCategories.map(cat => (
                 <option value={cat.name}>{cat.name}</option>
@@ -119,7 +119,7 @@ import { productCategories } from '../data/navigation';
           </div>
           <div>
             <label for="format" class="block eyebrow text-slate mb-2">Format *</label>
-            <select id="format" name="format" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-[15px] text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
+            <select id="format" name="format" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
               <option value="">Select format...</option>
               <option value="In-Person">In-Person</option>
               <option value="Virtual">Virtual</option>
@@ -130,18 +130,18 @@ import { productCategories } from '../data/navigation';
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="attendees" class="block eyebrow text-slate mb-2">Attendees</label>
-            <select id="attendees" name="attendees" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-[15px] text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
+            <select id="attendees" name="attendees" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
               <option value="1-3">1-3</option><option value="4-8">4-8</option><option value="9-15">9-15</option><option value="16+">16+</option>
             </select>
           </div>
           <div>
             <label for="date_range" class="block eyebrow text-slate mb-2">Preferred Dates</label>
-            <input type="text" id="date_range" name="date_range" placeholder="e.g., June 2026" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-sm text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <input type="text" id="date_range" name="date_range" placeholder="e.g., June 2026" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
         </div>
         <div>
           <label for="message" class="block eyebrow text-slate mb-2">Notes</label>
-          <textarea id="message" name="message" rows="3" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-sm text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors resize-y"></textarea>
+          <textarea id="message" name="message" rows="3" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors resize-y"></textarea>
         </div>
         <div class="hidden" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" /></div>
         <Button type="submit" id="training-submit-btn" size="lg" icon="bolt" fullWidth>Register for Training</Button>
@@ -149,7 +149,7 @@ import { productCategories } from '../data/navigation';
         <div id="form-error" class="hidden p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm text-center">Something went wrong. Call {company.phone}.</div>
       </form>
 
-      <p class="text-center text-[15px] text-slate mt-6">
+      <p class="text-center text-base text-slate mt-6">
         Or call <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-steel-blue hover:underline font-display font-semibold">{company.phone}</a>
       </p>
     </div>
@@ -172,7 +172,7 @@ import { productCategories } from '../data/navigation';
               <span class="font-medium text-sm">{item.q}</span>
               <svg class="w-4 h-4 text-slate group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </summary>
-            <div class="px-5 pb-5 text-[15px] text-slate leading-relaxed">{item.a}</div>
+            <div class="px-5 pb-5 text-base text-slate leading-relaxed">{item.a}</div>
           </details>
         ))}
       </div>
