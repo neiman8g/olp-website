@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Button from '../../../components/Button.astro';
-import DocumentGate from '../../../components/DocumentGate.astro';
 import { getProductsByCategory, getCategoryBySlug } from '../../../data/products';
 import { company } from '../../../data/company';
 import { Image } from 'astro:assets';
@@ -10,23 +9,6 @@ import EmergencyLighting from '../../../components/illustrations/EmergencyLighti
 
 const category = getCategoryBySlug('emergency-lighting')!;
 const categoryProducts = getProductsByCategory('emergency-lighting');
-
-const specs = [
-  ['Input Voltage', '120/208/240/277/480 VAC'],
-  ['Output Voltage', 'Matches input (field selectable)'],
-  ['Frequency', '60 Hz'],
-  ['Waveform', 'Pure Sine Wave (<3% THD)'],
-  ['Power Range', '35W to 400kW'],
-  ['Transfer Time', '<4ms (HID compatible available)'],
-  ['Efficiency', '>95% at full load'],
-  ['Battery Type', 'Sealed VRLA / Lithium-Ion (optional)'],
-  ['Battery Runtime', '90 minutes standard · 120-minute option available per NFPA 101 §7.9.2.1'],
-  ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
-  ['Seismic Rating', 'OSHPD/HCAI SDS 3.0G'],
-  ['Enclosure', 'NEMA 1 standard, NEMA 3R optional'],
-  ['Certifications', 'UL 924, NFPA 101, NEC Article 700, OSHPD/HCAI, ISO 9001'],
-  ['Warranty', '2 years parts and labor'],
-];
 ---
 
 <BaseLayout
@@ -34,7 +16,7 @@ const specs = [
   description="Centralized emergency lighting inverters from 35W to 400kW. UL924 listed, pure sine wave output, <4ms transfer time. Single and three phase. Built in Los Angeles. ISO 9001."
 >
 
-  <!-- ========== HERO — clean, no boxes ========== -->
+  <!-- ========== HERO ========== -->
   <section class="py-10 md:py-14 bg-deep-navy">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <nav class="font-display text-[12px] uppercase tracking-[0.1em] text-muted-blue mb-8">
@@ -60,7 +42,6 @@ const specs = [
             The widest range of UL 924 listed emergency lighting inverters from a single manufacturer. 35W to 400kW. Pure sine wave. Zero transfer time. Built to order in Los Angeles since 1975.
           </p>
 
-          <!-- Key specs as inline text, not boxes -->
           <div class="flex flex-wrap gap-x-6 gap-y-2 mb-8 text-[14px]">
             <span class="text-white font-display font-semibold">35W–400kW</span>
             <span class="text-muted-blue">·</span>
@@ -73,7 +54,7 @@ const specs = [
 
           <div class="flex flex-wrap gap-3">
             <Button href="/contact" size="lg">Size My Inverter</Button>
-            <Button href="#documents" variant="ghost" size="lg" icon="arrow-down">Data Sheets</Button>
+            <Button href="#inverters" variant="ghost" size="lg" icon="arrow-down">View All Models</Button>
           </div>
         </div>
 
@@ -84,15 +65,14 @@ const specs = [
     </div>
   </section>
 
-  <!-- ========== PRODUCTS — front and center with phase filter ========== -->
-  <section class="py-10 md:py-14 bg-off-white">
+  <!-- ========== PRODUCT GRID with phase filter ========== -->
+  <section id="inverters" class="py-10 md:py-14 bg-off-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div>
           <h2 class="font-display text-2xl md:text-3xl font-bold text-near-black">{categoryProducts.length} Models Available</h2>
-          <p class="text-base text-slate mt-1">Single phase and three phase configurations</p>
+          <p class="text-base text-slate mt-1">Click any model for full specs, data sheets, and CAD files</p>
         </div>
-        <!-- Phase filter -->
         <div class="flex gap-1 bg-white border border-steel-gray rounded-lg p-1" id="phase-filter">
           <button class="phase-btn px-4 py-2 text-[13px] font-display font-semibold uppercase tracking-wide rounded transition-colors bg-steel-blue text-white" data-phase="all">All</button>
           <button class="phase-btn px-4 py-2 text-[13px] font-display font-semibold uppercase tracking-wide rounded transition-colors text-slate hover:text-near-black" data-phase="single">Single Phase</button>
@@ -118,7 +98,7 @@ const specs = [
                 <h3 class="font-display text-xl font-bold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
                 <p class="font-display text-[13px] font-semibold text-steel-blue mb-2">{p.tagline}</p>
                 <p class="text-[15px] text-slate line-clamp-2 mb-3">{p.description}</p>
-                <span class="font-display text-[14px] font-semibold text-steel-blue uppercase tracking-wide">View Details →</span>
+                <span class="font-display text-[14px] font-semibold text-steel-blue uppercase tracking-wide">Specs & Data Sheets →</span>
               </div>
             </a>
           );
@@ -127,7 +107,7 @@ const specs = [
     </div>
   </section>
 
-  <!-- ========== WHY CENTRALIZED — clean editorial, no card boxes ========== -->
+  <!-- ========== WHY CENTRALIZED — editorial, no boxes ========== -->
   <section class="py-10 md:py-14 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       <p class="eyebrow mb-4">Why Centralized Emergency Lighting</p>
@@ -166,48 +146,51 @@ const specs = [
     </div>
   </section>
 
-  <!-- ========== SPECIFICATIONS — clean table ========== -->
+  <!-- ========== RESOURCES & LEARNING ========== -->
   <section class="py-10 md:py-14 bg-off-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow mb-6">Specifications</p>
-      <div class="border border-steel-gray rounded-lg overflow-hidden">
-        {specs.map(([label, value], i) => (
-          <div class={`flex items-center justify-between px-5 py-3.5 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
-            <span class="text-base text-slate">{label}</span>
-            <span class="text-[15px] text-near-black font-medium text-right ml-4">{value}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DOCUMENTS — prominent, not hidden in tab ========== -->
-  <section id="documents" class="py-10 md:py-14 bg-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <DocumentGate productSlug="power-wave-1" />
-    </div>
-  </section>
+      <p class="eyebrow mb-8">Resources & Training</p>
 
-  <!-- ========== COMPLIANCE — simple list, not cards ========== -->
-  <section class="py-10 md:py-14 bg-off-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow mb-6">Codes & Standards</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
-        {[
-          'UL 924 — Emergency Lighting Equipment',
-          'UL 1778 — Uninterruptible Power Supply',
-          'NEC Article 700 — Emergency Systems',
-          'NFPA 101 §7.9 — Life Safety Code',
-          'NFPA 110 — Emergency Power Systems',
-          'OSHPD/HCAI — California Hospital Seismic',
-        ].map(item => (
-          <p class="text-[15px] text-slate py-1 border-b border-steel-gray/50">{item}</p>
-        ))}
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- Training -->
+        <a href="/training/" class="bg-white border border-steel-gray rounded-lg p-6 group hover:border-steel-blue transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-near-black mb-2 group-hover:text-steel-blue transition-colors">Product Training</h3>
+          <p class="text-[15px] text-slate mb-3">Live sessions with our engineering team. In-person at our LA facility, virtual, or at your site.</p>
+          <span class="font-display text-[14px] font-semibold text-steel-blue uppercase tracking-wide">Register →</span>
+        </a>
+
+        <!-- Code Reference -->
+        <div class="bg-white border border-steel-gray rounded-lg p-6">
+          <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-near-black mb-2">Code Requirements</h3>
+          <ul class="text-[15px] text-slate space-y-1.5">
+            <li>UL 924 — Emergency Lighting Equipment</li>
+            <li>NEC Article 700 — Emergency Systems</li>
+            <li>NFPA 101 §7.9 — Life Safety Code</li>
+            <li>NFPA 110 — Emergency Power Systems</li>
+            <li>OSHPD/HCAI — Seismic Certification</li>
+          </ul>
+        </div>
+
+        <!-- Engineering Support -->
+        <a href="/contact/" class="bg-white border border-steel-gray rounded-lg p-6 group hover:border-steel-blue transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-near-black mb-2 group-hover:text-steel-blue transition-colors">Engineering Support</h3>
+          <p class="text-[15px] text-slate mb-3">24-hour load calculations. LED driver compatibility verification. Custom configurations.</p>
+          <span class="font-display text-[14px] font-semibold text-steel-blue uppercase tracking-wide">Contact Engineering →</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ========== TESTIMONIAL — clean quote ========== -->
+  <!-- ========== TESTIMONIAL ========== -->
   <section class="py-10 md:py-14 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
       <svg class="w-8 h-8 text-steel-blue/30 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11h4v10H0z"/></svg>
@@ -241,16 +224,12 @@ const specs = [
   document.querySelectorAll('.phase-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var phase = btn.getAttribute('data-phase');
-
-      // Update active button style
       document.querySelectorAll('.phase-btn').forEach(function(b) {
         b.classList.remove('bg-steel-blue', 'text-white');
         b.classList.add('text-slate');
       });
       btn.classList.remove('text-slate');
       btn.classList.add('bg-steel-blue', 'text-white');
-
-      // Filter cards
       document.querySelectorAll('.product-card').forEach(function(card) {
         var cardPhase = card.getAttribute('data-phase');
         if (phase === 'all' || cardPhase === phase || cardPhase === 'all') {
