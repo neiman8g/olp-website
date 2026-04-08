@@ -17,49 +17,75 @@ const categoryProducts = getProductsByCategory('emergency-lighting');
 >
 
   <!-- ========== HERO ========== -->
-  <section class="py-10 md:py-14 bg-deep-navy">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="font-display text-[12px] uppercase tracking-[0.1em] text-muted-blue mb-8">
-        <a href="/" class="hover:text-white transition-colors">Home</a>
-        <span class="mx-2 opacity-40">/</span>
-        <a href="/products" class="hover:text-white transition-colors">Products</a>
-        <span class="mx-2 opacity-40">/</span>
-        <span class="text-white">Emergency Lighting Inverters</span>
-      </nav>
+  <section class="bg-deep-navy">
+    <!-- Breadcrumb bar -->
+    <div class="border-b border-navy-mid">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+        <nav class="font-display text-[12px] uppercase tracking-[0.1em] text-muted-blue">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span class="mx-2 opacity-40">/</span>
+          <a href="/products" class="hover:text-white transition-colors">Products</a>
+          <span class="mx-2 opacity-40">/</span>
+          <span class="text-white">Emergency Lighting</span>
+        </nav>
+      </div>
+    </div>
 
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        <div>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="badge-dark">UL 924</span>
-            <span class="badge-dark">UL 1778</span>
-            <span class="badge-dark">OSHPD / HCAI</span>
-            <span class="badge-dark">Made in USA</span>
-          </div>
+    <!-- Main hero content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+      <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
+        <!-- Left: 3 cols -->
+        <div class="lg:col-span-3">
+          <p class="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-steel-blue mb-4">UL 924 · UL 1778 · OSHPD/HCAI · ISO 9001</p>
 
-          <h1 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-4">Emergency Lighting Inverters</h1>
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[54px] font-bold text-white leading-[1.1] mb-5">
+            Emergency Lighting<br/>Inverters
+          </h1>
 
-          <p class="text-lg text-muted-blue leading-relaxed mb-6 max-w-xl">
-            The widest range of UL 924 listed emergency lighting inverters from a single manufacturer. 35W to 400kW. Pure sine wave. Zero transfer time. Built to order in Los Angeles since 1975.
+          <p class="text-lg text-muted-blue leading-relaxed mb-8 max-w-lg">
+            The widest range from a single manufacturer. Pure sine wave output, zero transfer time, built to order in Los Angeles since 1975.
           </p>
 
-          <div class="flex flex-wrap gap-x-6 gap-y-2 mb-8 text-[14px]">
-            <span class="text-white font-display font-semibold">35W–400kW</span>
-            <span class="text-muted-blue">·</span>
-            <span class="text-white font-display font-semibold">90–120 min runtime</span>
-            <span class="text-muted-blue">·</span>
-            <span class="text-white font-display font-semibold">Zero transfer</span>
-            <span class="text-muted-blue">·</span>
-            <span class="text-white font-display font-semibold">Single & 3-phase</span>
-          </div>
-
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3 mb-10">
             <Button href="/contact" size="lg">Size My Inverter</Button>
             <Button href="/contact" variant="ghost" size="lg">Contact Sales</Button>
           </div>
         </div>
 
-        <div class="hidden lg:block">
-          <EmergencyLighting />
+        <!-- Right: 2 cols — large range stat + illustration -->
+        <div class="lg:col-span-2">
+          <!-- Power range callout -->
+          <div class="bg-[#1A3F6A] rounded-lg p-6 md:p-8 mb-4">
+            <p class="font-display text-[13px] font-semibold uppercase tracking-[0.1em] text-steel-blue mb-2">Power Range</p>
+            <p class="font-display text-5xl md:text-6xl font-bold text-white leading-none mb-1">35W</p>
+            <p class="font-display text-2xl text-muted-blue mb-1">to</p>
+            <p class="font-display text-5xl md:text-6xl font-bold text-white leading-none">400kW</p>
+            <p class="text-[14px] text-muted-blue mt-4">No other single manufacturer covers this range under one UL 924 listing.</p>
+          </div>
+
+          <!-- SVG illustration (desktop only) -->
+          <div class="hidden lg:block">
+            <EmergencyLighting />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="border-t border-navy-mid">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Runtime', value: '90–120 min' },
+            { label: 'Transfer Time', value: 'Zero (online)' },
+            { label: 'Configurations', value: 'Single & 3-Phase' },
+            { label: 'Manufactured', value: 'Los Angeles, CA' },
+          ].map(s => (
+            <div class="py-5 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.1em] text-steel-blue mb-1">{s.label}</p>
+              <p class="font-display text-base font-bold text-white">{s.value}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
