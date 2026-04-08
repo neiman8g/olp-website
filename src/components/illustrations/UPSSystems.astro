@@ -77,17 +77,17 @@
 
       /* UPS border pulse when on battery */
       @keyframes borderPulse {
-        0%, 24% { stroke: #1A3F6A; stroke-opacity: 1; }
+        0%, 24% { stroke: #2B5580; stroke-opacity: 1; }
         30%, 33% { stroke: #2A7AE2; stroke-opacity: 1; }
-        36%, 39% { stroke: #1A3F6A; stroke-opacity: 1; }
+        36%, 39% { stroke: #2B5580; stroke-opacity: 1; }
         42%, 45% { stroke: #2A7AE2; stroke-opacity: 1; }
-        48%, 51% { stroke: #1A3F6A; stroke-opacity: 1; }
+        48%, 51% { stroke: #2B5580; stroke-opacity: 1; }
         54%, 57% { stroke: #2A7AE2; stroke-opacity: 1; }
-        60%, 63% { stroke: #1A3F6A; stroke-opacity: 1; }
+        60%, 63% { stroke: #2B5580; stroke-opacity: 1; }
         66%, 69% { stroke: #2A7AE2; stroke-opacity: 1; }
-        72%, 75% { stroke: #1A3F6A; stroke-opacity: 1; }
+        72%, 75% { stroke: #2B5580; stroke-opacity: 1; }
         78%, 80% { stroke: #2A7AE2; stroke-opacity: 0.5; }
-        85%, 100% { stroke: #1A3F6A; stroke-opacity: 1; }
+        85%, 100% { stroke: #2B5580; stroke-opacity: 1; }
       }
 
       /* Transfer time callout */
@@ -163,8 +163,8 @@
 
     <!-- Gradient for UPS cabinet top face -->
     <linearGradient id="upsTopGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1A3F6A" />
-      <stop offset="100%" stop-color="#1A3F6A" />
+      <stop offset="0%" stop-color="#2B5580" />
+      <stop offset="100%" stop-color="#2B5580" />
     </linearGradient>
 
     <!-- Paths for motion -->
@@ -203,24 +203,24 @@
     <!-- Power pole -->
     <g transform="translate(55, 80)">
       <!-- Pole -->
-      <rect x="10" y="30" width="6" height="120" fill="#1A3F6A" rx="1" />
+      <rect x="10" y="30" width="6" height="120" fill="#2B5580" rx="1" />
       <!-- Cross arm -->
-      <rect x="-6" y="28" width="38" height="5" fill="#1A3F6A" rx="1" />
+      <rect x="-6" y="28" width="38" height="5" fill="#2B5580" rx="1" />
       <!-- Insulators -->
-      <circle cx="0" cy="28" r="4" fill="#1A3F6A" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
-      <circle cx="26" cy="28" r="4" fill="#1A3F6A" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
-      <circle cx="13" cy="24" r="4" fill="#1A3F6A" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
+      <circle cx="0" cy="28" r="4" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
+      <circle cx="26" cy="28" r="4" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
+      <circle cx="13" cy="24" r="4" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.8" opacity="0.7" />
       <!-- Wires from top -->
-      <line x1="0" y1="28" x2="0" y2="10" stroke="#94AECF" stroke-width="1" />
-      <line x1="26" y1="28" x2="26" y2="10" stroke="#94AECF" stroke-width="1" />
-      <line x1="13" y1="24" x2="13" y2="6" stroke="#94AECF" stroke-width="1" />
+      <line x1="0" y1="28" x2="0" y2="10" stroke="#B8D4F0" stroke-width="1" />
+      <line x1="26" y1="28" x2="26" y2="10" stroke="#B8D4F0" stroke-width="1" />
+      <line x1="13" y1="24" x2="13" y2="6" stroke="#B8D4F0" stroke-width="1" />
       <!-- Transformer box -->
-      <rect x="3" y="60" width="20" height="24" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="1" rx="2" />
-      <text x="13" y="75" text-anchor="middle" class="font-mono" fill="#94AECF" font-size="5">XFMR</text>
+      <rect x="3" y="60" width="20" height="24" fill="#2B5580" stroke="#2B5580" stroke-width="1" rx="2" />
+      <text x="13" y="75" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="5">XFMR</text>
     </g>
 
     <!-- UTILITY label -->
-    <text x="68" y="236" text-anchor="middle" class="font-mono" fill="#94AECF" font-size="9" letter-spacing="2">UTILITY</text>
+    <text x="68" y="236" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="9" letter-spacing="2">UTILITY</text>
 
     <!-- Utility power line -->
     <line
@@ -259,33 +259,33 @@
     <!-- Cabinet body — front face -->
     <rect
       x="0" y="0" width="150" height="180" rx="4"
-      fill="#1A3F6A"
-      stroke="#1A3F6A" stroke-width="1.5"
+      fill="#2B5580"
+      stroke="#2B5580" stroke-width="1.5"
       style="animation: borderPulse 7s infinite;"
     />
 
     <!-- Side panel (isometric right face) -->
     <polygon
       points="150,0 178,-16 178,164 150,180"
-      fill="#0F2A4A" stroke="#1A3F6A" stroke-width="1"
+      fill="#0F2A4A" stroke="#2B5580" stroke-width="1"
     />
 
     <!-- Top face (isometric) -->
     <polygon
       points="0,0 28,-16 178,-16 150,0"
-      fill="url(#upsTopGrad)" stroke="#1A3F6A" stroke-width="1"
+      fill="url(#upsTopGrad)" stroke="#2B5580" stroke-width="1"
     />
 
     <!-- Ventilation slots on side -->
     <g opacity="0.3">
-      <line x1="154" y1="20" x2="174" y2="10" stroke="#94AECF" stroke-width="0.5" />
-      <line x1="154" y1="28" x2="174" y2="18" stroke="#94AECF" stroke-width="0.5" />
-      <line x1="154" y1="36" x2="174" y2="26" stroke="#94AECF" stroke-width="0.5" />
-      <line x1="154" y1="44" x2="174" y2="34" stroke="#94AECF" stroke-width="0.5" />
-      <line x1="154" y1="52" x2="174" y2="42" stroke="#94AECF" stroke-width="0.5" />
-      <line x1="154" y1="60" x2="174" y2="50" stroke="#94AECF" stroke-width="0.5" />
-      <line x1="154" y1="68" x2="174" y2="58" stroke="#94AECF" stroke-width="0.5" />
-      <line x1="154" y1="76" x2="174" y2="66" stroke="#94AECF" stroke-width="0.5" />
+      <line x1="154" y1="20" x2="174" y2="10" stroke="#B8D4F0" stroke-width="0.5" />
+      <line x1="154" y1="28" x2="174" y2="18" stroke="#B8D4F0" stroke-width="0.5" />
+      <line x1="154" y1="36" x2="174" y2="26" stroke="#B8D4F0" stroke-width="0.5" />
+      <line x1="154" y1="44" x2="174" y2="34" stroke="#B8D4F0" stroke-width="0.5" />
+      <line x1="154" y1="52" x2="174" y2="42" stroke="#B8D4F0" stroke-width="0.5" />
+      <line x1="154" y1="60" x2="174" y2="50" stroke="#B8D4F0" stroke-width="0.5" />
+      <line x1="154" y1="68" x2="174" y2="58" stroke="#B8D4F0" stroke-width="0.5" />
+      <line x1="154" y1="76" x2="174" y2="66" stroke="#B8D4F0" stroke-width="0.5" />
     </g>
 
     <!-- Brand area -->
@@ -296,7 +296,7 @@
     <text x="75" y="42" text-anchor="middle" class="font-display" fill="#FFFFFF" font-size="16" font-weight="700" letter-spacing="4">UPS</text>
 
     <!-- Status display panel -->
-    <rect x="20" y="50" width="110" height="28" rx="3" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="1" />
+    <rect x="20" y="50" width="110" height="28" rx="3" fill="#0F2A4A" stroke="#2B5580" stroke-width="1" />
 
     <!-- Status text: ONLINE (shows during normal) -->
     <text
@@ -315,10 +315,10 @@
     <!-- LED status row -->
     <g transform="translate(20, 86)">
       <!-- LED labels -->
-      <text x="7" y="-3" text-anchor="middle" class="font-mono" fill="#94AECF" font-size="4.5">INPUT</text>
-      <text x="37" y="-3" text-anchor="middle" class="font-mono" fill="#94AECF" font-size="4.5">OUTPUT</text>
-      <text x="73" y="-3" text-anchor="middle" class="font-mono" fill="#94AECF" font-size="4.5">BATTERY</text>
-      <text x="105" y="-3" text-anchor="middle" class="font-mono" fill="#94AECF" font-size="4.5">BYPASS</text>
+      <text x="7" y="-3" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="4.5">INPUT</text>
+      <text x="37" y="-3" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="4.5">OUTPUT</text>
+      <text x="73" y="-3" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="4.5">BATTERY</text>
+      <text x="105" y="-3" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="4.5">BYPASS</text>
 
       <!-- INPUT LED — green/red based on utility -->
       <circle cx="7" cy="6" r="3.5" style="animation: ledInput 7s infinite;" fill="#34D399" />
@@ -327,20 +327,20 @@
       <!-- BATTERY LED — always green -->
       <circle cx="73" cy="6" r="3.5" fill="#34D399" />
       <!-- BYPASS LED — off (gray) -->
-      <circle cx="105" cy="6" r="3.5" fill="#1A3F6A" />
+      <circle cx="105" cy="6" r="3.5" fill="#2B5580" />
     </g>
 
     <!-- Divider line -->
-    <line x1="15" y1="102" x2="135" y2="102" stroke="#1A3F6A" stroke-width="0.8" />
+    <line x1="15" y1="102" x2="135" y2="102" stroke="#2B5580" stroke-width="0.8" />
 
     <!-- Battery section -->
-    <rect x="15" y="108" width="120" height="58" rx="3" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.8" />
-    <text x="75" y="120" text-anchor="middle" class="font-mono" fill="#94AECF" font-size="5" letter-spacing="1">BATTERY CHARGE</text>
+    <rect x="15" y="108" width="120" height="58" rx="3" fill="#0F2A4A" stroke="#2B5580" stroke-width="0.8" />
+    <text x="75" y="120" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="5" letter-spacing="1">BATTERY CHARGE</text>
 
     <!-- Battery icon outline -->
-    <rect x="30" y="126" width="90" height="30" rx="3" fill="none" stroke="#1A3F6A" stroke-width="1" />
+    <rect x="30" y="126" width="90" height="30" rx="3" fill="none" stroke="#2B5580" stroke-width="1" />
     <!-- Battery terminal nub -->
-    <rect x="120" y="135" width="5" height="12" rx="1" fill="#1A3F6A" />
+    <rect x="120" y="135" width="5" height="12" rx="1" fill="#2B5580" />
 
     <!-- Battery bars -->
     <rect x="36" y="131" width="17" height="20" rx="1.5" fill="#34D399"
@@ -353,8 +353,8 @@
       style="animation: battBar4 7s infinite;" />
 
     <!-- Front feet -->
-    <rect x="10" y="176" width="20" height="6" rx="1" fill="#1A3F6A" />
-    <rect x="120" y="176" width="20" height="6" rx="1" fill="#1A3F6A" />
+    <rect x="10" y="176" width="20" height="6" rx="1" fill="#2B5580" />
+    <rect x="120" y="176" width="20" height="6" rx="1" fill="#2B5580" />
   </g>
 
   <!-- Battery flow dots (visible only on battery) -->
@@ -388,35 +388,35 @@
   <!-- ============================================================ -->
   <g id="server-rack" transform="translate(472, 95)">
     <!-- Rack frame -->
-    <rect x="0" y="0" width="90" height="140" rx="4" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="1.2" />
+    <rect x="0" y="0" width="90" height="140" rx="4" fill="#2B5580" stroke="#2B5580" stroke-width="1.2" />
 
     <!-- Rack rails -->
-    <line x1="6" y1="0" x2="6" y2="140" stroke="#1A3F6A" stroke-width="1" />
-    <line x1="84" y1="0" x2="84" y2="140" stroke="#1A3F6A" stroke-width="1" />
+    <line x1="6" y1="0" x2="6" y2="140" stroke="#2B5580" stroke-width="1" />
+    <line x1="84" y1="0" x2="84" y2="140" stroke="#2B5580" stroke-width="1" />
 
     <!-- Server unit 1 -->
-    <rect x="10" y="8" width="70" height="26" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.8" />
+    <rect x="10" y="8" width="70" height="26" rx="2" fill="#0F2A4A" stroke="#2B5580" stroke-width="0.8" />
     <circle cx="20" cy="21" r="2.5" fill="#34D399" style="animation: serverLed 3s infinite;" />
-    <rect x="28" y="16" width="40" height="2" rx="0.5" fill="#1A3F6A" />
-    <rect x="28" y="22" width="30" height="2" rx="0.5" fill="#1A3F6A" />
+    <rect x="28" y="16" width="40" height="2" rx="0.5" fill="#2B5580" />
+    <rect x="28" y="22" width="30" height="2" rx="0.5" fill="#2B5580" />
 
     <!-- Server unit 2 -->
-    <rect x="10" y="40" width="70" height="26" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.8" />
+    <rect x="10" y="40" width="70" height="26" rx="2" fill="#0F2A4A" stroke="#2B5580" stroke-width="0.8" />
     <circle cx="20" cy="53" r="2.5" fill="#34D399" style="animation: serverLed 3s infinite 0.5s;" />
-    <rect x="28" y="48" width="40" height="2" rx="0.5" fill="#1A3F6A" />
-    <rect x="28" y="54" width="30" height="2" rx="0.5" fill="#1A3F6A" />
+    <rect x="28" y="48" width="40" height="2" rx="0.5" fill="#2B5580" />
+    <rect x="28" y="54" width="30" height="2" rx="0.5" fill="#2B5580" />
 
     <!-- Server unit 3 -->
-    <rect x="10" y="72" width="70" height="26" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.8" />
+    <rect x="10" y="72" width="70" height="26" rx="2" fill="#0F2A4A" stroke="#2B5580" stroke-width="0.8" />
     <circle cx="20" cy="85" r="2.5" fill="#34D399" style="animation: serverLed 3s infinite 1s;" />
-    <rect x="28" y="80" width="40" height="2" rx="0.5" fill="#1A3F6A" />
-    <rect x="28" y="86" width="30" height="2" rx="0.5" fill="#1A3F6A" />
+    <rect x="28" y="80" width="40" height="2" rx="0.5" fill="#2B5580" />
+    <rect x="28" y="86" width="30" height="2" rx="0.5" fill="#2B5580" />
 
     <!-- Server unit 4 -->
-    <rect x="10" y="104" width="70" height="26" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.8" />
+    <rect x="10" y="104" width="70" height="26" rx="2" fill="#0F2A4A" stroke="#2B5580" stroke-width="0.8" />
     <circle cx="20" cy="117" r="2.5" fill="#34D399" style="animation: serverLed 3s infinite 1.5s;" />
-    <rect x="28" y="112" width="40" height="2" rx="0.5" fill="#1A3F6A" />
-    <rect x="28" y="118" width="30" height="2" rx="0.5" fill="#1A3F6A" />
+    <rect x="28" y="112" width="40" height="2" rx="0.5" fill="#2B5580" />
+    <rect x="28" y="118" width="30" height="2" rx="0.5" fill="#2B5580" />
   </g>
 
   <!-- PROTECTED label -->
@@ -435,20 +435,20 @@
     <!-- Main text -->
     <text x="0" y="2" text-anchor="middle" class="font-display" fill="#2A7AE2" font-size="18" font-weight="700">&lt;4ms</text>
     <!-- Sub label -->
-    <text x="0" y="32" text-anchor="middle" class="font-mono" fill="#94AECF" font-size="6" letter-spacing="1.5">ZERO TRANSFER</text>
+    <text x="0" y="32" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="6" letter-spacing="1.5">ZERO TRANSFER</text>
   </g>
 
   <!-- ============================================================ -->
   <!-- UL COMPLIANCE BADGE                                           -->
   <!-- ============================================================ -->
   <g transform="translate(530, 16)">
-    <rect x="0" y="0" width="54" height="18" rx="3" fill="none" stroke="#94AECF" stroke-width="0.8" opacity="0.5" />
-    <text x="27" y="12" text-anchor="middle" class="font-mono" fill="#94AECF" font-size="7" opacity="0.5">UL 1778</text>
+    <rect x="0" y="0" width="54" height="18" rx="3" fill="none" stroke="#B8D4F0" stroke-width="0.8" opacity="0.5" />
+    <text x="27" y="12" text-anchor="middle" class="font-mono" fill="#B8D4F0" font-size="7" opacity="0.5">UL 1778</text>
   </g>
 
   <!-- ============================================================ -->
   <!-- BOTTOM CAPTION                                                -->
   <!-- ============================================================ -->
-  <text x="300" y="340" text-anchor="middle" class="font-mono" fill="#1A3F6A" font-size="9" letter-spacing="1.5">// UPS BACKUP &#183; ZERO TRANSFER TIME</text>
+  <text x="300" y="340" text-anchor="middle" class="font-mono" fill="#2B5580" font-size="9" letter-spacing="1.5">// UPS BACKUP &#183; ZERO TRANSFER TIME</text>
 
 </svg>

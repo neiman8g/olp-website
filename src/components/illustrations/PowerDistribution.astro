@@ -93,12 +93,12 @@
           stroke="#2A7AE2" stroke-width="2" fill="none" opacity="0.8" stroke-linecap="round" />
 
     <!-- INPUT label -->
-    <rect x="52" y="18" width="56" height="18" rx="3" fill="#1A3F6A" stroke="#2A7AE2" stroke-width="0.5" />
+    <rect x="52" y="18" width="56" height="18" rx="3" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.5" />
     <text x="80" y="31" text-anchor="middle" fill="#2A7AE2" font-size="9" font-weight="700" class="font-mono">INPUT</text>
 
     <!-- Voltage badge -->
-    <rect x="100" y="75" width="70" height="16" rx="3" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
-    <text x="135" y="87" text-anchor="middle" fill="#94AECF" font-size="8" font-weight="400" class="font-mono">480V 3&#x3A6;</text>
+    <rect x="100" y="75" width="70" height="16" rx="3" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
+    <text x="135" y="87" text-anchor="middle" fill="#B8D4F0" font-size="8" font-weight="400" class="font-mono">480V 3&#x3A6;</text>
 
     <!-- Animated flow dots on input cable -->
     <circle r="3" fill="#2A7AE2">
@@ -116,26 +116,26 @@
   <!-- ======================== MAIN CABINET (Isometric) ======================== -->
   <g transform="translate(160, 60)">
     <!-- Cabinet right side panel (3D depth) -->
-    <path d="M 200,0 L 240,20 L 240,280 L 200,260 Z" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="1" />
+    <path d="M 200,0 L 240,20 L 240,280 L 200,260 Z" fill="#0F2A4A" stroke="#2B5580" stroke-width="1" />
     <!-- Vertical line details on right panel -->
-    <line x1="210" y1="8" x2="210" y2="262" stroke="#1A3F6A" stroke-width="0.5" opacity="0.5" />
-    <line x1="220" y1="14" x2="220" y2="268" stroke="#1A3F6A" stroke-width="0.5" opacity="0.3" />
-    <line x1="230" y1="18" x2="230" y2="274" stroke="#1A3F6A" stroke-width="0.5" opacity="0.2" />
+    <line x1="210" y1="8" x2="210" y2="262" stroke="#2B5580" stroke-width="0.5" opacity="0.5" />
+    <line x1="220" y1="14" x2="220" y2="268" stroke="#2B5580" stroke-width="0.5" opacity="0.3" />
+    <line x1="230" y1="18" x2="230" y2="274" stroke="#2B5580" stroke-width="0.5" opacity="0.2" />
 
     <!-- Cabinet top panel (3D depth) -->
-    <path d="M 0,0 L 200,0 L 240,20 L 40,20 Z" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="1" />
+    <path d="M 0,0 L 200,0 L 240,20 L 40,20 Z" fill="#0F2A4A" stroke="#2B5580" stroke-width="1" />
     <!-- Grid lines on top -->
-    <line x1="40" y1="15" x2="230" y2="15" stroke="#1A3F6A" stroke-width="0.3" opacity="0.4" />
+    <line x1="40" y1="15" x2="230" y2="15" stroke="#2B5580" stroke-width="0.3" opacity="0.4" />
     <!-- Vent slots on top -->
     {[60, 90, 120, 150, 180].map((x) => (
       <rect x={x} y="4" width="16" height="3" rx="1" fill="#0F2A4A" opacity="0.6" />
     ))}
 
     <!-- Cabinet front panel -->
-    <rect x="0" y="0" width="200" height="260" rx="4" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="1.5" />
+    <rect x="0" y="0" width="200" height="260" rx="4" fill="#2B5580" stroke="#2B5580" stroke-width="1.5" />
 
     <!-- Inner frame border -->
-    <rect x="6" y="6" width="188" height="248" rx="2" fill="none" stroke="#1A3F6A" stroke-width="0.5" />
+    <rect x="6" y="6" width="188" height="248" rx="2" fill="none" stroke="#2B5580" stroke-width="0.5" />
 
     <!-- ---- OLP Logo Badge ---- -->
     <rect x="12" y="12" width="50" height="18" rx="3" fill="#0F2A4A" stroke="#2A7AE2" stroke-width="0.8" />
@@ -145,65 +145,65 @@
     <text x="100" y="25" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700" class="font-display" letter-spacing="3">PDU</text>
 
     <!-- ---- MAIN INPUT LUG SECTION (top area) ---- -->
-    <rect x="12" y="36" width="176" height="32" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.5" />
-    <text x="100" y="48" text-anchor="middle" fill="#94AECF" font-size="7" class="font-mono">MAIN INPUT LUGS</text>
+    <rect x="12" y="36" width="176" height="32" rx="2" fill="#0F2A4A" stroke="#2B5580" stroke-width="0.5" />
+    <text x="100" y="48" text-anchor="middle" fill="#B8D4F0" font-size="7" class="font-mono">MAIN INPUT LUGS</text>
     <!-- Three phase lug indicators -->
     <g transform="translate(40, 52)">
-      <rect x="0" y="0" width="30" height="10" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
+      <rect x="0" y="0" width="30" height="10" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
       <text x="15" y="8" text-anchor="middle" fill="#2A7AE2" font-size="6" class="font-mono">L1</text>
     </g>
     <g transform="translate(85, 52)">
-      <rect x="0" y="0" width="30" height="10" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
+      <rect x="0" y="0" width="30" height="10" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
       <text x="15" y="8" text-anchor="middle" fill="#2A7AE2" font-size="6" class="font-mono">L2</text>
     </g>
     <g transform="translate(130, 52)">
-      <rect x="0" y="0" width="30" height="10" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
+      <rect x="0" y="0" width="30" height="10" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
       <text x="15" y="8" text-anchor="middle" fill="#2A7AE2" font-size="6" class="font-mono">L3</text>
     </g>
 
     <!-- ---- CIRCUIT BREAKER SECTION ---- -->
-    <rect x="12" y="74" width="176" height="110" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.5" />
-    <text x="100" y="86" text-anchor="middle" fill="#94AECF" font-size="7" class="font-mono">BRANCH CIRCUITS</text>
+    <rect x="12" y="74" width="176" height="110" rx="2" fill="#0F2A4A" stroke="#2B5580" stroke-width="0.5" />
+    <text x="100" y="86" text-anchor="middle" fill="#B8D4F0" font-size="7" class="font-mono">BRANCH CIRCUITS</text>
 
     <!-- Row 1 of breakers -->
     {[20, 52, 84, 116, 148].map((x, i) => (
       <g transform={`translate(${x}, 92)`}>
-        <rect x="0" y="0" width="24" height="14" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
-        <rect x="3" y="2" width="18" height="4" rx="1" fill={i < 4 ? '#2A7AE2' : '#1A3F6A'} opacity={i < 4 ? 0.6 : 0.4} />
-        <text x="12" y="13" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">{`${(i + 1) * 20}A`}</text>
+        <rect x="0" y="0" width="24" height="14" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
+        <rect x="3" y="2" width="18" height="4" rx="1" fill={i < 4 ? '#2A7AE2' : '#2B5580'} opacity={i < 4 ? 0.6 : 0.4} />
+        <text x="12" y="13" text-anchor="middle" fill="#B8D4F0" font-size="5" class="font-mono">{`${(i + 1) * 20}A`}</text>
       </g>
     ))}
 
     <!-- Row 2 of breakers -->
     {[20, 52, 84, 116, 148].map((x, i) => (
       <g transform={`translate(${x}, 112)`}>
-        <rect x="0" y="0" width="24" height="14" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
-        <rect x="3" y="2" width="18" height="4" rx="1" fill={i < 3 ? '#2A7AE2' : '#1A3F6A'} opacity={i < 3 ? 0.6 : 0.4} />
-        <text x="12" y="13" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">{`${(i + 6) * 20}A`}</text>
+        <rect x="0" y="0" width="24" height="14" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
+        <rect x="3" y="2" width="18" height="4" rx="1" fill={i < 3 ? '#2A7AE2' : '#2B5580'} opacity={i < 3 ? 0.6 : 0.4} />
+        <text x="12" y="13" text-anchor="middle" fill="#B8D4F0" font-size="5" class="font-mono">{`${(i + 6) * 20}A`}</text>
       </g>
     ))}
 
     <!-- Row 3 of breakers -->
     {[20, 52, 84, 116, 148].map((x, i) => (
       <g transform={`translate(${x}, 132)`}>
-        <rect x="0" y="0" width="24" height="14" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
-        <rect x="3" y="2" width="18" height="4" rx="1" fill={i < 2 ? '#2A7AE2' : '#1A3F6A'} opacity={i < 2 ? 0.6 : 0.4} />
-        <text x="12" y="13" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">{`${(i + 11) * 15}A`}</text>
+        <rect x="0" y="0" width="24" height="14" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
+        <rect x="3" y="2" width="18" height="4" rx="1" fill={i < 2 ? '#2A7AE2' : '#2B5580'} opacity={i < 2 ? 0.6 : 0.4} />
+        <text x="12" y="13" text-anchor="middle" fill="#B8D4F0" font-size="5" class="font-mono">{`${(i + 11) * 15}A`}</text>
       </g>
     ))}
 
     <!-- Horizontal divider lines between rows -->
-    <line x1="16" y1="110" x2="184" y2="110" stroke="#1A3F6A" stroke-width="0.3" />
-    <line x1="16" y1="130" x2="184" y2="130" stroke="#1A3F6A" stroke-width="0.3" />
+    <line x1="16" y1="110" x2="184" y2="110" stroke="#2B5580" stroke-width="0.3" />
+    <line x1="16" y1="130" x2="184" y2="130" stroke="#2B5580" stroke-width="0.3" />
 
     <!-- Row labels -->
-    <text x="16" y="160" fill="#1A3F6A" font-size="5" class="font-mono">BKR 1-6</text>
-    <text x="100" y="170" text-anchor="middle" fill="#1A3F6A" font-size="6" class="font-mono">- - - - - - - - - - - - - - - - -</text>
-    <text x="140" y="160" fill="#1A3F6A" font-size="5" class="font-mono">BKR 7-12</text>
+    <text x="16" y="160" fill="#2B5580" font-size="5" class="font-mono">BKR 1-6</text>
+    <text x="100" y="170" text-anchor="middle" fill="#2B5580" font-size="6" class="font-mono">- - - - - - - - - - - - - - - - -</text>
+    <text x="140" y="160" fill="#2B5580" font-size="5" class="font-mono">BKR 7-12</text>
 
 
     <!-- ---- MONITORING / DISPLAY SECTION ---- -->
-    <rect x="12" y="178" width="176" height="72" rx="2" fill="#0F2A4A" stroke="#1A3F6A" stroke-width="0.5" />
+    <rect x="12" y="178" width="176" height="72" rx="2" fill="#0F2A4A" stroke="#2B5580" stroke-width="0.5" />
 
     <!-- Monitor screen -->
     <rect x="18" y="184" width="100" height="58" rx="3" fill="#0F2A4A" stroke="#2A7AE2" stroke-width="0.6">
@@ -211,22 +211,22 @@
     </rect>
 
     <!-- Screen content: Voltage -->
-    <text x="24" y="198" fill="#94AECF" font-size="6" class="font-mono">VOLTAGE</text>
+    <text x="24" y="198" fill="#B8D4F0" font-size="6" class="font-mono">VOLTAGE</text>
     <text x="94" y="198" text-anchor="end" fill="#2A7AE2" font-size="11" font-weight="700" class="font-mono">208V</text>
 
     <!-- Screen content: Current -->
-    <text x="24" y="212" fill="#94AECF" font-size="6" class="font-mono">CURRENT</text>
+    <text x="24" y="212" fill="#B8D4F0" font-size="6" class="font-mono">CURRENT</text>
     <text x="94" y="212" text-anchor="end" fill="#2A7AE2" font-size="11" font-weight="700" class="font-mono">125A</text>
 
     <!-- Screen content: Bar graph -->
-    <text x="24" y="224" fill="#94AECF" font-size="6" class="font-mono">LOAD %</text>
+    <text x="24" y="224" fill="#B8D4F0" font-size="6" class="font-mono">LOAD %</text>
     <!-- Bar 1 (Phase A) -->
     <rect x="24" y="228" width="12" height="10" rx="1" fill="#0F2A4A" />
     <rect x="24" y="231" width="12" height="7" rx="1" fill="#2A7AE2" opacity="0.7">
       <animate attributeName="height" values="7;5;7" dur="4s" repeatCount="indefinite" />
       <animate attributeName="y" values="231;233;231" dur="4s" repeatCount="indefinite" />
     </rect>
-    <text x="30" y="226" text-anchor="middle" fill="#94AECF" font-size="4" class="font-mono">A</text>
+    <text x="30" y="226" text-anchor="middle" fill="#B8D4F0" font-size="4" class="font-mono">A</text>
 
     <!-- Bar 2 (Phase B) -->
     <rect x="40" y="228" width="12" height="10" rx="1" fill="#0F2A4A" />
@@ -234,7 +234,7 @@
       <animate attributeName="height" values="8;6;8" dur="3.5s" repeatCount="indefinite" begin="0.3s" />
       <animate attributeName="y" values="230;232;230" dur="3.5s" repeatCount="indefinite" begin="0.3s" />
     </rect>
-    <text x="46" y="226" text-anchor="middle" fill="#94AECF" font-size="4" class="font-mono">B</text>
+    <text x="46" y="226" text-anchor="middle" fill="#B8D4F0" font-size="4" class="font-mono">B</text>
 
     <!-- Bar 3 (Phase C) -->
     <rect x="56" y="228" width="12" height="10" rx="1" fill="#0F2A4A" />
@@ -242,27 +242,27 @@
       <animate attributeName="height" values="6;4;6" dur="4.5s" repeatCount="indefinite" begin="0.6s" />
       <animate attributeName="y" values="232;234;232" dur="4.5s" repeatCount="indefinite" begin="0.6s" />
     </rect>
-    <text x="62" y="226" text-anchor="middle" fill="#94AECF" font-size="4" class="font-mono">C</text>
+    <text x="62" y="226" text-anchor="middle" fill="#B8D4F0" font-size="4" class="font-mono">C</text>
 
     <!-- SNMP v3 badge (right side of monitor area) -->
-    <rect x="126" y="186" width="56" height="16" rx="3" fill="#1A3F6A" stroke="#2A7AE2" stroke-width="0.5" />
+    <rect x="126" y="186" width="56" height="16" rx="3" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.5" />
     <text x="154" y="197" text-anchor="middle" fill="#2A7AE2" font-size="7" font-weight="700" class="font-mono">SNMP v3</text>
 
     <!-- Status indicator lights next to SNMP -->
     <circle cx="134" cy="210" r="2.5" fill="#34D399">
       <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
     </circle>
-    <text x="142" y="213" fill="#94AECF" font-size="5" class="font-mono">NET</text>
+    <text x="142" y="213" fill="#B8D4F0" font-size="5" class="font-mono">NET</text>
 
     <circle cx="134" cy="222" r="2.5" fill="#34D399">
       <animate attributeName="opacity" values="1;0.5;1" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
     </circle>
-    <text x="142" y="225" fill="#94AECF" font-size="5" class="font-mono">COMM</text>
+    <text x="142" y="225" fill="#B8D4F0" font-size="5" class="font-mono">COMM</text>
 
     <circle cx="134" cy="234" r="2.5" fill="#34D399">
       <animate attributeName="opacity" values="1;0.6;1" dur="3s" repeatCount="indefinite" begin="1s" />
     </circle>
-    <text x="142" y="237" fill="#94AECF" font-size="5" class="font-mono">ALARM</text>
+    <text x="142" y="237" fill="#B8D4F0" font-size="5" class="font-mono">ALARM</text>
   </g>
 
 
@@ -271,8 +271,8 @@
     <!-- Branch output lines and load icons -->
 
     <!-- Branch 1: Server Rack -->
-    <line x1="360" y1="155" x2="400" y2="155" stroke="#1A3F6A" stroke-width="1" />
-    <line x1="400" y1="155" x2="430" y2="140" stroke="#1A3F6A" stroke-width="1" />
+    <line x1="360" y1="155" x2="400" y2="155" stroke="#2B5580" stroke-width="1" />
+    <line x1="400" y1="155" x2="430" y2="140" stroke="#2B5580" stroke-width="1" />
     <path d="M 400,155 L 430,140 L 490,140" stroke="#2A7AE2" stroke-width="1.5" fill="none" opacity="0.5" />
     <!-- Breaker symbol -->
     <line x1="408" y1="149" x2="408" y2="145" stroke="#2A7AE2" stroke-width="1" />
@@ -283,15 +283,15 @@
     </circle>
     <!-- Server rack icon -->
     <g transform="translate(492, 128)">
-      <rect x="0" y="0" width="18" height="24" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
-      <rect x="3" y="3" width="12" height="4" rx="1" fill="#1A3F6A" />
-      <rect x="3" y="9" width="12" height="4" rx="1" fill="#1A3F6A" />
-      <rect x="3" y="15" width="12" height="4" rx="1" fill="#1A3F6A" />
+      <rect x="0" y="0" width="18" height="24" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
+      <rect x="3" y="3" width="12" height="4" rx="1" fill="#2B5580" />
+      <rect x="3" y="9" width="12" height="4" rx="1" fill="#2B5580" />
+      <rect x="3" y="15" width="12" height="4" rx="1" fill="#2B5580" />
       <circle cx="13" cy="5" r="1" fill="#34D399" />
       <circle cx="13" cy="11" r="1" fill="#34D399" />
       <circle cx="13" cy="17" r="1" fill="#2A7AE2" />
     </g>
-    <text x="501" y="160" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">SERVER</text>
+    <text x="501" y="160" text-anchor="middle" fill="#B8D4F0" font-size="5" class="font-mono">SERVER</text>
     <!-- Animated dot -->
     <circle r="2" fill="#2A7AE2">
       <animateMotion dur="1.8s" repeatCount="indefinite" begin="0s" path="M 360,155 L 400,155 L 430,140 L 490,140" />
@@ -308,13 +308,13 @@
     </circle>
     <!-- Lighting icon (bulb) -->
     <g transform="translate(493, 160)">
-      <circle cx="9" cy="7" r="6" fill="none" stroke="#94AECF" stroke-width="1" />
-      <line x1="9" y1="1" x2="9" y2="-2" stroke="#94AECF" stroke-width="0.8" />
-      <line x1="4" y1="3" x2="2" y2="1" stroke="#94AECF" stroke-width="0.8" />
-      <line x1="14" y1="3" x2="16" y2="1" stroke="#94AECF" stroke-width="0.8" />
-      <rect x="7" y="13" width="4" height="3" rx="1" fill="#94AECF" />
+      <circle cx="9" cy="7" r="6" fill="none" stroke="#B8D4F0" stroke-width="1" />
+      <line x1="9" y1="1" x2="9" y2="-2" stroke="#B8D4F0" stroke-width="0.8" />
+      <line x1="4" y1="3" x2="2" y2="1" stroke="#B8D4F0" stroke-width="0.8" />
+      <line x1="14" y1="3" x2="16" y2="1" stroke="#B8D4F0" stroke-width="0.8" />
+      <rect x="7" y="13" width="4" height="3" rx="1" fill="#B8D4F0" />
     </g>
-    <text x="502" y="184" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">LIGHTS</text>
+    <text x="502" y="184" text-anchor="middle" fill="#B8D4F0" font-size="5" class="font-mono">LIGHTS</text>
     <!-- Animated dot -->
     <circle r="2" fill="#2A7AE2">
       <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.3s" path="M 360,175 L 400,175 L 490,170" />
@@ -331,14 +331,14 @@
     </circle>
     <!-- HVAC icon (fan/snowflake hybrid) -->
     <g transform="translate(493, 190)">
-      <rect x="0" y="0" width="18" height="18" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
-      <circle cx="9" cy="9" r="5" fill="none" stroke="#94AECF" stroke-width="0.8" />
-      <line x1="9" y1="4" x2="9" y2="14" stroke="#94AECF" stroke-width="0.6" />
-      <line x1="4" y1="9" x2="14" y2="9" stroke="#94AECF" stroke-width="0.6" />
-      <line x1="5.5" y1="5.5" x2="12.5" y2="12.5" stroke="#94AECF" stroke-width="0.6" />
-      <line x1="12.5" y1="5.5" x2="5.5" y2="12.5" stroke="#94AECF" stroke-width="0.6" />
+      <rect x="0" y="0" width="18" height="18" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
+      <circle cx="9" cy="9" r="5" fill="none" stroke="#B8D4F0" stroke-width="0.8" />
+      <line x1="9" y1="4" x2="9" y2="14" stroke="#B8D4F0" stroke-width="0.6" />
+      <line x1="4" y1="9" x2="14" y2="9" stroke="#B8D4F0" stroke-width="0.6" />
+      <line x1="5.5" y1="5.5" x2="12.5" y2="12.5" stroke="#B8D4F0" stroke-width="0.6" />
+      <line x1="12.5" y1="5.5" x2="5.5" y2="12.5" stroke="#B8D4F0" stroke-width="0.6" />
     </g>
-    <text x="502" y="216" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">HVAC</text>
+    <text x="502" y="216" text-anchor="middle" fill="#B8D4F0" font-size="5" class="font-mono">HVAC</text>
     <!-- Animated dot -->
     <circle r="2" fill="#2A7AE2">
       <animateMotion dur="1.9s" repeatCount="indefinite" begin="0.5s" path="M 360,200 L 400,200 L 490,200" />
@@ -355,11 +355,11 @@
     </circle>
     <!-- Medical icon (cross) -->
     <g transform="translate(493, 220)">
-      <rect x="0" y="0" width="18" height="18" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
+      <rect x="0" y="0" width="18" height="18" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
       <rect x="7" y="3" width="4" height="12" rx="1" fill="#34D399" opacity="0.8" />
       <rect x="3" y="7" width="12" height="4" rx="1" fill="#34D399" opacity="0.8" />
     </g>
-    <text x="502" y="246" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">MEDICAL</text>
+    <text x="502" y="246" text-anchor="middle" fill="#B8D4F0" font-size="5" class="font-mono">MEDICAL</text>
     <!-- Animated dot -->
     <circle r="2" fill="#2A7AE2">
       <animateMotion dur="2.1s" repeatCount="indefinite" begin="0.8s" path="M 360,225 L 400,225 L 490,230" />
@@ -376,15 +376,15 @@
     </circle>
     <!-- Elevator icon -->
     <g transform="translate(493, 250)">
-      <rect x="0" y="0" width="18" height="18" rx="2" fill="#1A3F6A" stroke="#1A3F6A" stroke-width="0.5" />
+      <rect x="0" y="0" width="18" height="18" rx="2" fill="#2B5580" stroke="#2B5580" stroke-width="0.5" />
       <!-- Up arrow -->
-      <polygon points="6,7 9,3 12,7" fill="#94AECF" />
+      <polygon points="6,7 9,3 12,7" fill="#B8D4F0" />
       <!-- Down arrow -->
-      <polygon points="6,11 9,15 12,11" fill="#94AECF" />
-      <line x1="9" y1="3" x2="9" y2="7" stroke="#94AECF" stroke-width="0.6" />
-      <line x1="9" y1="11" x2="9" y2="15" stroke="#94AECF" stroke-width="0.6" />
+      <polygon points="6,11 9,15 12,11" fill="#B8D4F0" />
+      <line x1="9" y1="3" x2="9" y2="7" stroke="#B8D4F0" stroke-width="0.6" />
+      <line x1="9" y1="11" x2="9" y2="15" stroke="#B8D4F0" stroke-width="0.6" />
     </g>
-    <text x="502" y="276" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">ELEVATOR</text>
+    <text x="502" y="276" text-anchor="middle" fill="#B8D4F0" font-size="5" class="font-mono">ELEVATOR</text>
     <!-- Animated dot -->
     <circle r="2" fill="#2A7AE2">
       <animateMotion dur="2s" repeatCount="indefinite" begin="1.1s" path="M 360,250 L 400,250 L 490,260" />
@@ -401,10 +401,10 @@
     </circle>
     <!-- Custom load icon (? mark) -->
     <g transform="translate(493, 280)">
-      <rect x="0" y="0" width="18" height="18" rx="2" fill="#1A3F6A" stroke="#2A7AE2" stroke-width="0.5" stroke-dasharray="2 1" />
+      <rect x="0" y="0" width="18" height="18" rx="2" fill="#2B5580" stroke="#2A7AE2" stroke-width="0.5" stroke-dasharray="2 1" />
       <text x="9" y="14" text-anchor="middle" fill="#2A7AE2" font-size="12" font-weight="700" class="font-display">?</text>
     </g>
-    <text x="502" y="306" text-anchor="middle" fill="#94AECF" font-size="5" class="font-mono">CUSTOM</text>
+    <text x="502" y="306" text-anchor="middle" fill="#B8D4F0" font-size="5" class="font-mono">CUSTOM</text>
     <!-- Animated dot -->
     <circle r="2" fill="#2A7AE2">
       <animateMotion dur="2.2s" repeatCount="indefinite" begin="1.4s" path="M 360,275 L 400,275 L 490,290" />
@@ -413,7 +413,7 @@
 
 
   <!-- ======================== BOTTOM CAPTION ======================== -->
-  <text x="300" y="345" text-anchor="middle" fill="#1A3F6A" font-size="9" class="font-mono" letter-spacing="1">
+  <text x="300" y="345" text-anchor="middle" fill="#2B5580" font-size="9" class="font-mono" letter-spacing="1">
     // POWER DISTRIBUTION &middot; CUSTOM BUILD
   </text>
 </svg>
