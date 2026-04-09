@@ -53,7 +53,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           }
         </style>
 
-        <p class="font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-white/50 mt-1 mb-0">US Manufacturer Since 1975 · Trusted by 100+ Fortune 500 Companies</p>
+        <p class="font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-white/70 mt-6 mb-0" style="opacity: 0.7;">US Manufacturer Since 1975 · Trusted by 100+ Fortune 500 Companies</p>
         <p class="text-lg text-white/80 max-w-lg leading-relaxed mb-8" style="margin-top:0.75rem;">
           Emergency lighting, UPS, elevator backup, fire alarm, medical grade, and custom OEM power systems. All UL listed, all built to order in Los Angeles. The widest range from a single US manufacturer since 1975.
         </p>
@@ -68,9 +68,19 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
     <!-- Stat Bar -->
     <div class="relative border-t border-white/10" style="z-index: 2;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="flex flex-wrap items-center gap-3 md:gap-0 md:divide-x md:divide-white/10 py-4">
-          {company.heroStats.map(stat => (
-            <span class="font-display text-[13px] uppercase tracking-[0.1em] text-white/50 font-semibold md:px-5 first:md:pl-0">{stat}</span>
+        <div class="grid grid-cols-3 md:grid-cols-6 divide-x divide-white/10 py-5">
+          {[
+            { value: '1975', label: 'Founded' },
+            { value: '12', label: 'Product Lines' },
+            { value: 'ISO 9001', label: 'Certified' },
+            { value: 'UL Listed', label: 'All Products' },
+            { value: 'BAA', label: 'Compliant' },
+            { value: 'TAA', label: 'Compliant' },
+          ].map(s => (
+            <div class="px-3 md:px-5 first:pl-0 text-center md:text-left">
+              <p class="font-display text-[28px] font-bold text-steel-blue leading-none mb-1">{s.value}</p>
+              <p class="font-display text-[10px] font-semibold uppercase tracking-[0.14em] text-white/55">{s.label}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -142,20 +152,6 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           <p class="text-base text-slate mb-4">Power conditioning and voltage regulation for sensitive equipment</p>
           <span class="text-[15px] font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
         </Card>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PROOF BAR ========== -->
-  <section class="py-16 md:py-20 bg-deep-navy border-y border-navy-mid">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-navy-mid">
-        {company.stats.map(stat => (
-          <div class="lg:px-8 first:lg:pl-0 last:lg:pr-0 text-center lg:text-left">
-            <p class="font-display text-[13px] uppercase tracking-[0.1em] text-steel-blue font-semibold mb-2">{stat.label}</p>
-            <p class="font-display text-3xl md:text-4xl font-bold text-white">{stat.value}</p>
-          </div>
-        ))}
       </div>
     </div>
   </section>
