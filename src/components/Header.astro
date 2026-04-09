@@ -6,19 +6,19 @@ import Button from './Button.astro';
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-steel-gray" id="main-header" data-pagefind-ignore>
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex items-center justify-between h-16 lg:h-18">
+    <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 flex-shrink-0">
-        <svg class="w-6 h-6 text-steel-blue" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        <span class="font-display font-bold text-[22px] text-near-black">ONLINE <span class="text-steel-blue">POWER</span></span>
+        <svg class="w-7 h-7 text-steel-blue" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span class="font-display font-bold text-[26px] text-near-black tracking-tight">ONLINE <span class="text-steel-blue">POWER</span></span>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+      <nav class="hidden lg:flex items-center gap-2" aria-label="Main navigation">
         <!-- Products Dropdown -->
         <div class="relative" data-dropdown>
           <button
-            class="px-3 py-2 text-[14px] font-display font-semibold uppercase tracking-wide text-slate hover:text-near-black transition-colors flex items-center gap-1"
+            class="px-3 py-2 text-[15px] font-display font-bold uppercase tracking-wide text-slate hover:text-near-black transition-colors flex items-center gap-1"
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="dropdown-products"
@@ -50,7 +50,7 @@ import Button from './Button.astro';
         <!-- Support Dropdown -->
         <div class="relative" data-dropdown>
           <button
-            class="px-3 py-2 text-[14px] font-display font-semibold uppercase tracking-wide text-slate hover:text-near-black transition-colors flex items-center gap-1"
+            class="px-3 py-2 text-[15px] font-display font-bold uppercase tracking-wide text-slate hover:text-near-black transition-colors flex items-center gap-1"
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="dropdown-support"
@@ -79,7 +79,7 @@ import Button from './Button.astro';
         <!-- Company Dropdown -->
         <div class="relative" data-dropdown>
           <button
-            class="px-3 py-2 text-[14px] font-display font-semibold uppercase tracking-wide text-slate hover:text-near-black transition-colors flex items-center gap-1"
+            class="px-3 py-2 text-[15px] font-display font-bold uppercase tracking-wide text-slate hover:text-near-black transition-colors flex items-center gap-1"
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="dropdown-company"
@@ -102,8 +102,8 @@ import Button from './Button.astro';
           </div>
         </div>
 
-        <a href="/training/" class="px-3 py-2 text-[14px] font-display font-semibold uppercase tracking-wide text-slate hover:text-near-black transition-colors">Training</a>
-        <a href="/support/documents" class="px-3 py-2 text-[14px] font-display font-semibold uppercase tracking-wide text-slate hover:text-near-black transition-colors">Documents</a>
+        <a href="/training/" class="px-3 py-2 text-[15px] font-display font-bold uppercase tracking-wide text-slate hover:text-near-black transition-colors">Training</a>
+        <a href="/support/documents" class="px-3 py-2 text-[15px] font-display font-bold uppercase tracking-wide text-slate hover:text-near-black transition-colors">Documents</a>
       </nav>
 
       <!-- CTA -->
@@ -111,7 +111,7 @@ import Button from './Button.astro';
         <button onclick="window.openSearch()" data-search-trigger class="p-2 text-slate hover:text-steel-blue transition-colors" aria-label="Search products">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </button>
-        <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-sm text-slate hover:text-near-black transition-colors font-display font-semibold">{company.phone}</a>
+        <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-[15px] text-slate hover:text-near-black transition-colors font-display font-bold">{company.phone}</a>
         <Button href="/contact/" variant="outline" size="sm">Request a Quote</Button>
       </div>
 
@@ -190,7 +190,7 @@ import Button from './Button.astro';
 </div>
 
 <!-- Spacer for fixed header -->
-<div class="h-16 lg:h-18"></div>
+<div class="h-16 lg:h-20"></div>
 
 <script>
   // ===== MOBILE MENU =====
