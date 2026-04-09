@@ -13,15 +13,15 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
 >
 
   <!-- ========== HERO ========== -->
-  <section class="min-h-[calc(100vh-4rem)] flex flex-col justify-center relative overflow-hidden bg-deep-navy">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-[72px] lg:py-[72px]">
-      <div class="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-14 lg:py-16">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
         <!-- Left: Text -->
         <div>
-          <h1 class="font-display text-5xl sm:text-6xl lg:text-[72px] font-bold text-white leading-[1.05] mb-6">
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-3">
             Power That<br/>Never Quits.
-            <span class="block mt-2 text-sky-blue font-display font-bold text-2xl sm:text-3xl sm:hidden">For Any Application.</span>
-            <span class="hidden sm:block mt-2 relative" style="min-height: 1.4em; margin-bottom: 0;">
+            <span class="block mt-1 text-sky-blue font-display font-bold text-2xl sm:text-3xl sm:hidden">For Any Application.</span>
+            <span class="hidden sm:block mt-1 relative" style="min-height: 1.2em; margin-bottom: 0;">
               <span class="cycle-word" style="animation-delay: 0s;">For Hospitals.</span>
               <span class="cycle-word" style="animation-delay: 3s;">For Data Centers.</span>
               <span class="cycle-word" style="animation-delay: 6s;">For High-Rise Buildings.</span>
@@ -29,7 +29,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
               <span class="cycle-word" style="animation-delay: 12s;">For Any Application.</span>
             </span>
           </h1>
-          <p class="font-display text-[14px] font-semibold uppercase tracking-[0.1em] text-muted-blue mt-6 mb-2">Trusted by 100+ Fortune 500 Companies</p>
+          <p class="font-display text-[14px] font-semibold uppercase tracking-[0.1em] text-muted-blue mt-4 mb-1">Trusted by 100+ Fortune 500 Companies</p>
           <style>
             .cycle-word {
               display: block;
@@ -49,10 +49,10 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
               100% { opacity: 0; }
             }
           </style>
-          <p class="text-base md:text-lg text-muted-blue max-w-xl leading-relaxed mb-10" style="margin-top:1.25rem;">
+          <p class="text-base md:text-lg text-muted-blue max-w-xl leading-relaxed mb-6" style="margin-top:0.75rem;">
             The widest range of UL listed power protection from a single manufacturer. Built to order in Los Angeles since 1975.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 mb-12">
+          <div class="flex flex-col sm:flex-row gap-4 mb-0">
             <Button href="/products/" size="lg" icon="arrow-right">View Products</Button>
             <Button href="/contact/" variant="ghost" size="lg">Request a Quote</Button>
           </div>
@@ -65,7 +65,7 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
       </div>
 
       <!-- Stat Bar -->
-      <div class="flex flex-wrap items-center gap-3 md:gap-0 md:divide-x md:divide-navy-mid mt-8 lg:mt-12">
+      <div class="flex flex-wrap items-center gap-3 md:gap-0 md:divide-x md:divide-navy-mid mt-6 lg:mt-8">
         {company.heroStats.map(stat => (
           <span class="font-display text-[13px] uppercase tracking-[0.1em] text-muted-blue font-semibold md:px-5 first:md:pl-0">{stat}</span>
         ))}
