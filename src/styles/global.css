@@ -245,9 +245,9 @@ header nav a:not(.btn-primary):not(.btn-outline):not(.btn-ghost):hover::after {
   background: rgba(42, 122, 226, 0.04) !important;
 }
 
-/* Page load fade-in */
+/* Page load fade-in — elements must never be invisible */
 @keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0.85; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
