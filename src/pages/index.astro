@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import { company, testimonials } from '../data/company';
-import HeroRiser from '../components/illustrations/HeroRiser.astro';
 import CustomOEM from '../components/illustrations/CustomOEM.astro';
 ---
 
@@ -12,63 +11,69 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   description="Online Power manufactures mission-critical power protection equipment. Emergency lighting inverters, UPS systems, fire alarm backup, and custom OEM solutions. UL Listed. ISO 9001. Made in Los Angeles, CA."
 >
 
-  <!-- ========== HERO ========== -->
+  <!-- ========== HERO — video background ========== -->
   <section class="relative overflow-hidden bg-deep-navy">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-14 lg:py-16">
-      <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-        <!-- Left: Text -->
-        <div>
-          <h1 class="font-display text-4xl sm:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-3">
-            Power That<br/>Never Quits.
-            <span class="block mt-1 text-sky-blue font-display font-bold text-2xl sm:text-3xl sm:hidden">For Any Application.</span>
-            <span class="hidden sm:block mt-1 relative" style="min-height: 1.2em; margin-bottom: 0;">
-              <span class="cycle-word" style="animation-delay: 0s;">For Hospitals.</span>
-              <span class="cycle-word" style="animation-delay: 3s;">For Data Centers.</span>
-              <span class="cycle-word" style="animation-delay: 6s;">For High-Rise Buildings.</span>
-              <span class="cycle-word" style="animation-delay: 9s;">For Government.</span>
-              <span class="cycle-word" style="animation-delay: 12s;">For Any Application.</span>
-            </span>
-          </h1>
-          <p class="font-display text-[14px] font-semibold uppercase tracking-[0.1em] text-muted-blue mt-4 mb-1">Trusted by 100+ Fortune 500 Companies</p>
-          <style>
-            .cycle-word {
-              display: block;
-              position: absolute;
-              color: #7EB3F5;
-              font-size: 0.5em;
-              font-family: 'Barlow Condensed', sans-serif;
-              font-weight: 700;
-              opacity: 0;
-              animation: cycleText 15s linear infinite;
-            }
-            @keyframes cycleText {
-              0%   { opacity: 0; transform: translateY(6px); }
-              5%   { opacity: 1; transform: translateY(0); }
-              18%  { opacity: 1; transform: translateY(0); }
-              23%  { opacity: 0; transform: translateY(-6px); }
-              100% { opacity: 0; }
-            }
-          </style>
-          <p class="text-base md:text-lg text-muted-blue max-w-xl leading-relaxed mb-6" style="margin-top:0.75rem;">
-            The widest range of UL listed power protection from a single manufacturer. Built to order in Los Angeles since 1975.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 mb-0">
-            <Button href="/products/" size="lg" icon="arrow-right">View Products</Button>
-            <Button href="/contact/" variant="ghost" size="lg">Request a Quote</Button>
-          </div>
-        </div>
+    <!-- Video background -->
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" style="z-index: 0;">
+      <source src="/video/hero-video.mp4" type="video/mp4" />
+    </video>
+    <!-- Dark overlay for text readability -->
+    <div class="absolute inset-0 bg-deep-navy/75" style="z-index: 1;"></div>
 
-        <!-- Right: Emergency Power Riser Diagram -->
-        <div class="hidden lg:flex items-center justify-center w-full" style="height:100%;">
-          <HeroRiser />
+    <!-- Content -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24" style="z-index: 2;">
+      <div class="max-w-2xl">
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-[60px] font-bold text-white leading-[1.08] mb-3">
+          Power That<br/>Never Quits.
+          <span class="block mt-1 text-sky-blue font-display font-bold text-2xl sm:text-3xl sm:hidden">For Any Application.</span>
+          <span class="hidden sm:block mt-1 relative" style="min-height: 1.2em; margin-bottom: 0;">
+            <span class="cycle-word" style="animation-delay: 0s;">For Hospitals.</span>
+            <span class="cycle-word" style="animation-delay: 3s;">For Data Centers.</span>
+            <span class="cycle-word" style="animation-delay: 6s;">For High-Rise Buildings.</span>
+            <span class="cycle-word" style="animation-delay: 9s;">For Government.</span>
+            <span class="cycle-word" style="animation-delay: 12s;">For Any Application.</span>
+          </span>
+        </h1>
+        <style>
+          .cycle-word {
+            display: block;
+            position: absolute;
+            color: #7EB3F5;
+            font-size: 0.5em;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            opacity: 0;
+            animation: cycleText 15s linear infinite;
+          }
+          @keyframes cycleText {
+            0%   { opacity: 0; transform: translateY(6px); }
+            5%   { opacity: 1; transform: translateY(0); }
+            18%  { opacity: 1; transform: translateY(0); }
+            23%  { opacity: 0; transform: translateY(-6px); }
+            100% { opacity: 0; }
+          }
+        </style>
+
+        <p class="font-display text-[14px] font-semibold uppercase tracking-[0.1em] text-white/60 mt-4 mb-1">Trusted by 100+ Fortune 500 Companies</p>
+        <p class="text-lg text-white/80 max-w-lg leading-relaxed mb-8" style="margin-top:0.75rem;">
+          The widest range of UL listed power protection from a single manufacturer. 35W to 400kW. Built to order in Los Angeles since 1975.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <Button href="/products/" size="lg" icon="arrow-right">View Products</Button>
+          <Button href="/contact/" variant="ghost" size="lg">Request a Quote</Button>
         </div>
       </div>
+    </div>
 
-      <!-- Stat Bar -->
-      <div class="flex flex-wrap items-center gap-3 md:gap-0 md:divide-x md:divide-navy-mid mt-6 lg:mt-8">
-        {company.heroStats.map(stat => (
-          <span class="font-display text-[13px] uppercase tracking-[0.1em] text-muted-blue font-semibold md:px-5 first:md:pl-0">{stat}</span>
-        ))}
+    <!-- Stat Bar -->
+    <div class="relative border-t border-white/10" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-wrap items-center gap-3 md:gap-0 md:divide-x md:divide-white/10 py-4">
+          {company.heroStats.map(stat => (
+            <span class="font-display text-[13px] uppercase tracking-[0.1em] text-white/50 font-semibold md:px-5 first:md:pl-0">{stat}</span>
+          ))}
+        </div>
       </div>
     </div>
   </section>
