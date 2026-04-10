@@ -33,15 +33,15 @@ import Button from './Button.astro';
             role="menu"
             data-dropdown-menu
           >
-            <div class="bg-deep-navy border border-navy-mid rounded-lg py-3 w-80 shadow-2xl shadow-near-black/30">
+            <div class="bg-deep-navy border border-navy-mid rounded-lg py-3 w-96 shadow-2xl shadow-near-black/30">
               {navigation.products.map(item => (
                 <a href={item.href} role="menuitem" tabindex="-1" class="block px-5 py-3 hover:bg-navy-mid transition-colors">
-                  <span class="font-display font-bold text-[15px] text-white">{item.name}</span>
-                  <span class="block text-[12px] text-muted-blue mt-0.5">{item.description}</span>
+                  <span class="font-display font-bold text-[17px] text-white">{item.name}</span>
+                  <span class="block text-[13px] text-muted-blue mt-0.5">{item.description}</span>
                 </a>
               ))}
               <div class="border-t border-navy-mid mt-2 pt-3 px-5 pb-1">
-                <a href="/products/" role="menuitem" tabindex="-1" class="font-display font-bold text-[14px] text-steel-blue hover:text-white transition-colors uppercase tracking-[0.08em]">All Products →</a>
+                <a href="/products/" role="menuitem" tabindex="-1" class="font-display font-bold text-[15px] text-steel-blue hover:text-white transition-colors uppercase tracking-[0.08em]">All Products →</a>
               </div>
             </div>
           </div>
