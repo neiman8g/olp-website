@@ -58,9 +58,9 @@ import { productCategories } from '../data/navigation';
         <!-- Training Formats -->
         <div class="space-y-5">
           {[
-            { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', title: 'In-Person Training', desc: 'Visit our manufacturing facility. See the production floor, meet the engineering team, get hands-on experience.' },
-            { icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z', title: 'Virtual Sessions', desc: 'Live video training with screen sharing, interactive Q&A, and recorded sessions for later reference.' },
-            { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z', title: 'On-Site Training', desc: 'We come to your facility. Training customized around your installed equipment and team needs.' },
+            { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', title: 'At Our Plant', desc: 'Factory training at our Los Angeles manufacturing facility. See the production floor and get hands-on experience with actual equipment.' },
+            { icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z', title: 'Virtual', desc: 'Live video training with screen sharing, interactive Q&A, and recorded sessions for your team.' },
+            { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z', title: 'At Your Office', desc: 'Project-specific training or lunch-and-learn sessions for your team. Customized to your installed equipment and staff needs.' },
           ].map(item => (
             <Card variant="feature" class="flex items-start gap-4">
               <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0">
@@ -121,9 +121,9 @@ import { productCategories } from '../data/navigation';
             <label for="format" class="block eyebrow text-slate mb-2">Format *</label>
             <select id="format" name="format" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
               <option value="">Select format...</option>
-              <option value="In-Person">In-Person</option>
+              <option value="At Our Plant">At Our Plant</option>
               <option value="Virtual">Virtual</option>
-              <option value="On-Site">On-Site</option>
+              <option value="At Your Office">At Your Office</option>
             </select>
           </div>
         </div>
@@ -162,7 +162,7 @@ import { productCategories } from '../data/navigation';
       <h2 class="font-display text-3xl font-bold text-near-black mb-8">Training Questions</h2>
       <div class="space-y-3">
         {[
-          { q: 'How long is a typical training session?', a: 'Virtual sessions run 2-4 hours. In-person and on-site training is typically 4-8 hours. Duration depends on product complexity and topics covered.' },
+          { q: 'How long is a typical training session?', a: 'Virtual sessions run 2-4 hours. Plant visits and at-your-office training is typically 4-8 hours. Duration depends on product complexity and topics covered.' },
           { q: 'Is there a cost for training?', a: 'Contact us for pricing. Costs vary by format, duration, and attendees. Training may be included with new equipment purchases.' },
           { q: 'Can training be customized for our installation?', a: 'Absolutely. On-site training is built around your specific equipment, building configuration, and team requirements.' },
           { q: 'Do you provide training materials?', a: 'All attendees receive product documentation and reference materials. Virtual sessions are recorded. Certificates available on request.' },
