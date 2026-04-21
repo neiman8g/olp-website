@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Button from '../../../components/Button.astro';
+import DocumentGate from '../../../components/DocumentGate.astro';
+import { getProductsByCategory, getCategoryBySlug } from '../../../data/products';
+import { Image } from 'astro:assets';
+import { getProductImage } from '../../../utils/images';
+
+const category = getCategoryBySlug('isolation-transformers')!;
+const categoryProducts = getProductsByCategory('isolation-transformers');
+const hero = categoryProducts[0];
+
+const specs = [
+  ['Power Range', '15 to 500 kVA'],
+  ['Configuration', 'Three phase'],
+  ['Common-Mode Noise Attenuation', 'Up to -152 dB'],
+  ['Impedance', '3% to 5% low impedance'],
+  ['Input Taps', 'Adjustable (±5%, ±10%)'],
+  ['Enclosure', 'NEMA 12 certified · indoor & outdoor rated'],
+  ['Cooling', 'Natural convection, no fans'],
+  ['Temperature Sensor', 'Included (over-temp protection)'],
+  ['Neutral-Ground Bond', 'New derived source at output'],
+  ['Standards', 'UL 506, NFPA, NEMA'],
+  ['Warranty', '2 years parts and labor'],
+];
+
+const applications = [
+  { name: 'Data Centers', icon: 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01' },
+  { name: 'Medical Imaging', icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z' },
+  { name: 'Broadcast', icon: 'M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 010-7.072m-2.828 9.9a9 9 0 010-12.728' },
+  { name: 'Research Labs', icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z' },
+  { name: 'Manufacturing', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
+  { name: 'Telecom', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' },
+];
+---
+
+<BaseLayout
+  title="Isolation Transformers | Noise & Harmonic Cancellation | Online Power"
+  description="Three-phase isolation transformers for noise-sensitive and harmonic-heavy loads. Common-mode noise attenuation up to -152 dB. NEMA 12 rated. 15 to 500 kVA. Built in Los Angeles."
+>
+
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
+        <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/products" class="hover:text-steel-blue transition-colors">Products</a>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Isolation Transformers</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-3">
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="badge-dark">UL 506</span>
+            <span class="badge-dark">NEMA 12</span>
+            <span class="badge-dark">-152 dB</span>
+            <span class="badge-dark">Made in USA</span>
+          </div>
+
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Isolation Transformers</h1>
+          <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">
+            Clean power for noise-sensitive and harmonic-heavy loads. Common-mode noise attenuation up to -152 dB, a new neutral-ground bond at the output, and NEMA 12 enclosure rated indoor or outdoor.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 mb-4">
+            <Button href="/contact" size="lg" icon="arrow-right">Describe Your Load</Button>
+            <Button href="/products/" variant="ghost" size="lg">All Products</Button>
+          </div>
+          <p class="font-display text-[13px] text-muted-blue">Responds within 2 business hours</p>
+        </div>
+
+        <div class="hidden lg:block lg:col-span-2">
+          <div class="bg-navy-mid border border-white/5 rounded-xl p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+            <img src="/images/products/isocare.png" alt="ISO-Care isolation transformer by Online Power" class="w-full h-auto object-contain" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Range', value: '15 – 500 kVA · 3Ø' },
+            { label: 'Noise Attenuation', value: '-152 dB common mode' },
+            { label: 'Impedance', value: '3 – 5% low impedance' },
+            { label: 'Enclosure', value: 'NEMA 12 · indoor/outdoor' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB SECTION -->
+  <section class="pt-4 md:pt-6 pb-10 md:pb-14 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex gap-1 border-b border-steel-gray mb-10">
+        {['Overview', 'Specifications', 'Documents'].map((tab, i) => (
+          <button class={`tab-btn px-5 py-3 text-sm font-medium transition-colors border-b-2 ${i === 0 ? 'text-steel-blue border-steel-blue' : 'text-slate border-transparent hover:text-near-black'}`} data-tab={tab.toLowerCase()}>
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      <!-- OVERVIEW TAB -->
+      <div class="tab-content" data-tab="overview">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+          <div class="card-hover bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Common-Mode Noise Cancellation</h3>
+            <p class="text-base text-slate">Dual-shielded isolation transformer attenuates common-mode noise up to -152 dB — the decoupling medical imaging, broadcast, and lab instrumentation require.</p>
+          </div>
+          <div class="card-hover bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">New Derived Neutral-Ground Bond</h3>
+            <p class="text-base text-slate">Output creates a newly derived power source with a clean neutral-ground reference at the load — eliminating upstream ground loops and circulating currents.</p>
+          </div>
+          <div class="card-hover bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">NEMA 12 · Indoor or Outdoor</h3>
+            <p class="text-base text-slate">Dust-tight, drip-tight NEMA 12 enclosure with temperature sensor standard. Natural-convection cooled — no fans to replace, no moving parts to service.</p>
+          </div>
+        </div>
+
+        <p class="eyebrow text-steel-blue mb-6">Where It Gets Specified</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-16">
+          {applications.map(app => (
+            <div class="bg-white border border-steel-gray rounded-lg p-4 flex items-center gap-3">
+              <svg class="w-5 h-5 text-steel-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={app.icon}></path></svg>
+              <span class="text-sm text-near-black">{app.name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+          <p class="text-sm text-near-black font-medium mb-1">Need isolation with regulation?</p>
+          <p class="text-base text-slate">Our <a href="/products/category/medical-grade" class="text-steel-blue hover:underline">Medical Power and Phase Stabilizer</a> lines combine isolation with ±1% to ±3% voltage regulation in a single chassis.</p>
+        </div>
+      </div>
+
+      <!-- SPECIFICATIONS TAB -->
+      <div class="tab-content hidden" data-tab="specifications">
+        <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
+          {specs.map(([label, value], i) => (
+            <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
+              <span class="text-base text-slate font-medium">{label}</span>
+              <span class="text-sm text-near-black font-medium text-right">{value}</span>
+            </div>
+          ))}
+        </div>
+        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+          <p class="text-sm text-near-black">Need a custom specification? <a href="/contact" class="text-steel-blue hover:underline">Our engineering team will work with you &rarr;</a></p>
+        </div>
+      </div>
+
+      <!-- DOCUMENTS TAB -->
+      <div class="tab-content hidden" data-tab="documents">
+        <p class="font-display text-[13px] text-slate mb-6">All documents available for immediate download after a quick registration.</p>
+        <DocumentGate productSlug="isocare" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT MODELS -->
+  <section class="py-10 md:py-14 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <p class="eyebrow text-steel-blue mb-8">{categoryProducts.length} Model Available</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {categoryProducts.map(p => (
+          <a href={`/products/${p.slug}`} class="card-hover border-t-2 border-t-steel-blue bg-white rounded-xl overflow-hidden group">
+            <div class="h-[200px] bg-off-white flex items-center justify-center p-4">
+              {typeof getProductImage(p.image) === 'string' ? (
+                <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+              ) : (
+                <Image src={getProductImage(p.image) as ImageMetadata} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" format="webp" quality={80} widths={[200, 400]} sizes="(max-width: 640px) 100vw, 33vw" />
+              )}
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
+              <p class="font-display text-[13px] font-semibold text-steel-blue mb-2">{p.tagline}</p>
+              <p class="text-[15px] text-slate line-clamp-2 mb-3">{p.description}</p>
+              <span class="font-display text-[14px] font-semibold text-steel-blue uppercase tracking-wide">Specs & Data Sheets →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="bg-deep-navy py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-display text-3xl font-bold text-white mb-4">Ready to Spec This Product?</h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="px-8 py-3.5 bg-steel-blue text-white font-semibold rounded hover:bg-steel-blue/90 transition-colors text-sm">Request a Quote</a>
+        <a href="/training" class="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded hover:bg-white/10 transition-colors text-sm">Register for Training</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="fixed bottom-0 left-0 right-0 bg-deep-navy/95 backdrop-blur border-t border-navy-mid p-3 z-40 lg:hidden" id="mobile-sticky-cta" style="display:none;padding-bottom:max(12px, env(safe-area-inset-bottom));">
+    <Button href="/contact" size="lg" icon="bolt" fullWidth>Request a Quote</Button>
+  </div>
+
+</BaseLayout>
+
+<script is:inline>
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var tab = btn.getAttribute('data-tab');
+      document.querySelectorAll('.tab-btn').forEach(function(b) {
+        b.classList.remove('text-steel-blue', 'border-steel-blue');
+        b.classList.add('text-slate', 'border-transparent');
+      });
+      btn.classList.remove('text-slate', 'border-transparent');
+      btn.classList.add('text-steel-blue', 'border-steel-blue');
+      document.querySelectorAll('.tab-content').forEach(function(c) {
+        c.classList.add('hidden');
+      });
+      document.querySelector('.tab-content[data-tab="' + tab + '"]').classList.remove('hidden');
+    });
+  });
+
+  var stickyCta = document.getElementById('mobile-sticky-cta');
+  if (stickyCta && window.innerWidth < 1024) {
+    window.addEventListener('scroll', function() {
+      stickyCta.style.display = window.scrollY > 400 ? '' : 'none';
+    });
+  }
+</script>
+</content>
+</invoke>

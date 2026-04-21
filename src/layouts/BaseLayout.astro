@@ -49,5 +49,75 @@ const { title, description, canonical, ogImage, product, breadcrumbs } = Astro.p
     <SearchModal />
     <Footer />
   </div>
+
+  <!-- Journey: scroll-reveal + count-up observers (CSS animations; respects prefers-reduced-motion) -->
+  <script is:inline>
+    (function(){
+      if (typeof window === 'undefined') return;
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Scroll-reveal
+      var revealEls = document.querySelectorAll('.reveal');
+      if (reduceMotion) {
+        revealEls.forEach(function(el){ el.classList.add('revealed'); });
+      } else if ('IntersectionObserver' in window) {
+        var revealObs = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if (e.isIntersecting) {
+              e.target.classList.add('revealed');
+              revealObs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        revealEls.forEach(function(el){ revealObs.observe(el); });
+      } else {
+        revealEls.forEach(function(el){ el.classList.add('revealed'); });
+      }
+
+      // Count-up for [data-countup] elements. data-target="44", data-suffix="+"
+      var countEls = document.querySelectorAll('[data-countup]');
+      function animateCount(el){
+        var target = parseFloat(el.getAttribute('data-target') || el.textContent);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var prefix = el.getAttribute('data-prefix') || '';
+        var duration = 1100;
+        var start = performance.now();
+        function step(now){
+          var p = Math.min(1, (now - start) / duration);
+          // ease-out cubic
+          var eased = 1 - Math.pow(1 - p, 3);
+          var val = target * eased;
+          var display = target % 1 === 0 ? Math.round(val) : val.toFixed(1);
+          el.textContent = prefix + display + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      if (reduceMotion) {
+        countEls.forEach(function(el){
+          var target = el.getAttribute('data-target') || el.textContent;
+          var suffix = el.getAttribute('data-suffix') || '';
+          var prefix = el.getAttribute('data-prefix') || '';
+          el.textContent = prefix + target + suffix;
+        });
+      } else if ('IntersectionObserver' in window) {
+        var countObs = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if (e.isIntersecting) {
+              animateCount(e.target);
+              countObs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.4 });
+        countEls.forEach(function(el){
+          // ensure starting value
+          var suffix = el.getAttribute('data-suffix') || '';
+          var prefix = el.getAttribute('data-prefix') || '';
+          el.textContent = prefix + '0' + suffix;
+          countObs.observe(el);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

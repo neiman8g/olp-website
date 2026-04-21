@@ -76,27 +76,44 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
       </div>
     </div>
 
-    <!-- Headline Stats: 3 large + compliance row -->
+    <!-- Headline Stats: stacked on mobile, 3-col on md+ -->
     <div class="relative border-t border-white/10" style="z-index: 2;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="grid grid-cols-3 divide-x divide-white/10 py-8">
-          {[
-            { value: '50 YRS', label: 'US Manufacturing' },
-            { value: 'ISO 9001', label: 'Quality Certified' },
-            { value: 'UL LISTED', label: 'Every Product' },
-          ].map((s, i) => (
-            <div class={`px-4 md:px-8 ${i === 0 ? 'first:pl-0' : ''} text-center md:text-left`}>
-              <p class="font-display text-[32px] md:text-[44px] font-extrabold tracking-tight text-white leading-none mb-2">{s.value}</p>
-              <p class="font-display text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.16em] text-white/70">{s.label}</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-white/10 divide-y divide-white/10 md:divide-y-0 py-2 md:py-8">
+          <!-- 50 YRS -->
+          <div class="flex md:block items-baseline gap-3 py-4 md:py-0 md:px-8 md:first:pl-0 md:text-left">
+            <p class="font-display text-[28px] md:text-[44px] font-extrabold tracking-tight text-white leading-none md:mb-2 whitespace-nowrap">50 YRS</p>
+            <p class="font-display text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.16em] text-white/70">US Manufacturing</p>
+          </div>
+          <!-- ISO 9001 -->
+          <div class="flex md:block items-baseline gap-3 py-4 md:py-0 md:px-8 md:text-left">
+            <p class="font-display text-[28px] md:text-[44px] font-extrabold tracking-tight text-white leading-none md:mb-2 whitespace-nowrap">ISO 9001</p>
+            <p class="font-display text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.16em] text-white/70">Quality Certified</p>
+          </div>
+          <!-- MADE IN USA -->
+          <div class="flex md:block items-center md:items-start gap-3 py-4 md:py-0 md:px-8 md:text-left">
+            <div class="flex items-center gap-2.5 md:gap-3 md:mb-2">
+              <svg viewBox="0 0 19 10" class="w-7 h-[14px] md:w-11 md:h-[23px] rounded-[2px] shadow-sm flex-shrink-0" aria-label="Flag of the United States" role="img">
+                <rect width="19" height="10" fill="#B22234"/>
+                <rect y="0.77" width="19" height="0.77" fill="#fff"/>
+                <rect y="2.31" width="19" height="0.77" fill="#fff"/>
+                <rect y="3.85" width="19" height="0.77" fill="#fff"/>
+                <rect y="5.38" width="19" height="0.77" fill="#fff"/>
+                <rect y="6.92" width="19" height="0.77" fill="#fff"/>
+                <rect y="8.46" width="19" height="0.77" fill="#fff"/>
+                <rect width="7.6" height="5.38" fill="#3C3B6E"/>
+              </svg>
+              <p class="font-display text-[22px] md:text-[36px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">MADE IN USA</p>
             </div>
-          ))}
+            <p class="font-display text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.16em] text-white/70 md:mt-0">Built in LA</p>
+          </div>
         </div>
-        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 py-4 border-t border-white/10 font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-white/60">
+        <div class="flex flex-wrap items-center gap-x-4 md:gap-x-6 gap-y-2 py-4 border-t border-white/10 font-display text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.12em] md:tracking-[0.14em] text-white/60">
+          <span>UL Listed</span>
+          <span class="text-white/20">·</span>
           <span>BAA Compliant</span>
           <span class="text-white/20">·</span>
           <span>TAA Compliant</span>
-          <span class="text-white/20">·</span>
-          <span>Built in Los Angeles</span>
           <span class="text-white/20">·</span>
           <span>Founded 1975</span>
         </div>
@@ -104,18 +121,21 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
     </div>
   </section>
 
-  <!-- ========== SECTOR TRUST ROW ========== -->
-  <section class="bg-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-      <p class="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-steel-blue text-center mb-6">Trusted in the Environments Where Power Cannot Fail</p>
+  <!-- ========== CHAPTER 01 · SECTOR TRUST ROW ========== -->
+  <section id="ch-01" data-chapter="01" data-chapter-title="The Trust" class="bg-white border-b border-steel-gray journey-seam">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+      <div class="flex flex-col items-center text-center mb-8 reveal">
+        <span class="chapter-num mb-3">01 · The Trust</span>
+        <h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight text-near-black max-w-2xl leading-tight">Trusted in the Environments<br class="hidden sm:block"/> Where Power <span class="text-steel-blue">Cannot Fail</span></h2>
+      </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
           { label: 'Hospitals', desc: 'Critical Care · Surgical Suites', icon: 'M9 12h6m-3-3v6m-9 1V5a2 2 0 012-2h14a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2z' },
           { label: 'Data Centers', desc: 'Colocation · Hyperscale', icon: 'M4 7a2 2 0 012-2h12a2 2 0 012 2v2H4V7zm0 4h16v2H4v-2zm0 4h16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2z' },
           { label: 'Government', desc: 'Federal · DoD · Municipal', icon: 'M3 21h18M5 21V10l7-5 7 5v11M9 21V13h6v8' },
           { label: 'High-Rise', desc: 'Commercial · Residential', icon: 'M5 21V5a1 1 0 011-1h5a1 1 0 011 1v16M12 21V9a1 1 0 011-1h5a1 1 0 011 1v12M3 21h18M8 8h1m-1 4h1m-1 4h1m7-4h1m-1 4h1' },
-        ].map(s => (
-          <div class="group flex flex-col items-center text-center py-5 px-3 border border-steel-gray rounded-lg hover:border-steel-blue hover:shadow-[0_8px_20px_-8px_rgba(37,103,194,0.25)] hover:-translate-y-0.5 transition-all duration-200">
+        ].map((s, i) => (
+          <div class={`reveal reveal-delay-${i+1} group flex flex-col items-center text-center py-5 px-3 border border-steel-gray rounded-lg hover:border-steel-blue hover:shadow-[0_8px_20px_-8px_rgba(37,103,194,0.25)] hover:-translate-y-0.5 transition-all duration-200`}>
             <div class="w-11 h-11 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-3 group-hover:bg-steel-blue/15 transition-colors">
               <svg class="w-6 h-6 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={s.icon}/></svg>
             </div>
@@ -127,112 +147,314 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
     </div>
   </section>
 
-  <!-- ========== PRODUCTS GRID ========== -->
-  <section class="py-16 md:py-20 bg-off-white">
+  <!-- ========== CHAPTER 02 · PRODUCTS GRID ========== -->
+  <section id="ch-02" data-chapter="02" data-chapter-title="The Range" class="py-16 md:py-20 bg-off-white journey-seam">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 reveal">
         <div>
-          <p class="eyebrow mb-3">Product Lines</p>
-          <h2 class="font-display text-3xl md:text-[44px] font-extrabold tracking-tight text-near-black leading-[1.1]">Every Critical Load. <span class="text-steel-blue">One Manufacturer.</span></h2>
+          <span class="chapter-num mb-3 block">02 · The Range</span>
+          <h2 class="font-display text-3xl md:text-[44px] font-extrabold tracking-tight text-near-black leading-[1.1] mt-2">Every Critical Load. <span class="text-steel-blue">One Manufacturer.</span></h2>
         </div>
         <a href="/products/" class="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-steel-blue hover:text-near-black transition-colors whitespace-nowrap">All Products &rarr;</a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- Lighting Inverters -->
-        <Card variant="product" href="/products/category/emergency-lighting">
-          <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue group-hover:text-white transition-colors">
-            <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Lighting Inverters</h3>
-          <p class="text-base text-slate mb-4">UL924 emergency lighting inverter systems from 35W to 400kW</p>
-          <span class="text-[15px] font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
-        </Card>
+      <!-- Horizontal scrolling product rail -->
+      <div class="relative -mx-4 sm:-mx-6">
+        <div id="product-rail" class="flex overflow-x-auto snap-x snap-mandatory gap-5 px-4 sm:px-6 pb-5 no-scrollbar scroll-smooth">
+          {[
+            { href: '/products/category/emergency-lighting', img: '/images/products/power-wave-1.png', name: 'Emergency Lighting Inverters', range: '35W – 400 kW', tag: 'UL 924', desc: 'Illuminates the path of egress when utility power fails. Engineered to help meet NFPA 101 §7.9 and UL 924 life-safety requirements.' },
+            { href: '/products/category/fire-alarm-backup', img: '/images/products/fire-alarm-backup.png', name: 'Fire Alarm Backup', range: '500W – 15 kW', tag: 'UL 1481', desc: '24 hr standby + 5 min alarm (15 for voice evac). Powers the entire FACP — not just NAC circuits.' },
+            { href: '/products/category/elevator-backup', img: '/images/products/elevate.png', name: 'Elevator Backup Systems', range: '24 – 240 kW · 3Ø', tag: 'UL 924 + 1778', desc: 'Three-phase evacuation power. Regen-capable. No load bank, no ATS required.' },
+            { href: '/products/category/ups-backup', img: '/images/products/host-power.png', name: 'UPS Backup Systems', range: '10 – 500 kVA', tag: 'UL 1778', desc: 'True online double-conversion, IGBT PWM, zero transfer. Generator-compatible.' },
+            { href: '/products/category/medical-grade', img: '/images/products/medical-grade.png', name: 'Medical Grade Systems', range: '10 – 1,250 kVA', tag: 'UL 60601-1', desc: 'Patient-grade leakage limits, Faraday shields, OSHPD/HCAI seismic preapproval.' },
+            { href: '/products/category/isolation-transformers', img: '/images/products/isocare.png', name: 'Isolation Transformers', range: '15 – 500 kVA', tag: 'UL 506', desc: 'Noise & harmonic cancellation up to -152 dB. New derived neutral-ground bond at the output. NEMA 12.' },
+            { href: '/products/category/voltage-regulators', img: '/images/products/power-reg.png', name: 'Voltage Regulators', range: '15 – 2,000 kVA', tag: '±3% regulation', desc: 'Electronic tap-switching. Sub-cycle correction. 99% efficient. The quiet class.' },
+            { href: '/products/category/power-distribution', img: '/images/products/power-pac.png', name: 'Power Distribution Units', range: '15 – 450 kVA', tag: 'UL 489', desc: 'Custom PDUs and power islands. Built-in regulation, branch monitoring, harmonic-load ready.' },
+            { href: '/products/category/frequency-converters', img: '/images/products/frequency-converter.png', name: 'Frequency Converters', range: '10 – 320 kVA', tag: '50 / 60 / 400 Hz', desc: 'True galvanic isolation, ±0.1 Hz accuracy. Defense, aerospace, and global OEM integration.' },
+            { href: '/products/category/load-control-relays', img: '/images/products/lcr20.png', name: 'Load Control Relays', range: 'LCR-20', tag: 'UL 924 · IP65', desc: 'Automatic dimmer override for emergency lighting. 0-10V protocol, 5-year warranty.' },
+          ].map((p) => (
+            <a href={p.href} class="snap-start shrink-0 w-[85vw] sm:w-[380px] group relative overflow-hidden bg-white border border-steel-gray rounded-xl flex flex-col transition-all duration-300 hover:border-steel-blue hover:-translate-y-1 hover:shadow-[0_18px_40px_-12px_rgba(37,103,194,0.28)]">
+              <div class="relative h-[200px] bg-gradient-to-br from-deep-navy to-near-black overflow-hidden">
+                <div class="absolute inset-0 pointer-events-none opacity-[0.12]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 28px 28px;"></div>
+                <div class="absolute -top-12 -right-12 w-[260px] h-[260px] pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.4) 0%, rgba(37,103,194,0) 65%); filter: blur(8px);"></div>
+                <img src={p.img} alt={`${p.name} — ${p.range}`} loading="lazy" class="relative z-10 w-full h-full object-contain p-6 group-hover:scale-[1.06] transition-transform duration-500" />
+                <span class="absolute top-3 left-3 z-20 font-display text-[10px] font-semibold uppercase tracking-[0.14em] text-sky-blue bg-deep-navy/80 backdrop-blur-sm px-2 py-1 rounded border border-white/10">{p.tag}</span>
+              </div>
+              <div class="flex-1 p-6 flex flex-col">
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <h3 class="font-display text-xl font-bold tracking-tight text-near-black group-hover:text-steel-blue transition-colors">{p.name}</h3>
+                  <span class="font-display text-[12px] font-semibold text-steel-blue whitespace-nowrap">{p.range}</span>
+                </div>
+                <p class="text-[14px] text-slate leading-relaxed mb-4 flex-1">{p.desc}</p>
+                <span class="font-display text-[12px] font-bold uppercase tracking-[0.12em] text-steel-blue group-hover:text-near-black transition-colors inline-flex items-center gap-1.5">
+                  Explore
+                  <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
 
-        <!-- Fire Alarm Backup -->
-        <Card variant="product" href="/products/category/fire-alarm-backup">
-          <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue group-hover:text-white transition-colors">
-            <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Fire Alarm Backup</h3>
-          <p class="text-base text-slate mb-4">UL1481 fire alarm notification appliance circuit backup</p>
-          <span class="text-[15px] font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
-        </Card>
-
-        <!-- Elevator Backup -->
-        <Card variant="product" href="/products/category/elevator-backup">
-          <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue group-hover:text-white transition-colors">
-            <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4 4 4M8 17l4 4 4-4M3 12h18"></path></svg>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Elevator Backup</h3>
-          <p class="text-base text-slate mb-4">UL924 elevator backup systems for safe evacuation during outages</p>
-          <span class="text-[15px] font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
-        </Card>
-
-        <!-- UPS Backup -->
-        <Card variant="product" href="/products/category/ups-backup">
-          <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue group-hover:text-white transition-colors">
-            <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">UPS Backup</h3>
-          <p class="text-base text-slate mb-4">UL1778 uninterruptible power supply systems for critical loads</p>
-          <span class="text-[15px] font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
-        </Card>
-
-        <!-- Medical Grade -->
-        <Card variant="product" href="/products/category/medical-grade">
-          <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue group-hover:text-white transition-colors">
-            <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Medical Grade Systems</h3>
-          <p class="text-base text-slate mb-4">Hospital-grade isolation and power protection for critical care</p>
-          <span class="text-[15px] font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
-        </Card>
-
-        <!-- Voltage Regulators -->
-        <Card variant="product" href="/products/category/voltage-regulators">
-          <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue group-hover:text-white transition-colors">
-            <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-near-black mb-1">Voltage Regulators</h3>
-          <p class="text-base text-slate mb-4">Power conditioning and voltage regulation for sensitive equipment</p>
-          <span class="text-[15px] font-medium text-steel-blue group-hover:text-near-black transition-colors">Learn More &rarr;</span>
-        </Card>
+        <!-- Scroll controls (desktop) -->
+        <button type="button" data-rail-scroll="product-rail" data-dir="-1" aria-label="Scroll products left" class="hidden md:flex absolute left-2 top-[100px] -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-steel-gray shadow-md items-center justify-center hover:border-steel-blue hover:bg-steel-blue hover:text-white text-near-black transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button type="button" data-rail-scroll="product-rail" data-dir="1" aria-label="Scroll products right" class="hidden md:flex absolute right-2 top-[100px] -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-steel-gray shadow-md items-center justify-center hover:border-steel-blue hover:bg-steel-blue hover:text-white text-near-black transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- ========== SPEC REVEAL BAND ========== -->
-  <section class="relative overflow-hidden bg-near-black py-16 md:py-24 border-y border-navy-mid">
+  <!-- ========== CHAPTER 03 · THE MATCH (sizing tool) ========== -->
+  <section id="sizer" data-chapter="03" data-chapter-title="The Match" class="py-16 md:py-24 bg-white border-b border-steel-gray journey-seam">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10 reveal">
+        <span class="chapter-num mb-3 inline-flex">03 · The Match</span>
+        <h2 class="font-display text-3xl md:text-[44px] font-extrabold tracking-tight text-near-black mt-3 leading-[1.05]">Size Your System <span class="text-steel-blue">in 30 Seconds.</span></h2>
+        <p class="text-slate mt-4 max-w-xl mx-auto">Pick the system type, enter your load, see the recommended model. Final specs always confirmed by our engineering team.</p>
+      </div>
+
+      <div class="max-w-5xl mx-auto reveal">
+        <div class="flex flex-wrap gap-1 border-b border-steel-gray mb-8" role="tablist" aria-label="Select product category">
+          <button type="button" class="sizer-tab active flex-1 min-w-[140px] px-4 py-3 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-steel-blue border-b-2 border-steel-blue transition-colors" data-cat="el" role="tab" aria-selected="true">Emergency Lighting</button>
+          <button type="button" class="sizer-tab flex-1 min-w-[140px] px-4 py-3 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-slate border-b-2 border-transparent hover:text-near-black transition-colors" data-cat="ups" role="tab" aria-selected="false">UPS</button>
+          <button type="button" class="sizer-tab flex-1 min-w-[140px] px-4 py-3 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-slate border-b-2 border-transparent hover:text-near-black transition-colors" data-cat="fire" role="tab" aria-selected="false">Fire Alarm</button>
+          <button type="button" class="sizer-tab flex-1 min-w-[140px] px-4 py-3 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-slate border-b-2 border-transparent hover:text-near-black transition-colors" data-cat="elev" role="tab" aria-selected="false">Elevator Backup</button>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-10">
+          <div>
+            <!-- Emergency Lighting -->
+            <div class="sizer-panel" data-cat="el">
+              <label class="block mb-5">
+                <span class="block font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Total Connected Load</span>
+                <div class="flex items-center border border-steel-gray rounded-lg bg-off-white focus-within:border-steel-blue transition-colors">
+                  <input type="number" id="el-watts" min="0" step="1" placeholder="e.g. 2500" class="flex-1 px-4 py-3 bg-transparent outline-none text-near-black font-display text-lg font-bold" />
+                  <span class="px-4 py-3 font-display text-[13px] font-semibold text-slate border-l border-steel-gray">Watts</span>
+                </div>
+              </label>
+              <label class="block mb-5">
+                <span class="block font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Phase</span>
+                <div class="grid grid-cols-2 gap-2">
+                  <label class="flex items-center justify-center px-4 py-3 border border-steel-gray rounded-lg bg-off-white cursor-pointer font-display text-sm font-semibold text-near-black has-[:checked]:border-steel-blue has-[:checked]:bg-steel-blue has-[:checked]:text-white transition-colors">
+                    <input type="radio" name="el-phase" value="1" checked class="sr-only" />
+                    Single Phase (1Ø)
+                  </label>
+                  <label class="flex items-center justify-center px-4 py-3 border border-steel-gray rounded-lg bg-off-white cursor-pointer font-display text-sm font-semibold text-near-black has-[:checked]:border-steel-blue has-[:checked]:bg-steel-blue has-[:checked]:text-white transition-colors">
+                    <input type="radio" name="el-phase" value="3" class="sr-only" />
+                    Three Phase (3Ø)
+                  </label>
+                </div>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" id="el-seismic" class="w-4 h-4 accent-steel-blue" />
+                <span class="font-display text-sm text-near-black">Needs OSHPD/HCAI seismic certification</span>
+              </label>
+              <p class="text-[12px] text-slate mt-4">Runtime: 90 min per NFPA 101 §7.9 (120 min available). Pure sine wave output.</p>
+            </div>
+
+            <!-- UPS -->
+            <div class="sizer-panel hidden" data-cat="ups">
+              <label class="block mb-5">
+                <span class="block font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Critical Load</span>
+                <div class="flex items-center border border-steel-gray rounded-lg bg-off-white focus-within:border-steel-blue transition-colors">
+                  <input type="number" id="ups-kva" min="0" step="1" placeholder="e.g. 50" class="flex-1 px-4 py-3 bg-transparent outline-none text-near-black font-display text-lg font-bold" />
+                  <span class="px-4 py-3 font-display text-[13px] font-semibold text-slate border-l border-steel-gray">kVA</span>
+                </div>
+                <p class="text-[12px] text-slate mt-2">Tip: kW ÷ 0.9 ≈ kVA for most modern loads.</p>
+              </label>
+              <label class="block mb-5">
+                <span class="block font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Phase</span>
+                <div class="grid grid-cols-2 gap-2">
+                  <label class="flex items-center justify-center px-4 py-3 border border-steel-gray rounded-lg bg-off-white cursor-pointer font-display text-sm font-semibold text-near-black has-[:checked]:border-steel-blue has-[:checked]:bg-steel-blue has-[:checked]:text-white transition-colors">
+                    <input type="radio" name="ups-phase" value="1" class="sr-only" />
+                    Single Phase (1Ø)
+                  </label>
+                  <label class="flex items-center justify-center px-4 py-3 border border-steel-gray rounded-lg bg-off-white cursor-pointer font-display text-sm font-semibold text-near-black has-[:checked]:border-steel-blue has-[:checked]:bg-steel-blue has-[:checked]:text-white transition-colors">
+                    <input type="radio" name="ups-phase" value="3" checked class="sr-only" />
+                    Three Phase (3Ø)
+                  </label>
+                </div>
+              </label>
+              <p class="text-[12px] text-slate mt-4">True online double-conversion, UL 1778 listed. Generator-compatible.</p>
+            </div>
+
+            <!-- Fire Alarm -->
+            <div class="sizer-panel hidden" data-cat="fire">
+              <label class="block mb-5">
+                <span class="block font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Fire Alarm Panel Load</span>
+                <div class="flex items-center border border-steel-gray rounded-lg bg-off-white focus-within:border-steel-blue transition-colors">
+                  <input type="number" id="fire-watts" min="0" step="1" placeholder="e.g. 2000" class="flex-1 px-4 py-3 bg-transparent outline-none text-near-black font-display text-lg font-bold" />
+                  <span class="px-4 py-3 font-display text-[13px] font-semibold text-slate border-l border-steel-gray">Watts</span>
+                </div>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer mb-5">
+                <input type="checkbox" id="fire-voice" class="w-4 h-4 accent-steel-blue" />
+                <span class="font-display text-sm text-near-black">Includes voice evacuation (15 min alarm per NFPA 72)</span>
+              </label>
+              <p class="text-[12px] text-slate mt-2">Standby 24 hr + alarm 5 min (15 for voice evac) per NFPA 72 §10.6.7.2.</p>
+            </div>
+
+            <!-- Elevator -->
+            <div class="sizer-panel hidden" data-cat="elev">
+              <label class="block mb-5">
+                <span class="block font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Elevator Motor Rating (per elevator)</span>
+                <div class="flex items-center border border-steel-gray rounded-lg bg-off-white focus-within:border-steel-blue transition-colors">
+                  <input type="number" id="elev-kw" min="0" step="1" placeholder="e.g. 40" class="flex-1 px-4 py-3 bg-transparent outline-none text-near-black font-display text-lg font-bold" />
+                  <span class="px-4 py-3 font-display text-[13px] font-semibold text-slate border-l border-steel-gray">kW</span>
+                </div>
+                <p class="text-[12px] text-slate mt-2">Tip: HP × 0.746 ≈ kW.</p>
+              </label>
+              <label class="block mb-5">
+                <span class="block font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Number of Elevators on One Backup</span>
+                <div class="flex items-center border border-steel-gray rounded-lg bg-off-white focus-within:border-steel-blue transition-colors">
+                  <input type="number" id="elev-count" min="1" step="1" value="1" class="flex-1 px-4 py-3 bg-transparent outline-none text-near-black font-display text-lg font-bold" />
+                  <span class="px-4 py-3 font-display text-[13px] font-semibold text-slate border-l border-steel-gray">elevators</span>
+                </div>
+              </label>
+              <p class="text-[12px] text-slate">Three-phase only. Regen-capable. No load bank or ATS required.</p>
+            </div>
+          </div>
+
+          <!-- RESULT PANEL -->
+          <div id="sizer-result" class="relative overflow-hidden bg-deep-navy rounded-xl p-6 md:p-8 min-h-[340px]">
+            <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 32px 32px;"></div>
+            <div class="relative">
+              <div id="sizer-empty">
+                <span class="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-blue">Your Recommendation</span>
+                <p class="font-display text-white text-2xl font-bold mt-3 mb-2">Enter your load to see the match.</p>
+                <p class="text-muted-blue text-[15px]">We'll recommend the model and point you to the datasheet. Takes about 20 seconds.</p>
+                <div class="mt-8 flex items-start gap-3 text-[13px] text-muted-blue">
+                  <svg class="w-4 h-4 text-sky-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span>Estimates are for planning. Final sizing is confirmed by our engineering team based on harmonic profile, crest factor, and load curve.</span>
+                </div>
+              </div>
+              <div id="sizer-match" class="hidden">
+                <span class="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-blue">Your Recommendation</span>
+                <h3 id="sizer-match-name" class="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-3 mb-2 leading-[1.05]"></h3>
+                <p id="sizer-match-range" class="font-display text-sky-blue text-[15px] font-semibold mb-5"></p>
+                <ul id="sizer-match-specs" class="space-y-2 text-muted-blue text-[14px] mb-6"></ul>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a id="sizer-match-link" href="#" class="btn-primary px-5 py-3 text-[13px] inline-flex items-center justify-center gap-2">View Spec Sheet
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                  </a>
+                  <a id="sizer-match-quote" href="/contact/" class="btn-ghost px-5 py-3 text-[13px] inline-flex items-center justify-center">Request This Config</a>
+                </div>
+              </div>
+              <div id="sizer-contact" class="hidden">
+                <span class="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-blue">Beyond Standard</span>
+                <h3 class="font-display text-3xl font-extrabold tracking-tight text-white mt-3 mb-3 leading-[1.05]">Custom Engineering</h3>
+                <p id="sizer-contact-reason" class="text-muted-blue text-[15px] mb-6"></p>
+                <a href="/contact/" class="btn-primary px-5 py-3 text-[13px] inline-flex items-center justify-center gap-2">Contact Engineering
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CHAPTER 04 · SPEC REVEAL BAND ========== -->
+  <section id="ch-04" data-chapter="04" data-chapter-title="The Proof" class="relative overflow-hidden bg-near-black py-20 md:py-28 border-y border-navy-mid">
     <div class="absolute inset-0 pointer-events-none opacity-[0.05]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 40px 40px;"></div>
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(37,103,194,0.25) 0%, rgba(37,103,194,0) 65%); filter: blur(12px);"></div>
+    <!-- Journey seam: accent line at top -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[3px]" style="background: linear-gradient(90deg, transparent, rgba(126,179,245,0.8), transparent);"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
-      <p class="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-sky-blue mb-4">Spec at a Glance</p>
-      <h2 class="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-10 max-w-3xl mx-auto leading-[1.1]">One Manufacturer. <span class="text-sky-blue">The Full Range.</span></h2>
+      <div class="reveal">
+        <span class="chapter-num on-dark mb-4 inline-flex">04 · The Proof</span>
+        <h2 class="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-3 max-w-3xl mx-auto leading-[1.1] mt-4">One Manufacturer. <span class="text-sky-blue">The Full Range.</span></h2>
+        <p class="text-lg text-muted-blue max-w-xl mx-auto mb-12">Numbers that matter when the grid drops.</p>
+      </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-        {[
-          { big: '35W', unit: '\u2013 400kW', label: 'Output Range' },
-          { big: '<4', unit: 'ms transfer', label: 'UL 924 Response' },
-          { big: '10\u2013500', unit: 'kVA UPS', label: 'UL 1778 Certified' },
-          { big: '48+', unit: 'years', label: 'Mission-Critical Builds' },
-        ].map(s => (
-          <div class="flex flex-col items-center">
-            <p class="font-display text-[44px] md:text-[64px] font-extrabold tracking-tight text-white leading-none">{s.big}</p>
-            <p class="font-display text-[14px] md:text-[16px] font-semibold text-sky-blue mt-1">{s.unit}</p>
-            <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60 mt-3">{s.label}</p>
-          </div>
-        ))}
+        <div class="reveal reveal-delay-1 flex flex-col items-center">
+          <p class="font-display text-[44px] md:text-[64px] font-extrabold tracking-tight text-white leading-none"><span data-countup data-target="35" data-suffix="W">35W</span></p>
+          <p class="font-display text-[14px] md:text-[16px] font-semibold text-sky-blue mt-1">&ndash; 400kW</p>
+          <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60 mt-3">Output Range</p>
+        </div>
+        <div class="reveal reveal-delay-2 flex flex-col items-center">
+          <p class="font-display text-[44px] md:text-[64px] font-extrabold tracking-tight text-white leading-none"><span data-countup data-target="4" data-prefix="<">&lt;4</span></p>
+          <p class="font-display text-[14px] md:text-[16px] font-semibold text-sky-blue mt-1">ms transfer</p>
+          <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60 mt-3">UL 924 Response</p>
+        </div>
+        <div class="reveal reveal-delay-3 flex flex-col items-center">
+          <p class="font-display text-[44px] md:text-[64px] font-extrabold tracking-tight text-white leading-none"><span data-countup data-target="500" data-prefix="10&ndash;">10&ndash;500</span></p>
+          <p class="font-display text-[14px] md:text-[16px] font-semibold text-sky-blue mt-1">kVA UPS</p>
+          <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60 mt-3">UL 1778 Certified</p>
+        </div>
+        <div class="reveal reveal-delay-4 flex flex-col items-center">
+          <p class="font-display text-[44px] md:text-[64px] font-extrabold tracking-tight text-white leading-none"><span data-countup data-target="48" data-suffix="+">48+</span></p>
+          <p class="font-display text-[14px] md:text-[16px] font-semibold text-sky-blue mt-1">years</p>
+          <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60 mt-3">Mission-Critical Builds</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CUSTOM OEM ========== -->
-  <section class="py-14 md:py-[72px] bg-deep-navy">
+  <!-- ========== CHAPTER 05 · WHY IT MATTERS (research-backed) ========== -->
+  <section id="ch-05" data-chapter="05" data-chapter-title="Why It Matters" class="py-16 md:py-24 bg-off-white journey-seam">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-        <div>
-          <p class="eyebrow text-muted-blue mb-4">Custom Engineering</p>
-          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">Built to Your Spec.</h2>
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="chapter-num mb-3 inline-flex">05 · Why It Matters</span>
+        <h2 class="font-display text-3xl md:text-[44px] font-extrabold tracking-tight text-near-black mt-3 leading-[1.05]">The Code Doesn't Ask <span class="text-steel-blue">Why.</span></h2>
+        <p class="text-slate mt-4 text-lg">Every number below comes from a standard, federal lab, or peer-reviewed source. When the grid drops or a panel fails, these are the thresholds that matter — and the citations AHJs read.</p>
+      </div>
+
+      <!-- Horizontal scrolling research rail covering every product category -->
+      <div class="relative -mx-4 sm:-mx-6">
+        <div id="research-rail" class="flex overflow-x-auto snap-x snap-mandatory gap-5 px-4 sm:px-6 pb-5 no-scrollbar scroll-smooth">
+          {[
+            { cat: 'Power Quality', big: '$44B', unit: '', headline: 'Annual cost of sustained US power interruptions', body: 'Lawrence Berkeley National Laboratory (2018) puts the economic cost of sustained outages at roughly $44 billion per year using peer-reviewed methodology.', src: 'LBNL · LaCommare, Eto et al. (2018)', href: 'https://eta-publications.lbl.gov/sites/default/files/copi_26sept2018.pdf' },
+            { cat: 'Data Centers', big: '54', unit: '%', headline: 'of data center outages cost over $100,000', body: "Uptime Institute's 2024 analysis: half of significant outages now cross the six-figure threshold; one in five exceed $1M.", src: 'Uptime Institute · Annual Outage Analysis 2024', href: 'https://uptimeinstitute.com/resources/research-and-reports/annual-outage-analysis-2024' },
+            { cat: 'Emergency Lighting', big: '90', unit: ' min', headline: 'Egress illumination required after grid loss', body: 'NFPA 101 §7.9 mandates 1½ hours of emergency illumination along every egress path. Full brightness on minute 89 is the test.', src: 'NFPA 101 · §7.9', href: 'https://www.nfpa.org/news-blogs-and-articles/nfpa-journal/2020/07/01/nfpa-101-july' },
+            { cat: 'UL 924 Response', big: '10', unit: ' s', headline: 'Maximum activation time for emergency equipment', body: 'UL 924 requires emergency lighting and power equipment to reach full output within 10 seconds of normal-power loss. NFPA 110 Type 10 matches.', src: 'UL 924 · Emergency Lighting & Power Equipment', href: 'https://www.ul.com/news/updates-ul-924-and-emergency-lighting' },
+            { cat: 'Fire Alarm', big: '24', unit: ' hr + 5 min', headline: 'Standby + full-alarm duration required', body: 'NFPA 72 §10.6.7.2: secondary power carries 24 hours of standby plus 5 minutes of full alarm — 15 minutes with voice/MNS evacuation.', src: 'NFPA 72 · §10.6.7', href: 'https://www.nfpa.org/news-blogs-and-articles/nfpa-journal/2021/05/03/nfpa-72-may' },
+            { cat: 'Elevator', big: '2', unit: ' hr', headline: 'Continuous evacuation power for safe egress', body: 'ASME A17.1 / IBC require a standby power source capable of operating the elevator and its accessories for safe evacuation during utility failure.', src: 'ASME A17.1 · Elevator Safety Code', href: 'https://www.asme.org/codes-standards/find-codes-standards/a17-1-csa-b44-safety-code-elevators-escalators' },
+            { cat: 'Healthcare', big: 'Type 1', unit: '', headline: 'Essential Electrical System for Category 1 care', body: 'NFPA 99 requires a Type 1 EES restoring power within 10 seconds for any space where power loss could cause patient death. UL 60601-1 leakage limits stack on top.', src: 'NFPA 99 · Essential Electrical Systems', href: 'https://www.nfpa.org/news-blogs-and-articles/blogs/2019/09/17/dissecting-the-essential-electrical-system-ees-in-healthcare-facilities' },
+            { cat: 'Medical Leakage', big: '100', unit: ' µA', headline: 'Max chassis leakage for medical equipment', body: 'UL 60601-1 caps chassis leakage at 100 µA normal condition and 10 µA at the patient under single-fault condition — thresholds no standard UPS meets.', src: 'UL 60601-1 · Medical Electrical Equipment', href: 'https://www.ul.com/services/ul-60601-1-testing-and-certification' },
+            { cat: 'Power Quality · ANSI', big: '±5', unit: '%', headline: 'Utility service voltage tolerance (US)', body: 'ANSI C84.1 specifies ±5% utility service voltage tolerance. Sensitive equipment fails well inside that window — voltage regulation closes the gap.', src: 'ANSI C84.1 · Electric Power Systems & Equipment — Voltage Ratings', href: 'https://webstore.ansi.org/standards/nema/ansinemac842016' },
+            { cat: 'Harmonics', big: '5', unit: '% THD', headline: 'Voltage distortion limit at the PCC', body: 'IEEE 519 limits voltage THD at the point of common coupling to 5%. Isolation transformers and harmonic-mitigating PDUs keep non-linear loads inside the window.', src: 'IEEE 519 · Harmonic Control in Electric Power Systems', href: 'https://standards.ieee.org/ieee/519/10677/' },
+            { cat: 'Aerospace', big: '400', unit: ' Hz', headline: 'Aircraft & defense electrical systems', body: 'MIL-STD-704 standardizes 400 Hz, 115 VAC three-phase power for US military aircraft. Ground-support gear requires frequency conversion from 60 Hz utility.', src: 'MIL-STD-704 · Aircraft Electric Power Characteristics', href: 'https://quicksearch.dla.mil/qsDocDetails.aspx?ident_number=36080' },
+            { cat: 'Sensitive Loads', big: 'IEEE 1100', unit: '', headline: 'Grounding for sensitive electronic equipment', body: 'IEEE 1100 (Emerald Book) recommends isolation with electrostatic shielding for sensitive electronic loads — the spec behind medical imaging and broadcast clean-power requirements.', src: 'IEEE 1100 · Emerald Book', href: 'https://standards.ieee.org/ieee/1100/1811/' },
+          ].map((r) => (
+            <a href={r.href} target="_blank" rel="noopener" class="snap-start shrink-0 w-[85vw] sm:w-[360px] bg-white border border-steel-gray rounded-xl p-6 md:p-7 hover:border-steel-blue hover:shadow-[0_12px_28px_-8px_rgba(37,103,194,0.18)] hover:-translate-y-0.5 transition-all flex flex-col group">
+              <span class="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-steel-blue">{r.cat}</span>
+              <p class="font-display text-[40px] md:text-[48px] font-extrabold tracking-tight text-near-black leading-none mt-3">{r.big}<span class="text-steel-blue">{r.unit}</span></p>
+              <p class="text-near-black text-[16px] font-semibold mt-2">{r.headline}</p>
+              <p class="text-slate text-[13px] mt-2 leading-relaxed flex-1">{r.body}</p>
+              <span class="inline-flex items-center gap-1.5 font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-steel-blue group-hover:text-near-black transition-colors mt-4">
+                {r.src}
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <!-- Scroll controls (desktop) -->
+        <button type="button" data-rail-scroll="research-rail" data-dir="-1" aria-label="Scroll research left" class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-steel-gray shadow-md items-center justify-center hover:border-steel-blue hover:bg-steel-blue hover:text-white text-near-black transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button type="button" data-rail-scroll="research-rail" data-dir="1" aria-label="Scroll research right" class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-steel-gray shadow-md items-center justify-center hover:border-steel-blue hover:bg-steel-blue hover:text-white text-near-black transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <p class="text-[12px] text-slate mt-8 text-center italic">Standards excerpts referenced for education only. Design-of-record documents govern AHJ submittals.</p>
+    </div>
+  </section>
+
+  <!-- ========== CHAPTER 06 · CUSTOM OEM ========== -->
+  <section id="ch-06" data-chapter="06" data-chapter-title="The Bespoke" class="relative py-16 md:py-24 bg-deep-navy overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.06]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 56px 56px;"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[3px]" style="background: linear-gradient(90deg, transparent, rgba(37,103,194,0.8), transparent);"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div class="reveal">
+          <span class="chapter-num on-dark mb-3 inline-flex">06 · The Bespoke</span>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mt-3 mb-6 leading-[1.05]">Built to Your Spec.</h2>
           <p class="text-base text-muted-blue leading-relaxed mb-6">
             Our in-house engineering team designs and manufactures custom power protection solutions tailored to your exact requirements. From modified standard products to ground-up OEM designs, we build it in Los Angeles and ship direct.
           </p>
@@ -241,77 +463,60 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
           </p>
           <Button href="/contact/" size="lg" icon="arrow-right">Discuss Your Project</Button>
         </div>
-        <!-- Custom OEM illustration -->
-        <div class="bg-[#2B5580] rounded-lg p-6 overflow-hidden">
+        <div class="bg-navy-mid border border-white/5 rounded-xl p-6 overflow-hidden reveal reveal-delay-2 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
           <CustomOEM />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== TRAINING SECTION ========== -->
-  <section class="py-14 md:py-[72px] bg-off-white">
+  <!-- ========== CHAPTER 07 · TESTIMONIALS ========== -->
+  <section id="ch-07" data-chapter="07" data-chapter-title="The Voices" class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow mb-4">Expert Training</p>
-      <h2 class="font-display text-3xl md:text-4xl font-bold text-near-black mb-4">Learn From the Engineers Who Built It.</h2>
-      <p class="text-slate max-w-2xl mb-12">Hands-on product training from our manufacturing engineering team. In-person, virtual, or at your facility.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <Card variant="feature">
-          <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue group-hover:text-white transition-colors">
-            <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-near-black mb-2">At Our Plant</h3>
-          <p class="text-base text-slate mb-4">Factory training at our Los Angeles manufacturing facility. Hands-on with actual equipment.</p>
-          <a href="/training/" class="text-[15px] font-medium text-steel-blue hover:text-near-black transition-colors">Register &rarr;</a>
-        </Card>
-        <Card variant="feature">
-          <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue group-hover:text-white transition-colors">
-            <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Virtual</h3>
-          <p class="text-base text-slate mb-4">Live video sessions with engineering. Recorded for your team.</p>
-          <a href="/training/" class="text-[15px] font-medium text-steel-blue hover:text-near-black transition-colors">Register &rarr;</a>
-        </Card>
-        <Card variant="feature">
-          <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue group-hover:text-white transition-colors">
-            <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-near-black mb-2">At Your Office</h3>
-          <p class="text-base text-slate mb-4">Project-specific training or lunch-and-learn sessions for your team.</p>
-          <a href="/training/" class="text-[15px] font-medium text-steel-blue hover:text-near-black transition-colors">Register &rarr;</a>
-        </Card>
+      <div class="reveal mb-10">
+        <span class="chapter-num mb-3 inline-flex">07 · The Voices</span>
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-near-black mt-3 leading-[1.05]">What Engineers Say.</h2>
       </div>
-    </div>
-  </section>
 
-  <!-- ========== TESTIMONIALS ========== -->
-  <section class="py-14 md:py-[72px] bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <h2 class="font-display text-2xl md:text-3xl font-bold text-near-black mb-8">What Engineers Say</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {testimonials.map(t => (
-          <Card variant="testimonial">
-            <svg class="w-7 h-7 text-steel-blue/40 mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"/></svg>
-            <p class="text-near-black/90 leading-relaxed mb-6 text-[17px]">{t.quote}</p>
-            <div class="border-t border-steel-gray pt-4">
-              <p class="font-display font-bold text-near-black text-base">{t.author}</p>
-              <p class="text-[14px] text-slate">{t.company}</p>
+      <!-- Horizontal scrolling testimonials rail -->
+      <div class="relative -mx-4 sm:-mx-6">
+        <div id="voices-rail" class="flex overflow-x-auto snap-x snap-mandatory gap-5 px-4 sm:px-6 pb-5 no-scrollbar scroll-smooth">
+          {testimonials.map((t) => (
+            <div class="snap-start shrink-0 w-[85vw] sm:w-[440px] bg-white border border-steel-gray rounded-xl p-6 md:p-7 flex flex-col hover:border-steel-blue hover:shadow-[0_12px_28px_-8px_rgba(37,103,194,0.18)] transition-all">
+              <svg class="w-7 h-7 text-steel-blue/40 mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"/></svg>
+              <p class="text-near-black/90 leading-relaxed mb-6 text-[17px] flex-1">{t.quote}</p>
+              <div class="border-t border-steel-gray pt-4">
+                <p class="font-display font-bold text-near-black text-base">{t.author}</p>
+                <p class="text-[14px] text-slate">{t.company}</p>
+              </div>
             </div>
-          </Card>
-        ))}
+          ))}
+        </div>
+
+        <!-- Scroll controls (desktop) -->
+        <button type="button" data-rail-scroll="voices-rail" data-dir="-1" aria-label="Scroll testimonials left" class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-steel-gray shadow-md items-center justify-center hover:border-steel-blue hover:bg-steel-blue hover:text-white text-near-black transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button type="button" data-rail-scroll="voices-rail" data-dir="1" aria-label="Scroll testimonials right" class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-steel-gray shadow-md items-center justify-center hover:border-steel-blue hover:bg-steel-blue hover:text-white text-near-black transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </div>
     </div>
   </section>
 
   <!-- ========== CTA BAND ========== -->
-  <section class="bg-deep-navy py-12 md:py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Ready to Spec Online Power?</h2>
-      <p class="text-base text-muted-blue mb-8 max-w-xl mx-auto">Get a quote, discuss a custom solution, or register for product training.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button href="/contact/" size="lg">Request a Quote</Button>
+  <!-- ========== CHAPTER 08 · THE NEXT MOVE ========== -->
+  <section id="ch-08" data-chapter="08" data-chapter-title="The Next Move" class="relative bg-deep-navy py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.06]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[3px]" style="background: linear-gradient(90deg, transparent, rgba(37,103,194,0.8), transparent);"></div>
+    <div class="absolute inset-x-0 bottom-0 h-[200px] pointer-events-none" style="background: radial-gradient(ellipse at center bottom, rgba(37,103,194,0.2) 0%, rgba(37,103,194,0) 70%);"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center reveal">
+      <span class="chapter-num on-dark mb-4 inline-flex">08 · The Next Move</span>
+      <h2 class="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-white mt-4 mb-4 leading-[1.05]">Ready to Spec <span class="text-sky-blue">Online Power?</span></h2>
+      <p class="text-base md:text-lg text-muted-blue mb-10 max-w-xl mx-auto">Three ways to get moving — request a quote, size a specific system, or train with our engineers.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+        <Button href="/contact/" size="lg" icon="arrow-right">Request a Quote</Button>
+        <Button href="#sizer" variant="ghost" size="lg">Size Your System</Button>
         <Button href="/training/" variant="ghost" size="lg">Register for Training</Button>
       </div>
     </div>
@@ -336,4 +541,220 @@ import CustomOEM from '../components/illustrations/CustomOEM.astro';
   </section>
 
 </BaseLayout>
+
+<script is:inline>
+  // ======= SIZER TOOL =======
+  (function(){
+    var tabs = document.querySelectorAll('.sizer-tab');
+    var panels = document.querySelectorAll('.sizer-panel');
+    var emptyEl = document.getElementById('sizer-empty');
+    var matchEl = document.getElementById('sizer-match');
+    var contactEl = document.getElementById('sizer-contact');
+    var matchName = document.getElementById('sizer-match-name');
+    var matchRange = document.getElementById('sizer-match-range');
+    var matchSpecs = document.getElementById('sizer-match-specs');
+    var matchLink = document.getElementById('sizer-match-link');
+    var contactReason = document.getElementById('sizer-contact-reason');
+    if (!tabs.length) return;
+    var activeCat = 'el';
+
+    function showState(which) {
+      [emptyEl, matchEl, contactEl].forEach(function(el){ if(el) el.classList.add('hidden'); });
+      var target = which === 'match' ? matchEl : which === 'contact' ? contactEl : emptyEl;
+      if (target) target.classList.remove('hidden');
+    }
+
+    function renderMatch(name, range, specs, slug) {
+      showState('match');
+      matchName.textContent = name;
+      matchRange.textContent = range;
+      matchSpecs.innerHTML = specs.map(function(s){
+        return '<li class="flex items-start gap-2"><svg class="w-4 h-4 text-sky-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span>' + s + '</span></li>';
+      }).join('');
+      matchLink.setAttribute('href', '/products/' + slug);
+    }
+
+    function renderContact(reason) {
+      showState('contact');
+      contactReason.textContent = reason;
+    }
+
+    function sizeEmergencyLighting() {
+      var wInp = document.getElementById('el-watts');
+      var w = parseFloat(wInp.value) || 0;
+      if (w <= 0) { showState('empty'); return; }
+      var phase = (document.querySelector('input[name="el-phase"]:checked') || {}).value || '1';
+      var seismic = document.getElementById('el-seismic').checked;
+
+      if (w <= 100) {
+        renderMatch('Nano Power Wave', '35W – 100W · Lithium Ion · 1Ø', [
+          'Input load: ' + w + ' W',
+          'Lithium ion battery — long life',
+          'LED & fluorescent compatible with dimming',
+          '90 min standard · 2 hr per Life Safety Code',
+        ], 'nano-wave');
+        return;
+      }
+      if (w <= 490) {
+        renderMatch('Micro Power Wave', '200W – 490W · Single Phase', [
+          'Input load: ' + w + ' W',
+          'Ultra-compact — electronics + batteries in one enclosure',
+          'Pure sine wave output',
+          '90 min minimum runtime',
+        ], 'micro-power-wave');
+        return;
+      }
+      if (w <= 2700) {
+        renderMatch('Mini Power Wave', '500W – 2.7kW · Single Phase', [
+          'Input load: ' + Math.round(w/10)/100 + ' kW',
+          'All-in-one enclosure for tight spaces',
+          'Pure sine wave · zero transfer time',
+          'Self-test & battery exerciser',
+        ], 'mini-power-wave');
+        return;
+      }
+      if (phase === '1' && w <= 17000) {
+        renderMatch(seismic ? 'SV Power Wave 1' : 'Power Wave 1', '2.1 – 17 kW · Single Phase' + (seismic ? ' · OSHPD/HCAI' : ''), [
+          'Input load: ' + Math.round(w/100)/10 + ' kW',
+          'True online double-conversion · zero transfer',
+          'TVSS surge suppression (Class C)',
+          seismic ? 'Shaker-table tested · OSHPD/HCAI certified' : 'Microprocessor LCD · self-test',
+        ], seismic ? 'sv-power-wave-1' : 'power-wave-1');
+        return;
+      }
+      if (phase === '1' && w > 17000) {
+        renderContact('Loads above 17 kW exceed single-phase capacity. Switch to three-phase or contact engineering for a custom sizing — we can also parallel single-phase units for some cases.');
+        return;
+      }
+      if (phase === '3' && w <= 50000) {
+        renderMatch(seismic ? 'SV Power Wave 3' : 'Power Wave 3', '8 – 50 kW · Three Phase' + (seismic ? ' · OSHPD/HCAI' : ''), [
+          'Input load: ' + Math.round(w/100)/10 + ' kW',
+          'Three-phase output',
+          'Internal maintenance bypass · UL 1489 breakers',
+          seismic ? 'Shaker-table tested · OSHPD/HCAI certified' : 'TVSS · microprocessor LCD',
+        ], seismic ? 'sv-power-wave-3' : 'power-wave-3');
+        return;
+      }
+      if (phase === '3' && w <= 400000) {
+        renderMatch(seismic ? 'SV Power Wave 4' : 'Power Wave 4', '8 – 400 kW · Three Phase' + (seismic ? ' · OSHPD/HCAI' : ''), [
+          'Input load: ' + Math.round(w/1000) + ' kW',
+          'Field-selectable UPS Double Conversion or Green Mode',
+          'Independent phase control · GMS remote monitoring',
+          seismic ? 'OSHPD/HCAI seismic preapproval' : 'Internal maintenance bypass',
+        ], seismic ? 'sv-power-wave-4' : 'power-wave-4');
+        return;
+      }
+      renderContact('Loads above 400 kW exceed our standard catalog. Our custom-OEM team builds systems up to multi-megawatt with the same UL 924 compliance.');
+    }
+
+    function sizeUPS() {
+      var kva = parseFloat(document.getElementById('ups-kva').value) || 0;
+      if (kva <= 0) { showState('empty'); return; }
+      var phase = (document.querySelector('input[name="ups-phase"]:checked') || {}).value || '3';
+      if (kva < 10) {
+        renderContact('Loads below 10 kVA fall outside our standard online-double-conversion UPS range. For single-equipment protection under 10 kVA we typically recommend our surge-protection Protector series or a custom build.');
+        return;
+      }
+      if (kva > 500) {
+        renderContact('Loads above 500 kVA move into custom-OEM territory. We build paralleled systems and dedicated multi-megawatt UPS for hyperscale and utility applications.');
+        return;
+      }
+      if (phase === '1') {
+        renderContact('Loads of 10 kVA and above are typically served three-phase. We can build a single-phase custom variant — contact engineering to confirm feasibility.');
+        return;
+      }
+      renderMatch('Host Power UPS', '10 – 500 kVA · Three Phase', [
+        'Critical load: ' + Math.round(kva) + ' kVA',
+        'True online double-conversion (UL 1778)',
+        'Built-in load distribution · 90% efficiency',
+        'Generator-compatible · modular assembly',
+      ], 'host-power');
+    }
+
+    function sizeFireAlarm() {
+      var w = parseFloat(document.getElementById('fire-watts').value) || 0;
+      if (w <= 0) { showState('empty'); return; }
+      var voice = document.getElementById('fire-voice').checked;
+      if (w > 15000) {
+        renderContact('Panel loads above 15 kW exceed our standard Fire Alarm Backup. For campus-wide or voice/MNS systems beyond that range we build custom UL 1481 solutions.');
+        return;
+      }
+      renderMatch('Fire Alarm Backup', '500W – 15kW · UL 1481', [
+        'Panel load: ' + Math.round(w) + ' W',
+        '24 hr standby + ' + (voice ? '15 min' : '5 min') + ' full alarm per NFPA 72 §10.6.7',
+        'Supervised battery charging',
+        'Form-C trouble relay contacts for full monitoring integration',
+      ], 'fire-alarm-backup');
+    }
+
+    function sizeElevator() {
+      var kw = parseFloat(document.getElementById('elev-kw').value) || 0;
+      var count = parseInt(document.getElementById('elev-count').value) || 1;
+      if (kw <= 0) { showState('empty'); return; }
+      var total = kw * count;
+      if (total < 24) {
+        renderContact('Combined elevator load below 24 kW falls outside our Power Wave Elevate range. Contact engineering — smaller traction systems can sometimes be served by a custom three-phase inverter.');
+        return;
+      }
+      if (total > 240) {
+        renderContact('Combined elevator load above 240 kW exceeds standard Elevate capacity. For high-rise bank configurations we build paralleled or custom systems retaining the regen-capable topology.');
+        return;
+      }
+      renderMatch('Power Wave Elevate', '24 – 240 kW · Three Phase', [
+        'Combined load: ' + Math.round(total) + ' kW (' + count + ' elevator' + (count > 1 ? 's' : '') + ')',
+        '2 hr uninterrupted three-phase for evacuation',
+        'Regenerative-capable · no load bank required',
+        'Multiple UL 489 output breakers · no ATS required',
+      ], 'elevate');
+    }
+
+    function recompute() {
+      if (activeCat === 'el') sizeEmergencyLighting();
+      else if (activeCat === 'ups') sizeUPS();
+      else if (activeCat === 'fire') sizeFireAlarm();
+      else if (activeCat === 'elev') sizeElevator();
+    }
+
+    // Tab switching
+    tabs.forEach(function(t){
+      t.addEventListener('click', function(){
+        var cat = t.getAttribute('data-cat');
+        activeCat = cat;
+        tabs.forEach(function(tt){
+          var isActive = tt === t;
+          tt.classList.toggle('active', isActive);
+          tt.classList.toggle('text-steel-blue', isActive);
+          tt.classList.toggle('border-steel-blue', isActive);
+          tt.classList.toggle('text-slate', !isActive);
+          tt.classList.toggle('border-transparent', !isActive);
+          tt.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        panels.forEach(function(p){
+          p.classList.toggle('hidden', p.getAttribute('data-cat') !== cat);
+        });
+        recompute();
+      });
+    });
+
+    // Live recompute on any input change inside the sizer
+    document.getElementById('sizer').addEventListener('input', recompute);
+    document.getElementById('sizer').addEventListener('change', recompute);
+  })();
+
+  // ======= HORIZONTAL RAIL SCROLL BUTTONS =======
+  (function(){
+    document.querySelectorAll('[data-rail-scroll]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-rail-scroll');
+        var dir = parseInt(btn.getAttribute('data-dir') || '1', 10);
+        var rail = document.getElementById(id);
+        if (!rail) return;
+        // Scroll by one card width + gap
+        var firstCard = rail.querySelector('.snap-start');
+        var step = firstCard ? (firstCard.getBoundingClientRect().width + 20) : rail.clientWidth * 0.8;
+        rail.scrollBy({ left: dir * step, behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
 

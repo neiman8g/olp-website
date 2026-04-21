@@ -13,6 +13,10 @@ export default defineConfig({
     '/products/elevate': '/products/category/elevator-backup',
     '/products/fire-alarm-backup': '/products/category/fire-alarm-backup',
     '/products/lcr20': '/products/category/load-control-relays',
+    // ISO-Care moved from voltage-regulators to isolation-transformers
+    '/products/category/isolation': '/products/category/isolation-transformers',
+    // Frequency Converter promoted from custom-oem to its own category
+    '/products/category/frequency-conversion': '/products/category/frequency-converters',
   },
 
   vite: {

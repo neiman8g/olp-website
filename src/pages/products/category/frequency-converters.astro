@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Button from '../../../components/Button.astro';
+import DocumentGate from '../../../components/DocumentGate.astro';
+import { getProductsByCategory, getCategoryBySlug } from '../../../data/products';
+import { Image } from 'astro:assets';
+import { getProductImage } from '../../../utils/images';
+
+const category = getCategoryBySlug('frequency-converters')!;
+const categoryProducts = getProductsByCategory('frequency-converters');
+
+const specs = [
+  ['Power Range', '10 to 320 kVA'],
+  ['Frequency Conversion', '50 Hz / 60 Hz / 400 Hz (field selectable)'],
+  ['Frequency Accuracy', '±0.1 Hz'],
+  ['Topology', 'Double conversion · DSP + IGBT'],
+  ['Isolation', 'True galvanic isolation'],
+  ['Redundancy', 'Redundant power supply'],
+  ['Construction', 'Harsh environment rated'],
+  ['Assembly', 'Modular plug-and-play'],
+  ['Cooling', 'Intelligent fan control'],
+  ['Configuration', 'Single or three phase in · three phase out'],
+  ['Standards', 'UL 924, UL 1778, NFPA 101'],
+  ['Typical Applications', 'Aerospace GSE, defense, maritime, global OEM'],
+];
+
+const applications = [
+  { name: 'Defense & Military', icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' },
+  { name: 'Aerospace Ground Support', icon: 'M12 19l9 2-9-18-9 18 9-2zm0 0v-8' },
+  { name: 'Maritime / Shipboard', icon: 'M3 15l3-3m0 0l3 3m-3-3v12M3 6h18M3 3h18' },
+  { name: 'Global OEM Integration', icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+  { name: 'Broadcast', icon: 'M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 010-7.072m-2.828 9.9a9 9 0 010-12.728' },
+  { name: 'Industrial Test', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35' },
+];
+---
+
+<BaseLayout
+  title="Frequency Converters | 50 / 60 / 400 Hz | Online Power"
+  description="Industrial frequency converters with true galvanic isolation and ±0.1 Hz accuracy. 10 to 320 kVA, 50/60/400 Hz conversion. Built for defense, aerospace, and global OEM integration. Built in Los Angeles."
+>
+
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
+        <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/products" class="hover:text-steel-blue transition-colors">Products</a>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Frequency Converters</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-3">
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="badge-dark">UL 924</span>
+            <span class="badge-dark">UL 1778</span>
+            <span class="badge-dark">±0.1 Hz</span>
+            <span class="badge-dark">Made in USA</span>
+          </div>
+
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Frequency Converters</h1>
+          <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">
+            50 / 60 / 400 Hz conversion with true galvanic isolation and ±0.1 Hz accuracy. 10 to 320 kVA. Built for defense, aerospace ground support, maritime, and global OEM integration where a catalog UPS cannot meet the frequency spec.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 mb-4">
+            <Button href="/contact" size="lg" icon="arrow-right">Describe Your Application</Button>
+            <Button href="/products/" variant="ghost" size="lg">All Products</Button>
+          </div>
+          <p class="font-display text-[13px] text-muted-blue">Responds within 2 business hours</p>
+        </div>
+
+        <div class="hidden lg:block lg:col-span-2">
+          <div class="bg-navy-mid border border-white/5 rounded-xl p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+            <img src="/images/products/frequency-converter.png" alt="Online Power Frequency Converter" class="w-full h-auto object-contain" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Range', value: '10 – 320 kVA' },
+            { label: 'Conversion', value: '50 / 60 / 400 Hz' },
+            { label: 'Accuracy', value: '±0.1 Hz' },
+            { label: 'Isolation', value: 'True Galvanic' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB SECTION -->
+  <section class="pt-4 md:pt-6 pb-10 md:pb-14 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex gap-1 border-b border-steel-gray mb-10">
+        {['Overview', 'Specifications', 'Documents'].map((tab, i) => (
+          <button class={`tab-btn px-5 py-3 text-sm font-medium transition-colors border-b-2 ${i === 0 ? 'text-steel-blue border-steel-blue' : 'text-slate border-transparent hover:text-near-black'}`} data-tab={tab.toLowerCase()}>
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      <!-- OVERVIEW TAB -->
+      <div class="tab-content" data-tab="overview">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+          <div class="card-hover bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">50 / 60 / 400 Hz Conversion</h3>
+            <p class="text-base text-slate">Run US 60 Hz equipment on European/Asian 50 Hz grids — or generate MIL-STD-704 400 Hz power from utility. Field-selectable output with ±0.1 Hz accuracy.</p>
+          </div>
+          <div class="card-hover bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">True Galvanic Isolation</h3>
+            <p class="text-base text-slate">Input and output fully isolated — new derived neutral at the load, clean grounding, and ground-fault protection that doesn't cascade through the facility.</p>
+          </div>
+          <div class="card-hover bg-white rounded-xl p-6">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">Harsh Environment Ready</h3>
+            <p class="text-base text-slate">Redundant power supply, modular plug-and-play assembly, intelligent fan control, and a construction spec built for defense depots, flight lines, and shipboard installations.</p>
+          </div>
+        </div>
+
+        <p class="eyebrow text-steel-blue mb-6">Where It Gets Specified</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-16">
+          {applications.map(app => (
+            <div class="bg-white border border-steel-gray rounded-lg p-4 flex items-center gap-3">
+              <svg class="w-5 h-5 text-steel-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={app.icon}></path></svg>
+              <span class="text-sm text-near-black">{app.name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+          <p class="text-sm text-near-black font-medium mb-1">Why a frequency converter instead of a UPS?</p>
+          <p class="text-base text-slate">A UPS cleans and rides through power at the <em>same</em> frequency it came in on. A frequency converter changes the frequency — essential when utility power is 60 Hz and your equipment was built for 50 Hz or 400 Hz aircraft power. Combine both for critical mission-grade systems.</p>
+        </div>
+      </div>
+
+      <!-- SPECIFICATIONS TAB -->
+      <div class="tab-content hidden" data-tab="specifications">
+        <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
+          {specs.map(([label, value], i) => (
+            <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
+              <span class="text-base text-slate font-medium">{label}</span>
+              <span class="text-sm text-near-black font-medium text-right">{value}</span>
+            </div>
+          ))}
+        </div>
+        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+          <p class="text-sm text-near-black">Need a non-standard frequency or voltage? <a href="/contact" class="text-steel-blue hover:underline">Our engineering team will work with you &rarr;</a></p>
+        </div>
+      </div>
+
+      <!-- DOCUMENTS TAB -->
+      <div class="tab-content hidden" data-tab="documents">
+        <p class="font-display text-[13px] text-slate mb-6">All documents available for immediate download after a quick registration.</p>
+        <DocumentGate productSlug="frequency-converter" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT MODELS -->
+  <section class="py-10 md:py-14 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <p class="eyebrow text-steel-blue mb-8">{categoryProducts.length} Model Available</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {categoryProducts.map(p => (
+          <a href={`/products/${p.slug}`} class="card-hover border-t-2 border-t-steel-blue bg-white rounded-xl overflow-hidden group">
+            <div class="h-[200px] bg-off-white flex items-center justify-center p-4">
+              {typeof getProductImage(p.image) === 'string' ? (
+                <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" />
+              ) : (
+                <Image src={getProductImage(p.image) as ImageMetadata} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.04] transition-transform duration-200" loading="lazy" format="webp" quality={80} widths={[200, 400]} sizes="(max-width: 640px) 100vw, 33vw" />
+              )}
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
+              <p class="font-display text-[13px] font-semibold text-steel-blue mb-2">{p.tagline}</p>
+              <p class="text-[15px] text-slate line-clamp-2 mb-3">{p.description}</p>
+              <span class="font-display text-[14px] font-semibold text-steel-blue uppercase tracking-wide">Specs & Data Sheets →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="bg-deep-navy py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-display text-3xl font-bold text-white mb-4">Ready to Spec This Product?</h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="px-8 py-3.5 bg-steel-blue text-white font-semibold rounded hover:bg-steel-blue/90 transition-colors text-sm">Request a Quote</a>
+        <a href="/training" class="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded hover:bg-white/10 transition-colors text-sm">Register for Training</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="fixed bottom-0 left-0 right-0 bg-deep-navy/95 backdrop-blur border-t border-navy-mid p-3 z-40 lg:hidden" id="mobile-sticky-cta" style="display:none;padding-bottom:max(12px, env(safe-area-inset-bottom));">
+    <Button href="/contact" size="lg" icon="bolt" fullWidth>Request a Quote</Button>
+  </div>
+
+</BaseLayout>
+
+<script is:inline>
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var tab = btn.getAttribute('data-tab');
+      document.querySelectorAll('.tab-btn').forEach(function(b) {
+        b.classList.remove('text-steel-blue', 'border-steel-blue');
+        b.classList.add('text-slate', 'border-transparent');
+      });
+      btn.classList.remove('text-slate', 'border-transparent');
+      btn.classList.add('text-steel-blue', 'border-steel-blue');
+      document.querySelectorAll('.tab-content').forEach(function(c) {
+        c.classList.add('hidden');
+      });
+      document.querySelector('.tab-content[data-tab="' + tab + '"]').classList.remove('hidden');
+    });
+  });
+
+  var stickyCta = document.getElementById('mobile-sticky-cta');
+  if (stickyCta && window.innerWidth < 1024) {
+    window.addEventListener('scroll', function() {
+      stickyCta.style.display = window.scrollY > 400 ? '' : 'none';
+    });
+  }
+</script>
+</content>
+</invoke>
