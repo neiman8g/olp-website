@@ -45,52 +45,66 @@ const applications = [
   description="UL 60601-1 certified medical grade power conditioners and UPS. Under 100µA leakage current. OSHPD/HCAI seismic preapproved. 10kVA to 1,250kVA. Built in Los Angeles."
 >
 
-  <!-- HERO -->
-  <section class="pt-10 pb-6 md:pt-14 md:pb-8 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="eyebrow text-slate mb-8">
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-steel">/</span>
+        <span class="mx-2">/</span>
         <a href="/products" class="hover:text-steel-blue transition-colors">Products</a>
-        <span class="mx-2 text-steel">/</span>
-        <span class="text-steel-blue">Medical Grade Systems</span>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Medical Grade Systems</span>
       </nav>
+    </div>
+  </section>
 
-      <div class="grid lg:grid-cols-5 gap-6 lg:gap-12 items-start">
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
         <div class="lg:col-span-3">
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="badge-light">UL 60601-1</span>
-            <span class="badge-light">OSHPD/HCAI</span>
-            <span class="badge-light">Made in USA</span>
+            <span class="badge-dark">UL 60601-1</span>
+            <span class="badge-dark">OSHPD/HCAI</span>
+            <span class="badge-dark">Made in USA</span>
           </div>
 
-          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-5">Medical Grade Systems</h1>
-          <p class="text-base text-slate leading-relaxed mb-8">
-            In a patient care vicinity, ordinary power protection can be lethal. UL 60601-1 limits leakage current to 100 microamps under normal conditions and 10 microamps at the patient. Thresholds no standard UPS comes close to meeting. APC publicly states their products are not classified as medical grade devices. Online Power's medical grade systems are engineered from the ground up with built-in isolation transformers, Faraday shields, hospital grade connectors, and ultra-low leakage current design validated to UL 60601-1 Third Edition. With OSHPD/HCAI seismic preapproval for California hospital construction and NFPA 99 compliance for wet procedure locations, these systems protect everything from bedside patient monitors to MRI scanners worth $3,000,000 or more.
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Medical Grade Systems</h1>
+          <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">
+            UL 60601-1 caps leakage at 100µA normal, 10µA at the patient — thresholds no standard UPS meets. Built from the ground up with isolation transformers, Faraday shields, hospital-grade connectors, and OSHPD/HCAI seismic preapproval. Protecting patient monitors to $3M MRI scanners.
           </p>
 
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-            {[
-              { label: 'Leakage', value: 'Under 100µA · 10µA CF' },
-              { label: 'Isolation', value: '4,000 VAC' },
-              { label: 'Range', value: '10 to 1,250kVA' },
-              { label: 'Certifications', value: 'UL 60601-1 · NFPA 99' },
-            ].map(s => (
-              <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
-                <p class="font-display text-[13px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
-                <p class="font-display text-base font-bold text-near-black">{s.value}</p>
-              </div>
-            ))}
-          </div>
-
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <Button href="/contact" size="lg">Request an OSHPD Compliant Submittal Package</Button>
+            <Button href="/contact" size="lg" icon="arrow-right">Request OSHPD Submittal</Button>
+            <Button href="/products/" variant="ghost" size="lg">All Products</Button>
           </div>
-          <p class="font-display text-[13px] text-slate">Responds within 2 business hours</p>
+          <p class="font-display text-[13px] text-muted-blue">Responds within 2 business hours</p>
         </div>
 
         <div class="hidden lg:block lg:col-span-2">
           <MedicalGrade />
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Leakage', value: '<100µA · 10µA CF' },
+            { label: 'Isolation', value: '4,000 VAC' },
+            { label: 'Range', value: '10 to 1,250 kVA' },
+            { label: 'Certifications', value: 'UL 60601-1 · NFPA 99' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -170,54 +170,59 @@ const specs = specTables[product.slug] || null;
   ]}
 >
 
-  <!-- Breadcrumb + Hero -->
-  <section class="py-10 md:py-14 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="eyebrow text-slate mb-6">
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-steel">/</span>
+        <span class="mx-2">/</span>
         <a href="/products" class="hover:text-steel-blue transition-colors">Products</a>
-        <span class="mx-2 text-steel">/</span>
+        <span class="mx-2">/</span>
         {category && (
           <>
             <a href={`/products/category/${category.slug}`} class="hover:text-steel-blue transition-colors">{category.name}</a>
-            <span class="mx-2 text-steel">/</span>
+            <span class="mx-2">/</span>
           </>
         )}
-        <span class="text-steel-blue">{product.name}</span>
+        <span class="text-near-black font-semibold">{product.name}</span>
       </nav>
+    </div>
+  </section>
 
-      <div class="grid lg:grid-cols-11 gap-8 lg:gap-12 items-start">
-        <!-- Left: 55% -->
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="grid lg:grid-cols-11 gap-8 lg:gap-12 items-center">
         <div class="lg:col-span-6">
-          <!-- Certification badges (hero only) -->
-          <div class="flex flex-wrap gap-2 mb-4">
+          <div class="flex flex-wrap gap-2 mb-5">
             {product.standards.slice(0, 3).map(std => (
-              <span class="badge-light">{std}</span>
+              <span class="badge-dark">{std}</span>
             ))}
-            <span class="badge-light">Made in USA</span>
+            <span class="badge-dark">Made in USA</span>
           </div>
-          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-2">{product.name}</h1>
-          <p class="font-display font-semibold text-sm text-steel-blue mb-6">{product.tagline}</p>
-          <p class="text-lg text-slate leading-relaxed mb-8">{product.description}</p>
-          <div class="flex flex-wrap gap-3 mb-4">
-            <Button href="/contact/" size="lg">Request a Quote</Button>
-            <Button href="#documents" variant="outline" size="lg" icon="arrow-down">Download Data Sheet</Button>
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-3">{product.name}</h1>
+          <p class="font-display font-semibold text-[15px] text-sky-blue uppercase tracking-[0.08em] mb-6">{product.tagline}</p>
+          <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">{product.description}</p>
+          <div class="flex flex-col sm:flex-row gap-3 mb-4">
+            <Button href="/contact/" size="lg" icon="arrow-right">Request a Quote</Button>
+            <Button href="#documents" variant="ghost" size="lg" icon="arrow-down">Data Sheet</Button>
           </div>
-          <p class="font-display text-[13px] text-slate">Responds within 2 business hours</p>
+          <p class="font-display text-[13px] text-muted-blue">Responds within 2 business hours</p>
         </div>
-        <!-- Right: 45% — Product image -->
         <div class="lg:col-span-5">
-          <div class="bg-off-white border border-steel-blue/20 rounded-xl p-6 flex items-center justify-center min-h-[320px]">
+          <div class="bg-white/5 border border-navy-mid rounded-xl p-6 flex items-center justify-center min-h-[320px] backdrop-blur-sm">
             {typeof getProductImage(product.image) === 'string' ? (
               <img src={product.image} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" />
             ) : (
               <Image src={getProductImage(product.image) as ImageMetadata} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" format="webp" quality={85} widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 45vw" />
             )}
           </div>
-          <div class="flex items-center justify-center gap-3 mt-4">
+          <div class="flex items-center justify-center flex-wrap gap-2 mt-4">
             {product.standards.slice(0, 4).map(std => (
-              <span class="badge-light text-[13px]">{std}</span>
+              <span class="badge-dark text-[11px]">{std}</span>
             ))}
           </div>
         </div>

@@ -11,9 +11,10 @@ Marketing website for Online Power (onlinepower.com), a US manufacturer of missi
 - **No GSAP, Framer Motion, or animation libraries.** CSS animations only.
 
 ## Brand Rules (hard constraints)
-- **Colors:** Obsidian (#0A0A0F) + Cyan (#00E5FF). That's it. No orange, no warm accents.
-- **CTAs:** Filled cyan with dark text. Ghost buttons use cyan outline. No other button colors.
-- **Tone:** Industrial. Technical. Precise. Think Fluke, Schneider Electric — not Apple or Stripe.
+- **Colors:** Deep Navy `#0F2A4A` + Steel Blue `#2567C2`. Support tones: Sky Blue `#7EB3F5`, Muted Blue `#A8BFD8`, Near Black `#0D1B2A`, Slate `#4A5568`, Steel Gray `#C9D4E0`, Off-White `#F8F9FB`. No warm accents, no orange, no cyan.
+- **CTAs:** Filled steel-blue with white text (`.btn-primary`). Outline uses steel-blue border (`.btn-outline`). Ghost uses white 50% border on dark backgrounds (`.btn-ghost`). No other button colors.
+- **Fonts:** `Inter` for body; `Inter Tight` at 700/800 for display. Both loaded via Google Fonts in `BaseLayout.astro`. Never introduce a third family.
+- **Tone:** Industrial. Technical. Precise. Think Eaton, Schneider Electric, ABB — not Apple or Stripe.
 - **Copy:** Lead with the spec or outcome. No adjective stacking. No marketing fluff.
 - **Audience:** Electrical engineers, MEP consultants, facilities managers. Technical, skeptical, skim fast.
 

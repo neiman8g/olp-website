@@ -9,7 +9,7 @@ import { company } from '../data/company';
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <nav class="eyebrow text-slate mb-6">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-steel">/</span>
+        <span class="mx-2 text-slate">/</span>
         <span class="text-steel-blue">Privacy Policy</span>
       </nav>
       <h1 class="font-display text-4xl font-bold text-near-black mb-4">Privacy Policy</h1>
@@ -34,7 +34,7 @@ import { company } from '../data/company';
         <h2 class="font-display text-xl font-bold text-near-black mb-3">Contact</h2>
         <p class="text-base text-slate leading-relaxed">For questions about this privacy policy, contact us at <a href={`mailto:${company.email}`} class="text-steel-blue hover:underline">{company.email}</a> or call <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-steel-blue hover:underline font-display font-semibold">{company.phone}</a>.</p>
       </div>
-      <p class="text-xs text-steel pt-4 border-t border-steel-gray">{company.legalName} | {company.location}</p>
+      <p class="text-xs text-slate pt-4 border-t border-steel-gray">{company.legalName} | {company.location}</p>
     </div>
   </section>
 

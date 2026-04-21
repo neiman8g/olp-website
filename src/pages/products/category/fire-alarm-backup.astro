@@ -43,56 +43,66 @@ const applications = [
   description="UL1481 fire alarm notification appliance circuit backup systems. Continuous power for life safety compliance. NFPA 72 compliant. Built in Los Angeles. ISO 9001."
 >
 
-  <!-- HERO -->
-  <section class="pt-10 pb-6 md:pt-14 md:pb-8 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="eyebrow text-slate mb-8">
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-steel">/</span>
+        <span class="mx-2">/</span>
         <a href="/products" class="hover:text-steel-blue transition-colors">Products</a>
-        <span class="mx-2 text-steel">/</span>
-        <span class="text-steel-blue">Fire Alarm Backup</span>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Fire Alarm Backup</span>
       </nav>
+    </div>
+  </section>
 
-      <div class="grid lg:grid-cols-5 gap-6 lg:gap-12 items-start">
-        <!-- Left: Content -->
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
         <div class="lg:col-span-3">
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="badge-light">UL 1481</span>
-            <span class="badge-light">NFPA 72</span>
-            <span class="badge-light">Made in USA</span>
+            <span class="badge-dark">UL 1481</span>
+            <span class="badge-dark">NFPA 72</span>
+            <span class="badge-dark">Made in USA</span>
           </div>
 
-          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-5">Fire Alarm Backup Systems</h1>
-          <p class="text-base text-slate leading-relaxed mb-8">
-            When a fire alarm panel loses utility power, NFPA 72 demands 24 hours of standby plus 5 minutes of full alarm, and 15 minutes if you have voice evacuation. Internal panel batteries max out at 55Ah, which means any large building, high-rise, or voice evacuation system needs external backup power. Online Power's UL 1481 listed Fire Alarm Backup powers the entire fire alarm control panel with zero transfer time, not just individual NAC circuits like commodity extenders. From 500W to 15kW, it scales from a single panel to campus-wide systems, with supervised battery charging and Form-C trouble relay contacts for full monitoring integration.
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Fire Alarm Backup Systems</h1>
+          <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">
+            NFPA 72 demands 24 hours of standby plus 5 minutes of full alarm — 15 minutes for voice evac. Internal panel batteries cap at 55Ah. Our UL 1481 backup powers the entire fire alarm panel with zero transfer time. 500W to 15kW, supervised charging, Form-C trouble relays.
           </p>
 
-          <!-- Key Stats -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-            {[
-              { label: 'Standby', value: '24hr Standby · 5min Alarm' },
-              { label: 'Standard', value: 'NFPA 72 §10.6.7.2' },
-              { label: 'Transfer', value: 'Zero (online)' },
-              { label: 'Certifications', value: 'UL 1481 · NFPA 72' },
-            ].map(s => (
-              <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
-                <p class="font-display text-[13px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
-                <p class="font-display text-base font-bold text-near-black">{s.value}</p>
-              </div>
-            ))}
-          </div>
-
-          <!-- CTAs -->
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <Button href="/contact" size="lg">Send Us Your Panel Load Calculation · We Will Size and Submit in 48 Hours</Button>
+            <Button href="/contact" size="lg" icon="arrow-right">Size My Panel Backup</Button>
+            <Button href="/products/" variant="ghost" size="lg">All Products</Button>
           </div>
-          <p class="font-display text-[13px] text-slate">Responds within 2 business hours</p>
+          <p class="font-display text-[13px] text-muted-blue">Responds within 2 business hours</p>
         </div>
 
-        <!-- Right: Animated SVG -->
         <div class="hidden lg:block lg:col-span-2">
           <FireAlarmBackup />
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Standby', value: '24hr + 5min alarm' },
+            { label: 'Standard', value: 'NFPA 72 §10.6.7.2' },
+            { label: 'Transfer', value: 'Zero (online)' },
+            { label: 'Certifications', value: 'UL 1481 · NFPA 72' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

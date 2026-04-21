@@ -19,15 +19,46 @@ import CustomOEM from '../../components/illustrations/CustomOEM.astro';
   description="Browse Online Power's full catalog of power protection products. Emergency lighting inverters, UPS systems, fire alarm backup, voltage regulators, medical grade power, and custom OEM solutions. All manufactured in the USA."
 >
 
-  <section class="py-10 md:py-14 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="eyebrow text-slate mb-6">
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-steel">/</span>
-        <span class="text-steel-blue">Products</span>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Products</span>
       </nav>
-      <h1 class="font-display text-4xl md:text-[40px] font-bold text-near-black mb-4">Our Products</h1>
-      <p class="text-lg text-slate max-w-2xl">Designed, engineered, and manufactured in Los Angeles. Factory-direct quality with expert support.</p>
+    </div>
+  </section>
+
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="max-w-3xl">
+        <p class="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-sky-blue mb-4">Full Catalog</p>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Every Critical Load. <span class="text-sky-blue">One Manufacturer.</span></h1>
+        <p class="text-lg text-muted-blue leading-relaxed max-w-xl">Designed, engineered, and manufactured in Los Angeles. Factory-direct quality with expert support. All UL listed. Built to order since 1975.</p>
+      </div>
+    </div>
+
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Product Lines', value: '10 Categories' },
+            { label: 'Range', value: '35W – 400 kW' },
+            { label: 'Certifications', value: 'UL · ISO 9001' },
+            { label: 'Manufactured', value: 'Los Angeles, CA' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 

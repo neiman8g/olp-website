@@ -39,52 +39,66 @@ const applications = [
   description="Global Monitoring System and Battery Advisor System for comprehensive power system oversight. Real-time alerts, remote access, and battery health tracking."
 >
 
-  <!-- HERO -->
-  <section class="pt-10 pb-6 md:pt-14 md:pb-8 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="eyebrow text-slate mb-8">
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-steel">/</span>
+        <span class="mx-2">/</span>
         <a href="/products" class="hover:text-steel-blue transition-colors">Products</a>
-        <span class="mx-2 text-steel">/</span>
-        <span class="text-steel-blue">Monitoring & Software</span>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Monitoring & Software</span>
       </nav>
+    </div>
+  </section>
 
-      <div class="grid lg:grid-cols-5 gap-6 lg:gap-12 items-start">
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
         <div class="lg:col-span-3">
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="badge-light">Remote Access</span>
-            <span class="badge-light">24/7 Monitoring</span>
-            <span class="badge-light">Made in USA</span>
+            <span class="badge-dark">Remote Access</span>
+            <span class="badge-dark">24/7 Monitoring</span>
+            <span class="badge-dark">Made in USA</span>
           </div>
 
-          <h1 class="font-display text-3xl md:text-4xl lg:text-[42px] font-bold text-near-black leading-tight mb-5">Monitoring & Software</h1>
-          <p class="text-base text-slate leading-relaxed mb-8">
-            Your emergency power system is only as reliable as your last test and NFPA 110 demands documented proof. Online Power's Global Monitoring System transforms compliance from a manual burden into automated documentation, providing real-time visibility into voltage, current, battery health, alarms, and runtime across every unit in your fleet via BACnet, Modbus, and SNMP. The Battery Advisor System goes further, using continuous impedance trending to detect battery degradation 9 weeks before voltage changes become visible. This replaces calendar based replacement with data-driven decisions that eliminate both premature replacement waste and the catastrophic risk of undetected failure. Every test logged. Every alarm documented. Every AHJ audit answered before it is asked.
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Monitoring & Software</h1>
+          <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">
+            NFPA 110 demands documented proof. Our Global Monitoring System automates compliance across every unit — real-time voltage, current, battery health, alarms via BACnet, Modbus, SNMP. Battery Advisor flags degradation 9 weeks before voltage shifts. Every test logged. Every audit answered.
           </p>
 
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-            {[
-              { label: 'Protocols', value: 'BACnet \u00B7 Modbus \u00B7 SNMP' },
-              { label: 'Prediction', value: '9 Weeks Warning' },
-              { label: 'Compliance', value: 'Auto NFPA 110' },
-              { label: 'Integration', value: 'All BMS Platforms' },
-            ].map(s => (
-              <div class="bg-off-white border border-steel-gray rounded-lg p-3 text-center">
-                <p class="font-display text-[13px] font-semibold uppercase tracking-[0.1em] text-slate mb-1">{s.label}</p>
-                <p class="font-display text-base font-bold text-near-black">{s.value}</p>
-              </div>
-            ))}
-          </div>
-
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
-            <Button href="/contact" size="lg">Schedule a GMS Demo and See Your System Health Data in 15 Minutes</Button>
+            <Button href="/contact" size="lg" icon="arrow-right">Schedule GMS Demo</Button>
+            <Button href="/products/" variant="ghost" size="lg">All Products</Button>
           </div>
-          <p class="font-display text-[13px] text-slate">Responds within 2 business hours</p>
+          <p class="font-display text-[13px] text-muted-blue">Responds within 2 business hours</p>
         </div>
 
         <div class="hidden lg:block lg:col-span-2">
           <Monitoring />
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Protocols', value: 'BACnet · Modbus · SNMP' },
+            { label: 'Prediction', value: '9 weeks warning' },
+            { label: 'Compliance', value: 'Auto NFPA 110' },
+            { label: 'Integration', value: 'All BMS platforms' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
