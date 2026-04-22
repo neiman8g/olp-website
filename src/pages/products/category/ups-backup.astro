@@ -27,7 +27,7 @@ const specs = [
   ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
   ['Enclosure', 'Modular assembly'],
   ['Certifications', 'UL 1778, ISO 9001, UL 924 dual listed models available'],
-  ['Warranty', '2 years parts and labor'],
+  ['Warranty', '1 year parts · 2nd year optional with PM plan'],
 ];
 
 const applications = [
@@ -144,19 +144,10 @@ const faq = [
     </div>
   </section>
 
-  <!-- TAB SECTION -->
-  <section class="pt-4 md:pt-6 pb-10 md:pb-14 bg-off-white">
+    <!-- OVERVIEW -->
+  <section class="py-10 md:py-14 bg-white border-t border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex gap-1 border-b border-steel-gray mb-10">
-        {['Overview', 'Specifications', 'Documents'].map((tab, i) => (
-          <button class={`tab-btn px-5 py-3 text-sm font-medium transition-colors border-b-2 ${i === 0 ? 'text-steel-blue border-steel-blue' : 'text-slate border-transparent hover:text-near-black'}`} data-tab={tab.toLowerCase()}>
-            {tab}
-          </button>
-        ))}
-      </div>
-
-      <!-- OVERVIEW TAB -->
-      <div class="tab-content" data-tab="overview">
+      <p class="eyebrow mb-4">Overview</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
@@ -219,28 +210,6 @@ const faq = [
           <p class="text-sm text-near-black font-medium mb-1">Critical Load Protection</p>
           <p class="text-base text-slate">Designed for servers, networking equipment, broadcast systems, and other critical loads requiring uninterrupted power. Contact our engineering team for load analysis.</p>
         </div>
-      </div>
-
-      <!-- SPECIFICATIONS TAB -->
-      <div class="tab-content hidden" data-tab="specifications">
-        <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
-          {specs.map(([label, value], i) => (
-            <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
-              <span class="text-base text-slate font-medium">{label}</span>
-              <span class="text-sm text-near-black font-medium text-right">{value}</span>
-            </div>
-          ))}
-        </div>
-        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
-          <p class="text-sm text-near-black">Need a custom specification? <a href="/contact" class="text-steel-blue hover:underline">Our engineering team will work with you &rarr;</a></p>
-        </div>
-      </div>
-
-      <!-- DOCUMENTS TAB -->
-      <div class="tab-content hidden" data-tab="documents">
-        <p class="font-display text-[13px] text-slate mb-6">All documents available for immediate download after a quick registration.</p>
-        <DocumentGate productSlug="host-power" />
-      </div>
     </div>
   </section>
 
@@ -324,13 +293,6 @@ const faq = [
 </BaseLayout>
 
 <script is:inline>
-  document.querySelectorAll('.tab-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var tab = btn.getAttribute('data-tab');
-      document.querySelectorAll('.tab-btn').forEach(function(b) {
-        b.classList.remove('text-steel-blue', 'border-steel-blue');
-        b.classList.add('text-slate', 'border-transparent');
-      });
       btn.classList.remove('text-slate', 'border-transparent');
       btn.classList.add('text-steel-blue', 'border-steel-blue');
       document.querySelectorAll('.tab-content').forEach(function(c) {

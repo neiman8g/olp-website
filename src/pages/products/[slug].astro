@@ -34,7 +34,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
     ['Enclosure', 'NEMA 1 standard'],
     ['Certifications', 'UL 924, UL 1778, NFPA 101, NEC'],
-    ['Warranty', '2 years parts and labor'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
   'power-wave-3': [
     ['Input Voltage', '120/208/240/277/480 VAC'],
@@ -49,7 +49,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
     ['Enclosure', 'NEMA 1 standard'],
     ['Certifications', 'UL 924, UL 1778, UL 1489, NFPA 101'],
-    ['Warranty', '2 years parts and labor'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
   'power-wave-4': [
     ['Input Voltage', '120/208/240/277/480 VAC'],
@@ -64,7 +64,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
     ['Enclosure', 'NEMA 1 standard'],
     ['Certifications', 'UL 924, UL 1778, NFPA 101'],
-    ['Warranty', '2 years parts and labor'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
   'mini-power-wave': [
     ['Input Voltage', '120/208/240/277 VAC'],
@@ -79,7 +79,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
     ['Enclosure', 'NEMA 1 all-in-one'],
     ['Certifications', 'UL 924, UL 1778'],
-    ['Warranty', '2 years parts and labor'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
   'micro-power-wave': [
     ['Input Voltage', '120/208/240/277 VAC'],
@@ -92,7 +92,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Battery Runtime', '90 minutes minimum'],
     ['Enclosure', 'NEMA 1 compact'],
     ['Certifications', 'UL 924 (ETL Listed)'],
-    ['Warranty', '2 years parts and labor'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
   'nano-wave': [
     ['Input Voltage', '120/277 VAC'],
@@ -104,7 +104,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Lamp Compatibility', 'LED and Fluorescent'],
     ['Dimming', 'Supported'],
     ['Certifications', 'UL 924'],
-    ['Warranty', '2 years parts and labor'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
   'elevate': [
     ['Input Voltage', '120/208/240/277/480 VAC'],
@@ -117,7 +117,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Battery Type', 'Sealed VRLA'],
     ['Battery Runtime', 'Per code requirements'],
     ['Certifications', 'UL 924, NFPA 101, NEC Article 700'],
-    ['Warranty', '2 years parts and labor'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
   'fire-alarm-backup': [
     ['Input Voltage', '120/240 VAC'],
@@ -128,7 +128,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Battery Runtime', '24–60 hours'],
     ['Self-Testing', 'Automatic'],
     ['Certifications', 'UL 1481, NFPA 72, NEC Article 760'],
-    ['Warranty', '2 years parts and labor'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
   'lcr20': [
     ['Input Voltage', '120/208/240/277/480 VAC'],
@@ -139,7 +139,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Test Switch', 'Quick-connect IP65 rated'],
     ['Enclosure', 'Aluminum, NEMA 1'],
     ['Certifications', 'UL 924, NFPA 101, NEC Article 700'],
-    ['Warranty', '5 years'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
   'host-power': [
     ['Input Voltage', '208/480 VAC'],
@@ -150,7 +150,7 @@ const specTables: Record<string, [string, string][]> = {
     ['Waveform', 'PWM Sinusoidal'],
     ['Generator Compatible', 'Yes'],
     ['Certifications', 'UL 1778, UL 924, UL 924A'],
-    ['Warranty', '2 years limited factory'],
+    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
   ],
 };
 
@@ -230,47 +230,29 @@ const specs = specTables[product.slug] || null;
     </div>
   </section>
 
-  <!-- Key Features -->
-  <section class="py-10 md:py-14 bg-off-white">
+  <!-- Documents — moved above Overview per single-page flow -->
+  <section id="documents" class="py-10 md:py-14 bg-off-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-6">Key Features</p>
+      <p class="eyebrow text-steel-blue mb-4">Documents &amp; Downloads</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-near-black mb-3 leading-[1.1]">Data sheets, specs, drawings.</h2>
+      <p class="text-[15px] text-slate max-w-2xl mb-8">Every specification — voltage, runtime, dimensions, wiring — lives in the data sheet. Instant download on most; submittal and CAD packages delivered after a brief registration.</p>
+      <DocumentGate productSlug={product.slug} />
+    </div>
+  </section>
+
+  <!-- Overview — key features -->
+  <section class="py-10 md:py-14 bg-white border-t border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <p class="eyebrow text-steel-blue mb-4">Overview</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-near-black mb-6 leading-[1.1]">Key Features</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {product.features.map(feature => (
-          <div class="flex items-start gap-3 bg-white border border-steel-gray rounded-lg p-4">
+          <div class="flex items-start gap-3 bg-off-white border border-steel-gray rounded-lg p-4">
             <svg class="w-5 h-5 text-steel-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             <span class="text-sm text-near-black">{feature}</span>
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- Specifications Table (Issue 4) -->
-  <section class="py-10 md:py-14 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-6">Specifications</p>
-      {specs ? (
-        <div class="border border-steel-gray rounded-xl overflow-hidden">
-          {specs.map(([label, value], i) => (
-            <div class={`flex items-center justify-between px-5 py-3.5 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
-              <span class="text-base text-slate">{label}</span>
-              <span class="text-sm text-near-black font-medium text-right ml-4">{value}</span>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div class="bg-off-white border border-steel-gray rounded-xl p-8 text-center">
-          <p class="text-slate mb-3">Full specifications available on request.</p>
-          <a href="/contact" class="text-[15px] font-medium text-steel-blue hover:text-near-black transition-colors">Contact us for full specifications &rarr;</a>
-        </div>
-      )}
-    </div>
-  </section>
-
-  <!-- Documents (Email-Gated only — no duplicate raw links) -->
-  <section id="documents" class="py-10 md:py-14 bg-off-white scroll-mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <DocumentGate productSlug={product.slug} />
     </div>
   </section>
 

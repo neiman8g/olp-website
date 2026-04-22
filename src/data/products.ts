@@ -416,7 +416,7 @@ export const products: Product[] = [
     tagline: 'Automatic Load Control Relay',
     description: 'UL924 load control relay for emergency lighting with 0-10V dimmer override for full emergency illumination. Quick-connect IP65 rated test switch in aluminum housing.',
     category: 'load-control-relays',
-    features: ['UL924 Listed', '0-10V Dimmer Override', 'IP65 Rated Connections', 'Quick-Connect Test Switch', 'Aluminum Case', '5-Year Warranty'],
+    features: ['UL924 Listed', '0-10V Dimmer Override', 'IP65 Rated Connections', 'Quick-Connect Test Switch', 'Aluminum Case', '1-Year Warranty (2nd yr with PM)'],
     standards: ['UL 924', 'UL 1778', 'NFPA 101'],
     docs: [
       { label: 'Data Sheet', url: '/pdf/LCR20_DS.pdf' },

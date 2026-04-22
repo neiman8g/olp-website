@@ -23,7 +23,7 @@ const specs = [
   ['Dimming Protocol', '0-10V'],
   ['Emergency Mode', 'Full brightness override'],
   ['Certifications', 'UL 924, UL 1778, NFPA 101'],
-  ['Warranty', '5 years parts and labor'],
+  ['Warranty', '1 year parts · 2nd year optional with PM plan'],
 ];
 
 const applications = [
@@ -38,7 +38,7 @@ const applications = [
 
 <BaseLayout
   title="Load Control Relays | UL924 | IP65 | Online Power"
-  description="UL924 automatic load control relays for emergency lighting dimmer override. 0-10V override, IP65 rated, 5-year warranty. Built in Los Angeles."
+  description="UL924 automatic load control relays for emergency lighting dimmer override. 0-10V override, IP65 rated. 1-year warranty with optional 2nd-year PM extension. Built in Los Angeles."
 >
 
   <!-- BREADCRUMB STRIP -->
@@ -70,7 +70,7 @@ const applications = [
 
           <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Load Control Relays</h1>
           <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">
-            UL 924 automatic load control relays for emergency lighting dimmer override. IP65 rated. 5-year warranty.
+            UL 924 automatic load control relays for emergency lighting dimmer override. IP65 rated. 1-year warranty, optional 2nd year with a PM plan.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
@@ -93,7 +93,7 @@ const applications = [
             { label: 'Standard', value: 'UL 924' },
             { label: 'Override', value: '0-10V' },
             { label: 'Rating', value: 'IP65' },
-            { label: 'Warranty', value: '5 Years' },
+            { label: 'Warranty', value: '1 Yr + PM Option' },
           ].map(s => (
             <div class="py-6 px-4 md:px-6 text-center md:text-left">
               <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
@@ -105,19 +105,10 @@ const applications = [
     </div>
   </section>
 
-  <!-- TAB SECTION -->
-  <section class="pt-4 md:pt-6 pb-10 md:pb-14 bg-off-white">
+    <!-- OVERVIEW -->
+  <section class="py-10 md:py-14 bg-white border-t border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex gap-1 border-b border-steel-gray mb-10">
-        {['Overview', 'Specifications', 'Documents'].map((tab, i) => (
-          <button class={`tab-btn px-5 py-3 text-sm font-medium transition-colors border-b-2 ${i === 0 ? 'text-steel-blue border-steel-blue' : 'text-slate border-transparent hover:text-near-black'}`} data-tab={tab.toLowerCase()}>
-            {tab}
-          </button>
-        ))}
-      </div>
-
-      <!-- OVERVIEW TAB -->
-      <div class="tab-content" data-tab="overview">
+      <p class="eyebrow mb-4">Overview</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
           <div class="card-hover bg-white rounded-xl p-6">
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
@@ -137,8 +128,8 @@ const applications = [
             <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">5-Year Warranty</h3>
-            <p class="text-base text-slate">Industry-leading 5-year warranty demonstrates our confidence in the LCR20's reliability and long-term performance.</p>
+            <h3 class="font-display text-2xl font-semibold text-near-black mb-2">1-Year Warranty + PM Extension</h3>
+            <p class="text-base text-slate">Standard 1-year parts warranty with an optional 2nd year of coverage when you enroll in a preventive maintenance plan.</p>
           </div>
         </div>
 
@@ -156,28 +147,6 @@ const applications = [
           <p class="text-sm text-near-black font-medium mb-1">Dimming System Compatibility</p>
           <p class="text-base text-slate">Compatible with all 0-10V dimming systems including Lutron, Leviton, and Wattstopper. Contact our engineering team for dimming system compatibility verification.</p>
         </div>
-      </div>
-
-      <!-- SPECIFICATIONS TAB -->
-      <div class="tab-content hidden" data-tab="specifications">
-        <div class="bg-white border border-steel-gray rounded-xl overflow-hidden mb-8">
-          {specs.map(([label, value], i) => (
-            <div class={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? 'bg-white' : 'bg-off-white'} ${i < specs.length - 1 ? 'border-b border-steel-gray' : ''}`}>
-              <span class="text-base text-slate font-medium">{label}</span>
-              <span class="text-sm text-near-black font-medium text-right">{value}</span>
-            </div>
-          ))}
-        </div>
-        <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
-          <p class="text-sm text-near-black">Need a custom specification? <a href="/contact" class="text-steel-blue hover:underline">Our engineering team will work with you &rarr;</a></p>
-        </div>
-      </div>
-
-      <!-- DOCUMENTS TAB -->
-      <div class="tab-content hidden" data-tab="documents">
-        <p class="font-display text-[13px] text-slate mb-6">All documents available for immediate download after a quick registration.</p>
-        <DocumentGate productSlug="lcr20" />
-      </div>
     </div>
   </section>
 
@@ -186,7 +155,7 @@ const applications = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <p class="eyebrow text-steel-blue mb-6">Key Features</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {['UL924 Listed', '0-10V Dimmer Override', 'IP65 Rated Connections', 'Quick-Connect Test Switch', 'Aluminum Case', '5-Year Warranty'].map(feature => (
+        {['UL924 Listed', '0-10V Dimmer Override', 'IP65 Rated Connections', 'Quick-Connect Test Switch', 'Aluminum Case', '1-Year Warranty (2nd yr with PM)'].map(feature => (
           <div class="flex items-start gap-3 bg-off-white border border-steel-gray rounded-lg p-4">
             <svg class="w-5 h-5 text-steel-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             <span class="text-sm text-near-black">{feature}</span>
@@ -273,13 +242,6 @@ const applications = [
 </BaseLayout>
 
 <script is:inline>
-  document.querySelectorAll('.tab-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var tab = btn.getAttribute('data-tab');
-      document.querySelectorAll('.tab-btn').forEach(function(b) {
-        b.classList.remove('text-steel-blue', 'border-steel-blue');
-        b.classList.add('text-slate', 'border-transparent');
-      });
       btn.classList.remove('text-slate', 'border-transparent');
       btn.classList.add('text-steel-blue', 'border-steel-blue');
       document.querySelectorAll('.tab-content').forEach(function(c) {

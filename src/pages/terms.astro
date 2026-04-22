@@ -5,7 +5,7 @@ import { company } from '../data/company';
 const sections = [
   { id: 'acceptance', num: '01', label: 'Acceptance', body: 'All orders are subject to acceptance by Online Power. Acceptance of any order is expressly conditioned upon the buyer\'s agreement to these terms. All orders are subject to credit approval.' },
   { id: 'prices', num: '02', label: 'Prices', body: 'All prices are FOB origin unless otherwise stated. Quoted prices are valid for 60 days from the date of the quotation unless otherwise specified.' },
-  { id: 'warranty', num: '03', label: 'Warranty', body: ['Online Power warrants its products to be free from defects in material and workmanship for a period of 24 months from the date of installation or 30 months from the date of shipment, whichever occurs first.', 'Warranty coverage for months 13–24 requires that a preventive maintenance service has been performed by Online Power or an authorized service provider.', 'Warranty does not cover filters, fuses, light bulbs, or damage caused by misuse, neglect, or unauthorized modification. All warranty returns require a valid RMA number and must be submitted within 90 days.', 'Freight for warranty returns is prepaid inbound, collect outbound.'] },
+  { id: 'warranty', num: '03', label: 'Warranty', body: ['Online Power warrants its products to be free from defects in material and workmanship for a period of 12 months from the date of installation or 18 months from the date of shipment, whichever occurs first. Standard warranty is parts only.', 'A second year of warranty coverage is available when the buyer enrolls in a preventive maintenance plan performed by Online Power or an authorized service provider. Coverage for months 13–24 is contingent on completion of the scheduled PM visit.', 'Warranty does not cover filters, fuses, light bulbs, batteries beyond manufacturer specifications, or damage caused by misuse, neglect, or unauthorized modification. All warranty returns require a valid RMA number and must be submitted within 90 days of failure.', 'Freight for warranty returns is prepaid inbound, collect outbound.'] },
   { id: 'payment', num: '04', label: 'Payment', body: 'Payment terms are Net 30 days after shipment. Storage charges of 3% per month apply to orders not shipped within the agreed timeframe due to buyer delay.' },
   { id: 'cancellation', num: '05', label: 'Cancellation or Changes', body: 'Change orders and cancellations must be submitted in writing. Cancellation charges may apply based on the stage of production at the time of cancellation.' },
   { id: 'law', num: '06', label: 'Applicable Law', body: 'These terms and conditions are governed by the laws of the State of California. Any disputes shall be resolved in the courts of Los Angeles County, California.' },
@@ -36,7 +36,7 @@ const sections = [
         <div class="flex flex-wrap gap-2 mb-5">
           <span class="badge-dark">California Law</span>
           <span class="badge-dark">Net 30</span>
-          <span class="badge-dark">24 / 30 Month Warranty</span>
+          <span class="badge-dark">1 Yr Warranty · 2nd Yr with PM</span>
         </div>
         <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Terms &amp; Conditions.</h1>
         <p class="text-lg text-muted-blue leading-relaxed max-w-xl">Our standard terms for quotes, purchase orders, warranty, payment, cancellation, and governing law. For custom terms on OEM or federal contracts, contact us directly.</p>
@@ -50,7 +50,7 @@ const sections = [
           {[
             { label: 'Quote Validity', value: '60 days' },
             { label: 'Payment', value: 'Net 30' },
-            { label: 'Warranty', value: '24 / 30 months' },
+            { label: 'Warranty', value: '1 yr + PM option' },
             { label: 'Governing Law', value: 'California' },
           ].map(s => (
             <div class="py-6 px-4 md:px-6 text-center md:text-left">
