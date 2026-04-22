@@ -1,41 +1,86 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { company } from '../data/company';
+
+const sections = [
+  { id: 'collect', num: '01', label: 'Information We Collect', body: 'When you fill out a form on our website (quote request, training registration, document download), we collect the information you provide: name, email address, phone number, company name, and role. We use this information solely to respond to your inquiry and provide the requested products, services, or documents.' },
+  { id: 'use', num: '02', label: 'How We Use Your Information', body: 'We use your contact information to respond to quote requests, schedule training sessions, deliver requested documents, and communicate about products and services relevant to your inquiry. We do not sell, rent, or share your personal information with third parties for their marketing purposes.' },
+  { id: 'analytics', num: '03', label: 'Analytics', body: 'We use Google Analytics to understand how visitors interact with our website. This service collects anonymized usage data including pages visited, time on site, and general location. No personally identifiable information is shared with Google Analytics.' },
+];
 ---
 
 <BaseLayout title="Privacy Policy | Online Power" description="Online Power privacy policy. How we collect, use, and protect your personal information.">
 
-  <section class="py-10 md:py-14 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="eyebrow text-slate mb-6">
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-slate">/</span>
-        <span class="text-steel-blue">Privacy Policy</span>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Privacy Policy</span>
       </nav>
-      <h1 class="font-display text-4xl font-bold text-near-black mb-4">Privacy Policy</h1>
     </div>
   </section>
 
-  <section class="py-10 md:py-14 bg-off-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-8">
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Information We Collect</h2>
-        <p class="text-base text-slate leading-relaxed">When you fill out a form on our website (quote request, training registration, document download), we collect the information you provide: name, email address, phone number, company name, and role. We use this information solely to respond to your inquiry and provide the requested products, services, or documents.</p>
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="max-w-3xl">
+        <div class="flex flex-wrap gap-2 mb-5">
+          <span class="badge-dark">Short &amp; Plain</span>
+          <span class="badge-dark">No Ad Tracking</span>
+          <span class="badge-dark">No Third-Party Sales</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Privacy Policy.</h1>
+        <p class="text-lg text-muted-blue leading-relaxed max-w-xl">Plain-language summary of what we collect, why, and what we do with it. No hidden data deals, no ad networks, no sale of your details.</p>
       </div>
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">How We Use Your Information</h2>
-        <p class="text-base text-slate leading-relaxed">We use your contact information to respond to quote requests, schedule training sessions, deliver requested documents, and communicate about products and services relevant to your inquiry. We do not sell, rent, or share your personal information with third parties for their marketing purposes.</p>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Data Collected', value: 'Form fields only' },
+            { label: 'Third-Party Sales', value: 'Never' },
+            { label: 'Analytics', value: 'Google (anonymized)' },
+            { label: 'Contact', value: 'sales@onlinepower.com' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Analytics</h2>
-        <p class="text-base text-slate leading-relaxed">We use Google Analytics to understand how visitors interact with our website. This service collects anonymized usage data including pages visited, time on site, and general location. No personally identifiable information is shared with Google Analytics.</p>
-      </div>
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Contact</h2>
-        <p class="text-base text-slate leading-relaxed">For questions about this privacy policy, contact us at <a href={`mailto:${company.email}`} class="text-steel-blue hover:underline">{company.email}</a> or call <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-steel-blue hover:underline font-display font-semibold">{company.phone}</a>.</p>
-      </div>
-      <p class="text-xs text-slate pt-4 border-t border-steel-gray">{company.legalName} | {company.location}</p>
+    </div>
+  </section>
+
+  <!-- ========== BODY ========== -->
+  <section class="py-16 md:py-24 bg-off-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-6">
+      {sections.map(s => (
+        <article id={s.id} class="scroll-mt-24 bg-white border border-steel-gray rounded-xl p-6 md:p-8 hover:border-steel-blue transition-colors">
+          <div class="flex items-baseline gap-4 mb-4 pb-4 border-b border-steel-gray">
+            <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase">{s.num}</span>
+            <h2 class="font-display text-[22px] font-extrabold tracking-tight text-near-black">{s.label}</h2>
+          </div>
+          <p class="text-[15px] text-slate leading-relaxed">{s.body}</p>
+        </article>
+      ))}
+
+      <article class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+        <p class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase mb-2">Contact</p>
+        <p class="text-[15px] text-near-black leading-relaxed">Questions about this policy? Email <a href={`mailto:${company.email}`} class="text-steel-blue hover:underline font-semibold">{company.email}</a> or call <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-steel-blue hover:underline font-semibold">{company.phone}</a>.</p>
+      </article>
+
+      <p class="text-[12px] text-slate text-center pt-4">{company.legalName} &middot; {company.location}</p>
     </div>
   </section>
 
 </BaseLayout>
+</content>
+</invoke>

@@ -1,97 +1,196 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import DocumentGate from '../../components/DocumentGate.astro';
 import { products, categories } from '../../data/products';
+
+const totalDocs = products.reduce((sum, p) => sum + (p.docs?.length || 0), 0);
+const productsWithDocs = products.filter(p => p.docs && p.docs.length > 0).length;
 ---
 
 <BaseLayout title="Product Documents | Online Power - Datasheets, Manuals, Specs" description="Download datasheets, technical specifications, user manuals, wiring diagrams, and CAD files for all Online Power products. Engineers: all documents available after registration.">
 
-  <section class="py-10 md:py-14 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="eyebrow text-slate mb-6">
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-slate">/</span>
-        <a href="/support/documents" class="hover:text-steel-blue transition-colors">Support</a>
-        <span class="mx-2 text-slate">/</span>
-        <span class="text-steel-blue">Documents</span>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Documents</span>
       </nav>
-      <h1 class="font-display text-4xl md:text-[40px] font-bold text-near-black mb-4">Product Documents</h1>
-      <p class="text-lg text-slate max-w-2xl">Datasheets, technical specs, user manuals, wiring diagrams, and CAD files for every Online Power product.</p>
     </div>
   </section>
 
-  <!-- Catalog & Brochures -->
-  <section class="py-8 md:py-10 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-6">Catalog & Brochures</p>
-      <a href="/pdf/olp-trifold.pdf" target="_blank" class="card-hover bg-white rounded-xl p-5 inline-flex items-center gap-4 group">
-        <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center">
-          <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+    <div class="absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(126,179,245,0.15) 0%, rgba(126,179,245,0) 70%); filter: blur(10px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-3">
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="badge-dark">Datasheets</span>
+            <span class="badge-dark">Manuals</span>
+            <span class="badge-dark">CAD &amp; Drawings</span>
+            <span class="badge-dark">Submittals</span>
+          </div>
+
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">
+            Every Document. <span class="text-sky-blue">One Library.</span>
+          </h1>
+          <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">
+            Datasheets, technical specifications, user manuals, wiring diagrams, and CAD files for every Online Power product. Data sheets download instantly; CAD and submittal packages require a brief registration.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 mb-4">
+            <a href="#by-product" class="btn-primary px-8 py-3.5 text-[15px] inline-flex items-center justify-center gap-2">
+              Browse by Product
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </a>
+            <a href="#service" class="btn-ghost px-8 py-3.5 text-[15px] inline-flex items-center justify-center">Service Forms</a>
+          </div>
         </div>
+
+        <div class="hidden lg:block lg:col-span-2">
+          <div class="relative bg-navy-mid border border-white/5 rounded-xl p-8 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+            <div class="absolute inset-0 pointer-events-none opacity-[0.08] rounded-xl overflow-hidden" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 22px 22px;"></div>
+            <div class="relative flex items-start gap-5">
+              <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-steel-blue flex items-center justify-center">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h3m-3-4h3a4 4 0 014 4v2M3 7l9-4 9 4M5 9v10a2 2 0 002 2h10a2 2 0 002-2V9"/></svg>
+              </div>
+              <div>
+                <p class="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-blue mb-2">2024 Catalog</p>
+                <a href="/pdf/olp-trifold.pdf" target="_blank" class="block group">
+                  <p class="font-display text-white text-[22px] font-extrabold leading-tight group-hover:text-sky-blue transition-colors">Download Product Brochure</p>
+                  <p class="text-[13px] text-muted-blue mt-2">PDF · 2.1 MB · All lines</p>
+                  <span class="inline-flex items-center gap-1.5 mt-4 font-display text-[12px] font-bold uppercase tracking-[0.14em] text-sky-blue">
+                    Open Trifold
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Products', value: productsWithDocs + ' documented' },
+            { label: 'Files', value: totalDocs + '+ assets' },
+            { label: 'Formats', value: 'PDF · DWG · CAD' },
+            { label: 'Access', value: 'Instant + gated' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 01 · SERVICE & SUPPORT FORMS ========== -->
+  <section id="service" class="py-16 md:py-20 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
         <div>
-          <p class="text-sm font-medium text-near-black group-hover:text-steel-blue transition-colors">2024 Product Brochure</p>
-          <span class="badge-light text-xs">PDF</span>
+          <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-steel-blue opacity-60"></span>01 · Service Forms</span>
+          <h2 class="font-display text-3xl md:text-[40px] font-extrabold tracking-tight text-near-black mt-3 leading-[1.05]">Service &amp; Warranty.</h2>
         </div>
-      </a>
-    </div>
-  </section>
+        <a href="https://800pwrsrvc.com/" target="_blank" rel="noopener" class="font-display text-[13px] font-bold uppercase tracking-[0.12em] text-steel-blue hover:text-near-black transition-colors inline-flex items-center gap-1.5 whitespace-nowrap">
+          Visit Power Services
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
 
-  <!-- Service Documents -->
-  <section class="py-12 bg-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-6">Service & Support</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          { name: 'Service Request', href: 'https://customer.800pwrsrvc.com/customer_forms/service.php' },
-          { name: 'Request Turn On', href: 'https://customer.800pwrsrvc.com/customer_forms/turnon.php' },
-          { name: 'Warranty Registration', href: 'https://customer.800pwrsrvc.com/customer_forms/warranty.php' },
-          { name: 'Preventive Maintenance', href: 'https://customer.800pwrsrvc.com/customer_forms/pm.php' },
-          { name: 'Parts & Training', href: 'https://customer.800pwrsrvc.com/customer_forms/partstrain.php?src=IN' },
-          { name: 'Certificate of Insurance', href: '/pdf/preventivemaint.pdf' },
+          { name: 'Service Request', desc: 'Open a service ticket for installed equipment', href: 'https://customer.800pwrsrvc.com/customer_forms/service.php', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z' },
+          { name: 'Request Turn-On', desc: 'Schedule factory commissioning of a new unit', href: 'https://customer.800pwrsrvc.com/customer_forms/turnon.php', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+          { name: 'Preventive Maintenance', desc: 'Annual PM contract enrollment form', href: 'https://customer.800pwrsrvc.com/customer_forms/pm.php', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+          { name: 'Parts &amp; Training', desc: 'Order spare parts or request training', href: 'https://customer.800pwrsrvc.com/customer_forms/partstrain.php?src=IN', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
+          { name: 'Warranty Registration', desc: 'Register a newly installed unit', href: 'https://customer.800pwrsrvc.com/customer_forms/warranty.php', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
+          { name: 'Certificate of Insurance', desc: 'Download our COI (PDF)', href: '/pdf/preventivemaint.pdf', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', internal: true },
         ].map(item => (
-          <a href={item.href} target="_blank" rel="noopener" class="card-hover bg-off-white rounded-xl p-5 flex items-center gap-4 group">
-            <svg class="w-5 h-5 text-steel-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            <span class="text-sm font-medium text-near-black group-hover:text-steel-blue transition-colors">{item.name}</span>
+          <a href={item.href} target={item.internal ? undefined : '_blank'} rel={item.internal ? undefined : 'noopener'} class="group relative overflow-hidden bg-white border border-steel-gray rounded-xl p-5 flex items-start gap-4 transition-all duration-200 hover:border-steel-blue hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(37,103,194,0.2)]">
+            <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0 group-hover:bg-steel-blue transition-colors">
+              <svg class="w-5 h-5 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="font-display text-[15px] font-bold text-near-black group-hover:text-steel-blue transition-colors flex items-center gap-1.5">
+                {item.name}
+                {!item.internal && <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>}
+              </p>
+              <p class="text-[13px] text-slate mt-1">{item.desc}</p>
+            </div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Product Documents by Category -->
-  <section class="py-10 md:py-14 bg-off-white">
+  <!-- ========== 02 · PRODUCT DOCUMENTS BY CATEGORY ========== -->
+  <section id="by-product" class="py-16 md:py-24 bg-white border-t border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-4">Product Documents</p>
-      <p class="text-slate mb-10">Select a product category to view available documents. Data sheets and manuals download instantly. CAD and submittal files require a brief registration.</p>
+      <div class="mb-12">
+        <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-steel-blue opacity-60"></span>02 · Product Library</span>
+        <h2 class="font-display text-3xl md:text-[40px] font-extrabold tracking-tight text-near-black mt-3 leading-[1.05]">Documents by Product.</h2>
+        <p class="text-slate mt-4 max-w-2xl">Select a product to view data sheets, tech specs, wiring drawings, and manuals. Data sheets download instantly — CAD and submittal packages require a brief registration.</p>
+      </div>
 
       {categories.map(cat => {
-        const catProducts = products.filter(p => p.category === cat.slug && p.docs.length > 0);
+        const catProducts = products.filter(p => p.category === cat.slug && p.docs && p.docs.length > 0);
         if (catProducts.length === 0) return null;
         return (
-          <div class="mb-12">
-            <h2 class="font-display text-xl font-bold text-near-black mb-2">{cat.name}</h2>
-            <p class="text-base text-slate mb-6">{cat.tagline}</p>
+          <div class="mb-14">
+            <div class="flex items-baseline justify-between gap-4 mb-6 pb-4 border-b border-steel-gray">
+              <div>
+                <h3 class="font-display text-xl md:text-2xl font-extrabold tracking-tight text-near-black">{cat.name}</h3>
+                <p class="text-[14px] text-slate mt-1">{cat.tagline}</p>
+              </div>
+              <a href={`/products/category/${cat.slug}`} class="font-display text-[12px] font-bold uppercase tracking-[0.12em] text-steel-blue hover:text-near-black transition-colors whitespace-nowrap">Category →</a>
+            </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {catProducts.map(product => (
-                <a href={`/products/${product.slug}`} class="card-hover bg-white rounded-xl p-5 group">
-                  <div class="flex items-start gap-3">
-                    <div class="w-8 h-8 rounded bg-steel-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg class="w-4 h-4 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <div>
-                      <p class="text-sm font-medium text-near-black group-hover:text-steel-blue transition-colors">{product.name}</p>
-                      <p class="text-xs text-slate mt-0.5">{product.docs.length} document{product.docs.length !== 1 ? 's' : ''} available</p>
-                    </div>
+                <a href={`/products/${product.slug}`} class="group relative overflow-hidden bg-off-white border border-steel-gray rounded-xl p-5 flex items-start gap-4 transition-all duration-200 hover:border-steel-blue hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(37,103,194,0.18)]">
+                  <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0 group-hover:bg-steel-blue transition-colors">
+                    <svg class="w-5 h-5 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                   </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-display text-[15px] font-bold text-near-black group-hover:text-steel-blue transition-colors truncate">{product.name}</p>
+                    <p class="font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-steel-blue mt-0.5">{product.docs.length} document{product.docs.length !== 1 ? 's' : ''}</p>
+                    <p class="text-[12px] text-slate mt-1 truncate">{product.tagline}</p>
+                  </div>
+                  <svg class="w-4 h-4 text-slate group-hover:text-steel-blue transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </a>
               ))}
             </div>
           </div>
         );
       })}
+    </div>
+  </section>
 
-      <p class="text-center text-base text-slate mt-8">Need something specific? <a href="/contact" class="text-steel-blue hover:underline">Contact us</a> and we'll send it directly.</p>
+  <!-- ========== CTA ========== -->
+  <section class="relative bg-deep-navy py-16 md:py-20 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.06]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[3px]" style="background: linear-gradient(90deg, transparent, rgba(37,103,194,0.8), transparent);"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-4 leading-[1.05]">Need something specific?</h2>
+      <p class="text-base md:text-lg text-muted-blue mb-8 max-w-xl mx-auto">If a document isn't listed — legacy drawings, one-off submittals, custom CAD — our team will send it directly.</p>
+      <a href="/contact" class="btn-primary px-8 py-3.5 text-[15px] inline-flex items-center justify-center gap-2">
+        Request a Document
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </section>
 
 </BaseLayout>
+</content>
+</invoke>

@@ -9,64 +9,100 @@ import { company } from '../data/company';
   description="Online Power is a US-based manufacturer of mission-critical power protection equipment since 1975. ISO 9001 certified since 1996. UL listed. Made in Los Angeles, CA."
 >
 
-  <!-- Hero -->
-  <section class="py-10 md:py-14 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="eyebrow text-slate mb-6">
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-slate">/</span>
-        <span class="text-steel-blue">Company</span>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">About Online Power</span>
       </nav>
-      <h1 class="font-display text-4xl md:text-[40px] font-bold text-near-black mb-6">About Online Power</h1>
-      <p class="text-lg text-slate max-w-2xl">Stay online with Online Power. Manufacturing mission-critical power protection in Los Angeles since 1975.</p>
     </div>
   </section>
 
-  <!-- Company Overview -->
-  <section class="py-14 md:py-[72px] bg-off-white">
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+    <div class="absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(126,179,245,0.15) 0%, rgba(126,179,245,0) 70%); filter: blur(10px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-3">
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="badge-dark">Founded 1975</span>
+            <span class="badge-dark">ISO 9001</span>
+            <span class="badge-dark">UL Listed</span>
+            <span class="badge-dark">Made in USA</span>
+          </div>
+
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">
+            Built in America. <span class="text-sky-blue">Built to Last.</span>
+          </h1>
+          <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">
+            Online Power has designed, engineered, and manufactured mission-critical power protection equipment in Los Angeles since 1975. Every product — from emergency lighting inverters to custom OEM solutions — is built to order and backed directly by the engineers who designed it.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 mb-4">
+            <Button href="/contact" size="lg" icon="arrow-right">Work With Us</Button>
+          </div>
+        </div>
+
+        <div class="hidden lg:block lg:col-span-2">
+          <div class="relative bg-navy-mid border border-white/5 rounded-xl p-8 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+            <div class="absolute inset-0 pointer-events-none opacity-[0.08] rounded-xl overflow-hidden" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 22px 22px;"></div>
+            <div class="relative">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-blue mb-3">The Difference</p>
+              <p class="font-display text-white text-[34px] font-extrabold leading-[1.05] tracking-tight">The engineer<br/>who signed<br/>the UL file.</p>
+              <p class="text-muted-blue text-[14px] mt-5 leading-relaxed">Call our number and you reach someone who can answer from the submittal drawings — not a script. That's the manufacturer advantage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {company.stats.map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 01 · OUR STORY ========== -->
+  <section class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <div>
-          <p class="eyebrow text-steel-blue mb-4">Our Story</p>
-          <h2 class="font-display text-3xl font-bold text-near-black mb-6">Built in America. Built to Last.</h2>
-          <div class="space-y-4 text-slate leading-relaxed">
-            <p>Online Power has been providing critical power protection equipment and backup power supply systems since 1975. We are committed to helping our customers find the right electrical power solution for their specific application.</p>
-            <p>We design, engineer, and manufacture every product at our Los Angeles facility — from emergency lighting inverters to custom OEM power solutions. As a manufacturer, we offer what distributors can't: direct engineering support from the people who designed your equipment.</p>
+          <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-steel-blue opacity-60"></span>01 · Our Story</span>
+          <h2 class="font-display text-3xl md:text-[40px] font-extrabold tracking-tight text-near-black mt-3 mb-6 leading-[1.05]">Manufacturing Since <span class="text-steel-blue">1975.</span></h2>
+          <div class="space-y-4 text-[15px] text-slate leading-relaxed">
+            <p>Online Power has been providing critical power protection equipment and backup power supply systems since 1975. Our mission hasn't changed: help engineers, facilities managers, and OEM partners find the right power solution for their specific application.</p>
+            <p>We design, engineer, and manufacture every product at our Los Angeles facility — from compact emergency lighting inverters to megawatt-class custom OEM power systems. As a manufacturer, we offer what distributors can't: direct engineering support from the people who signed the drawings and wrote the firmware.</p>
             <p>Our commitment to quality earned us ISO 9001 certification in 1996, and we've maintained it continuously since. Every product is UL listed and tested to meet or exceed NFPA, NEC, and other applicable safety standards.</p>
           </div>
         </div>
         <div class="grid grid-cols-2 gap-4">
-          {company.stats.map(stat => (
-            <div class="bg-white border border-steel-gray rounded-xl p-6 text-center">
-              <p class="eyebrow text-steel-blue mb-2">{stat.label}</p>
-              <p class="font-display text-2xl font-bold text-near-black">{stat.value}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ISO 9001 -->
-  <section class="py-14 md:py-[72px] bg-white" id="iso9001">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-8 items-start">
-        <div>
-          <p class="eyebrow text-steel-blue mb-4">Quality Assurance</p>
-          <h2 class="font-display text-3xl font-bold text-near-black mb-6">ISO 9001 Certified Since 1996</h2>
-          <div class="space-y-4 text-slate leading-relaxed">
-            <p>Online Power has been ISO 9001 certified since 1996 — continuously maintaining the highest quality management standards for nearly three decades.</p>
-            <p>Our quality management system covers every aspect of our operations: design and engineering, manufacturing and assembly, testing and inspection, and customer support. Every product that leaves our facility meets or exceeds the requirements of our ISO 9001 quality system.</p>
-          </div>
-          <Button href="/pdf/ISO_9001_Certification_11-03-27.pdf" variant="outline" target="_blank" class="mt-6">View ISO 9001 Certificate</Button>
-        </div>
-        <div class="grid grid-cols-3 gap-4">
-          {['ISO 9001:2015', 'UL Listed', 'NFPA Compliant', 'CSA Certified', 'CE Marked', 'OSHPD Approved'].map(cert => (
-            <div class="card-hover bg-off-white rounded-xl p-4 text-center">
-              <div class="w-8 h-8 rounded-lg bg-steel-blue/10 flex items-center justify-center mx-auto mb-2">
-                <svg class="w-4 h-4 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          {[
+            { value: '50', unit: 'years', label: 'US Manufacturing', color: 'from-steel-blue/15 to-steel-blue/5' },
+            { value: '1996', unit: '', label: 'ISO 9001 Since', color: 'from-sky-blue/15 to-sky-blue/5' },
+            { value: '10', unit: 'categories', label: 'Product Lines', color: 'from-steel-blue/15 to-steel-blue/5' },
+            { value: 'LA', unit: '', label: 'Los Angeles, CA', color: 'from-sky-blue/15 to-sky-blue/5' },
+          ].map(s => (
+            <div class={`relative overflow-hidden bg-white border border-steel-gray rounded-xl p-6 hover:border-steel-blue hover:shadow-[0_12px_28px_-8px_rgba(37,103,194,0.18)] hover:-translate-y-0.5 transition-all`}>
+              <div class={`absolute inset-0 bg-gradient-to-br ${s.color} pointer-events-none`}></div>
+              <div class="relative">
+                <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-steel-blue mb-3">{s.label}</p>
+                <p class="font-display text-[36px] md:text-[44px] font-extrabold tracking-tight text-near-black leading-none">{s.value}</p>
+                {s.unit && <p class="font-display text-[12px] font-semibold text-steel-blue mt-1">{s.unit}</p>}
               </div>
-              <p class="text-xs font-medium text-near-black">{cert}</p>
             </div>
           ))}
         </div>
@@ -74,78 +110,138 @@ import { company } from '../data/company';
     </div>
   </section>
 
-  <!-- Safety Standards -->
-  <section class="py-14 md:py-[72px] bg-off-white" id="safety-standards">
+  <!-- ========== 02 · ISO 9001 ========== -->
+  <section id="iso9001" class="relative py-16 md:py-24 bg-near-black overflow-hidden border-y border-navy-mid">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.05]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(37,103,194,0.22) 0%, rgba(37,103,194,0) 65%); filter: blur(12px);"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[3px]" style="background: linear-gradient(90deg, transparent, rgba(126,179,245,0.8), transparent);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div>
+          <span class="font-display text-[11px] font-bold tracking-[0.2em] text-sky-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-sky-blue opacity-60"></span>02 · Quality Assurance</span>
+          <h2 class="font-display text-3xl md:text-[44px] font-extrabold tracking-tight text-white mt-3 mb-6 leading-[1.05]">ISO 9001 Certified<br/><span class="text-sky-blue">Since 1996.</span></h2>
+          <div class="space-y-4 text-[15px] text-muted-blue leading-relaxed mb-8">
+            <p>Online Power has been ISO 9001 certified continuously since 1996 — maintaining the highest quality-management standards for nearly three decades.</p>
+            <p>Our QMS covers every aspect of operations: design and engineering, manufacturing and assembly, testing and inspection, customer support. Every product leaving our facility meets or exceeds the requirements of our ISO 9001 system.</p>
+          </div>
+          <a href="/pdf/ISO_9001_Certification_11-03-27.pdf" target="_blank" rel="noopener" class="btn-primary px-6 py-3 text-[13px] inline-flex items-center justify-center gap-2">
+            View ISO 9001 Certificate
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {company.certifications.map(cert => (
+            <div class="bg-navy-mid/50 border border-navy-mid rounded-lg p-4 text-center backdrop-blur-sm hover:border-steel-blue transition-colors">
+              <div class="w-8 h-8 rounded-lg bg-steel-blue/20 border border-steel-blue/40 flex items-center justify-center mx-auto mb-2">
+                <svg class="w-4 h-4 text-sky-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <p class="font-display text-[12px] font-bold text-white">{cert}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 · SAFETY STANDARDS ========== -->
+  <section id="safety-standards" class="py-16 md:py-24 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-4">Compliance</p>
-      <h2 class="font-display text-3xl font-bold text-near-black mb-10">Safety Standards</h2>
-      <p class="text-slate max-w-3xl mb-10">Online Power products are designed and manufactured in accordance with or listed to the following safety standards organizations:</p>
+      <div class="max-w-3xl mb-12">
+        <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-steel-blue opacity-60"></span>03 · Safety Standards</span>
+        <h2 class="font-display text-3xl md:text-[40px] font-extrabold tracking-tight text-near-black mt-3 mb-4 leading-[1.05]">Listed. Approved. <span class="text-steel-blue">Inspected.</span></h2>
+        <p class="text-[15px] text-slate leading-relaxed">Online Power products are designed and manufactured in accordance with — or listed to — the following recognized standards organizations and agencies.</p>
+      </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { org: 'ANSI / IEEE', desc: 'American National Standards Institute / Institute of Electrical and Electronics Engineers' },
+          { org: 'ANSI / IEEE', desc: 'American National Standards Institute · Institute of Electrical and Electronics Engineers' },
           { org: 'NEMA', desc: 'National Electrical Manufacturers Association' },
           { org: 'CSA', desc: 'Canadian Standards Association (Canada)' },
-          { org: 'CE / IEC', desc: 'Conformité Européenne / International Electrotechnical Commission (Europe)' },
-          { org: 'ETL / UL', desc: 'Intertek / Underwriters Laboratories (USA)' },
+          { org: 'CE / IEC', desc: 'Conformité Européenne · International Electrotechnical Commission (Europe)' },
+          { org: 'ETL / UL', desc: 'Intertek · Underwriters Laboratories (USA)' },
           { org: 'FCC', desc: 'Federal Communications Commission (USA)' },
-          { org: 'OSHPD / HCAI', desc: 'Office of Statewide Health Planning (California Hospitals)' },
+          { org: 'OSHPD / HCAI', desc: 'Office of Statewide Health Planning — California hospitals' },
           { org: 'NFPA', desc: 'National Fire Protection Association' },
         ].map(item => (
-          <div class="bg-white border border-steel-gray rounded-xl p-5">
-            <p class="font-display font-bold text-steel-blue text-sm mb-1">{item.org}</p>
-            <p class="text-xs text-slate">{item.desc}</p>
+          <div class="relative bg-white border border-steel-gray rounded-xl p-5 hover:border-steel-blue hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(37,103,194,0.18)] transition-all">
+            <p class="font-display text-[15px] font-bold text-steel-blue mb-2">{item.org}</p>
+            <p class="text-[13px] text-slate leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Laboratory Testing -->
-  <section class="py-14 md:py-[72px] bg-white" id="lab-testing">
+  <!-- ========== 04 · LAB TESTING ========== -->
+  <section id="lab-testing" class="py-16 md:py-24 bg-white border-t border-steel-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-4">Testing</p>
-      <h2 class="font-display text-3xl font-bold text-near-black mb-6">Laboratory Testing</h2>
-      <p class="text-slate max-w-3xl mb-10">Online Power maintains comprehensive in-house testing capabilities to ensure every product meets the highest standards of reliability and safety.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {['EMC Testing', 'Humidity & Salt Fog', 'ESD Testing', 'Grounding & Bonding', 'Surge Withstand', 'Rain Intrusion', 'Seismic / Shaker Table', 'Thermal Cycling', 'Load & Performance'].map(test => (
-          <div class="flex items-center gap-3 bg-off-white border border-steel-gray rounded-lg p-4">
-            <svg class="w-5 h-5 text-steel-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <span class="text-sm text-near-black">{test}</span>
+      <div class="max-w-3xl mb-12">
+        <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-steel-blue opacity-60"></span>04 · Laboratory Testing</span>
+        <h2 class="font-display text-3xl md:text-[40px] font-extrabold tracking-tight text-near-black mt-3 mb-4 leading-[1.05]">Everything We Build, <span class="text-steel-blue">We Can Test.</span></h2>
+        <p class="text-[15px] text-slate leading-relaxed">Our in-house laboratory covers every qualification test the AHJ may ask for — from seismic shaker-table to salt-fog to UL 60601-1 leakage. Test reports available with every submittal package.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {[
+          { name: 'EMC Testing', desc: 'Electromagnetic compatibility per FCC Part 15 + CE' },
+          { name: 'Humidity &amp; Salt Fog', desc: 'Environmental exposure for coastal / marine installs' },
+          { name: 'ESD Testing', desc: 'Electrostatic discharge immunity per IEC 61000-4-2' },
+          { name: 'Grounding &amp; Bonding', desc: 'Per NEC Article 250 and UL 60601-1' },
+          { name: 'Surge Withstand', desc: 'Per IEEE C62.41 / ANSI C62.41 categories' },
+          { name: 'Rain Intrusion', desc: 'For NEMA 3R outdoor-rated enclosures' },
+          { name: 'Seismic Shaker Table', desc: 'OSHPD / HCAI preapproval testing' },
+          { name: 'Thermal Cycling', desc: 'Full operational envelope, 0–40 °C' },
+          { name: 'Load &amp; Performance', desc: 'Full-rated burn-in on every unit shipped' },
+        ].map(test => (
+          <div class="flex items-start gap-3 bg-off-white border border-steel-gray rounded-lg p-4 hover:border-steel-blue transition-colors">
+            <div class="w-8 h-8 rounded bg-steel-blue/10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="font-display text-[14px] font-bold text-near-black" set:html={test.name}></p>
+              <p class="text-[12px] text-slate mt-0.5" set:html={test.desc}></p>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Careers -->
-  <section class="py-14 md:py-[72px] bg-off-white" id="careers">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="max-w-3xl">
-        <p class="eyebrow text-steel-blue mb-4">Careers</p>
-        <h2 class="font-display text-3xl font-bold text-near-black mb-6">Join Our Team</h2>
-        <p class="text-slate leading-relaxed mb-4">Online Power is an Equal Opportunity Employer offering competitive compensation and benefits. We're always looking for talented engineers, technicians, and manufacturing professionals.</p>
-        <p class="text-slate leading-relaxed mb-8">To apply, submit your resume in PDF format to:</p>
-        <div class="card-hover bg-white rounded-xl p-6 space-y-3">
-          <a href="mailto:hr@onlinepower.com" class="flex items-center gap-3 text-steel-blue font-display font-semibold text-sm hover:text-near-black transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            hr@onlinepower.com
-          </a>
-          <p class="text-xs text-slate">Fax: (323) 721-3929</p>
-        </div>
+  <!-- ========== 05 · CAREERS ========== -->
+  <section id="careers" class="relative py-16 md:py-24 bg-deep-navy overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.06]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 56px 56px;"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[3px]" style="background: linear-gradient(90deg, transparent, rgba(37,103,194,0.8), transparent);"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <span class="font-display text-[11px] font-bold tracking-[0.2em] text-sky-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-sky-blue opacity-60"></span>05 · Careers<span class="w-7 h-[1px] bg-sky-blue opacity-60"></span></span>
+        <h2 class="font-display text-3xl md:text-[44px] font-extrabold tracking-tight text-white mt-3 leading-[1.05]">Join the team that <span class="text-sky-blue">builds it.</span></h2>
+      </div>
+      <div class="bg-navy-mid/50 border border-navy-mid rounded-2xl p-6 md:p-10 backdrop-blur-sm text-center">
+        <p class="text-muted-blue leading-relaxed mb-6 max-w-xl mx-auto">Online Power is an Equal Opportunity Employer. We offer competitive compensation and full benefits. We're always hiring engineers, technicians, and manufacturing professionals who take pride in precision work.</p>
+        <p class="text-[14px] text-muted-blue mb-6">Submit your resume in PDF format to:</p>
+        <a href="mailto:hr@onlinepower.com" class="inline-flex items-center gap-3 px-6 py-3 bg-steel-blue text-white rounded-lg hover:bg-steel-blue/90 transition-colors font-display font-bold text-[15px]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          hr@onlinepower.com
+        </a>
+        <p class="text-[12px] text-muted-blue mt-6">Or fax: (323) 721-3929</p>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-deep-navy py-12 md:py-16">
+  <!-- ========== CTA ========== -->
+  <section class="bg-off-white py-16 md:py-20 border-t border-steel-gray">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="font-display text-3xl font-bold text-white mb-4">Work With Us</h2>
-      <p class="text-muted-blue mb-8">Standard products, custom OEM, or expert training.</p>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-near-black mb-4 leading-[1.05]">Work With Us.</h2>
+      <p class="text-slate mb-8 max-w-xl mx-auto">Standard products, custom OEM, or expert training from the engineers who designed your equipment.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/training" class="px-8 py-3.5 bg-steel-blue text-white font-semibold rounded hover:bg-steel-blue/90 transition-colors text-sm">Register for Training</a>
-        <a href="/contact" class="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded hover:bg-white/10 transition-colors text-sm">Contact Us</a>
+        <a href="/contact" class="btn-primary px-8 py-3.5 text-[15px] inline-flex items-center justify-center gap-2">
+          Contact Us
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/training" class="btn-outline px-8 py-3.5 text-[15px] inline-flex items-center justify-center">Register for Training</a>
       </div>
     </div>
   </section>
 
 </BaseLayout>
+</content>
+</invoke>

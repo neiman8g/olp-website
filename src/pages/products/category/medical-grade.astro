@@ -79,7 +79,6 @@ const applications = [
 
           <div class="flex flex-col sm:flex-row gap-3 mb-4">
             <Button href="/contact" size="lg" icon="arrow-right">Request OSHPD Submittal</Button>
-            <Button href="/products/" variant="ghost" size="lg">All Products</Button>
           </div>
           <p class="font-display text-[13px] text-muted-blue">Responds within 2 business hours</p>
         </div>
@@ -106,6 +105,32 @@ const applications = [
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT MODELS — models first per emergency-lighting pattern -->
+  <section class="py-10 md:py-14 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <p class="eyebrow text-steel-blue mb-8">{categoryProducts.length} Models Available</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {categoryProducts.map(p => (
+          <a href={`/products/${p.slug}`} class="card-hover border-t-2 border-t-steel-blue bg-white rounded-xl overflow-hidden group">
+            <div class="h-[200px] bg-off-white flex items-center justify-center p-4">
+              {typeof getProductImage(p.image) === 'string' ? (
+                <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" />
+              ) : (
+                <Image src={getProductImage(p.image) as ImageMetadata} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" format="webp" quality={80} widths={[200, 400]} sizes="(max-width: 640px) 100vw, 33vw" />
+              )}
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
+              <p class="font-display font-semibold text-xs text-steel-blue mb-3">{p.tagline}</p>
+              <p class="text-base text-slate mb-4 line-clamp-2">{p.description}</p>
+              <span class="text-[15px] font-medium text-steel-blue">View Details &rarr;</span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -206,32 +231,6 @@ const applications = [
       <div class="tab-content hidden" data-tab="documents">
         <p class="font-display text-[13px] text-slate mb-6">All documents available for immediate download after a quick registration.</p>
         <DocumentGate productSlug="medical-power" />
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCT MODELS -->
-  <section class="py-10 md:py-14 bg-off-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-8">{categoryProducts.length} Models Available</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {categoryProducts.map(p => (
-          <a href={`/products/${p.slug}`} class="card-hover border-t-2 border-t-steel-blue bg-white rounded-xl overflow-hidden group">
-            <div class="h-[200px] bg-off-white flex items-center justify-center p-4">
-              {typeof getProductImage(p.image) === 'string' ? (
-                <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" />
-              ) : (
-                <Image src={getProductImage(p.image) as ImageMetadata} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" format="webp" quality={80} widths={[200, 400]} sizes="(max-width: 640px) 100vw, 33vw" />
-              )}
-            </div>
-            <div class="p-6">
-            <h3 class="font-display text-2xl font-semibold text-near-black mb-1 group-hover:text-steel-blue transition-colors">{p.name}</h3>
-            <p class="font-display font-semibold text-xs text-steel-blue mb-3">{p.tagline}</p>
-            <p class="text-base text-slate mb-4 line-clamp-2">{p.description}</p>
-            <span class="text-[15px] font-medium text-steel-blue">View Details &rarr;</span>
-            </div>
-          </a>
-        ))}
       </div>
     </div>
   </section>

@@ -64,34 +64,7 @@ import Button from './Button.astro';
           </div>
         </div>
 
-        <!-- Support Dropdown -->
-        <div class="relative" data-dropdown>
-          <button
-            class="px-2.5 py-2 text-[13px] font-display font-bold uppercase tracking-[0.08em] text-slate hover:text-near-black transition-colors flex items-center gap-1"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="dropdown-support"
-            data-dropdown-trigger
-          >
-            Support
-            <svg class="w-4 h-4 transition-transform" data-dropdown-chevron fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div
-            class="absolute left-0 top-full pt-3 opacity-0 invisible transition-all duration-200"
-            id="dropdown-support"
-            role="menu"
-            data-dropdown-menu
-          >
-            <div class="bg-deep-navy border border-navy-mid rounded-lg py-3 w-[280px] shadow-2xl shadow-near-black/30">
-              {navigation.support.map(item => (
-                <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined} role="menuitem" tabindex="-1" class="block px-5 py-2.5 hover:bg-navy-mid transition-colors font-display font-semibold text-[14px] text-white whitespace-nowrap">
-                  {item.name}
-                  {item.href.startsWith('http') && <svg class="w-3 h-3 inline ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+        <a href="/training/" class="px-2.5 py-2 text-[13px] font-display font-bold uppercase tracking-[0.08em] text-slate hover:text-near-black transition-colors">Training</a>
 
         <!-- Company Dropdown -->
         <div class="relative" data-dropdown>
@@ -119,8 +92,11 @@ import Button from './Button.astro';
           </div>
         </div>
 
-        <a href="/training/" class="px-2.5 py-2 text-[13px] font-display font-bold uppercase tracking-[0.08em] text-slate hover:text-near-black transition-colors">Training</a>
         <a href="/support/documents" class="px-2.5 py-2 text-[13px] font-display font-bold uppercase tracking-[0.08em] text-slate hover:text-near-black transition-colors">Documents</a>
+        <a href="https://800pwrsrvc.com/" target="_blank" rel="noopener" class="px-2.5 py-2 text-[13px] font-display font-bold uppercase tracking-[0.08em] text-slate hover:text-near-black transition-colors inline-flex items-center gap-1">
+          Power Services
+          <svg class="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
       </nav>
 
       <!-- CTA -->
@@ -166,17 +142,7 @@ import Button from './Button.astro';
       </div>
     </div>
 
-    <div class="border-b border-steel-gray pb-3">
-      <button class="flex justify-between items-center w-full py-3 text-left font-medium text-near-black mobile-accordion-btn" aria-controls="mobile-support">
-        Support
-        <svg class="w-5 h-5 text-slate transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-      </button>
-      <div class="hidden mt-1 space-y-0.5 mobile-accordion-content" id="mobile-support">
-        {navigation.support.map(item => (
-          <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} class="block py-2.5 pl-4 text-sm text-slate hover:text-steel-blue transition-colors">{item.name}</a>
-        ))}
-      </div>
-    </div>
+    <a href="/training/" class="block py-3 font-medium text-steel-blue border-b border-steel-gray">Training</a>
 
     <div class="border-b border-steel-gray pb-3">
       <button class="flex justify-between items-center w-full py-3 text-left font-medium text-near-black mobile-accordion-btn" aria-controls="mobile-company">
@@ -189,9 +155,12 @@ import Button from './Button.astro';
         ))}
       </div>
     </div>
-    <a href="/training/" class="block py-3 font-medium text-steel-blue border-b border-steel-gray">Training</a>
     <a href="/support/documents" class="block py-3 font-medium text-steel-blue border-b border-steel-gray">Documents</a>
-    <a href="/contact/" class="block py-3 font-medium text-slate hover:text-steel-blue">Request a Quote</a>
+    <a href="/contact/" class="block py-3 font-medium text-slate hover:text-steel-blue border-b border-steel-gray">Request a Quote</a>
+    <a href="https://800pwrsrvc.com/" target="_blank" rel="noopener" class="flex items-center gap-2 py-3 font-medium text-slate hover:text-steel-blue transition-colors">
+      Power Services
+      <svg class="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+    </a>
 
     <div class="pt-6 space-y-3 border-t border-steel-gray mt-4">
       <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="flex items-center gap-2 text-steel-blue font-display font-semibold text-sm">

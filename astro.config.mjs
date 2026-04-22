@@ -17,6 +17,11 @@ export default defineConfig({
     '/products/category/isolation': '/products/category/isolation-transformers',
     // Frequency Converter promoted from custom-oem to its own category
     '/products/category/frequency-conversion': '/products/category/frequency-converters',
+    // Removed placeholder product slugs — redirect each to its category page
+    '/products/power-distribution': '/products/category/power-distribution',
+    '/products/medical-grade': '/products/category/medical-grade',
+    '/products/voltage-regulators': '/products/category/voltage-regulators',
+    '/products/custom-oem': '/products/category/custom-oem',
   },
 
   vite: {

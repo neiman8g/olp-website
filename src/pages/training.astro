@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
-import Card from '../components/Card.astro';
 import { company } from '../data/company';
 import { productCategories } from '../data/navigation';
 ---
@@ -11,106 +10,211 @@ import { productCategories } from '../data/navigation';
   description="Register for expert product training from Online Power's engineering team. In-person, virtual, or on-site training on emergency lighting inverters, UPS systems, fire alarm backup, and all power protection products."
 >
 
-  <!-- Hero -->
-  <section class="py-14 md:py-[72px] bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-4">Expert Training</p>
-      <h1 class="font-display text-4xl md:text-[48px] font-bold text-near-black mb-6">Product Training</h1>
-      <p class="text-base text-slate max-w-2xl">
-        Hands-on training from the engineers who designed and built your equipment. In-person at our LA facility, virtually, or on-site at your location.
-      </p>
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
+        <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Training</span>
+      </nav>
     </div>
   </section>
 
-  <!-- What Training Covers + Formats -->
-  <section class="py-14 md:py-[72px] bg-off-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-8">
-        <div>
-          <h2 class="font-display text-3xl font-bold text-near-black mb-8">What We Cover</h2>
-          <div class="space-y-5">
-            {[
-              { title: 'Product Operation & Setup', desc: 'Installation, configuration, and daily operation of your specific equipment.' },
-              { title: 'Preventive Maintenance', desc: 'Scheduled maintenance, battery testing, and performance monitoring.' },
-              { title: 'Troubleshooting & Diagnostics', desc: 'Fault codes, diagnostic procedures, and common issue resolution.' },
-              { title: 'Safety & Compliance', desc: 'UL, NFPA, and NEC requirements. Safety protocols and best practices.' },
-            ].map(item => (
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded bg-steel-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg class="w-3.5 h-3.5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-near-black text-[16px]">{item.title}</h3>
-                  <p class="text-base text-slate mt-0.5">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
+    <div class="absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(126,179,245,0.15) 0%, rgba(126,179,245,0) 70%); filter: blur(10px);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-3">
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="badge-dark">In-Person</span>
+            <span class="badge-dark">Virtual</span>
+            <span class="badge-dark">On-Site</span>
+            <span class="badge-dark">Made in USA</span>
           </div>
 
-          <h3 class="font-display text-2xl font-bold text-near-black mt-12 mb-4">Who Should Attend</h3>
-          <div class="flex flex-wrap gap-2">
-            {['Engineers', 'Facility Managers', 'Maintenance Staff', 'Electricians', 'Fire Protection Engineers', 'Contractors', 'OEM Partners'].map(role => (
-              <span class="badge-light">{role}</span>
-            ))}
+          <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">
+            Learn From the Engineers <span class="text-sky-blue">Who Built It.</span>
+          </h1>
+          <p class="text-lg text-muted-blue leading-relaxed max-w-xl mb-8">
+            Hands-on product training from the engineering team that designed your equipment. In-person at our Los Angeles facility, live virtual sessions with recordings for your team, or on-site at your project location.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 mb-4">
+            <Button href="#register" size="lg" icon="arrow-right">Register for Training</Button>
           </div>
+          <p class="font-display text-[13px] text-muted-blue">Confirmations sent within 1–2 business days</p>
         </div>
 
-        <!-- Training Formats -->
-        <div class="space-y-5">
+        <div class="hidden lg:block lg:col-span-2">
+          <div class="relative bg-navy-mid border border-white/5 rounded-xl p-8 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+            <div class="absolute inset-0 pointer-events-none opacity-[0.08] rounded-xl overflow-hidden" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 22px 22px;"></div>
+            <div class="relative">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-blue mb-3">Since 1975</p>
+              <p class="font-display text-white text-[44px] font-extrabold leading-[1] tracking-tight">Factory<br/>trained.</p>
+              <p class="text-muted-blue text-[14px] mt-5 leading-relaxed">Every session is led by an engineer who can answer the questions your rep can't — because they designed the circuitry, wrote the firmware, or signed the UL file.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
           {[
-            { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', title: 'At Our Plant', desc: 'Factory training at our Los Angeles manufacturing facility. See the production floor and get hands-on experience with actual equipment.' },
-            { icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z', title: 'Virtual', desc: 'Live video training with screen sharing, interactive Q&A, and recorded sessions for your team.' },
-            { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z', title: 'At Your Office', desc: 'Project-specific training or lunch-and-learn sessions for your team. Customized to your installed equipment and staff needs.' },
-          ].map(item => (
-            <Card variant="feature" class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path></svg>
-              </div>
-              <div>
-                <h3 class="font-display font-semibold text-near-black mb-1">{item.title}</h3>
-                <p class="text-base text-slate">{item.desc}</p>
-              </div>
-            </Card>
+            { label: 'Formats', value: '3 delivery modes' },
+            { label: 'Audience', value: 'Engineers · MEP · Facilities' },
+            { label: 'Credits', value: 'CEU Available' },
+            { label: 'Experience', value: '50 years in LA' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
           ))}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Registration Form -->
-  <section class="py-14 md:py-[72px] bg-white" id="register">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-10">
-        <h2 class="font-display text-3xl font-bold text-near-black mb-3">Register for Training</h2>
-        <p class="text-slate">Fill out the form and our team will schedule your session.</p>
+  <!-- ========== 01 · FORMATS ========== -->
+  <section class="py-16 md:py-24 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-10">
+        <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-steel-blue opacity-60"></span>01 · Where &amp; How</span>
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-near-black mt-3 leading-[1.05]">Pick the Format. We'll Bring the Engineers.</h2>
       </div>
 
-      <form id="training-form" class="bg-off-white border border-steel-gray rounded-2xl p-6 md:p-10 space-y-5">
+      <div class="grid md:grid-cols-3 gap-5">
+        {[
+          {
+            title: 'At Our Plant',
+            tag: 'Los Angeles, CA',
+            desc: 'Full factory tour. Hands-on with the exact unit in your spec. See the burn-in room, the test benches, and the stockroom your breakers came from.',
+            bullets: ['Production floor walk-through', 'Hands-on with your unit configuration', 'Lunch included · parking free'],
+            icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+          },
+          {
+            title: 'Virtual',
+            tag: 'Live + Recorded',
+            desc: 'Live video with screen-share and interactive Q&A. Recorded for team members who missed it. No travel, no calendars to wrangle.',
+            bullets: ['Live Q&A with engineering', 'Session recorded for your team', 'Slides & docs sent after'],
+            icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z',
+          },
+          {
+            title: 'At Your Office',
+            tag: 'On-Site, Anywhere',
+            desc: 'We bring the training to your facility. Walk the installed equipment, hands-on with your team, tailored to your project and AHJ.',
+            bullets: ['Walk your installed equipment', 'Customized to your project', 'CEUs available on request'],
+            icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z',
+          },
+        ].map(f => (
+          <div class="group relative overflow-hidden bg-white border border-steel-gray rounded-xl p-7 flex flex-col transition-all duration-300 hover:border-steel-blue hover:-translate-y-1 hover:shadow-[0_18px_40px_-12px_rgba(37,103,194,0.28)]">
+            <div class="w-12 h-12 rounded-lg bg-steel-blue/10 flex items-center justify-center mb-5 group-hover:bg-steel-blue transition-colors">
+              <svg class="w-6 h-6 text-steel-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={f.icon}/></svg>
+            </div>
+            <p class="font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-steel-blue mb-1">{f.tag}</p>
+            <h3 class="font-display text-2xl font-extrabold tracking-tight text-near-black mb-3 group-hover:text-steel-blue transition-colors">{f.title}</h3>
+            <p class="text-[14px] text-slate leading-relaxed mb-5">{f.desc}</p>
+            <ul class="space-y-2 mt-auto">
+              {f.bullets.map(b => (
+                <li class="flex items-start gap-2 text-[13px] text-near-black">
+                  <svg class="w-4 h-4 text-steel-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 · CURRICULUM ========== -->
+  <section class="relative py-16 md:py-24 bg-near-black overflow-hidden border-y border-navy-mid">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.05]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(37,103,194,0.22) 0%, rgba(37,103,194,0) 65%); filter: blur(12px);"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[3px]" style="background: linear-gradient(90deg, transparent, rgba(126,179,245,0.8), transparent);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-12">
+        <span class="font-display text-[11px] font-bold tracking-[0.2em] text-sky-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-sky-blue opacity-60"></span>02 · Curriculum</span>
+        <h2 class="font-display text-3xl md:text-[44px] font-extrabold tracking-tight text-white mt-3 leading-[1.05] max-w-3xl">What You'll Know <span class="text-sky-blue">When You Leave.</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        {[
+          { title: 'Product Operation & Setup', desc: 'Installation, commissioning, configuration, and daily operation of your specific equipment. Live commands through the actual UI.' },
+          { title: 'Preventive Maintenance', desc: 'Scheduled maintenance windows, battery impedance testing, load testing, and the annual test record your AHJ will ask for.' },
+          { title: 'Troubleshooting & Diagnostics', desc: 'Reading fault codes, walking the decision tree, and the ten most common issues by frequency — with the fix for each.' },
+          { title: 'Safety & Compliance', desc: 'UL 924, UL 1778, UL 1481, UL 60601-1. NFPA 70 / 72 / 99 / 101 / 110. What the AHJ checks, and why.' },
+        ].map(item => (
+          <div class="bg-navy-mid/50 border border-navy-mid rounded-xl p-6 md:p-7 backdrop-blur-sm hover:border-steel-blue transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-steel-blue/20 border border-steel-blue/40 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-sky-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h3 class="font-display text-[20px] font-bold text-white mb-2">{item.title}</h3>
+                <p class="text-[14px] text-muted-blue leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 pt-10 border-t border-navy-mid">
+        <p class="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-blue mb-4">Who Attends</p>
+        <div class="flex flex-wrap gap-2">
+          {['Electrical Engineers', 'MEP Consultants', 'Facility Managers', 'Maintenance Staff', 'Electricians', 'Fire Protection Engineers', 'Contractors', 'OEM Partners'].map(role => (
+            <span class="badge-dark">{role}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 · REGISTER ========== -->
+  <section class="py-16 md:py-24 bg-off-white" id="register">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-steel-blue opacity-60"></span>03 · Register<span class="w-7 h-[1px] bg-steel-blue opacity-60"></span></span>
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-near-black mt-3 leading-[1.05]">Schedule Your Session.</h2>
+        <p class="text-slate mt-3 max-w-md mx-auto">Tell us the product, the format, and the timeframe. Our team confirms within 1–2 business days.</p>
+      </div>
+
+      <form id="training-form" class="bg-white border border-steel-gray rounded-2xl p-6 md:p-10 space-y-5 shadow-[0_16px_40px_-16px_rgba(13,27,42,0.08)]">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="name" class="block eyebrow text-slate mb-2">Full Name *</label>
-            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <label for="name" class="block font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Full Name *</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
           <div>
-            <label for="email" class="block eyebrow text-slate mb-2">Email *</label>
-            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <label for="email" class="block font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Email *</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="phone" class="block eyebrow text-slate mb-2">Phone *</label>
-            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <label for="phone" class="block font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Phone *</label>
+            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
           <div>
-            <label for="company" class="block eyebrow text-slate mb-2">Company *</label>
-            <input type="text" id="company" name="company" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <label for="company" class="block font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Company *</label>
+            <input type="text" id="company" name="company" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="product" class="block eyebrow text-slate mb-2">Product *</label>
-            <select id="product" name="product" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
-              <option value="">Select product...</option>
+            <label for="product" class="block font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Product *</label>
+            <select id="product" name="product" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black focus:border-steel-blue focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
+              <option value="">Select product…</option>
               {productCategories.map(cat => (
                 <option value={cat.name}>{cat.name}</option>
               ))}
@@ -118,34 +222,34 @@ import { productCategories } from '../data/navigation';
             </select>
           </div>
           <div>
-            <label for="format" class="block eyebrow text-slate mb-2">Format *</label>
-            <select id="format" name="format" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
-              <option value="">Select format...</option>
-              <option value="At Our Plant">At Our Plant</option>
-              <option value="Virtual">Virtual</option>
-              <option value="At Your Office">At Your Office</option>
+            <label for="format" class="block font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Format *</label>
+            <select id="format" name="format" required class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black focus:border-steel-blue focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
+              <option value="">Select format…</option>
+              <option value="At Our Plant">At Our Plant · Los Angeles</option>
+              <option value="Virtual">Virtual · Live + Recorded</option>
+              <option value="At Your Office">At Your Office · On-Site</option>
             </select>
           </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="attendees" class="block eyebrow text-slate mb-2">Attendees</label>
-            <select id="attendees" name="attendees" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-slate focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
-              <option value="1-3">1-3</option><option value="4-8">4-8</option><option value="9-15">9-15</option><option value="16+">16+</option>
+            <label for="attendees" class="block font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Attendees</label>
+            <select id="attendees" name="attendees" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black focus:border-steel-blue focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors">
+              <option value="1-3">1–3</option><option value="4-8">4–8</option><option value="9-15">9–15</option><option value="16+">16+</option>
             </select>
           </div>
           <div>
-            <label for="date_range" class="block eyebrow text-slate mb-2">Preferred Dates</label>
-            <input type="text" id="date_range" name="date_range" placeholder="e.g., June 2026" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
+            <label for="date_range" class="block font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Preferred Dates</label>
+            <input type="text" id="date_range" name="date_range" placeholder="e.g. June 2026" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors" />
           </div>
         </div>
         <div>
-          <label for="message" class="block eyebrow text-slate mb-2">Notes</label>
-          <textarea id="message" name="message" rows="3" class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue/50 focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors resize-y"></textarea>
+          <label for="message" class="block font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-slate mb-2">Notes</label>
+          <textarea id="message" name="message" rows="3" placeholder="Project details, specific topics, AHJ..." class="w-full px-4 py-3 bg-off-white border border-steel-gray rounded-lg text-base text-near-black placeholder:text-slate/40 focus:border-steel-blue focus:ring-1 focus:ring-steel-blue/30 outline-none transition-colors resize-y"></textarea>
         </div>
         <div class="hidden" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" /></div>
         <Button type="submit" id="training-submit-btn" size="lg" icon="bolt" fullWidth>Register for Training</Button>
-        <div id="form-success" class="hidden p-4 bg-steel-blue/10 border border-steel-blue/30 rounded-lg text-steel-blue text-sm text-center">Submitted! We'll contact you within 1-2 business days.</div>
+        <div id="form-success" class="hidden p-4 bg-steel-blue/10 border border-steel-blue/30 rounded-lg text-steel-blue text-sm text-center">Submitted. We'll contact you within 1–2 business days.</div>
         <div id="form-error" class="hidden p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm text-center">Something went wrong. Call {company.phone}.</div>
       </form>
 
@@ -155,24 +259,26 @@ import { productCategories } from '../data/navigation';
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="py-14 md:py-[72px] bg-off-white">
+  <!-- ========== 04 · FAQ ========== -->
+  <section class="py-16 md:py-24 bg-white border-t border-steel-gray">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-4">FAQ</p>
-      <h2 class="font-display text-3xl font-bold text-near-black mb-8">Training Questions</h2>
+      <div class="mb-10">
+        <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase inline-flex items-center gap-3"><span class="w-7 h-[1px] bg-steel-blue opacity-60"></span>04 · Common Questions</span>
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-near-black mt-3 leading-[1.05]">Training FAQ.</h2>
+      </div>
       <div class="space-y-3">
         {[
-          { q: 'How long is a typical training session?', a: 'Virtual sessions run 2-4 hours. Plant visits and at-your-office training is typically 4-8 hours. Duration depends on product complexity and topics covered.' },
-          { q: 'Is there a cost for training?', a: 'Contact us for pricing. Costs vary by format, duration, and attendees. Training may be included with new equipment purchases.' },
-          { q: 'Can training be customized for our installation?', a: 'Absolutely. On-site training is built around your specific equipment, building configuration, and team requirements.' },
-          { q: 'Do you provide training materials?', a: 'All attendees receive product documentation and reference materials. Virtual sessions are recorded. Certificates available on request.' },
+          { q: 'How long is a typical training session?', a: 'Virtual sessions run 2–4 hours. Plant visits and at-your-office training is typically 4–8 hours. Duration depends on product complexity and topics covered.' },
+          { q: 'Is there a cost for training?', a: 'Contact us for pricing. Costs vary by format, duration, and attendees. Training is often included with new equipment purchases or service agreements.' },
+          { q: 'Can training be customized for our installation?', a: 'Yes. On-site training is built around your specific equipment, building configuration, and team requirements. We review your drawings and submittals before arriving.' },
+          { q: 'Do you provide training materials and certificates?', a: 'All attendees receive product documentation and reference materials. Virtual sessions are recorded. Completion certificates available on request; CEU credits available for some sessions.' },
         ].map(item => (
-          <details class="group bg-white border border-steel-gray rounded-xl overflow-hidden">
+          <details class="group bg-off-white border border-steel-gray rounded-xl overflow-hidden hover:border-steel-blue transition-colors">
             <summary class="flex items-center justify-between p-5 cursor-pointer text-near-black hover:text-steel-blue transition-colors">
-              <span class="font-medium text-sm">{item.q}</span>
-              <svg class="w-4 h-4 text-slate group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <span class="font-display font-semibold text-[15px]">{item.q}</span>
+              <svg class="w-4 h-4 text-slate group-open:rotate-180 group-open:text-steel-blue transition-all flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </summary>
-            <div class="px-5 pb-5 text-base text-slate leading-relaxed">{item.a}</div>
+            <div class="px-5 pb-5 text-[15px] text-slate leading-relaxed">{item.a}</div>
           </details>
         ))}
       </div>
@@ -213,3 +319,5 @@ import { productCategories } from '../data/navigation';
     });
   })();
 </script>
+</content>
+</invoke>

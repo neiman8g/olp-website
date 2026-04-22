@@ -243,17 +243,6 @@ export const products: Product[] = [
   },
   // === MEDICAL GRADE ===
   {
-    slug: 'medical-grade',
-    image: '/images/products/medical-grade.png',
-    name: 'Medical Grade Systems',
-    tagline: 'UL60601-1 Power Conditioner & UPS',
-    description: 'Medical-grade UL60601-1 power conditioner and UPS designed for hospital and healthcare facility requirements with strict safety and reliability standards for critical medical equipment.',
-    category: 'medical-grade',
-    features: ['UL60601-1 Certified', 'Hospital Grade', 'Critical Care Power', 'Power Conditioning', 'UPS Capability'],
-    standards: ['UL 60601-1'],
-    docs: [],
-  },
-  {
     slug: 'medical-power',
     image: '/images/products/medical-power.png',
     name: 'Medical Power',
@@ -283,17 +272,6 @@ export const products: Product[] = [
     ],
   },
   // === VOLTAGE REGULATORS ===
-  {
-    slug: 'voltage-regulators',
-    image: '/images/products/voltage-regulators.png',
-    name: 'Voltage Regulators',
-    tagline: 'Power Conditioning & Regulation',
-    description: 'Voltage regulation systems designed to maintain stable power output under variable input conditions. Protects equipment from voltage fluctuations and power quality issues.',
-    category: 'voltage-regulators',
-    features: ['Stable Output Voltage', 'Variable Input Tolerance', 'Power Quality Improvement', 'Equipment Protection'],
-    standards: ['UL Listed'],
-    docs: [],
-  },
   {
     slug: 'power-reg',
     image: '/images/products/power-reg.png',
@@ -359,17 +337,6 @@ export const products: Product[] = [
     ],
   },
   // === POWER DISTRIBUTION ===
-  {
-    slug: 'power-distribution',
-    image: '/images/products/power-distribution.png',
-    name: 'Power Distribution Units',
-    tagline: 'Customizable Power Distribution',
-    description: 'Configurable power distribution solutions for managing, distributing, and monitoring energy. Perfect for permanent installations and temporary event setups.',
-    category: 'power-distribution',
-    features: ['Customizable Configuration', 'Energy Monitoring', 'Permanent or Temporary Use', 'Easy Panel Board Matching'],
-    standards: ['UL Listed'],
-    docs: [],
-  },
   {
     slug: 'power-island',
     image: '/images/products/power-island.png',
@@ -473,18 +440,6 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/fc_TD.pdf' },
       { label: 'Manual', url: '/pdf/fc_TM.pdf' },
     ],
-  },
-  // === CUSTOM OEM ===
-  {
-    slug: 'custom-oem',
-    image: '/images/products/custom-oem.png',
-    name: 'Custom OEM Solutions',
-    tagline: '48 Years of Custom Engineering',
-    description: 'Custom power supply units for frequency conversion, AC/DC voltage modification, multiple voltage inputs for global use, noise isolation, distribution, and monitoring with optional battery backup.',
-    category: 'custom-oem',
-    features: ['Custom Frequency Conversion', 'AC & DC Voltage Conversion', 'Global Multi-Voltage Input', 'Noise Isolation', 'Distribution & Monitoring', 'Optional Battery Backup', 'Plug & Play Systems'],
-    standards: ['Application-Specific Certifications'],
-    docs: [],
   },
 ];
 

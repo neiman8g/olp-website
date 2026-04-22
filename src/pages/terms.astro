@@ -1,69 +1,116 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { company } from '../data/company';
+
+const sections = [
+  { id: 'acceptance', num: '01', label: 'Acceptance', body: 'All orders are subject to acceptance by Online Power. Acceptance of any order is expressly conditioned upon the buyer\'s agreement to these terms. All orders are subject to credit approval.' },
+  { id: 'prices', num: '02', label: 'Prices', body: 'All prices are FOB origin unless otherwise stated. Quoted prices are valid for 60 days from the date of the quotation unless otherwise specified.' },
+  { id: 'warranty', num: '03', label: 'Warranty', body: ['Online Power warrants its products to be free from defects in material and workmanship for a period of 24 months from the date of installation or 30 months from the date of shipment, whichever occurs first.', 'Warranty coverage for months 13–24 requires that a preventive maintenance service has been performed by Online Power or an authorized service provider.', 'Warranty does not cover filters, fuses, light bulbs, or damage caused by misuse, neglect, or unauthorized modification. All warranty returns require a valid RMA number and must be submitted within 90 days.', 'Freight for warranty returns is prepaid inbound, collect outbound.'] },
+  { id: 'payment', num: '04', label: 'Payment', body: 'Payment terms are Net 30 days after shipment. Storage charges of 3% per month apply to orders not shipped within the agreed timeframe due to buyer delay.' },
+  { id: 'cancellation', num: '05', label: 'Cancellation or Changes', body: 'Change orders and cancellations must be submitted in writing. Cancellation charges may apply based on the stage of production at the time of cancellation.' },
+  { id: 'law', num: '06', label: 'Applicable Law', body: 'These terms and conditions are governed by the laws of the State of California. Any disputes shall be resolved in the courts of Los Angeles County, California.' },
+  { id: 'default', num: '07', label: 'Default', body: 'Late payments are subject to a finance charge of 1.5% per month (18% per annum). Buyer agrees to pay all costs of collection, including reasonable attorney fees.' },
+];
 ---
 
 <BaseLayout title="Terms & Conditions | Online Power" description="Online Power terms and conditions, warranty policy, payment terms, and legal information.">
 
-  <section class="py-10 md:py-14 bg-off-white border-b border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <nav class="eyebrow text-slate mb-6">
+  <!-- BREADCRUMB STRIP -->
+  <section class="bg-off-white border-b border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-[13px] font-display text-slate">
         <a href="/" class="hover:text-steel-blue transition-colors">Home</a>
-        <span class="mx-2 text-slate">/</span>
-        <span class="text-steel-blue">Terms & Conditions</span>
+        <span class="mx-2">/</span>
+        <span class="text-near-black font-semibold">Terms & Conditions</span>
       </nav>
-      <h1 class="font-display text-4xl md:text-5xl font-bold text-near-black mb-4">Terms & Conditions</h1>
     </div>
   </section>
 
-  <section class="py-10 md:py-14 bg-off-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-10">
+  <!-- ========== HERO — dark with depth ========== -->
+  <section class="relative overflow-hidden bg-deep-navy">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(rgba(126,179,245,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,.7) 1px, transparent 1px); background-size: 48px 48px;"></div>
+    <div class="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,103,194,0.3) 0%, rgba(37,103,194,0) 70%); filter: blur(12px);"></div>
 
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Acceptance</h2>
-        <p class="text-base text-slate leading-relaxed">All orders are subject to acceptance by Online Power. Acceptance of any order is expressly conditioned upon the buyer's agreement to these terms. All orders are subject to credit approval.</p>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <div class="max-w-3xl">
+        <div class="flex flex-wrap gap-2 mb-5">
+          <span class="badge-dark">California Law</span>
+          <span class="badge-dark">Net 30</span>
+          <span class="badge-dark">24 / 30 Month Warranty</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.05] mb-5">Terms &amp; Conditions.</h1>
+        <p class="text-lg text-muted-blue leading-relaxed max-w-xl">Our standard terms for quotes, purchase orders, warranty, payment, cancellation, and governing law. For custom terms on OEM or federal contracts, contact us directly.</p>
       </div>
+    </div>
 
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Prices</h2>
-        <p class="text-base text-slate leading-relaxed">All prices are FOB origin unless otherwise stated. Quoted prices are valid for 60 days from the date of the quotation unless otherwise specified.</p>
-      </div>
-
-      <div id="warranty">
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Warranty</h2>
-        <div class="text-base text-slate leading-relaxed space-y-3">
-          <p>Online Power warrants its products to be free from defects in material and workmanship for a period of 24 months from the date of installation or 30 months from the date of shipment, whichever occurs first.</p>
-          <p>Warranty coverage for months 13-24 requires that a preventive maintenance service has been performed by Online Power or an authorized service provider.</p>
-          <p>Warranty does not cover filters, fuses, light bulbs, or damage caused by misuse, neglect, or unauthorized modification. All warranty returns require a valid RMA number and must be submitted within 90 days.</p>
-          <p>Freight for warranty returns is prepaid inbound, collect outbound.</p>
+    <!-- Stats bar -->
+    <div class="relative border-t border-navy-mid" style="z-index: 2;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-navy-mid">
+          {[
+            { label: 'Quote Validity', value: '60 days' },
+            { label: 'Payment', value: 'Net 30' },
+            { label: 'Warranty', value: '24 / 30 months' },
+            { label: 'Governing Law', value: 'California' },
+          ].map(s => (
+            <div class="py-6 px-4 md:px-6 text-center md:text-left">
+              <p class="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-blue mb-2">{s.label}</p>
+              <p class="font-display text-[15px] md:text-[17px] font-bold text-white leading-tight">{s.value}</p>
+            </div>
+          ))}
         </div>
       </div>
+    </div>
+  </section>
 
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Payment</h2>
-        <p class="text-base text-slate leading-relaxed">Payment terms are Net 30 days after shipment. Storage charges of 3% per month apply to orders not shipped within the agreed timeframe due to buyer delay.</p>
+  <!-- ========== TABLE OF CONTENTS + BODY ========== -->
+  <section class="py-16 md:py-24 bg-off-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-[1fr_2.5fr] gap-10 lg:gap-16 items-start">
+        <!-- Sticky TOC -->
+        <aside class="lg:sticky lg:top-24">
+          <p class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase mb-4">Contents</p>
+          <nav class="space-y-1.5">
+            {sections.map(s => (
+              <a href={`#${s.id}`} class="group flex items-baseline gap-3 py-1.5 font-display text-[14px] text-slate hover:text-steel-blue transition-colors">
+                <span class="font-bold text-steel-blue text-[11px] tracking-[0.12em]">{s.num}</span>
+                <span class="group-hover:underline">{s.label}</span>
+              </a>
+            ))}
+          </nav>
+          <div class="hidden lg:block mt-10 pt-6 border-t border-steel-gray">
+            <p class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase mb-3">Questions?</p>
+            <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="block font-display font-bold text-near-black hover:text-steel-blue transition-colors">{company.phone}</a>
+            <a href={`mailto:${company.email}`} class="block text-[14px] text-slate hover:text-steel-blue transition-colors mt-1">{company.email}</a>
+          </div>
+        </aside>
+
+        <!-- Body -->
+        <div class="space-y-10">
+          {sections.map(s => (
+            <article id={s.id} class="scroll-mt-24 bg-white border border-steel-gray rounded-xl p-6 md:p-8 hover:border-steel-blue transition-colors">
+              <div class="flex items-baseline gap-4 mb-5 pb-4 border-b border-steel-gray">
+                <span class="font-display text-[11px] font-bold tracking-[0.2em] text-steel-blue uppercase">{s.num}</span>
+                <h2 class="font-display text-[22px] font-extrabold tracking-tight text-near-black">{s.label}</h2>
+              </div>
+              {Array.isArray(s.body) ? (
+                <div class="space-y-3 text-[15px] text-slate leading-relaxed">
+                  {s.body.map(p => (<p>{p}</p>))}
+                </div>
+              ) : (
+                <p class="text-[15px] text-slate leading-relaxed">{s.body}</p>
+              )}
+            </article>
+          ))}
+
+          <div class="bg-off-white border-l-2 border-steel-blue rounded-r-xl p-6">
+            <p class="text-[14px] text-near-black leading-relaxed">Factory acceptance testing is included in all quotations unless otherwise noted. For questions about these terms, contact <a href={`mailto:${company.email}`} class="text-steel-blue hover:underline">{company.email}</a> or call <a href={`tel:${company.phone.replace(/[^0-9]/g, '')}`} class="text-steel-blue hover:underline">{company.phone}</a>.</p>
+          </div>
+        </div>
       </div>
-
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Cancellation or Changes</h2>
-        <p class="text-base text-slate leading-relaxed">Change orders and cancellations must be submitted in writing. Cancellation charges may apply based on the stage of production at the time of cancellation.</p>
-      </div>
-
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Applicable Law</h2>
-        <p class="text-base text-slate leading-relaxed">These terms and conditions are governed by the laws of the State of California. Any disputes shall be resolved in the courts of Los Angeles County, California.</p>
-      </div>
-
-      <div>
-        <h2 class="font-display text-xl font-bold text-near-black mb-3">Default</h2>
-        <p class="text-base text-slate leading-relaxed">Late payments are subject to a finance charge of 1.5% per month (18% per annum). Buyer agrees to pay all costs of collection, including reasonable attorney fees.</p>
-      </div>
-
-      <div class="border-t border-steel-gray pt-8">
-        <p class="text-xs text-slate">Factory acceptance testing is included in all quotations unless otherwise noted. For questions about these terms, contact {company.email} or call {company.phone}.</p>
-      </div>
-
     </div>
   </section>
 
 </BaseLayout>
+</content>
+</invoke>
