@@ -36,11 +36,20 @@ const applications = [
   { name: 'Industrial', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
   { name: 'Data Centers', icon: 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01' },
 ];
+
+const faq = [
+  { question: 'What does UL 1481 certify?', answer: 'UL 1481 is the US safety standard for fire alarm notification appliance circuit (NAC) backup power. A UL 1481 listed backup is engineered and certified to carry fire alarm control panels (FACPs) through utility failure without interrupting alarm capability — the signature test the AHJ will run.' },
+  { question: 'How long must fire alarm backup power last?', answer: 'NFPA 72 §10.6.7.2 requires 24 hours of standby power followed by 5 minutes of full alarm operation. If the system includes voice evacuation or mass notification (MNS), the alarm duration extends to 15 minutes. Internal FACP batteries rarely meet this spec for large panels.' },
+  { question: 'Why not just use larger batteries inside the fire alarm panel?', answer: 'Internal FACP battery compartments typically max out at 55Ah. Any large building, high-rise, or voice evacuation system will exceed that capacity and require an external UL 1481 backup. Online Power Fire Alarm Backup scales from 500W to 15 kW, serving single panels up to campus-wide systems.' },
+  { question: 'Does Online Power Fire Alarm Backup integrate with monitoring systems?', answer: 'Yes. Supervised battery charging plus Form-C trouble relay contacts integrate with any monitoring system — BMS, central station, or standalone alarm panel. Contact specifications available in the datasheet.' },
+  { question: 'Does the backup power the entire FACP or only NAC circuits?', answer: 'Unlike commodity NAC extenders that only power notification appliances, Online Power\'s UL 1481 Fire Alarm Backup powers the entire fire alarm control panel with zero transfer time — the configuration your AHJ is looking for on large-building submittals.' },
+];
 ---
 
 <BaseLayout
-  title="Fire Alarm Backup Systems | UL1481 | NFPA 72 | Online Power"
-  description="UL1481 fire alarm notification appliance circuit backup systems. Continuous power for life safety compliance. NFPA 72 compliant. Built in Los Angeles. ISO 9001."
+  title="UL 1481 Fire Alarm Backup Systems | 500W–15 kW | NFPA 72 Compliant | Online Power"
+  description="UL 1481 listed fire alarm backup power. 24 hr standby + 5 min alarm (15 min voice evac) per NFPA 72 §10.6.7.2. Powers the entire FACP — not just NAC circuits. 500W to 15 kW. Built in Los Angeles."
+  faq={faq}
 >
 
   <!-- BREADCRUMB STRIP -->
@@ -332,6 +341,25 @@ const applications = [
             <span class="text-[15px] font-medium text-steel-blue">View Products &rarr;</span>
           </div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="py-10 md:py-14 bg-off-white border-t border-steel-gray">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <p class="eyebrow mb-4">Common Questions</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-near-black mb-8 leading-[1.1]">Fire Alarm Backup FAQ</h2>
+      <div class="space-y-3">
+        {faq.map(item => (
+          <details class="group bg-white border border-steel-gray rounded-xl overflow-hidden hover:border-steel-blue transition-colors">
+            <summary class="flex items-start gap-4 p-5 cursor-pointer">
+              <span class="font-display text-[15px] font-semibold text-near-black flex-1 group-hover:text-steel-blue transition-colors">{item.question}</span>
+              <svg class="w-4 h-4 text-slate group-open:rotate-180 group-open:text-steel-blue transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+            <div class="px-5 pb-5 text-[15px] text-slate leading-relaxed">{item.answer}</div>
+          </details>
+        ))}
       </div>
     </div>
   </section>

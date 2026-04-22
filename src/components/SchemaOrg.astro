@@ -17,20 +17,104 @@ interface Props {
 
 const { type = 'organization', product, faq, breadcrumbs } = Astro.props;
 
-const orgSchema = {
+// Full LocalBusiness + Manufacturer + Organization combined schema
+// @graph lets us declare multiple entities in one payload without duplication
+const orgGraph = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: company.legalName,
-  url: company.url,
-  logo: `${company.url}/images/logos/logo.png`,
-  telephone: company.phone,
-  email: company.email,
-  foundingDate: String(company.founded),
-  sameAs: [social.instagram, social.linkedin],
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'US',
-  },
+  '@graph': [
+    {
+      '@type': ['Organization', 'Manufacturer', 'LocalBusiness'],
+      '@id': `${company.url}/#organization`,
+      name: company.legalName,
+      alternateName: company.name,
+      url: company.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${company.url}/images/logos/logo.png`,
+      },
+      image: `${company.url}/images/og-default.png`,
+      telephone: company.phone,
+      email: company.email,
+      foundingDate: String(company.founded),
+      foundingLocation: {
+        '@type': 'Place',
+        name: 'Los Angeles, California, USA',
+      },
+      slogan: company.tagline,
+      description: company.description,
+      sameAs: [social.instagram, social.linkedin].filter(Boolean),
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Los Angeles',
+        addressRegion: 'CA',
+        addressCountry: 'US',
+      },
+      areaServed: [
+        { '@type': 'Country', name: 'United States' },
+        { '@type': 'Country', name: 'Canada' },
+      ],
+      priceRange: '$$$',
+      knowsAbout: [
+        'Emergency lighting inverters',
+        'UL 924 lighting equipment',
+        'Uninterruptible power supply',
+        'UL 1778 UPS systems',
+        'Fire alarm backup',
+        'UL 1481 notification appliance circuit backup',
+        'Elevator emergency backup power',
+        'Medical-grade power conditioning',
+        'UL 60601-1 patient-grade equipment',
+        'Isolation transformers',
+        'Voltage regulators',
+        'Power distribution units',
+        'Frequency converters',
+        'Load control relays',
+        'OSHPD / HCAI seismic certified equipment',
+        'BAA and TAA compliant manufacturing',
+        'NFPA 70 / 72 / 99 / 101 / 110 compliance',
+      ],
+      hasCredential: [
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'ISO 9001:2015', name: 'ISO 9001 Certified (since 1996)' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'UL Listing', name: 'UL Listed' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'BAA Compliance', name: 'Buy American Act Compliant' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'TAA Compliance', name: 'Trade Agreements Act Compliant' },
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Online Power Product Catalog',
+        itemListElement: [
+          { '@type': 'OfferCatalog', name: 'Emergency Lighting Inverters', url: `${company.url}/products/category/emergency-lighting` },
+          { '@type': 'OfferCatalog', name: 'Fire Alarm Backup Systems', url: `${company.url}/products/category/fire-alarm-backup` },
+          { '@type': 'OfferCatalog', name: 'Elevator Backup Systems', url: `${company.url}/products/category/elevator-backup` },
+          { '@type': 'OfferCatalog', name: 'UPS Backup Systems', url: `${company.url}/products/category/ups-backup` },
+          { '@type': 'OfferCatalog', name: 'Medical Grade Power Systems', url: `${company.url}/products/category/medical-grade` },
+          { '@type': 'OfferCatalog', name: 'Isolation Transformers', url: `${company.url}/products/category/isolation-transformers` },
+          { '@type': 'OfferCatalog', name: 'Voltage Regulators', url: `${company.url}/products/category/voltage-regulators` },
+          { '@type': 'OfferCatalog', name: 'Power Distribution Units', url: `${company.url}/products/category/power-distribution` },
+          { '@type': 'OfferCatalog', name: 'Frequency Converters', url: `${company.url}/products/category/frequency-converters` },
+          { '@type': 'OfferCatalog', name: 'Load Control Relays', url: `${company.url}/products/category/load-control-relays` },
+        ],
+      },
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: company.phone,
+          contactType: 'sales',
+          email: company.email,
+          areaServed: 'US',
+          availableLanguage: ['en'],
+        },
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${company.url}/#website`,
+      url: company.url,
+      name: company.legalName,
+      publisher: { '@id': `${company.url}/#organization` },
+      inLanguage: 'en-US',
+    },
+  ],
 };
 
 const productSchema = product ? {
@@ -39,14 +123,20 @@ const productSchema = product ? {
   name: product.name,
   description: product.description,
   image: `${company.url}${product.image}`,
+  sku: product.sku || undefined,
   brand: { '@type': 'Brand', name: 'Online Power' },
-  manufacturer: { '@type': 'Organization', name: company.legalName },
+  manufacturer: { '@id': `${company.url}/#organization` },
   category: product.category,
+  countryOfOrigin: {
+    '@type': 'Country',
+    name: 'United States',
+  },
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
     priceCurrency: 'USD',
-    priceSpecification: { '@type': 'PriceSpecification' },
+    businessFunction: 'http://purl.org/goodrelations/v1#Sell',
+    seller: { '@id': `${company.url}/#organization` },
     url: Astro.url.toString(),
   },
 } : null;
@@ -68,12 +158,14 @@ const breadcrumbSchema = breadcrumbs?.length ? {
     '@type': 'ListItem',
     position: index + 1,
     name: item.name,
-    item: item.url,
+    item: item.url.startsWith('http') ? item.url : `${company.url}${item.url}`,
   })),
 } : null;
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(orgGraph)} />
 {productSchema && <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />}
 {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+</content>
+</invoke>

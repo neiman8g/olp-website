@@ -38,11 +38,20 @@ const applications = [
   { name: 'Clinics', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
   { name: 'Pharmaceutical', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
 ];
+
+const faq = [
+  { question: 'What is UL 60601-1 and why does it matter?', answer: 'UL 60601-1 is the US safety standard for medical electrical equipment. It caps chassis leakage current at 100 µA under normal conditions and 10 µA at the patient (Type CF cardiac) under single-fault conditions. Standard UPS products cannot meet these thresholds — they leak hundreds to thousands of microamps, which in a patient-care vicinity can be lethal.' },
+  { question: 'Is OSHPD / HCAI certification required for California hospitals?', answer: 'Yes. California hospital construction requires OSHPD (now HCAI) seismic preapproval for essential electrical equipment. Online Power\'s Medical Power and Phase Stabilizer carry OSHPD/HCAI preapproval with SDS 3.0G seismic rating — shaker-table tested and ready for California AHJ submittal.' },
+  { question: 'What is NFPA 99 Type 1 Essential Electrical System?', answer: 'NFPA 99 classifies healthcare facilities by risk. Category 1 patient-care spaces — where power loss could cause patient death — require a Type 1 Essential Electrical System that restores power within 10 seconds of utility failure. Medical Power meets this requirement with dual-input redundancy and sub-cycle voltage stabilization.' },
+  { question: 'Can Medical Power protect MRI scanners and imaging equipment?', answer: 'Yes. Medical Power delivers ±1% sub-cycle voltage stabilization with Faraday-shielded isolation and independent phase control — the specification required by major MRI, CT, and imaging OEMs to protect sensors calibrated to sub-millivolt tolerances.' },
+  { question: 'What is the difference between medical-grade UPS and standard UPS?', answer: 'Medical-grade UPS combines UL 60601-1 leakage compliance, isolation transformer with Faraday shield, hospital-grade power connectors, serviceable-without-shutdown dual input paths, and OSHPD/HCAI seismic certification. Standard UPS does not meet any of these requirements and cannot be installed in a patient-care vicinity under NEC Article 517.' },
+];
 ---
 
 <BaseLayout
-  title="Medical Grade Power Systems | UL 60601-1 | 10 to 1250kVA | Online Power"
-  description="UL 60601-1 certified medical grade power conditioners and UPS. Under 100µA leakage current. OSHPD/HCAI seismic preapproved. 10kVA to 1,250kVA. Built in Los Angeles."
+  title="UL 60601-1 Medical Grade Power Systems | 10–1,250 kVA | Online Power"
+  description="UL 60601-1 certified medical-grade power conditioners and UPS. <100 µA normal / <10 µA Type CF leakage. OSHPD/HCAI seismic preapproved. 10 to 1,250 kVA. NFPA 99 Type 1 EES compatible. Built in Los Angeles."
+  faq={faq}
 >
 
   <!-- BREADCRUMB STRIP -->
@@ -113,9 +122,9 @@ const applications = [
   <section class="py-10 md:py-14 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <p class="eyebrow text-steel-blue mb-8">{categoryProducts.length} Models Available</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-5 -mx-4 px-4 pb-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0">
         {categoryProducts.map(p => (
-          <a href={`/products/${p.slug}`} class="card-hover border-t-2 border-t-steel-blue bg-white rounded-xl overflow-hidden group">
+          <a href={`/products/${p.slug}`} class="snap-start shrink-0 w-[82vw] sm:w-auto sm:shrink card-hover border-t-2 border-t-steel-blue bg-white rounded-xl overflow-hidden group">
             <div class="h-[200px] bg-off-white flex items-center justify-center p-4">
               {typeof getProductImage(p.image) === 'string' ? (
                 <img src={p.image} alt={`${p.name} by Online Power`} class="max-h-full w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300" loading="lazy" />
@@ -249,6 +258,49 @@ const applications = [
           <p class="font-display font-semibold text-near-black">Roberto Kachakil</p>
           <p class="text-base text-slate">PMP, P.Eng · Credo Consulting Engineers LLC</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="py-10 md:py-14 bg-off-white border-t border-steel-gray">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <p class="eyebrow mb-4">Common Questions</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-near-black mb-8 leading-[1.1]">Medical Grade FAQ</h2>
+      <div class="space-y-3">
+        {faq.map(item => (
+          <details class="group bg-white border border-steel-gray rounded-xl overflow-hidden hover:border-steel-blue transition-colors">
+            <summary class="flex items-start gap-4 p-5 cursor-pointer">
+              <span class="font-display text-[15px] font-semibold text-near-black flex-1 group-hover:text-steel-blue transition-colors">{item.question}</span>
+              <svg class="w-4 h-4 text-slate group-open:rotate-180 group-open:text-steel-blue transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+            <div class="px-5 pb-5 text-[15px] text-slate leading-relaxed">{item.answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED CATEGORIES ========== -->
+  <section class="py-10 md:py-14 bg-white border-t border-steel-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <p class="eyebrow mb-4">Related Product Lines</p>
+      <h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight text-near-black mb-8 leading-[1.1]">Explore More from Online Power</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {[
+          { href: '/products/category/ups-backup', name: 'UPS Backup Systems', desc: 'UL 1778 online double-conversion for non-patient critical loads.' },
+          { href: '/products/category/isolation-transformers', name: 'Isolation Transformers', desc: 'Noise & harmonic cancellation for medical imaging and research labs.' },
+          { href: '/products/category/emergency-lighting', name: 'Emergency Lighting Inverters', desc: 'OSHPD/HCAI seismic certified SV Power Wave series for hospitals.' },
+        ].map(c => (
+          <a href={c.href} class="group bg-white border border-steel-gray rounded-xl p-6 hover:border-steel-blue hover:shadow-[0_12px_28px_-10px_rgba(37,103,194,0.25)] hover:-translate-y-0.5 transition-all">
+            <h3 class="font-display text-xl font-bold text-near-black group-hover:text-steel-blue transition-colors mb-2">{c.name}</h3>
+            <p class="text-[14px] text-slate mb-4">{c.desc}</p>
+            <span class="font-display text-[12px] font-bold uppercase tracking-[0.12em] text-steel-blue group-hover:text-near-black inline-flex items-center gap-1.5 transition-colors">
+              Explore
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        ))}
       </div>
     </div>
   </section>

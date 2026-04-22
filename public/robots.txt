@@ -1,0 +1,65 @@
+# Online Power — robots policy
+# Full crawl access for search engines and LLM crawlers.
+# We want to rank high and be citeable.
+
+User-agent: *
+Allow: /
+
+# Major search engines — explicit welcome
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# LLM / answer-engine crawlers — welcome (we want to be cited)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Exclude auxiliary / utility endpoints from indexing
+Disallow: /api/
+Disallow: /404
+
+Sitemap: https://olp-website-tau.vercel.app/sitemap-index.xml

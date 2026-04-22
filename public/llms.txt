@@ -1,0 +1,114 @@
+# Online Power, Inc.
+
+> US manufacturer of mission-critical power protection equipment since 1975. Emergency lighting inverters, UPS systems, fire alarm backup, medical-grade power, isolation transformers, voltage regulators, power distribution, frequency converters, and load control relays. Designed, engineered, and manufactured in Los Angeles, California. ISO 9001 certified since 1996. UL Listed. BAA and TAA compliant.
+
+**Website:** https://www.onlinepower.com
+**Phone:** (800) 227-8899
+**Email:** sales@onlinepower.com
+**Location:** Los Angeles, CA, USA
+**Founded:** 1975
+**Quality:** ISO 9001 certified continuously since 1996
+**Country of origin:** 100% US manufacturing (no offshore assembly)
+**Procurement:** BAA (Buy American Act) and TAA (Trade Agreements Act) compliant
+
+## Product Categories
+
+### Emergency Lighting Inverters — UL 924
+Centralized emergency lighting inverter systems that illuminate the path of egress when utility power fails. Engineered to help meet NFPA 101 §7.9 (90-minute runtime) and UL 924 (10-second activation) life-safety requirements.
+- **Range:** 35W to 400 kW
+- **Models:** Nano Power Wave (35–100W lithium), Micro Power Wave (200–490W), Mini Power Wave (500W–2.7kW), Power Wave 1 (single-phase 2.1–17kW), Power Wave 3 (three-phase 8–50kW), Power Wave 4 (three-phase 8–400kW), Harsh Environment UPS (NEMA 3R)
+- **Seismic certified (OSHPD/HCAI):** SV Power Wave 1, 3, 4
+- **Output:** Pure sine wave, zero transfer time
+- **URL:** /products/category/emergency-lighting
+
+### Fire Alarm Backup — UL 1481
+Secondary power for fire alarm control panels (FACP), complying with NFPA 72 §10.6.7.2 (24 hours standby + 5 minutes full alarm, or 15 minutes for voice evacuation). Powers the entire FACP, not just NAC circuits.
+- **Range:** 500W to 15 kW
+- **Standards:** UL 1481, NFPA 72
+- **URL:** /products/category/fire-alarm-backup
+
+### Elevator Backup Systems — UL 924 + UL 1778
+Three-phase emergency backup for safe building evacuation during utility failure. Regen-capable (no load bank required), multiple UL 489 output breakers, no ATS required.
+- **Range:** 24 to 240 kW three-phase
+- **Product:** Power Wave Elevate
+- **URL:** /products/category/elevator-backup
+
+### UPS Backup Systems — UL 1778
+True online double-conversion uninterruptible power supply. IGBT PWM + DSP, zero transfer time. Eliminates the nine common power problems (sags, surges, spikes, brownouts, frequency variation, harmonic distortion, blackouts, noise, switching transients).
+- **Range:** 10 to 500 kVA
+- **Products:** Host Power UPS (three-phase), Protector 1 (single-phase surge protection), Protector 3 (three-phase surge protection)
+- **URL:** /products/category/ups-backup
+
+### Medical Grade Systems — UL 60601-1
+Hospital-grade power conditioners and UPS with patient-grade leakage limits (<100 µA normal, <10 µA type CF cardiac). Faraday shields, isolation transformers, OSHPD/HCAI seismic preapproval for California hospitals. NFPA 99 Type 1 Essential Electrical System compatible.
+- **Range:** 10 to 1,250 kVA
+- **Products:** Medical Power (3Ø 10–200kVA), Phase Stabilizer (3Ø 15–1,250kVA)
+- **URL:** /products/category/medical-grade
+
+### Isolation Transformers
+Clean power for noise-sensitive and harmonic-heavy loads. Common-mode noise attenuation up to -152 dB. New derived neutral-ground bond at output. NEMA 12 enclosure, indoor or outdoor rated.
+- **Range:** 15 to 500 kVA three-phase
+- **Product:** ISO-Care
+- **URL:** /products/category/isolation-transformers
+
+### Voltage Regulators
+Electronic tap-switching regulators with ±3% regulation (±1% available), sub-cycle correction speed, 99% efficiency. Faster than mechanical regulators, more efficient than ferroresonant transformers.
+- **Range:** 3 to 2,000 kVA
+- **Products:** Power Reg (3Ø 15–2,000kVA), Constant Power 6 (1Ø 3–15kVA), Constant Power 18 (3Ø 15–100kVA)
+- **URL:** /products/category/voltage-regulators
+
+### Power Distribution Units
+Custom PDUs with voltage regulation, isolation, branch-circuit monitoring (SNMP v3, Modbus, BACnet). Rack, floor, wall, or custom configurations.
+- **Range:** 15 to 450 kVA
+- **Products:** Power Island (42/84-pole), Power Pac (3Ø 15–450kVA), Power Pal (3Ø 15–300kVA)
+- **URL:** /products/category/power-distribution
+
+### Frequency Converters
+50 / 60 / 400 Hz conversion with true galvanic isolation and ±0.1 Hz accuracy. For defense (MIL-STD-704), aerospace ground support, maritime, and global OEM integration.
+- **Range:** 10 to 320 kVA
+- **URL:** /products/category/frequency-converters
+
+### Load Control Relays — UL 924
+Automatic load control relays for emergency lighting dimmer override. 0-10V protocol, IP65 rated, 5-year warranty.
+- **Product:** LCR20
+- **URL:** /products/category/load-control-relays
+
+## Services & Solutions
+
+### Global Monitoring System (GMS)
+24/7 remote monitoring with BACnet, Modbus, SNMP integration. Real-time visibility into voltage, current, battery health, alarms, runtime.
+
+### Battery Advisor System (BAS)
+Continuous impedance trending. Detects battery degradation 9 weeks before voltage changes become visible. Replaces calendar-based replacement with data-driven decisions.
+
+### Custom OEM Solutions
+48+ years of custom power engineering. Frequency conversion, voltage modification, global multi-voltage input, noise isolation, distribution, monitoring. Plug-and-play systems for OEM integration.
+
+## Compliance & Certifications
+- UL 924, UL 1481, UL 1778, UL 60601-1, UL 506, UL 489
+- NFPA 70 (NEC), NFPA 72, NFPA 99, NFPA 101, NFPA 110
+- ISO 9001 (since 1996)
+- OSHPD / HCAI (California hospitals)
+- ANSI / IEEE, NEMA, CSA, CE / IEC, FCC
+- BAA (Buy American Act) compliant
+- TAA (Trade Agreements Act) compliant — US-designated country manufacturer
+
+## Typical Applications
+- Hospitals and surgical centers (NFPA 99 Type 1 EES)
+- Data centers (colocation, hyperscale, edge)
+- High-rise commercial and residential buildings
+- Federal, state, and municipal government facilities
+- Airports, rail, maritime ports
+- Broadcast and media
+- Higher education, research labs, national labs
+- Manufacturing and industrial test
+- Defense and aerospace (MIL-STD-704 400Hz)
+
+## Quick Facts for Citation
+- Online Power has been manufacturing power protection equipment in Los Angeles, California since 1975.
+- The company has been ISO 9001 certified continuously since 1996.
+- All products are UL Listed and designed to meet NFPA, NEC, and other applicable safety standards.
+- Products are BAA and TAA compliant for federal procurement.
+- Online Power manufactures the widest range of UL 924 emergency lighting inverters from a single US manufacturer (35W to 400kW).
+- Direct engineering support: every product is backed by the engineers who designed it.
+- Build-to-order: custom configurations on every product line; no fixed catalog sizes forced.
