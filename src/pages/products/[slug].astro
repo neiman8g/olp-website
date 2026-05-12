@@ -18,143 +18,6 @@ export function getStaticPaths() {
 const { product } = Astro.props as { product: Product };
 const category = getCategoryBySlug(product.category);
 const relatedProducts = getProductsByCategory(product.category).filter(p => p.slug !== product.slug).slice(0, 3);
-
-// Spec tables per product (Issue 4)
-const specTables: Record<string, [string, string][]> = {
-  'power-wave-1': [
-    ['Input Voltage', '120/208/240/277 VAC'],
-    ['Output Voltage', 'Matches input (field selectable)'],
-    ['Power Range', '2.1kW – 17kW'],
-    ['Phases', 'Single Phase'],
-    ['Transfer Time', 'Zero (true online double conversion)'],
-    ['Waveform', 'Pure Sine Wave (<3% THD)'],
-    ['Efficiency', '>95% at full load'],
-    ['Battery Type', 'Sealed VRLA'],
-    ['Battery Runtime', '90–120 minutes'],
-    ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
-    ['Enclosure', 'NEMA 1 standard'],
-    ['Certifications', 'UL 924, UL 1778, NFPA 101, NEC'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-  'power-wave-3': [
-    ['Input Voltage', '120/208/240/277/480 VAC'],
-    ['Output Voltage', 'Matches input (field selectable)'],
-    ['Power Range', '8kW – 50kW'],
-    ['Phases', 'Three Phase'],
-    ['Transfer Time', '<4ms'],
-    ['Waveform', 'Pure Sine Wave (<3% THD)'],
-    ['Efficiency', '>95% at full load'],
-    ['Battery Type', 'Sealed VRLA'],
-    ['Battery Runtime', '90–120 minutes'],
-    ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
-    ['Enclosure', 'NEMA 1 standard'],
-    ['Certifications', 'UL 924, UL 1778, UL 1489, NFPA 101'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-  'power-wave-4': [
-    ['Input Voltage', '120/208/240/277/480 VAC'],
-    ['Output Voltage', 'Matches input (field selectable)'],
-    ['Power Range', '8kW – 400kW'],
-    ['Phases', 'Three Phase'],
-    ['Transfer Time', '<4ms (Green Mode) / Zero (Double Conversion)'],
-    ['Waveform', 'Pure Sine Wave (<3% THD)'],
-    ['Efficiency', '>95% at full load'],
-    ['Battery Type', 'Sealed VRLA'],
-    ['Battery Runtime', '90–120 minutes'],
-    ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
-    ['Enclosure', 'NEMA 1 standard'],
-    ['Certifications', 'UL 924, UL 1778, NFPA 101'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-  'mini-power-wave': [
-    ['Input Voltage', '120/208/240/277 VAC'],
-    ['Output Voltage', 'Matches input'],
-    ['Power Range', '500W – 2.7kW'],
-    ['Phases', 'Single Phase'],
-    ['Transfer Time', '<4ms'],
-    ['Waveform', 'Pure Sine Wave'],
-    ['Efficiency', '>92%'],
-    ['Battery Type', 'Sealed VRLA (internal)'],
-    ['Battery Runtime', '90–120 minutes'],
-    ['Operating Temp', '32°F to 104°F (0°C to 40°C)'],
-    ['Enclosure', 'NEMA 1 all-in-one'],
-    ['Certifications', 'UL 924, UL 1778'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-  'micro-power-wave': [
-    ['Input Voltage', '120/208/240/277 VAC'],
-    ['Output Voltage', 'Matches input'],
-    ['Power Range', '200W – 490W'],
-    ['Phases', 'Single Phase'],
-    ['Transfer Time', '<4ms'],
-    ['Waveform', 'Pure Sine Wave'],
-    ['Battery Type', 'Sealed VRLA (internal)'],
-    ['Battery Runtime', '90 minutes minimum'],
-    ['Enclosure', 'NEMA 1 compact'],
-    ['Certifications', 'UL 924 (ETL Listed)'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-  'nano-wave': [
-    ['Input Voltage', '120/277 VAC'],
-    ['Output Voltage', 'Matches input'],
-    ['Power Range', '35W – 100W'],
-    ['Phases', 'Single Phase'],
-    ['Battery Type', 'Lithium Ion'],
-    ['Battery Runtime', '90 min (derate to 2hr available)'],
-    ['Lamp Compatibility', 'LED and Fluorescent'],
-    ['Dimming', 'Supported'],
-    ['Certifications', 'UL 924'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-  'elevate': [
-    ['Input Voltage', '120/208/240/277/480 VAC'],
-    ['Output Voltage', 'Matches input'],
-    ['Power Range', '24kW – 240kW'],
-    ['Phases', 'Three Phase'],
-    ['Transfer Time', '<4ms'],
-    ['Waveform', 'Pure Sine Wave'],
-    ['Application', 'Elevator Emergency Backup'],
-    ['Battery Type', 'Sealed VRLA'],
-    ['Battery Runtime', 'Per code requirements'],
-    ['Certifications', 'UL 924, NFPA 101, NEC Article 700'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-  'fire-alarm-backup': [
-    ['Input Voltage', '120/240 VAC'],
-    ['Output Voltage', '24VDC / 120VAC'],
-    ['Range', 'Per system design'],
-    ['Transfer Time', '<10ms'],
-    ['Battery Type', 'Sealed VRLA'],
-    ['Battery Runtime', '24–60 hours'],
-    ['Self-Testing', 'Automatic'],
-    ['Certifications', 'UL 1481, NFPA 72, NEC Article 760'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-  'lcr20': [
-    ['Input Voltage', '120/208/240/277/480 VAC'],
-    ['Control Voltage', '120VAC'],
-    ['Contact Rating', '30A'],
-    ['Poles', 'Single or Multi-pole'],
-    ['Dimmer Override', '0-10V DC for full emergency illumination'],
-    ['Test Switch', 'Quick-connect IP65 rated'],
-    ['Enclosure', 'Aluminum, NEMA 1'],
-    ['Certifications', 'UL 924, NFPA 101, NEC Article 700'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-  'host-power': [
-    ['Input Voltage', '208/480 VAC'],
-    ['Output Voltage', 'Matches input'],
-    ['Power Range', '10kVA – 500kVA'],
-    ['Phases', 'Three Phase'],
-    ['Efficiency', '90% typical'],
-    ['Waveform', 'PWM Sinusoidal'],
-    ['Generator Compatible', 'Yes'],
-    ['Certifications', 'UL 1778, UL 924, UL 924A'],
-    ['Warranty', '1 year parts · 2nd year optional with PM plan'],
-  ],
-};
-
-const specs = specTables[product.slug] || null;
 ---
 
 <BaseLayout
@@ -213,14 +76,59 @@ const specs = specTables[product.slug] || null;
           <p class="font-display text-[13px] text-muted-blue">Responds within 2 business hours</p>
         </div>
         <div class="lg:col-span-5">
-          <div class="bg-white/5 border border-navy-mid rounded-xl p-6 flex items-center justify-center min-h-[320px] backdrop-blur-sm">
-            {typeof getProductImage(product.image) === 'string' ? (
-              <img src={product.image} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" />
-            ) : (
-              <Image src={getProductImage(product.image) as ImageMetadata} alt={`${product.name} by Online Power`} class="w-full h-auto object-contain max-h-[420px] mx-auto hover:scale-[1.03] transition-transform duration-300" loading="eager" format="webp" quality={85} widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 45vw" />
-            )}
+          <!-- Product image stage — layered glow, gradient frame, floating product -->
+          <div class="relative group">
+            <!-- Outer ambient halo, pulses gently -->
+            <div class="absolute -inset-8 pointer-events-none opacity-70 product-halo" style="background: radial-gradient(circle at 50% 45%, rgba(126,179,245,0.35) 0%, rgba(37,103,194,0.18) 35%, rgba(37,103,194,0) 70%); filter: blur(28px);"></div>
+
+            <!-- Frame: gradient card with subtle inner highlight -->
+            <div class="relative rounded-2xl p-1 bg-gradient-to-br from-steel-blue/40 via-sky-blue/15 to-navy-mid/50">
+              <div class="relative rounded-[14px] overflow-hidden bg-gradient-to-b from-deep-navy/90 via-deep-navy to-navy-mid/60 backdrop-blur-md border border-white/[0.06]">
+                <!-- Inner radial spotlight behind product -->
+                <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at 50% 38%, rgba(126,179,245,0.22) 0%, rgba(126,179,245,0) 55%);"></div>
+
+                <!-- Subtle top edge highlight -->
+                <div class="absolute top-0 inset-x-8 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none"></div>
+
+                <!-- Floor reflection / shelf gradient -->
+                <div class="absolute bottom-0 inset-x-0 h-1/3 pointer-events-none" style="background: linear-gradient(180deg, rgba(15,42,74,0) 0%, rgba(15,42,74,0.55) 80%, rgba(15,42,74,0.85) 100%);"></div>
+
+                <!-- Corner accent badge -->
+                <div class="absolute top-4 left-4 z-10">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/8 backdrop-blur-sm border border-white/15 text-[10px] font-display font-semibold uppercase tracking-[0.1em] text-sky-blue">
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    Online Power
+                  </span>
+                </div>
+
+                <!-- Product image with floating animation -->
+                <div class="relative flex items-center justify-center px-6 sm:px-10 py-10 sm:py-14 min-h-[380px] sm:min-h-[460px]">
+                  {typeof getProductImage(product.image) === 'string' ? (
+                    <img
+                      src={product.image}
+                      alt={`${product.name} by Online Power`}
+                      class="relative z-10 w-full h-auto object-contain max-h-[440px] mx-auto product-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.45)] group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                      loading="eager"
+                    />
+                  ) : (
+                    <Image
+                      src={getProductImage(product.image) as ImageMetadata}
+                      alt={`${product.name} by Online Power`}
+                      class="relative z-10 w-full h-auto object-contain max-h-[440px] mx-auto product-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.45)] group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                      loading="eager"
+                      format="webp"
+                      quality={90}
+                      widths={[480, 720, 960]}
+                      sizes="(max-width: 768px) 100vw, 45vw"
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="flex items-center justify-center flex-wrap gap-2 mt-4">
+
+          <!-- Certification chips bar -->
+          <div class="flex items-center justify-center flex-wrap gap-2 mt-5">
             {product.standards.slice(0, 4).map(std => (
               <span class="badge-dark text-[11px]">{std}</span>
             ))}
@@ -240,21 +148,47 @@ const specs = specTables[product.slug] || null;
     </div>
   </section>
 
-  <!-- Overview — key features -->
-  <section class="py-10 md:py-14 bg-white border-t border-steel-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-4">Overview</p>
-      <h2 class="font-display text-3xl font-extrabold tracking-tight text-near-black mb-6 leading-[1.1]">Key Features</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {product.features.map(feature => (
-          <div class="flex items-start gap-3 bg-off-white border border-steel-gray rounded-lg p-4">
-            <svg class="w-5 h-5 text-steel-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <span class="text-sm text-near-black">{feature}</span>
-          </div>
-        ))}
+  <!-- Use Cases — where it gets specified -->
+  {product.useCases && product.useCases.length > 0 && (
+    <section class="py-10 md:py-14 bg-white border-t border-steel-gray">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="eyebrow text-steel-blue mb-4">Use Cases</p>
+        <h2 class="font-display text-3xl font-extrabold tracking-tight text-near-black mb-6 leading-[1.1]">Where it gets specified.</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3">
+          {product.useCases.map(useCase => (
+            <div class="flex items-start gap-3 bg-off-white border border-steel-gray rounded-lg p-4">
+              <svg class="w-5 h-5 text-steel-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+              <span class="text-sm text-near-black leading-snug">{useCase}</span>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
+
+  <!-- Advantages — why this product -->
+  {product.advantages && product.advantages.length > 0 && (
+    <section class="py-10 md:py-14 bg-off-white border-t border-steel-gray">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="eyebrow text-steel-blue mb-4">Advantages</p>
+        <h2 class="font-display text-3xl font-extrabold tracking-tight text-near-black mb-3 leading-[1.1]">Why {product.name}.</h2>
+        <p class="text-[15px] text-slate max-w-2xl mb-8">The design choices that make the difference on a real jobsite — in code review, in commissioning, and in the years after it is installed.</p>
+        <div class="grid md:grid-cols-2 gap-5">
+          {product.advantages.map(adv => (
+            <div class="bg-white border border-steel-gray rounded-xl p-6 hover:border-steel-blue/50 transition-colors">
+              <div class="flex items-start gap-3 mb-2">
+                <div class="w-8 h-8 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 class="font-display text-lg font-bold text-near-black leading-snug">{adv.title}</h3>
+              </div>
+              <p class="text-[15px] text-slate leading-relaxed pl-11">{adv.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Related Products -->
   {relatedProducts.length > 0 && (

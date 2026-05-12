@@ -8,6 +8,8 @@ export interface Product {
   features: string[];
   standards: string[];
   docs: { label: string; url: string }[];
+  useCases?: string[];
+  advantages?: { title: string; description: string }[];
 }
 
 export const products: Product[] = [
@@ -27,6 +29,21 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/powerwave1_TD.pdf' },
       { label: 'Manual', url: '/pdf/powerwave1_TM.pdf' },
     ],
+    useCases: [
+      'Office buildings and mid-rise commercial',
+      'Retail stores and shopping centers',
+      'Warehouses and distribution',
+      'Schools and universities',
+      'Healthcare wings and outpatient clinics',
+      'Parking structures',
+    ],
+    advantages: [
+      { title: 'Zero transfer time', description: 'True online double conversion continuously rebuilds grid power — when utility drops, nothing flickers, no lights blink, no electronic ballast resets.' },
+      { title: 'Pure sine wave, identical to utility', description: 'Runs LED drivers, electronic ballasts, and inductive loads with no audible buzz, no premature driver failure, and no stress on sensitive electronics.' },
+      { title: 'Dual-listed UL924 + UL1778', description: 'Satisfies both the emergency lighting code path and the UPS classification with a single device — one piece of gear, one submittal, one inspection.' },
+      { title: 'Self-testing with LCD diagnostics', description: 'Microprocessor runs scheduled battery exercisers and surface issues on the display before they become code violations at the next AHJ walk-through.' },
+      { title: 'Made in USA · BAA / TAA compliant', description: 'Clears federal, state, and military projects without a substitution request. Domestic supply chain means lead times do not move with overseas conditions.' },
+    ],
   },
   {
     slug: 'power-wave-3',
@@ -42,6 +59,21 @@ export const products: Product[] = [
       { label: 'Tech Specs', url: '/pdf/powerwave3_TS.pdf' },
       { label: 'Drawings', url: '/pdf/powerwave3_TD.pdf' },
     ],
+    useCases: [
+      'Mid-rise office buildings',
+      'Hotels and hospitality',
+      'Retail anchors and big-box',
+      'University campus buildings',
+      'Healthcare floors and MOBs',
+      'Distribution centers and industrial',
+    ],
+    advantages: [
+      { title: 'Three-phase output matches service', description: 'No phase imbalance on large egress lighting loads, and no derating on three-phase fixtures or panels. Installation mirrors the incoming service, which simplifies layout.' },
+      { title: 'Internal maintenance bypass', description: 'Perform PM, troubleshooting, or full replacement without dropping load. Lights stay on, the AHJ stays satisfied, and there is no weekend shutdown required.' },
+      { title: 'Main breakers built in (UL1489)', description: 'Input and output breakers are already inside the cabinet. Simplifies installation, reduces external hardware, and cuts the panel count on the electrical drawing.' },
+      { title: 'Class C TVSS standard', description: 'Lightning-induced transients and utility-side switching events are clamped before they reach the inverter electronics or the downstream lighting circuits.' },
+      { title: 'Pure sine wave, zero transfer', description: 'LED drivers, chillers, and inductive loads ride through outages without seeing them. No relay chatter, no board resets, no false fire-alarm trips.' },
+    ],
   },
   {
     slug: 'power-wave-4',
@@ -56,6 +88,21 @@ export const products: Product[] = [
       { label: 'Data Sheet', url: '/pdf/powerwave4_DS.pdf' },
       { label: 'Tech Specs', url: '/pdf/powerwave4_TS.pdf' },
       { label: 'Drawings', url: '/pdf/powerwave4_TD.pdf' },
+    ],
+    useCases: [
+      'High-rise office towers',
+      'Hospital wings and trauma centers',
+      'Large healthcare campuses',
+      'Airport terminals and transit hubs',
+      'Mission-critical industrial',
+      'Mixed-use developments above 100kW',
+    ],
+    advantages: [
+      { title: 'Field-selectable UPS or Green Mode', description: 'Pick full double conversion (zero transfer) or high-efficiency Green Mode (~98%) without changing hardware. Same equipment adapts to either a code-driven spec or a cost-driven one.' },
+      { title: 'Independent phase control', description: 'Each phase is regulated separately. An imbalance or fault on one leg does not propagate, which is the behavior premium healthcare and mission-critical loads require.' },
+      { title: 'GMS remote monitoring included', description: 'Facility teams see status, runtime, and fault data from their BMS or phone. No one needs to walk to the gear room for a read — or to find out the battery is drifting.' },
+      { title: 'Scales to 400kW in a single footprint', description: 'Grows with occupancy and code load over time without a second cabinet or a new submittal cycle. Future-proofs the electrical room at original construction.' },
+      { title: 'NFPA 101 + NFPA 70 compliance certified', description: 'Clears the plan-check in jurisdictions that strictly enforce lighting inverter requirements — no conditional approval, no value-engineering back-and-forth.' },
     ],
   },
   {
@@ -73,6 +120,21 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/minipowerwave_TD.pdf' },
       { label: 'Manual', url: '/pdf/minipowerwave_TM.pdf' },
     ],
+    useCases: [
+      'Small retail and tenant spaces',
+      'Mezzanine lighting zones',
+      'Corridors and egress paths',
+      'Restaurants and quick-service',
+      'Small clinics and dental',
+      'Automotive service bays',
+    ],
+    advantages: [
+      { title: 'One enclosure, one install', description: 'Electronics and batteries ship in a single cabinet. One-man install, no separate battery cabinet on the plan set, and no interconnect wiring to inspect.' },
+      { title: 'Fits where full inverters will not', description: 'Small mechanical rooms, closets, and back-of-house spaces handle the footprint without dedicated electrical rooms. Space planning gets easier on tight floorplates.' },
+      { title: 'Pure sine wave output', description: 'Drives any modern LED fixture without ballast compatibility issues or audible buzz. Same waveform quality as the full-size PowerWave family.' },
+      { title: 'Dual-listed UL924 + UL1778', description: 'Serves both the egress lighting code path and the UPS classification. Satisfies inspectors who treat those as separate submittals.' },
+      { title: 'Same self-test platform as larger units', description: 'One training program and one maintenance procedure covers Mini through Power Wave 4 — standardization across a portfolio of buildings.' },
+    ],
   },
   {
     slug: 'micro-power-wave',
@@ -88,6 +150,21 @@ export const products: Product[] = [
       { label: 'Tech Specs', url: '/pdf/micropowerwave_TS.pdf' },
       { label: 'Drawings', url: '/pdf/micropowerwave_TD.pdf' },
       { label: 'Manual', url: '/pdf/micropowerwave_TM.pdf' },
+    ],
+    useCases: [
+      'Small tenant buildouts and pop-up retail',
+      'ADA restrooms and single-fixture egress',
+      'Stairwells and back-of-house corridors',
+      'Small clinic and dental exam rooms',
+      'Limited egress zones in existing buildings',
+      'Tenant improvement projects on tight budgets',
+    ],
+    advantages: [
+      { title: 'Ultra-compact enclosure', description: 'Mounts in a shallow closet, on an open wall, or above ceiling in spaces a conventional inverter will not fit. Ideal for tenant improvement without structural changes.' },
+      { title: 'ETL Listed to UL924', description: 'Full emergency lighting code coverage in a fraction of the footprint of a standard inverter. Same AHJ review path, smaller physical install.' },
+      { title: 'Electronics and battery in one box', description: 'No separate battery cabinet, no interconnect wiring, no plan-review back-and-forth on battery room ventilation or egress clearance.' },
+      { title: '90-minute minimum runtime', description: 'Meets NFPA 101 for egress illumination out of the box, so a custom runtime specification is not required for most code-minimum projects.' },
+      { title: 'Pure sine wave output', description: 'Drives LED drivers and compact fluorescents alike without ballast compatibility surprises — important when a retrofit mixes new LED with legacy fixtures.' },
     ],
   },
   {
@@ -105,6 +182,21 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/nanowave_TD.pdf' },
       { label: 'Manual', url: '/pdf/nanowave_TM.pdf' },
     ],
+    useCases: [
+      'Single-fixture LED retrofits',
+      'Historic building renovations',
+      'Remote-mount installs in tight ceiling plenums',
+      'Dimming-controlled corridors and open offices',
+      'Daylight-harvested spaces with 0-10V control',
+      'Fixture-by-fixture egress upgrades',
+    ],
+    advantages: [
+      { title: 'Lithium-ion chemistry, 8–10 year life', description: 'Two to three times the service life of sealed VRLA. Fewer truck rolls, fewer PM visits, and the total cost of ownership pulls well below conventional inverters.' },
+      { title: 'Rides through at dimmed level', description: 'In a daylight-harvested corridor, the lights stay at their current output through a utility interruption instead of jumping to full bright. Occupants do not even notice the transfer.' },
+      { title: 'Remote-mount form factor', description: 'Fits above the ceiling or inside the fixture junction box. Perfect for historic buildings and retrofits where a dedicated inverter closet is not available.' },
+      { title: '90-minute or 2-hour runtime options', description: 'A field derate handles jurisdictions that require extended runtime (high-rises, healthcare corridors) without needing a different product SKU.' },
+      { title: 'LED and fluorescent compatible', description: 'Use one product across a mixed building so you do not stock two SKUs and train on two commissioning procedures.' },
+    ],
   },
   {
     slug: 'heu',
@@ -120,6 +212,21 @@ export const products: Product[] = [
       { label: 'Tech Specs', url: '/pdf/heu_TS.pdf' },
       { label: 'Drawings', url: '/pdf/heu_TD.pdf' },
       { label: 'Manual', url: '/pdf/heu_TM.pdf' },
+    ],
+    useCases: [
+      'Water and wastewater treatment plants',
+      'Heavy-manufacturing floors',
+      'Parking garages and loading docks',
+      'Coastal and salt-air facilities',
+      'Oil, gas, and mining operations',
+      'Outdoor pump and lift stations',
+    ],
+    advantages: [
+      { title: 'NEMA 3R steel enclosure', description: 'Rain, sleet, and dust rated. Install outside, on a loading dock, or in a mechanical yard without building a second enclosure around it.' },
+      { title: 'Conformal-coated electronics', description: 'A protective polymer coating on every PCB blocks humidity, salt fog, and chemical vapor from attacking the traces — the failure mode that ruins standard inverters in harsh sites.' },
+      { title: 'Filtered ventilation', description: 'Keeps airborne debris, pulp dust, and mill dust out of the inverter section without overheating. Trade-off that conventional cabinets force you to choose between.' },
+      { title: 'Same UL924 + UL1778 path as indoor', description: 'The AHJ reviews it the same way as a standard inverter — the harsh-environment construction is the upgrade, not a separate product category.' },
+      { title: 'Pure sine wave, zero transfer', description: 'Ride-through for VFDs and electronic ballasts on harsh-environment fixtures. No nuisance trips, no flicker during utility events.' },
     ],
   },
   // === SEISMIC CERTIFIED ===
@@ -138,6 +245,21 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/svpowerwave1_TD.pdf' },
       { label: 'Manual', url: '/pdf/powerwave1_TM.pdf' },
     ],
+    useCases: [
+      'California hospitals (OSHPD / HCAI review)',
+      'West Coast healthcare campuses',
+      'K-12 construction in seismic zones',
+      'Life-safety facilities in IBC seismic zones',
+      'Community care, skilled nursing, behavioral health',
+      'Essential-facility projects statewide',
+    ],
+    advantages: [
+      { title: 'Shaker-table tested, OSP on file', description: 'A current OSHPD / HCAI special seismic certification preapproval clears a review stage that would otherwise stall the submittal package by weeks or months.' },
+      { title: 'Engineered for zone-4 accelerations', description: 'Battery interconnect, cabinet bracing, and door/latch hardware are specified to stay functional during and after the event — not just "attached" to the wall.' },
+      { title: 'Identical electrical behavior to standard', description: 'Same code path, same commissioning procedure, same training as the standard PowerWave 1. One installer skill set serves the whole portfolio.' },
+      { title: 'California-tested documentation ships with the unit', description: 'The OSP certificate and test reports arrive in the paperwork packet. No hunting down PDFs at plan check.' },
+      { title: 'One manufacturer for seismic and standard', description: 'Simplifies campus-wide specification — the same SKU family satisfies a Bay Area hospital and an inland medical office building.' },
+    ],
   },
   {
     slug: 'sv-power-wave-3',
@@ -152,6 +274,21 @@ export const products: Product[] = [
       { label: 'Data Sheet', url: '/pdf/svpowerwave3_DS.pdf' },
       { label: 'Tech Specs', url: '/pdf/svpowerwave3_TS.pdf' },
       { label: 'Drawings', url: '/pdf/svpowerwave3_TD.pdf' },
+    ],
+    useCases: [
+      'California hospital floors and MOBs',
+      'Large healthcare campuses in seismic zones',
+      'Three-phase-service K-12 and university',
+      'Life-safety facilities (essential-facility classification)',
+      'Courts, EOCs, and emergency-services buildings',
+      'Skilled-nursing campus buildings',
+    ],
+    advantages: [
+      { title: 'Three-phase + OSHPD / HCAI preapproval', description: 'A current OSP covers the seismic review in one document. No custom anchor calculations, no delegated-engineer sign-off loop.' },
+      { title: 'Internal maintenance bypass', description: 'PM happens without a floor-level shutdown — which matters even more in occupied healthcare settings where lighting cannot be taken off-line.' },
+      { title: 'Shaker-table tested as a complete system', description: 'Cabinet, batteries, and interconnect were tested together. That is how the building will behave in a real event, not as isolated parts.' },
+      { title: 'Zero transfer time', description: 'Surgery, imaging, and code-blue spaces never see the utility interruption. The clinical team keeps working; the AHJ does not have an event to log.' },
+      { title: 'Same code path as standard Power Wave 3', description: 'Inspectors and specifiers who know the PowerWave family already know how this unit plays. The seismic certification is the upgrade, not a different product line.' },
     ],
   },
   {
@@ -168,6 +305,21 @@ export const products: Product[] = [
       { label: 'Tech Specs', url: '/pdf/svpowerwave4_TS.pdf' },
       { label: 'Drawings', url: '/pdf/svpowerwave4_TD.pdf' },
       { label: 'Manual', url: '/pdf/svpowerwave4_TM.pdf' },
+    ],
+    useCases: [
+      'Large California hospital towers',
+      'Trauma centers and surgery suites',
+      'Major healthcare campuses (up to 400kW)',
+      'Airports and transit hubs in seismic zones',
+      'University medical centers',
+      'High-rise essential-facility construction',
+    ],
+    advantages: [
+      { title: 'Seismic-certified at full tower scale', description: 'OSHPD / HCAI preapproval holds all the way to 400kW. No sizing step where you lose the certification and fall back to standard submittal review.' },
+      { title: 'Independent phase control', description: 'Each leg is regulated separately. A fault or imbalance on one phase does not cascade, which matters disproportionately during seismic aftershocks when the grid is unstable.' },
+      { title: 'GMS remote monitoring included', description: 'Post-event, facility teams can see status, battery health, and fault history remotely — without sending staff into areas with inspection or safety holds.' },
+      { title: 'Internal maintenance bypass', description: 'PM and repair happen without taking patient floors off emergency-lighting coverage, which is especially important in post-event operations.' },
+      { title: 'Modular up to 400kW', description: 'Single footprint grows with occupancy. Adds capacity for code-load expansion during a renovation without re-opening the seismic submittal.' },
     ],
   },
   // === ELEVATOR BACKUP ===
@@ -186,6 +338,21 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/PW-Elevate_TD.pdf' },
       { label: 'Manual', url: '/pdf/PW-Elevate_TM.pdf' },
     ],
+    useCases: [
+      'High-rise residential towers',
+      'Hospital elevators (patient movement)',
+      'Office evacuation elevators',
+      'Hotels without standby generation',
+      'Mid-rise mixed-use without gen-set space',
+      'Refurb projects where diesel is not permittable',
+    ],
+    advantages: [
+      { title: 'Handles elevator regen braking', description: 'Generic UPS systems trip on the overvoltage the motor produces when it brakes. Power Wave Elevate is engineered to absorb it and keep running — that is the failure mode that kills substitutes.' },
+      { title: 'UL924 + UL1778 listed', description: 'Clears both NEC Article 620 and the elevator emergency-power code path. Inspectors treat both requirements as satisfied without separate products or separate submittals.' },
+      { title: 'Faster to permit than a diesel gen-set', description: 'No fuel storage, no exhaust stack, no weekly load-bank testing. Cuts the permitting timeline and removes an ongoing maintenance contract.' },
+      { title: 'Installed indoors', description: 'Occupies rentable basement or mechanical space instead of a rooftop enclosure or street-level courtyard. Recovers square footage that a gen-set would consume.' },
+      { title: 'Seconds to start evacuation', description: 'No cold-start delay, no ATS transfer cycling. Car completes its current run and the next evacuation cycle begins immediately when utility drops.' },
+    ],
   },
   // === FIRE ALARM BACKUP ===
   {
@@ -203,6 +370,21 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/fab_TD.pdf' },
       { label: 'Manual', url: '/pdf/fab_TM.pdf' },
     ],
+    useCases: [
+      'Fire alarm NAC circuits (strobes, horn/strobes)',
+      'Voice-evac distributed audio systems',
+      'Large buildings where the FACP battery cannot carry the load',
+      'High-occupancy assembly (schools, arenas, venues)',
+      'Hospitals and long-term care',
+      'Warehouses with long NAC runs',
+    ],
+    advantages: [
+      { title: 'UL1481 listed', description: 'The specific standard fire alarm inspectors check against. No substitution fight, no "approved equivalent" debate with the AHJ — the label is on the product.' },
+      { title: 'Extended NAC runtime', description: 'Carries 24–60 hours of standby plus 15 minutes of alarm per NFPA 72. Handles long-duration outage scenarios the FACP battery alone cannot.' },
+      { title: 'Automatic self-testing', description: 'Weekly and monthly tests run and log themselves. Reduces the PM burden and produces the records the fire marshal wants to see during inspection.' },
+      { title: 'Dedicated to fire alarm — not a shared UPS', description: 'The fire system power integrity is untangled from the rest of the building. A facility-side issue does not become a life-safety issue.' },
+      { title: 'NFPA 72 + NEC Article 760 compliant', description: 'Clears plan review in jurisdictions that strictly enforce separation of fire alarm power from general building power.' },
+    ],
   },
   // === UPS BACKUP ===
   {
@@ -218,6 +400,21 @@ export const products: Product[] = [
       { label: 'Data Sheet', url: '/pdf/hostpower_DS.pdf' },
       { label: 'Manual', url: '/pdf/hostpower_TM.pdf' },
     ],
+    useCases: [
+      'Data centers and server rooms',
+      'Medical imaging suites (CT, MRI peripheral loads)',
+      'Manufacturing automation cells',
+      'Broadcast studios and control rooms',
+      'Research labs with sensitive instrumentation',
+      'IT closets and MDF / IDF rooms',
+    ],
+    advantages: [
+      { title: 'High-frequency topology', description: 'Smaller, lighter, and meaningfully more efficient than a transformer-based UPS at the same kVA. Cuts floor space and reduces the HVAC load on the data room.' },
+      { title: 'Built-in load distribution', description: 'No separate PDU required for small-to-mid deployments. One cabinet handles ride-through and branch distribution — half the plan-set footprint of traditional pairs.' },
+      { title: 'Generator compatible', description: 'Rides gen-set transitions without tripping on frequency deviation. That is the failure mode that undermines cheaper UPS units in buildings with standby generation.' },
+      { title: 'PWM sinusoidal output', description: 'Clean enough to feed medical, broadcast, and precision-instrument loads directly. No downstream isolation transformer required for most applications.' },
+      { title: 'Modular assembly', description: 'Ships in sections that fit through a standard 36" doorway. No crane, no temporary wall demolition, no rigging contract — the install cost stays reasonable.' },
+    ],
   },
   {
     slug: 'protector-1',
@@ -229,6 +426,21 @@ export const products: Product[] = [
     features: ['Surge Protection', 'Single Phase', 'Voltage Transient Protection', 'Commercial & Industrial Grade'],
     standards: ['UL 1778'],
     docs: [],
+    useCases: [
+      'Server closets and small IT rooms',
+      'Medical imaging feeds',
+      'Automation panels and PLC cabinets',
+      'Broadcast equipment racks',
+      'Laboratory instrumentation benches',
+      'Retail point-of-sale and back-office',
+    ],
+    advantages: [
+      { title: 'Catches what the UPS missed', description: 'Most downtime on critical electronics comes from transients, not outright outages. Protector 1 clamps those events before they reach the load.' },
+      { title: 'Single-phase coverage sized to service', description: 'Install matches the incoming service without overspec. Appropriate where three-phase protection would be wasted on a single-phase rack.' },
+      { title: 'Commercial and industrial grade', description: 'Built for continuous 24/7 duty, not residential-grade components behind a commercial label. Longer service life than consumer-grade surge strips.' },
+      { title: 'UL1778 listed', description: 'Integrates into standard power-protection submittals without a separate listing review.' },
+      { title: 'Complements an upstream UPS', description: 'Absorbs residual transients the UPS was not specified to clamp. Layered protection is how mission-critical rooms stay up.' },
+    ],
   },
   {
     slug: 'protector-3',
@@ -240,6 +452,21 @@ export const products: Product[] = [
     features: ['Three Phase Protection', 'Enhanced Surge Protection', 'Critical Load Protection', 'Industrial Grade'],
     standards: ['UL 1778'],
     docs: [],
+    useCases: [
+      'Three-phase data centers',
+      'Industrial automation lines',
+      'Large medical imaging rooms',
+      'Broadcast master control',
+      'Precision manufacturing cells',
+      'Campus IT core rooms',
+    ],
+    advantages: [
+      { title: 'Three-phase transient protection', description: 'Clamps surges on all three legs simultaneously, so a line-to-line event is caught the same way a line-to-neutral event is — not one of the blind spots of single-phase-only protectors.' },
+      { title: 'Built for critical loads', description: 'Response time and clamping specs match the sensitivity of imaging, automation, and broadcast gear rather than general-purpose commercial loads.' },
+      { title: 'Industrial duty cycle', description: 'Continuous operation without derating in 24/7 production environments. Does not require the cooling breaks that lighter-duty products do.' },
+      { title: 'UL1778 listed', description: 'Enters the submittal package the same way a UPS or power conditioner does. No separate listing argument with the AHJ.' },
+      { title: 'Complements UPS + distribution', description: 'Sits in front of the UPS on the service-entrance side and catches residuals the UPS treats as in-spec. The two together keep downstream gear clean.' },
+    ],
   },
   // === MEDICAL GRADE ===
   {
@@ -255,6 +482,23 @@ export const products: Product[] = [
       { label: 'Data Sheet', url: '/pdf/medpower_DS.pdf' },
       { label: 'Manual', url: '/pdf/medpower_TM.pdf' },
     ],
+    useCases: [
+      'Patient care areas (rooms, ORs, ICU)',
+      'MRI, CT, and angio suites',
+      'Dialysis and infusion centers',
+      'Endoscopy and cardiac cath labs',
+      'Laboratory imaging',
+      'NICU and neonatal care',
+    ],
+    advantages: [
+      { title: 'UL60601-1 patient-grade certification', description: 'Approved for use in the patient-care vicinity itself, not just as upstream backup gear. A standard UPS is not — this is the specific listing AHJs look for.' },
+      { title: '1% sub-cycle voltage stabilization', description: 'Imaging and diagnostic gear require this level of regulation. A standard UPS or regulator cannot hold 1% through a single cycle, and the images suffer.' },
+      { title: 'Independent phase control', description: 'Each phase is isolated. A fault on one does not pull down the whole room, so a single imaging machine going into fault does not take the suite off-line.' },
+      { title: 'Seamless redundant input/output paths', description: 'Dual input, dual output — a loss on either side is invisible to the clinical load. Patient procedures continue without interruption or alarm handoff.' },
+      { title: 'Service without shutdown', description: 'Maintenance bypass lets biomed service the unit without canceling patient appointments. PM does not create its own outage.' },
+      { title: '12-pulse harmonic reduction', description: 'Keeps harmonics off the hospital service, where otherwise they interfere with sensitive gear on adjacent circuits. Protects the whole electrical room, not just the direct load.' },
+      { title: 'Front-service clearance only', description: 'Saves floor area in already-crowded hospital electrical rooms. No rear access means the cabinet sits flat against the wall.' },
+    ],
   },
   {
     slug: 'phase-stabilizer',
@@ -269,6 +513,21 @@ export const products: Product[] = [
       { label: 'Data Sheet', url: '/pdf/phasestab_DS.pdf' },
       { label: 'Tech Specs', url: '/pdf/phasestab_TS.pdf' },
       { label: 'Drawings', url: '/pdf/phasestab_TD.pdf' },
+    ],
+    useCases: [
+      'Hospital imaging suites',
+      'Semiconductor cleanrooms and fabs',
+      'Research laboratories',
+      'Broadcast facilities',
+      'Large campus utility feeds',
+      'Sensitive diagnostic and research equipment',
+    ],
+    advantages: [
+      { title: '±1.5% output voltage regulation', description: 'Tighter than utility or a typical ferroresonant CVT can hold. Allows high-end imaging and analytical instruments to run at their advertised accuracy.' },
+      { title: 'Input filter at -40 dB', description: 'Removes common-mode noise at the service-entrance side. Protects the downstream load without relying on the building transformer to do it.' },
+      { title: 'Output filter at -60 dB/decade', description: 'A steeper roll-off than typical line conditioners. Critical electronics see the noise floor their specifications assume, not what utility actually delivers.' },
+      { title: 'Controlled impedance', description: 'Lets sensitive equipment behave the way its spec sheet promises. Source impedance is a variable most products ignore; this one controls it deliberately.' },
+      { title: 'Secondary surge suppression', description: 'A second line of defense behind the service-entrance TVSS. Catches what slips past the building-level protection during lightning or utility switching.' },
     ],
   },
   // === VOLTAGE REGULATORS ===
@@ -287,6 +546,21 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/powerreg_TD.pdf' },
       { label: 'Manual', url: '/pdf/powerreg_TM.pdf' },
     ],
+    useCases: [
+      'Industrial plants with poor utility quality',
+      'Data center feeds',
+      'Research and testing facilities',
+      'Semiconductor fabs',
+      'Noise-sensitive manufacturing (imaging, optics)',
+      'Large medical device manufacturing',
+    ],
+    advantages: [
+      { title: '±3% regulation through brownouts', description: 'Handles sags, swells, and overvoltages that would otherwise trip sensitive gear and force restarts. Keeps production running through utility events that hit the neighborhood.' },
+      { title: '97%+ efficiency', description: 'Losses small enough to justify running continuously on every sensitive load, not just as intermittent protection. TCO works out in the customer\'s favor.' },
+      { title: 'Zero-crossing tap switching', description: 'The regulator acts at the current zero crossing, so it does not inject a transient while correcting. Delivers the benefit without a hidden cost.' },
+      { title: 'Common-mode noise attenuation to -152 dB', description: 'Practically eliminates the noise floor for precision electronics. Signal integrity on the downstream side approaches the instrument\'s datasheet value.' },
+      { title: 'Single-point grounding', description: 'Cleans up the signal-reference issues automation and instrumentation engineers wrestle with. The source of half the mysterious "ghost" faults in complex plants.' },
+    ],
   },
   {
     slug: 'constant-power-6',
@@ -303,6 +577,21 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/cp6_TD.pdf' },
       { label: 'Manual', url: '/pdf/cp_TM.pdf' },
     ],
+    useCases: [
+      'Lab instrumentation feeds',
+      'Imaging benches and diagnostic workstations',
+      'Small broadcast equipment racks',
+      'Precision measurement stations',
+      'Clinical diagnostic desks',
+      'Single-phase test equipment',
+    ],
+    advantages: [
+      { title: 'Dual-shielded isolation transformer', description: 'Two electrostatic shields cut cross-coupled noise in a way an unshielded transformer fundamentally cannot. Matters for analog signal-chain work.' },
+      { title: 'Wide input tolerance (+10% / -26%)', description: 'Handles unstable utility conditions that would force a standard regulator offline or into bypass. Particularly useful at the end of long feeder runs.' },
+      { title: '±3% output regulation', description: 'Stable voltage to the bench even when utility drifts seasonally or under heavy load in the rest of the building. No mysterious instrument drift.' },
+      { title: 'Integrated distribution receptacles', description: 'Plug instruments in directly — no separate PDU, no extension cords, no shared-outlet interference from a nearby piece of equipment.' },
+      { title: 'Compact footprint', description: 'Fits under a lab bench or in an equipment closet. Does not claim floor real estate the lab needs for working space.' },
+    ],
   },
   {
     slug: 'constant-power-18',
@@ -317,6 +606,21 @@ export const products: Product[] = [
       { label: 'Data Sheet', url: '/pdf/cp18_DS.pdf' },
       { label: 'Tech Specs', url: '/pdf/cp18_TS.pdf' },
       { label: 'Drawings', url: '/pdf/cp18_TD.pdf' },
+    ],
+    useCases: [
+      'Three-phase lab equipment suites',
+      'Small imaging and diagnostic rooms',
+      'Broadcast post-production bays',
+      'Manufacturing automation cells',
+      'Three-phase test and measurement benches',
+      'Small commercial office regulators',
+    ],
+    advantages: [
+      { title: 'Low-profile cabinet on casters', description: 'Rolls into place. No rigging, no forklift, no temporary crane. Installation on an existing floor does not require the same logistics as a transformer-based regulator.' },
+      { title: 'SCR regulation assembly', description: 'Fast electronic response without the mechanical wear of tap-changers or the cost of a full ferroresonant design. Predictable, long-service-life regulation.' },
+      { title: 'Main breaker with shunt trip', description: 'Integrates directly into emergency power-off (EPO) loops. Passes the single-button-shutdown requirement for labs, imaging rooms, and EPO-driven spaces.' },
+      { title: 'Dual-shielded transformer', description: 'Clean output for noise-sensitive three-phase loads. Eliminates the common-mode cross-coupling that makes precision instrumentation misbehave.' },
+      { title: 'Bypass switch', description: 'Service the regulator without taking down the load. Maintenance happens during business hours, not evenings and weekends.' },
     ],
   },
   // === ISOLATION TRANSFORMERS ===
@@ -335,6 +639,21 @@ export const products: Product[] = [
       { label: 'Drawings', url: '/pdf/isocare_TD.pdf' },
       { label: 'Manual', url: '/pdf/isocare_TM.pdf' },
     ],
+    useCases: [
+      'Noise-heavy industrial environments',
+      'Harmonic-rich electronic loads',
+      'Medical imaging room isolation',
+      'Data-center power room isolation',
+      'Research and test facilities',
+      'Outdoor-rated installations',
+    ],
+    advantages: [
+      { title: 'Common-mode noise attenuation to -152 dB', description: 'Provides a genuinely clean power reference separate from the utility. The downstream load sees a quiet line, not whatever noise the rest of the plant is injecting.' },
+      { title: '3–5% low impedance', description: 'Minimizes voltage drop under transient load changes. Large loads switching on-line do not pull the bus down the way they would with a generic transformer.' },
+      { title: 'Adjustable input taps', description: 'Commission for the actual measured incoming voltage, not the nameplate value. Tap selection is part of the commissioning process — the unit fits the building.' },
+      { title: 'NEMA 12 certified', description: 'Resists dust and dripping liquids. Install in plants without building a secondary enclosure, which is the usual cost-add with lower-rated transformers.' },
+      { title: 'Temperature sensor built in', description: 'Flags overload conditions before insulation degrades. Extends practical life, especially on loads that run close to nameplate continuously.' },
+    ],
   },
   // === POWER DISTRIBUTION ===
   {
@@ -349,6 +668,21 @@ export const products: Product[] = [
     docs: [
       { label: 'Data Sheet', url: '/pdf/powerisland_DS.pdf' },
       { label: 'Drawings', url: '/pdf/powerisland_TD.pdf' },
+    ],
+    useCases: [
+      'Data-center PDU modernization',
+      'Server rooms and MDF expansions',
+      'Small industrial control panels',
+      'Temporary construction power',
+      'Trade-show and event installations',
+      'Campus IT distribution',
+    ],
+    advantages: [
+      { title: 'Modular design, 42 or 84 pole', description: 'Drop in exactly what you need today and leave poles available for future loads. No forklift upgrade when IT densifies or adds a new rack row.' },
+      { title: 'Tiered, slotted conduit-landing brackets', description: 'Every branch has a clean route. No more zip-tied conduit bundles and no wall-mount chaos — inspections and future troubleshooting get meaningfully faster.' },
+      { title: 'Single or three-phase', description: 'The same enclosure serves both project types. One procurement path, one spec sheet, one install skill set for a portfolio of different buildings.' },
+      { title: 'Square D compatible breakers', description: 'Uses industry-standard branch breakers every electrician already stocks. No proprietary parts, no multi-week lead time on replacement breakers.' },
+      { title: 'Tool-access covers', description: 'Future adds and moves happen without a full demo of the enclosure. Keeps lifecycle cost low as the connected load changes.' },
     ],
   },
   {
@@ -365,6 +699,21 @@ export const products: Product[] = [
       { label: 'Tech Specs', url: '/pdf/powerpac_TS.pdf' },
       { label: 'Drawings', url: '/pdf/powerpac_TD.pdf' },
     ],
+    useCases: [
+      'Data centers and cloud-provider deployments',
+      'Mission-critical server rooms',
+      'Radiology and cardiology suites',
+      'Precision manufacturing',
+      'Research and testing facilities',
+      'Broadcast and production operations',
+    ],
+    advantages: [
+      { title: 'Built-in voltage regulation', description: 'The distribution and the conditioning live in a single cabinet. No separate regulator + PDU pair — fewer parts, fewer interconnects, and less electrical-room floor space.' },
+      { title: '96%+ efficiency', description: 'Low losses even at partial load, which matches real data-center thermal budgets. Does not force the HVAC side to grow to compensate for electrical losses.' },
+      { title: 'System monitoring panel', description: 'Real-time per-branch load, voltage, and kWh readings at the cabinet. Eliminates ambiguity during capacity planning and supports billback for colocation.' },
+      { title: 'Designed for harmonic loads', description: 'Switching power supplies, VFDs, and LED drivers do not derate it. Nameplate kVA is usable kVA even with modern nonlinear loads dominating the connected profile.' },
+      { title: 'Swivel casters and leveling feet', description: 'Rolls into place and locks. No rigging equipment, no floor-anchor sequence — saves a full contractor day on a typical install.' },
+    ],
   },
   {
     slug: 'power-pal',
@@ -380,6 +729,21 @@ export const products: Product[] = [
       { label: 'Tech Specs', url: '/pdf/powerpal_TS.pdf' },
       { label: 'Drawings', url: '/pdf/powerpal_TD.pdf' },
     ],
+    useCases: [
+      'Budget-conscious server rooms',
+      'Harmonic-heavy industrial loads',
+      'Small campus distribution',
+      'Tenant IT buildouts',
+      'Back-of-house data and AV rooms',
+      'Secondary / lab data rooms',
+    ],
+    advantages: [
+      { title: 'High isolation without regulated pricing', description: 'The same noise and isolation benefits as a regulated system, priced for sites where utility is already stable. Right-sized specification, not over-specification.' },
+      { title: '96%+ efficiency', description: 'Low enough losses to run continuously without a cost argument. The unit pays for its own losses quickly against the equipment it protects.' },
+      { title: 'Handles harmonic loads without derating', description: 'Rectifier, VFD, and LED-driver loads all fit. Nameplate equals usable — a promise most generic distribution transformers do not keep under modern loads.' },
+      { title: 'Overload protection', description: 'Proper branch-circuit breaker coordination built in, not just a molded-case main at the top. Branch trips isolate the problem rack without killing the whole room.' },
+      { title: 'Front-panel system monitoring', description: 'At-a-glance health check without pulling drawings or getting on the BMS. Any on-site technician can read it and make a decision.' },
+    ],
   },
   // === MONITORING ===
   {
@@ -394,6 +758,21 @@ export const products: Product[] = [
     docs: [
       { label: 'Data Sheet', url: '/pdf/gms_DS.pdf' },
     ],
+    useCases: [
+      'Remote and unmanned facilities',
+      'Multi-site real-estate portfolios',
+      'Healthcare campuses',
+      'Data-center operations teams',
+      'University and K-12 districts',
+      'National retail chains',
+    ],
+    advantages: [
+      { title: '24/7 visibility without a site visit', description: 'A real operational multiplier across multiple buildings. One facilities team can cover a portfolio that used to require site-by-site inspection rounds.' },
+      { title: 'Real-time fault notifications', description: 'A battery drift, imminent failure, or line fault alerts immediately instead of surfacing at the next scheduled PM. That is the difference between a scheduled repair and an emergency outage.' },
+      { title: 'Proactive maintenance alerts', description: 'Degrading cells are flagged weeks before they fail. The battery is replaced during a planned PM window, not during the call that comes in at 2 AM.' },
+      { title: 'Historical performance data', description: 'Supports warranty claims, capacity planning, and ROI conversations. The data is already there when anyone upstream asks for it.' },
+      { title: 'Remote engineer access', description: 'Off-site engineers can triage without travel. Reduces the number of truck rolls that happen for what turns out to be a false alarm or a simple setting issue.' },
+    ],
   },
   {
     slug: 'bas',
@@ -406,6 +785,21 @@ export const products: Product[] = [
     standards: [],
     docs: [
       { label: 'Data Sheet', url: '/pdf/bms_DS.pdf' },
+    ],
+    useCases: [
+      'Mission-critical data centers',
+      'Large hospital battery rooms',
+      'Financial and trading infrastructure',
+      'Broadcast operation centers',
+      'Telecom central offices',
+      'Sites where string failure is unacceptable',
+    ],
+    advantages: [
+      { title: 'Continuous ohmic (impedance) measurement', description: 'Finds weak cells before they fail under a real outage load. That is the single most predictive metric for VRLA failure, measured live instead of once a year on a load-bank visit.' },
+      { title: 'Voltage, temperature, string-current together', description: 'The four metrics that actually predict failure, all in one system. Individually, any one of them is ambiguous; together, they remove the guesswork.' },
+      { title: 'Wired or wireless retrofit', description: 'Drops into existing cabinets without a rewire. The retrofit project is measured in hours, not days — cost-justifiable for aging installed bases.' },
+      { title: 'Touch-screen display on-site', description: 'Any technician can run a diagnostic without pulling out a laptop. Speeds up troubleshooting and makes the tool usable by the staff already on-shift.' },
+      { title: 'Reduces load-bank frequency', description: 'Continuous monitoring replaces much of the motivation for periodic destructive testing. Lower operating cost and less wear on the strings themselves.' },
     ],
   },
   // === LOAD CONTROL ===
@@ -423,6 +817,21 @@ export const products: Product[] = [
       { label: 'Tech Specs', url: '/pdf/LCR20_TS.pdf' },
       { label: 'Manual', url: '/pdf/LCR20_TM.pdf' },
     ],
+    useCases: [
+      'Dimmed corridors and open offices',
+      'Conference and training rooms',
+      'Healthcare wings with 0-10V controls',
+      'Retail with daylight-harvested aisles',
+      'Schools, libraries, community spaces',
+      'Any dimmed UL924 egress-lighting zone',
+    ],
+    advantages: [
+      { title: 'UL924 listed for emergency-light override', description: 'The specific listing code calls out for this function. Substitutes that claim the same capability without the listing are not code-compliant; this is.' },
+      { title: '0-10V dimmer override', description: 'Forces affected fixtures to full output the instant utility fails, regardless of the dimmer\'s set point. No scenario where occupants find themselves in a dim corridor during an event.' },
+      { title: 'IP65 quick-connect test switch', description: 'The test point survives commissioning and routine testing without gasket failure. A recurring complaint on competing products eliminated by design.' },
+      { title: 'Aluminum enclosure', description: 'Dissipates heat, tolerates dusty plenums, and is not a rust risk in coastal or humid buildings. Longer service life than painted steel for the same form factor.' },
+      { title: 'Transparent warranty terms', description: '1-year parts coverage with a clean optional 2nd-year extension under a PM plan. Predictable lifecycle budgeting for facility managers.' },
+    ],
   },
   // === FREQUENCY CONVERTER ===
   {
@@ -439,6 +848,22 @@ export const products: Product[] = [
       { label: 'Tech Specs', url: '/pdf/fc_TS.pdf' },
       { label: 'Drawings', url: '/pdf/fc_TD.pdf' },
       { label: 'Manual', url: '/pdf/fc_TM.pdf' },
+    ],
+    useCases: [
+      'Defense and aerospace 400 Hz ground power',
+      'Export manufacturing (50 Hz / 60 Hz conversion)',
+      'International OEM test racks',
+      'Ship-to-shore and shore-power',
+      'Global R&D labs',
+      'Avionics and synchronous-motor testing',
+    ],
+    advantages: [
+      { title: 'True galvanic isolation', description: 'Input and output sides are electrically separated. A fault on one side does not propagate — the behavior defense and aerospace customers require, and most converters fake with transformer coupling.' },
+      { title: '±0.1 Hz accuracy', description: 'Tight enough for avionics bench testing and synchronous-motor validation. Looser converters force customers to add a second regulation stage downstream.' },
+      { title: 'Redundant internal power supply', description: 'Loss of one internal supply does not take the unit offline. Critical where a test bench or ship\'s panel cannot tolerate a converter restart mid-operation.' },
+      { title: 'Modular, plug-and-play construction', description: 'Field-replaceable modules. MTTR is measured in minutes, not hours — the unit comes back on-line without a factory RMA and a shipping round-trip.' },
+      { title: 'DSP + IGBT switching', description: 'Output is clean enough to feed precision instruments directly. No downstream filtering required, which matters in tight rack configurations and mobile installations.' },
+      { title: 'Harsh-environment construction', description: 'Survives shop-floor dust, humidity, and vibration. Rated for deployed conditions, not just climate-controlled labs — purpose-built for the customer profile.' },
     ],
   },
 ];

@@ -150,15 +150,29 @@ const applications = [
     </div>
   </section>
 
-  <!-- KEY FEATURES -->
+  <!-- ADVANTAGES -->
   <section class="py-10 md:py-14 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-6">Key Features</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {['UL924 Listed', '0-10V Dimmer Override', 'IP65 Rated Connections', 'Quick-Connect Test Switch', 'Aluminum Case', '1-Year Warranty (2nd yr with PM)'].map(feature => (
-          <div class="flex items-start gap-3 bg-off-white border border-steel-gray rounded-lg p-4">
-            <svg class="w-5 h-5 text-steel-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <span class="text-sm text-near-black">{feature}</span>
+      <p class="eyebrow text-steel-blue mb-4">Advantages</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-near-black mb-3 leading-[1.1]">Why specify Online Power here.</h2>
+      <p class="text-[15px] text-slate max-w-2xl mb-8">The design choices that matter at plan review and in the years after install.</p>
+      <div class="grid md:grid-cols-2 gap-5">
+        {[
+          { title: 'UL924 listed for emergency-light override', description: 'The specific listing code calls out for this function. Substitutes that claim the same capability without the listing are not code-compliant; this is.' },
+          { title: '0-10V dimmer override', description: 'Forces affected fixtures to full output the instant utility fails, regardless of the dimmer\'s set point. No scenario where occupants find themselves in a dim corridor during an event.' },
+          { title: 'IP65 quick-connect test switch', description: 'The test point survives commissioning and routine testing without gasket failure. A recurring complaint on competing products eliminated by design.' },
+          { title: 'Aluminum enclosure', description: 'Dissipates heat, tolerates dusty plenums, and is not a rust risk in coastal or humid buildings. Longer service life than painted steel for the same form factor.' },
+          { title: 'Transparent warranty terms', description: '1-year parts coverage with a clean optional 2nd-year extension under a PM plan. Predictable lifecycle budgeting for facility managers.' },
+          { title: 'Made in USA', description: 'Domestic manufacture keeps lead times predictable and clears federal and state project specifications without a substitution request.' },
+        ].map(adv => (
+          <div class="bg-white border border-steel-gray rounded-xl p-6 hover:border-steel-blue/50 transition-colors">
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <h3 class="font-display text-lg font-bold text-near-black leading-snug">{adv.title}</h3>
+            </div>
+            <p class="text-[15px] text-slate leading-relaxed pl-11">{adv.description}</p>
           </div>
         ))}
       </div>

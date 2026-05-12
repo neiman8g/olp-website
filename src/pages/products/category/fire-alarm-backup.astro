@@ -222,15 +222,29 @@ const faq = [
     </div>
   </section>
 
-  <!-- KEY FEATURES -->
+  <!-- ADVANTAGES -->
   <section class="py-10 md:py-14 bg-off-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <p class="eyebrow text-steel-blue mb-6">Key Features</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {['UL1481 Listed', 'Fire Alarm NAC Backup', 'Life Safety Compliant', 'Continuous Power During Outages', 'Self-Testing'].map(feature => (
-          <div class="flex items-start gap-3 bg-off-white border border-steel-gray rounded-lg p-4">
-            <svg class="w-5 h-5 text-steel-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <span class="text-sm text-near-black">{feature}</span>
+      <p class="eyebrow text-steel-blue mb-4">Advantages</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-near-black mb-3 leading-[1.1]">Why specify Online Power here.</h2>
+      <p class="text-[15px] text-slate max-w-2xl mb-8">The design choices that matter at plan review and in the years after install.</p>
+      <div class="grid md:grid-cols-2 gap-5">
+        {[
+          { title: 'UL1481 listed', description: 'The specific standard fire alarm inspectors check against. No substitution fight, no "approved equivalent" debate with the AHJ — the label is on the product.' },
+          { title: 'Extended NAC runtime', description: 'Carries 24–60 hours of standby plus 15 minutes of alarm per NFPA 72. Handles long-duration outage scenarios the FACP battery alone cannot.' },
+          { title: 'Automatic self-testing', description: 'Weekly and monthly tests run and log themselves. Reduces the PM burden and produces the records the fire marshal wants to see during inspection.' },
+          { title: 'Dedicated to fire alarm — not a shared UPS', description: 'The fire system power integrity is untangled from the rest of the building. A facility-side issue does not become a life-safety issue.' },
+          { title: 'NFPA 72 + NEC Article 760 compliant', description: 'Clears plan review in jurisdictions that strictly enforce separation of fire alarm power from general building power.' },
+          { title: 'Made in USA · BAA / TAA compliant', description: 'Clears federal, state, and military projects without a substitution request. Domestic supply chain means lead times stay predictable.' },
+        ].map(adv => (
+          <div class="bg-white border border-steel-gray rounded-xl p-6 hover:border-steel-blue/50 transition-colors">
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-steel-blue/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-steel-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <h3 class="font-display text-lg font-bold text-near-black leading-snug">{adv.title}</h3>
+            </div>
+            <p class="text-[15px] text-slate leading-relaxed pl-11">{adv.description}</p>
           </div>
         ))}
       </div>

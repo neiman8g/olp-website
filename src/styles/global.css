@@ -318,6 +318,23 @@ header nav > a:not(.btn-primary):not(.btn-outline):not(.btn-ghost):hover::after 
   display: none;
 }
 
+/* Product hero — floating product + breathing halo */
+.product-float {
+  animation: product-float 6s ease-in-out infinite;
+}
+@keyframes product-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.product-halo {
+  animation: product-halo 5s ease-in-out infinite;
+}
+@keyframes product-halo {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.06); }
+}
+
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
