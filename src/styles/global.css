@@ -354,6 +354,17 @@ header nav > a:not(.btn-primary):not(.btn-outline):not(.btn-ghost):hover::after 
 @keyframes chip-in-left  { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes chip-in-right { from { opacity: 0; transform: translateX(12px);  } to { opacity: 1; transform: translateX(0); } }
 
+/* Scene lighting — gentle intensity flicker on the ceiling spotlights */
+.scene-lighting {
+  animation: scene-lighting 7s ease-in-out infinite;
+  will-change: opacity;
+}
+@keyframes scene-lighting {
+  0%, 100% { opacity: 0.92; }
+  35%      { opacity: 1.0; }
+  72%      { opacity: 0.88; }
+}
+
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {

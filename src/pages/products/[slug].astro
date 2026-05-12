@@ -26,6 +26,23 @@ function extractPowerSpec(tagline: string): string | null {
 }
 const powerCallout = extractPowerSpec(product.tagline);
 const phaseCallout = product.tagline.match(/Three Phase|Single Phase/i)?.[0] || null;
+
+// Per-category scene vocabulary — color, environment label, accent
+const sceneByCategory: Record<string, { env: string; tone: string; accent: string }> = {
+  'emergency-lighting':    { env: 'Egress corridor',   tone: 'warm',    accent: '#7EB3F5' },
+  'elevator-backup':       { env: 'Elevator lobby',    tone: 'cool',    accent: '#7EB3F5' },
+  'fire-alarm-backup':     { env: 'Riser closet',      tone: 'amber',   accent: '#FFB86B' },
+  'ups-backup':            { env: 'Data center aisle', tone: 'cool',    accent: '#7EB3F5' },
+  'medical-grade':         { env: 'Imaging suite',     tone: 'clinical',accent: '#A8E6F0' },
+  'voltage-regulators':    { env: 'Plant electrical',  tone: 'cool',    accent: '#7EB3F5' },
+  'isolation-transformers':{ env: 'Power room',        tone: 'cool',    accent: '#7EB3F5' },
+  'frequency-converters':  { env: 'Test bay',          tone: 'cool',    accent: '#A8E6F0' },
+  'power-distribution':    { env: 'Distribution room', tone: 'cool',    accent: '#7EB3F5' },
+  'monitoring':            { env: 'NOC / Ops floor',   tone: 'cool',    accent: '#7EB3F5' },
+  'load-control-relays':   { env: 'Lighting controls', tone: 'warm',    accent: '#FFD98A' },
+  'custom-oem':            { env: 'Engineering bay',   tone: 'cool',    accent: '#7EB3F5' },
+};
+const scene = sceneByCategory[product.category] || { env: 'On site', tone: 'cool', accent: '#7EB3F5' };
 ---
 
 <BaseLayout
@@ -85,9 +102,9 @@ const phaseCallout = product.tagline.match(/Three Phase|Single Phase/i)?.[0] || 
         </div>
         <div class="lg:col-span-5">
           <!-- =============================================== -->
-          <!-- PRODUCT IMAGE STAGE — premium / cinematic -->
+          <!-- PRODUCT SCENE — environmental, on-site context -->
           <!-- =============================================== -->
-          <div class="product-stage relative group" style="perspective: 1400px;">
+          <div class="product-stage relative group" style="perspective: 1600px;">
 
             <!-- Layered ambient backdrop: conic aurora + soft radial glow -->
             <div class="absolute -inset-14 pointer-events-none">
@@ -118,59 +135,89 @@ const phaseCallout = product.tagline.match(/Three Phase|Single Phase/i)?.[0] || 
               <div class="absolute top-1/2 right-[calc(100%+8px)] w-1.5 h-1.5 -translate-y-1/2 rounded-full bg-sky-blue shadow-[0_0_8px_rgba(126,179,245,0.8)]"></div>
             </div>
 
-            <!-- TILTING FRAME — 3D perspective transform on mousemove -->
+            <!-- TILTING SCENE — 3D perspective transform on mousemove -->
             <div class="product-tilt relative rounded-2xl p-px bg-gradient-to-br from-steel-blue/60 via-sky-blue/30 to-navy-mid/70 transition-transform duration-300 ease-out" style="transform-style: preserve-3d; will-change: transform;">
-              <div class="relative rounded-[15px] overflow-hidden bg-gradient-to-b from-[#0a1f3a] via-deep-navy to-[#163558] border border-white/[0.08] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)]">
+              <div class="relative rounded-[15px] overflow-hidden border border-white/[0.08] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.75)]" style="background: linear-gradient(180deg, #050d1c 0%, #0a1f3a 40%, #061427 100%); transform-style: preserve-3d;">
 
-                <!-- Engineered grid backdrop -->
-                <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: linear-gradient(rgba(126,179,245,1) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,1) 1px, transparent 1px); background-size: 32px 32px;"></div>
+                <!-- ENVIRONMENT LAYER 1: Distant rack wall (deep perspective) -->
+                <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+                  <!-- Far wall: repeated rectangle "rack" silhouettes -->
+                  <div class="absolute inset-x-0 top-[8%] h-[55%]" style="background-image: repeating-linear-gradient(90deg, rgba(126,179,245,0.04) 0px, rgba(126,179,245,0.04) 14px, rgba(255,255,255,0.012) 14px, rgba(255,255,255,0.012) 70px, rgba(126,179,245,0.04) 70px, rgba(126,179,245,0.04) 84px, transparent 84px, transparent 110px); background-size: 110px 100%; opacity: 0.5; mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 40%, transparent 85%); -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 40%, transparent 85%);"></div>
 
-                <!-- Spotlight ellipse behind product -->
-                <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 65% 50% at 50% 38%, rgba(126,179,245,0.28) 0%, transparent 70%);"></div>
-
-                <!-- Animated scanning sweep -->
-                <div class="absolute inset-0 pointer-events-none overflow-hidden">
-                  <div class="absolute -inset-y-8 w-[40%] product-scan" style="background: linear-gradient(110deg, transparent 30%, rgba(126,179,245,0.10) 50%, transparent 70%); filter: blur(2px);"></div>
+                  <!-- Server-room vanishing-point lines — left wall -->
+                  <div class="absolute left-0 top-0 bottom-0 w-1/2" style="background: linear-gradient(105deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 18%, transparent 22%, transparent 100%);"></div>
+                  <!-- Right wall -->
+                  <div class="absolute right-0 top-0 bottom-0 w-1/2" style="background: linear-gradient(255deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 18%, transparent 22%, transparent 100%);"></div>
                 </div>
 
-                <!-- Top edge highlight -->
-                <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none"></div>
-                <!-- Bottom edge accent -->
-                <div class="absolute bottom-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-steel-blue/40 to-transparent pointer-events-none"></div>
+                <!-- ENVIRONMENT LAYER 2: Ceiling spotlights (volumetric cones) -->
+                <div class="absolute inset-x-0 top-0 h-[60%] pointer-events-none scene-lighting" aria-hidden="true">
+                  <!-- Center spotlight cone (key light) -->
+                  <div class="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] h-full" style={`background: radial-gradient(ellipse 50% 80% at 50% 0%, ${scene.accent}40 0%, ${scene.accent}18 30%, transparent 65%);`}></div>
+                  <!-- Side spot 1 (fill light L) -->
+                  <div class="absolute left-[10%] top-0 w-[40%] h-[70%]" style={`background: radial-gradient(ellipse 60% 70% at 30% 0%, ${scene.accent}1F 0%, transparent 55%);`}></div>
+                  <!-- Side spot 2 (fill light R) -->
+                  <div class="absolute right-[10%] top-0 w-[40%] h-[70%]" style={`background: radial-gradient(ellipse 60% 70% at 70% 0%, ${scene.accent}1F 0%, transparent 55%);`}></div>
+                </div>
 
-                <!-- Corner brand chip (top-left) -->
+                <!-- ENVIRONMENT LAYER 3: 3D perspective floor -->
+                <div class="absolute inset-x-0 bottom-0 h-[40%] pointer-events-none overflow-hidden" aria-hidden="true">
+                  <div class="absolute inset-0" style="transform: perspective(800px) rotateX(62deg); transform-origin: bottom; background-image: linear-gradient(rgba(126,179,245,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,0.10) 1px, transparent 1px); background-size: 38px 38px; mask-image: linear-gradient(180deg, transparent 0%, black 40%, black 100%); -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 40%, black 100%);"></div>
+                  <!-- Floor color wash -->
+                  <div class="absolute inset-0" style={`background: linear-gradient(180deg, transparent 0%, rgba(5,13,28,0.4) 50%, rgba(5,13,28,0.85) 100%);`}></div>
+                  <!-- Floor accent reflection from spotlight -->
+                  <div class="absolute inset-x-1/4 bottom-0 h-full" style={`background: radial-gradient(ellipse 60% 30% at 50% 0%, ${scene.accent}20 0%, transparent 70%);`}></div>
+                </div>
+
+                <!-- ENVIRONMENT LAYER 4: Atmospheric haze / depth fog -->
+                <div class="absolute inset-x-0 top-1/3 h-2/3 pointer-events-none" aria-hidden="true" style={`background: linear-gradient(180deg, transparent 0%, rgba(5,13,28,0.25) 50%, rgba(5,13,28,0.6) 100%); mix-blend-mode: multiply;`}></div>
+
+                <!-- ENVIRONMENT LAYER 5: Animated scanning beam -->
+                <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+                  <div class="absolute -inset-y-8 w-[35%] product-scan" style={`background: linear-gradient(110deg, transparent 30%, ${scene.accent}1A 50%, transparent 70%); filter: blur(3px);`}></div>
+                </div>
+
+                <!-- Scene label — environment tag (top-left) -->
                 <div class="absolute top-4 left-4 z-20 pointer-events-none">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/15 text-[10px] font-display font-bold uppercase tracking-[0.1em] text-sky-blue">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    Online Power
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-display font-bold uppercase tracking-[0.12em] text-white/90">
+                    <span class="w-1.5 h-1.5 rounded-full animate-pulse" style={`background-color: ${scene.accent}; box-shadow: 0 0 6px ${scene.accent};`}></span>
+                    {scene.env}
                   </span>
                 </div>
 
                 <!-- Standards chip (top-right) -->
                 {product.standards[0] && (
                   <div class="absolute top-4 right-4 z-20 pointer-events-none">
-                    <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-steel-blue/15 backdrop-blur-sm border border-sky-blue/30 text-[10px] font-display font-bold uppercase tracking-[0.1em] text-sky-blue">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-display font-bold uppercase tracking-[0.1em] text-white/90">
                       {product.standards[0]}
                     </span>
                   </div>
                 )}
 
-                <!-- PRODUCT + REFLECTION stack -->
-                <div class="relative flex flex-col items-center justify-end px-6 sm:px-10 pt-10 sm:pt-16 pb-6 min-h-[440px] sm:min-h-[540px]">
-                  <!-- Main product (floating) -->
+                <!-- Top edge hairline -->
+                <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none"></div>
+
+                <!-- ============================================ -->
+                <!-- PRODUCT + REFLECTION inside the scene -->
+                <!-- ============================================ -->
+                <div class="relative flex flex-col items-center justify-end px-6 sm:px-10 pt-10 sm:pt-16 pb-6 min-h-[460px] sm:min-h-[560px]">
+                  <!-- Volumetric light cone TIGHTLY behind product (warmer near, cooler far) -->
+                  <div class="absolute left-1/2 top-[12%] -translate-x-1/2 w-[70%] h-[75%] pointer-events-none" style={`background: radial-gradient(ellipse 50% 65% at 50% 30%, ${scene.accent}28 0%, ${scene.accent}10 40%, transparent 70%); filter: blur(8px);`} aria-hidden="true"></div>
+
+                  <!-- Main product (floating, key-lit) -->
                   <div class="relative z-10 product-float w-full">
                     {typeof getProductImage(product.image) === 'string' ? (
                       <img
                         src={product.image}
-                        alt={`${product.name} by Online Power`}
-                        class="w-full h-auto object-contain max-h-[420px] mx-auto drop-shadow-[0_30px_40px_rgba(0,0,0,0.55)] group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                        alt={`${product.name} by Online Power, shown in a ${scene.env.toLowerCase()} environment`}
+                        class="w-full h-auto object-contain max-h-[440px] mx-auto drop-shadow-[0_40px_60px_rgba(0,0,0,0.7)] group-hover:scale-[1.04] transition-transform duration-500 ease-out"
                         loading="eager"
                       />
                     ) : (
                       <Image
                         src={getProductImage(product.image) as ImageMetadata}
-                        alt={`${product.name} by Online Power`}
-                        class="w-full h-auto object-contain max-h-[420px] mx-auto drop-shadow-[0_30px_40px_rgba(0,0,0,0.55)] group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                        alt={`${product.name} by Online Power, shown in a ${scene.env.toLowerCase()} environment`}
+                        class="w-full h-auto object-contain max-h-[440px] mx-auto drop-shadow-[0_40px_60px_rgba(0,0,0,0.7)] group-hover:scale-[1.04] transition-transform duration-500 ease-out"
                         loading="eager"
                         format="webp"
                         quality={92}
@@ -179,22 +226,24 @@ const phaseCallout = product.tagline.match(/Three Phase|Single Phase/i)?.[0] || 
                       />
                     )}
 
-                    <!-- Reflection — same image flipped, masked, subtle -->
-                    <div class="absolute left-0 right-0 top-full h-[55%] overflow-hidden pointer-events-none" aria-hidden="true" style="mask-image: linear-gradient(180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.08) 35%, transparent 70%); -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.08) 35%, transparent 70%); transform: scaleY(-1); transform-origin: top;">
+                    <!-- Reflection on the polished floor — flipped image, masked, color-graded -->
+                    <div class="absolute left-0 right-0 top-full h-[55%] overflow-hidden pointer-events-none" aria-hidden="true" style="mask-image: linear-gradient(180deg, rgba(0,0,0,0.36) 0%, rgba(0,0,0,0.08) 35%, transparent 70%); -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.36) 0%, rgba(0,0,0,0.08) 35%, transparent 70%); transform: scaleY(-1); transform-origin: top; filter: blur(0.6px);">
                       {typeof getProductImage(product.image) === 'string' ? (
-                        <img src={product.image} alt="" class="w-full h-auto object-contain max-h-[420px] mx-auto" loading="lazy" />
+                        <img src={product.image} alt="" class="w-full h-auto object-contain max-h-[440px] mx-auto" loading="lazy" />
                       ) : (
-                        <Image src={getProductImage(product.image) as ImageMetadata} alt="" class="w-full h-auto object-contain max-h-[420px] mx-auto" loading="lazy" format="webp" quality={70} widths={[300, 480]} sizes="45vw" />
+                        <Image src={getProductImage(product.image) as ImageMetadata} alt="" class="w-full h-auto object-contain max-h-[440px] mx-auto" loading="lazy" format="webp" quality={70} widths={[300, 480]} sizes="45vw" />
                       )}
                     </div>
                   </div>
 
-                  <!-- Soft floor ellipse below product (shadow on the "stage") -->
-                  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-3/5 h-6 rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(0,0,0,0.55) 0%, transparent 70%); filter: blur(8px);"></div>
+                  <!-- Hard-edged ground shadow directly beneath product -->
+                  <div class="absolute bottom-5 left-1/2 -translate-x-1/2 w-3/5 h-3 rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 50%, transparent 75%); filter: blur(6px);"></div>
+                  <!-- Soft outer shadow ring -->
+                  <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-3/4 h-8 rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(0,0,0,0.4) 0%, transparent 75%); filter: blur(12px);"></div>
                 </div>
 
-                <!-- Bottom shelf gradient -->
-                <div class="absolute bottom-0 inset-x-0 h-1/4 pointer-events-none" style="background: linear-gradient(180deg, transparent 0%, rgba(10,31,58,0.5) 60%, rgba(10,31,58,0.85) 100%);"></div>
+                <!-- Bottom vignette -->
+                <div class="absolute bottom-0 inset-x-0 h-1/4 pointer-events-none" style="background: linear-gradient(180deg, transparent 0%, rgba(5,13,28,0.5) 60%, rgba(5,13,28,0.95) 100%);"></div>
 
               </div>
             </div>
