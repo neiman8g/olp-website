@@ -18,6 +18,14 @@ export function getStaticPaths() {
 const { product } = Astro.props as { product: Product };
 const category = getCategoryBySlug(product.category);
 const relatedProducts = getProductsByCategory(product.category).filter(p => p.slug !== product.slug).slice(0, 3);
+
+// Pull a power-range callout out of the tagline ("Three Phase, 8 – 50kW" → "8 – 50kW")
+function extractPowerSpec(tagline: string): string | null {
+  const m = tagline.match(/[\d.]+\s*(W|kW|kVA|VA)?\s*[–-]\s*[\d.]+\s*(W|kW|kVA|VA|Hz)/i);
+  return m ? m[0].replace(/\s+/g, ' ').trim() : null;
+}
+const powerCallout = extractPowerSpec(product.tagline);
+const phaseCallout = product.tagline.match(/Three Phase|Single Phase/i)?.[0] || null;
 ---
 
 <BaseLayout
@@ -76,59 +84,124 @@ const relatedProducts = getProductsByCategory(product.category).filter(p => p.sl
           <p class="font-display text-[13px] text-muted-blue">Responds within 2 business hours</p>
         </div>
         <div class="lg:col-span-5">
-          <!-- Product image stage — layered glow, gradient frame, floating product -->
-          <div class="relative group">
-            <!-- Outer ambient halo, pulses gently -->
-            <div class="absolute -inset-8 pointer-events-none opacity-70 product-halo" style="background: radial-gradient(circle at 50% 45%, rgba(126,179,245,0.35) 0%, rgba(37,103,194,0.18) 35%, rgba(37,103,194,0) 70%); filter: blur(28px);"></div>
+          <!-- =============================================== -->
+          <!-- PRODUCT IMAGE STAGE — premium / cinematic -->
+          <!-- =============================================== -->
+          <div class="product-stage relative group" style="perspective: 1400px;">
 
-            <!-- Frame: gradient card with subtle inner highlight -->
-            <div class="relative rounded-2xl p-1 bg-gradient-to-br from-steel-blue/40 via-sky-blue/15 to-navy-mid/50">
-              <div class="relative rounded-[14px] overflow-hidden bg-gradient-to-b from-deep-navy/90 via-deep-navy to-navy-mid/60 backdrop-blur-md border border-white/[0.06]">
-                <!-- Inner radial spotlight behind product -->
-                <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at 50% 38%, rgba(126,179,245,0.22) 0%, rgba(126,179,245,0) 55%);"></div>
+            <!-- Layered ambient backdrop: conic aurora + soft radial glow -->
+            <div class="absolute -inset-14 pointer-events-none">
+              <div class="absolute inset-0 product-halo opacity-[0.65]" style="background: conic-gradient(from 200deg at 50% 50%, rgba(37,103,194,0) 0deg, rgba(126,179,245,0.40) 80deg, rgba(37,103,194,0.55) 180deg, rgba(126,179,245,0.40) 280deg, rgba(37,103,194,0) 360deg); filter: blur(56px);"></div>
+              <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 42%, rgba(126,179,245,0.40) 0%, transparent 55%); filter: blur(32px);"></div>
+            </div>
 
-                <!-- Subtle top edge highlight -->
-                <div class="absolute top-0 inset-x-8 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none"></div>
+            <!-- LEFT floating chip (desktop only) -->
+            {powerCallout && (
+              <div class="hidden lg:block absolute -left-5 top-[28%] z-30 pointer-events-none product-chip-left">
+                <div class="px-3.5 py-2 rounded-lg bg-deep-navy/85 backdrop-blur-md border border-sky-blue/30 shadow-[0_20px_40px_-12px_rgba(37,103,194,0.6)]">
+                  <p class="text-[9px] uppercase tracking-[0.14em] text-sky-blue font-display font-bold mb-0.5">Output</p>
+                  <p class="text-[13px] font-display font-bold text-white whitespace-nowrap leading-none">{powerCallout}</p>
+                </div>
+                <!-- Connector dash + dot pointing toward product -->
+                <div class="absolute top-1/2 left-full w-8 h-px bg-gradient-to-r from-sky-blue/60 to-transparent"></div>
+                <div class="absolute top-1/2 left-[calc(100%+8px)] w-1.5 h-1.5 -translate-y-1/2 rounded-full bg-sky-blue shadow-[0_0_8px_rgba(126,179,245,0.8)]"></div>
+              </div>
+            )}
 
-                <!-- Floor reflection / shelf gradient -->
-                <div class="absolute bottom-0 inset-x-0 h-1/3 pointer-events-none" style="background: linear-gradient(180deg, rgba(15,42,74,0) 0%, rgba(15,42,74,0.55) 80%, rgba(15,42,74,0.85) 100%);"></div>
+            <!-- RIGHT floating chip (desktop only) -->
+            <div class="hidden lg:block absolute -right-5 bottom-[26%] z-30 pointer-events-none product-chip-right">
+              <div class="px-3.5 py-2 rounded-lg bg-deep-navy/85 backdrop-blur-md border border-sky-blue/30 shadow-[0_20px_40px_-12px_rgba(37,103,194,0.6)]">
+                <p class="text-[9px] uppercase tracking-[0.14em] text-sky-blue font-display font-bold mb-0.5">{phaseCallout ? 'Phase' : 'Origin'}</p>
+                <p class="text-[13px] font-display font-bold text-white whitespace-nowrap leading-none">{phaseCallout || 'Made in USA'}</p>
+              </div>
+              <div class="absolute top-1/2 right-full w-8 h-px bg-gradient-to-l from-sky-blue/60 to-transparent"></div>
+              <div class="absolute top-1/2 right-[calc(100%+8px)] w-1.5 h-1.5 -translate-y-1/2 rounded-full bg-sky-blue shadow-[0_0_8px_rgba(126,179,245,0.8)]"></div>
+            </div>
 
-                <!-- Corner accent badge -->
-                <div class="absolute top-4 left-4 z-10">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/8 backdrop-blur-sm border border-white/15 text-[10px] font-display font-semibold uppercase tracking-[0.1em] text-sky-blue">
+            <!-- TILTING FRAME — 3D perspective transform on mousemove -->
+            <div class="product-tilt relative rounded-2xl p-px bg-gradient-to-br from-steel-blue/60 via-sky-blue/30 to-navy-mid/70 transition-transform duration-300 ease-out" style="transform-style: preserve-3d; will-change: transform;">
+              <div class="relative rounded-[15px] overflow-hidden bg-gradient-to-b from-[#0a1f3a] via-deep-navy to-[#163558] border border-white/[0.08] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)]">
+
+                <!-- Engineered grid backdrop -->
+                <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: linear-gradient(rgba(126,179,245,1) 1px, transparent 1px), linear-gradient(90deg, rgba(126,179,245,1) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+                <!-- Spotlight ellipse behind product -->
+                <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 65% 50% at 50% 38%, rgba(126,179,245,0.28) 0%, transparent 70%);"></div>
+
+                <!-- Animated scanning sweep -->
+                <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                  <div class="absolute -inset-y-8 w-[40%] product-scan" style="background: linear-gradient(110deg, transparent 30%, rgba(126,179,245,0.10) 50%, transparent 70%); filter: blur(2px);"></div>
+                </div>
+
+                <!-- Top edge highlight -->
+                <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none"></div>
+                <!-- Bottom edge accent -->
+                <div class="absolute bottom-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-steel-blue/40 to-transparent pointer-events-none"></div>
+
+                <!-- Corner brand chip (top-left) -->
+                <div class="absolute top-4 left-4 z-20 pointer-events-none">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/15 text-[10px] font-display font-bold uppercase tracking-[0.1em] text-sky-blue">
                     <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     Online Power
                   </span>
                 </div>
 
-                <!-- Product image with floating animation -->
-                <div class="relative flex items-center justify-center px-6 sm:px-10 py-10 sm:py-14 min-h-[380px] sm:min-h-[460px]">
-                  {typeof getProductImage(product.image) === 'string' ? (
-                    <img
-                      src={product.image}
-                      alt={`${product.name} by Online Power`}
-                      class="relative z-10 w-full h-auto object-contain max-h-[440px] mx-auto product-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.45)] group-hover:scale-[1.04] transition-transform duration-500 ease-out"
-                      loading="eager"
-                    />
-                  ) : (
-                    <Image
-                      src={getProductImage(product.image) as ImageMetadata}
-                      alt={`${product.name} by Online Power`}
-                      class="relative z-10 w-full h-auto object-contain max-h-[440px] mx-auto product-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.45)] group-hover:scale-[1.04] transition-transform duration-500 ease-out"
-                      loading="eager"
-                      format="webp"
-                      quality={90}
-                      widths={[480, 720, 960]}
-                      sizes="(max-width: 768px) 100vw, 45vw"
-                    />
-                  )}
+                <!-- Standards chip (top-right) -->
+                {product.standards[0] && (
+                  <div class="absolute top-4 right-4 z-20 pointer-events-none">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-steel-blue/15 backdrop-blur-sm border border-sky-blue/30 text-[10px] font-display font-bold uppercase tracking-[0.1em] text-sky-blue">
+                      {product.standards[0]}
+                    </span>
+                  </div>
+                )}
+
+                <!-- PRODUCT + REFLECTION stack -->
+                <div class="relative flex flex-col items-center justify-end px-6 sm:px-10 pt-10 sm:pt-16 pb-6 min-h-[440px] sm:min-h-[540px]">
+                  <!-- Main product (floating) -->
+                  <div class="relative z-10 product-float w-full">
+                    {typeof getProductImage(product.image) === 'string' ? (
+                      <img
+                        src={product.image}
+                        alt={`${product.name} by Online Power`}
+                        class="w-full h-auto object-contain max-h-[420px] mx-auto drop-shadow-[0_30px_40px_rgba(0,0,0,0.55)] group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                        loading="eager"
+                      />
+                    ) : (
+                      <Image
+                        src={getProductImage(product.image) as ImageMetadata}
+                        alt={`${product.name} by Online Power`}
+                        class="w-full h-auto object-contain max-h-[420px] mx-auto drop-shadow-[0_30px_40px_rgba(0,0,0,0.55)] group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                        loading="eager"
+                        format="webp"
+                        quality={92}
+                        widths={[480, 720, 960]}
+                        sizes="(max-width: 768px) 100vw, 45vw"
+                      />
+                    )}
+
+                    <!-- Reflection — same image flipped, masked, subtle -->
+                    <div class="absolute left-0 right-0 top-full h-[55%] overflow-hidden pointer-events-none" aria-hidden="true" style="mask-image: linear-gradient(180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.08) 35%, transparent 70%); -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.08) 35%, transparent 70%); transform: scaleY(-1); transform-origin: top;">
+                      {typeof getProductImage(product.image) === 'string' ? (
+                        <img src={product.image} alt="" class="w-full h-auto object-contain max-h-[420px] mx-auto" loading="lazy" />
+                      ) : (
+                        <Image src={getProductImage(product.image) as ImageMetadata} alt="" class="w-full h-auto object-contain max-h-[420px] mx-auto" loading="lazy" format="webp" quality={70} widths={[300, 480]} sizes="45vw" />
+                      )}
+                    </div>
+                  </div>
+
+                  <!-- Soft floor ellipse below product (shadow on the "stage") -->
+                  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-3/5 h-6 rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(0,0,0,0.55) 0%, transparent 70%); filter: blur(8px);"></div>
                 </div>
+
+                <!-- Bottom shelf gradient -->
+                <div class="absolute bottom-0 inset-x-0 h-1/4 pointer-events-none" style="background: linear-gradient(180deg, transparent 0%, rgba(10,31,58,0.5) 60%, rgba(10,31,58,0.85) 100%);"></div>
+
               </div>
             </div>
           </div>
 
           <!-- Certification chips bar -->
-          <div class="flex items-center justify-center flex-wrap gap-2 mt-5">
+          <div class="flex items-center justify-center flex-wrap gap-2 mt-6">
             {product.standards.slice(0, 4).map(std => (
               <span class="badge-dark text-[11px]">{std}</span>
             ))}
@@ -245,4 +318,27 @@ const relatedProducts = getProductsByCategory(product.category).filter(p => p.sl
       cta.style.display = window.scrollY > 300 ? '' : 'none';
     });
   }
+
+  // 3D mouse-tracked tilt on the product stage (skipped if reduced motion)
+  (function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var stage = document.querySelector('.product-stage');
+    if (!stage || window.innerWidth < 1024) return;
+    var tilt = stage.querySelector('.product-tilt');
+    if (!tilt) return;
+    var raf = 0;
+    stage.addEventListener('mousemove', function (e) {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        var r = stage.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        tilt.style.transform = 'rotateY(' + (x * 7).toFixed(2) + 'deg) rotateX(' + (-y * 7).toFixed(2) + 'deg)';
+        raf = 0;
+      });
+    });
+    stage.addEventListener('mouseleave', function () {
+      tilt.style.transform = '';
+    });
+  })();
 </script>
